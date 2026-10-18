@@ -1,0 +1,54 @@
+{
+  "generated_symbols": [],
+  "corrections": [
+    "U31 pin 30 removed from N00277: it is a fixed power/ground pin of the part.",
+    "U33 pin 20 removed from N00927: it is a fixed power/ground pin of the part.",
+    "U38 pin 8 removed from N00564: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S4_scan200.DSN",
+  "size": 92160,
+  "passed": true,
+  "components": 20,
+  "checked_pins": 62,
+  "nets": 59,
+  "rendered_parts": 20,
+  "preview_error": null,
+  "implicit_power_pins": 27,
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "footprints": {
+    "assigned": 20,
+    "total": 20,
+    "placed": 20,
+    "sources": {
+      "standard (by package and pin count)": 7,
+      "symbol library": 13
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 58,
+    "connections": 89,
+    "parts": 20,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 2,
+    "labelled_pins": 54,
+    "crossings": 0,
+    "labelled_nets": 54
+  },
+  "source": null,
+  "sha256": "82711dc80995ebbbc098305f9af71946825083b90cf619213cc48ba143577fd4"
+}

@@ -1,0 +1,9 @@
+orcad/auto 200 110 s
+status {'design': 'smoke-1792306248.DSN', 'size': 125440, 'passed': True, 'components': 23, 'checked_pins': 188, 'nets': 138, 'rendered_parts': 25, 'preview_error': None, 'implicit_power_pins': 38, 'footprints': {'assigned': 23, 'total': 23, 'placed': 23, 'sources': {'standard (by package and pin count)': 4, 'symbol library': 19}, 'without': [], 'placeholder': [], 'not_in_library': []}, 'user_libraries': {}, 'netlist': {'nets': 140, 'connections': 226, 'parts': 23, 'without_footprint': []}, 'routing': {'wired_nets': 24, 'labelled_pins': 126, 'crossings': 30, 'labelled_nets': 114}, 'source': 'references/Sample_1.jpg.jpeg', 'sha256': '569d03e78d6ccc2248478d5f800e2fbb263d1d8f9cdc9fb8b09cc4a65e447c6e'}
+warnings
+  Automatic mode: printed logic schematic detected; ICs, pins and nets read by the digital pipeline.
+  Recognized 23 parts and 189 pin connections in 138 nets. Check them against the source before generating the design.
+  Removed pins that do not exist on the identified part (likely misread numbers): U59.74, U12.81, U73.71, U62.91, P2.013, P2.315, U16.19, U12.181, U12.885, U62.113, U88.101, R5.63, U65.235, U61.91
+  Input assessment: clear scan (9917 px, text ~31 px); no enhancement needed.
+capture available True | preview 200 177881 bytes | download 200 49291 bytes
+project smoke-1792306248

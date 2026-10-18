@@ -1,0 +1,279 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 26.1.0 d001Oct-18-2026 at 11:47:40 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='S1';
+ POST_TIME='Oct  1 2026 01:44:54';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ J1 'CON40A_BLKCON100VHTM2OEW20040_C':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS761@CONNECTOR.CON40A.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins761@connector.\con40a.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins761@connector.\con40a.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(450,3260)',
+ SECTION='';
+
+PART_NAME
+ P1 'DIN96_DIN96ABCV_CONNECTOR':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS847@CONNECTOR.DIN96.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins847@connector.\din96.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins847@connector.\din96.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(990,3260)',
+ SECTION='';
+
+PART_NAME
+ P2 'DIN96_DIN96ABCV_CONNECTOR':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS1045@CONNECTOR.DIN96.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins1045@connector.\din96.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins1045@connector.\din96.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1530,3260)',
+ SECTION='';
+
+PART_NAME
+ R5 'R_RES400_1K00':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS95@DISCRETE.R.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins95@discrete.\r.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins95@discrete.\r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(2840,360)',
+ SECTION='';
+
+PART_NAME
+ U10 '74F244_DIP10020W300L1050_74F244':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS105@74F.74F244.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins105@\74f\.\74f244.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins105@\74f\.\74f244.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(430,860)',
+ SECTION='';
+
+PART_NAME
+ U11 '74F374_DIP10020W300L1050_74F374':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS311@74F.74F374.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins311@\74f\.\74f374.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins311@\74f\.\74f374.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1630,1360)',
+ SECTION='';
+
+PART_NAME
+ U12 '74F374_DIP10020W300L1050_74F374':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS471@74F.74F374.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins471@\74f\.\74f374.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins471@\74f\.\74f374.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1630,1860)',
+ SECTION='';
+
+PART_NAME
+ U13 '74F257_DIP10016W300L900_74F257':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS395@74F.74F257.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins395@\74f\.\74f257.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins395@\74f\.\74f257.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(430,1860)',
+ SECTION='';
+
+PART_NAME
+ U14 '74F257_DIP10016W300L900_74F257':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS235@74F.74F257.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins235@\74f\.\74f257.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins235@\74f\.\74f257.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(430,1360)',
+ SECTION='';
+
+PART_NAME
+ U15 '74F257_DIP10016W300L900_74F257':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS273@74F.74F257.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins273@\74f\.\74f257.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins273@\74f\.\74f257.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1030,1360)',
+ SECTION='';
+
+PART_NAME
+ U16 '74F257_DIP10016W300L900_74F257':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS433@74F.74F257.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins433@\74f\.\74f257.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins433@\74f\.\74f257.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1030,1860)',
+ SECTION='';
+
+PART_NAME
+ U59 '74LS85_DIP10016W300L900_74LS85':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS685@74LS.74LS85.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins685@\74ls\.\74ls85.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins685@\74ls\.\74ls85.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1630,2780)',
+ SECTION='';
+
+PART_NAME
+ U61 '74LS85_DIP10016W300L900_74LS85':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS609@74LS.74LS85.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins609@\74ls\.\74ls85.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins609@\74ls\.\74ls85.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(430,2780)',
+ SECTION='';
+
+PART_NAME
+ U62 '74LS298_DIP10016W300L900_74LS29':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS517@74LS.74LS298.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins517@\74ls\.\74ls298.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins517@\74ls\.\74ls298.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(2230,1860)',
+ SECTION='';
+
+PART_NAME
+ U64 '74LS298_DIP10016W300L900_74LS29':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS555@74LS.74LS298.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins555@\74ls\.\74ls298.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins555@\74ls\.\74ls298.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(2830,1860)',
+ SECTION='';
+
+PART_NAME
+ U65 '74LS85_DIP10016W300L900_74LS85':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS647@74LS.74LS85.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins647@\74ls\.\74ls85.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins647@\74ls\.\74ls85.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1030,2780)',
+ SECTION='';
+
+PART_NAME
+ U71 '74F08_DIP10014W300L800_74F08':;
+
+SECTION_NUMBER 3
+ '@S1.SCHEMATIC1(SCH_1):INS593@74F.74F08.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins593@\74f\.\74f08.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins593@\74f\.\74f08.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(430,2360)',
+ SECTION='C';
+
+PART_NAME
+ U73 '74LS298_DIP10016W300L900_74LS29':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS197@74LS.74LS298.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins197@\74ls\.\74ls298.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins197@\74ls\.\74ls298.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1630,860)',
+ SECTION='';
+
+PART_NAME
+ U74 '74LS298_DIP10016W300L900_74LS29':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS357@74LS.74LS298.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins357@\74ls\.\74ls298.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins357@\74ls\.\74ls298.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(2230,1360)',
+ SECTION='';
+
+PART_NAME
+ U85 '74F240_DIP10020W300L1050_74F240':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS1@74F.74F240.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins1@\74f\.\74f240.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins1@\74f\.\74f240.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(430,360)',
+ SECTION='';
+
+PART_NAME
+ U88 '74F32_DIP10014W300L800_74F32':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS47@74F.74F32.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins47@\74f\.\74f32.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins47@\74f\.\74f32.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1020,360)',
+ SECTION='A';
+
+SECTION_NUMBER 3
+ '@S1.SCHEMATIC1(SCH_1):INS63@74F.74F32.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins63@\74f\.\74f32.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins63@\74f\.\74f32.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1020,360)',
+ SECTION='C';
+
+SECTION_NUMBER 4
+ '@S1.SCHEMATIC1(SCH_1):INS79@74F.74F32.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins79@\74f\.\74f32.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins79@\74f\.\74f32.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1020,360)',
+ SECTION='D';
+
+PART_NAME
+ U9 '74F244_DIP10020W300L1050_74F244':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS151@74F.74F244.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins151@\74f\.\74f244.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins151@\74f\.\74f244.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(1030,860)',
+ SECTION='';
+
+PART_NAME
+ U90 '74LS85_DIP10016W300L900_74LS85':;
+
+SECTION_NUMBER 1
+ '@S1.SCHEMATIC1(SCH_1):INS723@74LS.74LS85.NORMAL(CHIPS)':
+ C_PATH='@s1.schematic1(sch_1):ins723@\74ls\.\74ls85.normal\(chips)',
+ P_PATH='@s1.schematic1(sch_1):page_ins723@\74ls\.\74ls85.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ XY='(2230,2780)',
+ SECTION='';
+
+END.

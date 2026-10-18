@@ -1,0 +1,314 @@
+{
+  "P1": {
+    "library": "Connector.olb",
+    "package": "DIN96",
+    "match": "connector by pin names",
+    "value": "CONNECTOR",
+    "footprint": "din96abcv",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "P2": {
+    "library": "Connector.olb",
+    "package": "DIN96",
+    "match": "connector by pin names",
+    "value": "CONNECTOR",
+    "footprint": "din96abcv",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R1": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "1K00",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R12": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "120R",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R13": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "120R",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R6": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "1K00",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R7": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "1K00",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R9": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "1K00",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U1": {
+    "library": "74f.olb",
+    "package": "74F244",
+    "match": "part number",
+    "value": "74F244",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U2": {
+    "library": "74f.olb",
+    "package": "74F374",
+    "match": "part number",
+    "value": "74F374",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U20": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U20",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip24_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U21": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U21",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip24_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U23": {
+    "library": "74f.olb",
+    "package": "74F374",
+    "match": "part number",
+    "value": "74F374",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U24": {
+    "library": "74f.olb",
+    "package": "74F374",
+    "match": "part number",
+    "value": "74F374",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U26": {
+    "library": "74f.olb",
+    "package": "74F374",
+    "match": "part number",
+    "value": "74F374",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U27": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U27",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip18_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U28": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U28",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip18_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U29": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U29",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip8_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U3": {
+    "library": "74f.olb",
+    "package": "74F244",
+    "match": "part number",
+    "value": "74F244",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U30": {
+    "library": "74f.olb",
+    "package": "74F244",
+    "match": "part number",
+    "value": "74F244",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U31": {
+    "library": "74f.olb",
+    "package": "74F244",
+    "match": "part number",
+    "value": "74F244",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U32": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "29520",
+    "match": "generated symbol",
+    "value": "29520",
+    "footprint": "dip24_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U33": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "29520",
+    "match": "generated symbol",
+    "value": "29520",
+    "footprint": "dip24_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U34": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U34",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip20_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U36": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "74F163",
+    "match": "generated symbol",
+    "value": "74F163",
+    "footprint": "dip16_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U38": {
+    "library": "74f.olb",
+    "package": "74F374",
+    "match": "part number",
+    "value": "74F374",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U4": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U4",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip16_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U54": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U54",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip24_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U6": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "74F161",
+    "match": "generated symbol",
+    "value": "74F161",
+    "footprint": "dip18_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U60": {
+    "library": "74f.olb",
+    "package": "74F240",
+    "match": "part number",
+    "value": "74F240",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U68": {
+    "library": "74ls.olb",
+    "package": "74LS298",
+    "match": "part number",
+    "value": "74LS298",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U69": {
+    "library": "74ls.olb",
+    "package": "74LS298",
+    "match": "part number",
+    "value": "74LS298",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U72": {
+    "library": "74f.olb",
+    "package": "74F32",
+    "match": "part number",
+    "value": "74F32",
+    "footprint": "DIP10014W300L800",
+    "footprint_source": "symbol library"
+  },
+  "U8": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "74F161",
+    "match": "generated symbol",
+    "value": "74F161",
+    "footprint": "dip18_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U83": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "74BCI2244",
+    "match": "generated symbol",
+    "value": "74BCI2244",
+    "footprint": "dip8_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U85": {
+    "library": "74f.olb",
+    "package": "74F240",
+    "match": "part number",
+    "value": "74F240",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U86": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U86",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip14_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U87": {
+    "library": "74f.olb",
+    "package": "74F244",
+    "match": "part number",
+    "value": "74F244",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U91": {
+    "library": "74ls.olb",
+    "package": "74LS298",
+    "match": "part number",
+    "value": "74LS298",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  }
+}

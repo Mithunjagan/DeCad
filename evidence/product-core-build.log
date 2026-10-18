@@ -1,0 +1,85 @@
+ Image schematic2sdn-finished-kicad Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 637B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.87kB 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/debian:trixie-slim
+#3 DONE 1.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 242B done
+#4 DONE 0.0s
+
+#5 [qucs_builder 1/4] FROM docker.io/library/debian:trixie-slim@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f
+#5 resolve docker.io/library/debian:trixie-slim@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 132.46kB 0.0s done
+#6 DONE 0.0s
+
+#7 [qucs_builder 4/4] RUN curl -fsSL https://github.com/ra3xdh/qucs_s/releases/download/26.1.1/qucs-s-26.1.1.tar.gz -o qucs.tar.gz && tar -xzf qucs.tar.gz --strip-components=1 && cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build --target qucs-s -j2
+#7 CACHED
+
+#8 [stage-1  2/14] RUN apt-get update && apt-get install -y --no-install-recommends     kicad kicad-symbols kicad-footprints ngspice xvfb x11vnc novnc websockify openbox ca-certificates xdotool procps     python3 python3-venv git fonts-dejavu-core curl tesseract-ocr librsvg2-bin libqt6widgets6 libqt6svg6 libqt6svgwidgets6 libqt6xml6 libqt6printsupport6     && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [qucs_builder 2/4] RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake flex bison gperf libreadline-dev qt6-base-dev qt6-tools-dev qt6-tools-dev-tools qt6-svg-dev ca-certificates curl && rm -rf /var/lib/apt/lists/*
+#9 CACHED
+
+#10 [stage-1  5/14] WORKDIR /app/backend
+#10 CACHED
+
+#11 [qucs_builder 3/4] WORKDIR /src
+#11 CACHED
+
+#12 [stage-1  6/14] COPY backend/requirements.txt /app/backend/requirements.txt
+#12 CACHED
+
+#13 [stage-1  4/14] COPY --from=qucs_builder /src/qucs.tar.gz /usr/share/qucs-s/source.tar.gz
+#13 CACHED
+
+#14 [stage-1  3/14] COPY --from=qucs_builder /src/build/qucs/qucs-s /usr/local/bin/qucs-s
+#14 CACHED
+
+#15 [stage-1  7/14] RUN python3 -m venv /opt/venv && /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
+#15 CACHED
+
+#16 [stage-1  8/14] COPY backend/app /app/backend/app
+#16 DONE 0.0s
+
+#17 [stage-1  9/14] COPY backend/models /app/backend/models
+#17 DONE 0.0s
+
+#18 [stage-1 10/14] COPY docker/kicad/embedded.html /usr/share/novnc/embedded.html
+#18 DONE 0.0s
+
+#19 [stage-1 11/14] COPY docker/kicad/start.sh /start.sh
+#19 DONE 0.0s
+
+#20 [stage-1 12/14] COPY docker/kicad/entrypoint.sh /entrypoint.sh
+#20 DONE 0.0s
+
+#21 [stage-1 13/14] COPY docker/kicad/switch-project.sh /usr/local/bin/switch-project.sh
+#21 DONE 0.0s
+
+#22 [stage-1 14/14] RUN chmod +x /entrypoint.sh /start.sh /usr/local/bin/switch-project.sh
+#22 DONE 0.2s
+
+#23 exporting to image
+#23 exporting layers 0.1s done
+#23 exporting manifest sha256:4debc2382f927fe9ff41e589693ea61634bf99fa439b623030cb9c2a290d1edf done
+#23 exporting config sha256:80b81eaaa1fbccecace41ee77299c35000f84221feab0fcd8adaf1977b884515 done
+#23 exporting attestation manifest sha256:0cd722197e310f9aaa0504349f10bb48eeeabfa7b4ccf2c89d5659855070f6e8 done
+#23 exporting manifest list sha256:0337e150b3ed7415969db2384226665527aa3e78e43c4c2299ca5e2795541ec0 done
+#23 naming to docker.io/library/schematic2sdn-finished-kicad:latest done
+#23 unpacking to docker.io/library/schematic2sdn-finished-kicad:latest 0.1s done
+#23 DONE 0.2s
+
+#24 resolving provenance for metadata file
+#24 DONE 0.0s
+ Image schematic2sdn-finished-kicad Built 

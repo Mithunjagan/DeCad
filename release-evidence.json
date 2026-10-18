@@ -1,0 +1,36 @@
+{
+  "macos_native_acceptance": {
+    "status": "pending"
+  },
+  "windows_native_acceptance": {
+    "status": "pending"
+  },
+  "linux_native_acceptance": {
+    "status": "pending"
+  },
+  "current_ui_acceptance": {
+    "status": "pending"
+  },
+  "ltspice_roundtrip": {
+    "status": "pending"
+  },
+  "hardware_performance": {
+    "status": "pending"
+  },
+  "dataset_license_review": {
+    "status": "pending"
+  },
+  "vision_failure_review": {
+    "status": "pending"
+  },
+  "gpu_training_validation": {
+    "status": "pending"
+  },
+  "specctra_router_roundtrip": {
+    "status": "passed",
+    "artifact": "evidence/specctra-router.json",
+    "reviewer": "Codex native fixture verification",
+    "date": "2026-10-11",
+    "scope": "One divider fixture; broader acceptance remains pending"
+  }
+}

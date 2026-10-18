@@ -1,0 +1,194 @@
+{
+  "J1": {
+    "library": "Connector.olb",
+    "package": "CON40A",
+    "match": "connector by pin names",
+    "value": "CONNECTOR",
+    "footprint": "blkcon100vhtm2oew20040",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "P1": {
+    "library": "Connector.olb",
+    "package": "DIN96",
+    "match": "connector by pin names",
+    "value": "CONNECTOR",
+    "footprint": "din96abcv",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "P2": {
+    "library": "Connector.olb",
+    "package": "DIN96",
+    "match": "connector by pin names",
+    "value": "CONNECTOR",
+    "footprint": "din96abcv",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R11": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "1K00",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R13": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "1K00",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R18": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "330R",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R20": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "510R",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U1": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U1",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "blkcon100vhtm2oew20026",
+    "footprint_source": "placeholder header (review)"
+  },
+  "U13": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U13",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip24_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U15": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U15",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "blkcon100vhtm2oew20026",
+    "footprint_source": "placeholder header (review)"
+  },
+  "U16": {
+    "library": "74f.olb",
+    "package": "74F174",
+    "match": "part number",
+    "value": "74F174",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U19": {
+    "library": "74f.olb",
+    "package": "74F02",
+    "match": "part number",
+    "value": "74F02",
+    "footprint": "DIP10014W300L800",
+    "footprint_source": "symbol library"
+  },
+  "U2": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U2",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip24_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U25": {
+    "library": "74f.olb",
+    "package": "74F240",
+    "match": "part number",
+    "value": "74F240",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U27": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U27",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip16_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U28": {
+    "library": "74f.olb",
+    "package": "74F174",
+    "match": "part number",
+    "value": "74F174",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U29": {
+    "library": "74f.olb",
+    "package": "74F174",
+    "match": "part number",
+    "value": "74F174",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U3": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "PART_U3",
+    "match": "generated symbol",
+    "value": "UNKNOWN",
+    "footprint": "dip24_3",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U31": {
+    "library": "Misc3.olb",
+    "package": "AM2910A",
+    "match": "substitute for AM2910 (review pinout)",
+    "value": "AM2910",
+    "footprint": "dip40_6",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U33": {
+    "library": "74f.olb",
+    "package": "74F240",
+    "match": "part number",
+    "value": "74F240",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U34": {
+    "library": "74f.olb",
+    "package": "74F240",
+    "match": "part number",
+    "value": "74F240",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U38": {
+    "library": "74f.olb",
+    "package": "74F151",
+    "match": "part number",
+    "value": "74F151",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U39": {
+    "library": "74f.olb",
+    "package": "74F00",
+    "match": "part number",
+    "value": "74F00",
+    "footprint": "DIP10014W300L800",
+    "footprint_source": "symbol library"
+  },
+  "U40": {
+    "library": "DECAD_GENERATED.OLB",
+    "package": "74F103",
+    "match": "generated symbol",
+    "value": "74F103",
+    "footprint": "dip6_3",
+    "footprint_source": "standard (by package and pin count)"
+  }
+}

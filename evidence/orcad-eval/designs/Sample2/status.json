@@ -1,0 +1,19 @@
+{
+  "generated_symbols": [
+    "PART_U0",
+    "PART_U76"
+  ],
+  "corrections": [],
+  "design": "Sample2.DSN",
+  "size": 15872,
+  "passed": true,
+  "components": 2,
+  "checked_pins": 11,
+  "nets": 11,
+  "rendered_parts": 2,
+  "preview_error": null,
+  "implicit_power_pins": 0,
+  "substitutions": {},
+  "source": null,
+  "sha256": "357bcbce467714447ea050bde5a4bdf7aca3603d9d61eba8758374ce9b3ba73c"
+}

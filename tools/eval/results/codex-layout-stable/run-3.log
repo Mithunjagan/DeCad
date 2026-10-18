@@ -1,0 +1,33 @@
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+Traceback (most recent call last):
+  File "D:\DeCad-main\Jrk_DeCad\Schematic2SDN\tools\eval\run_eval.py", line 108, in main
+    _, st = oc.save_to_project(d, key.replace('-', '_'), graph, state)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DeCad-main\Jrk_DeCad\Schematic2SDN\backend\app\orcad_capture.py", line 834, in save_to_project
+    data, report = export(name, graph, cache_dir)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DeCad-main\Jrk_DeCad\Schematic2SDN\backend\app\orcad_capture.py", line 424, in export
+    _write(root, td, dsn, genlib, graph, resolved, generate, pin_net, footprints)
+  File "D:\DeCad-main\Jrk_DeCad\Schematic2SDN\backend\app\orcad_capture.py", line 544, in _write
+    _run(root, 'orcad_writer.tcl', data)
+  File "D:\DeCad-main\Jrk_DeCad\Schematic2SDN\backend\app\orcad_capture.py", line 64, in _run
+    raise OperationError('OrCAD Capture: ' + ('; '.join(errors) or (r.stderr or r.stdout)[-1500:]))
+app.engine.OperationError: OrCAD Capture: RuntimeError ERROR(ORDBDLL-1017): License not found
+    while executing
+"DboTclHelper_sCreateSession"
+    invoked from within
+"set s [DboTclHelper_sCreateSession]"
+    (file "D:\DeCad-main\Jrk_DeCad\Schematic2SDN\backend\app\orcad_writer.tcl" line 14)
+
+S4-blur300: {'error': 'OperationError(\'OrCAD Capture: RuntimeError ERROR(ORDBDLL-1017): License not found\\n    while executing\\n"DboTclHelper_sCreateSession"\\n    invoked from within\\n"set s [DboTclHelper_sCreateSession]"\\n    (file "D:\\\\DeCad-main\\\\Jrk_DeCad\\\\Schematic2SDN\\\\backend\\\\app\\\\orcad_writer.tcl" line 14)\\n\')', 'seconds': 114}
+| Sample | Parts found | Precision | Values | Labelled pins exact | DSN | Time |
+|---|---|---|---|---|---|---|
+| 1 | 23/28 (82%) | 100% | 100% | 29/56 (52%) | verified, 23 parts, 188 pins | 110 s |
+| 2 | 0/0 (–) | 0% | – | 0/0 (–) | verified, 21 parts, 103 pins | 137 s |
+| | part-number counts (found/expected): TC514100 7/16, 74F374 5/8, 74F244 2/4 | | | | | |
+| 3 | 27/34 (79%) | 96% | 93% | 38/69 (55%) | verified, 39 parts, 390 pins | 154 s |
+| 4 | 24/30 (80%) | 100% | 92% | 38/72 (53%) | verified, 24 parts, 251 pins | 121 s |
+| 4-blur300 | error: OperationError('OrCAD Capture: RuntimeError ERROR(ORDBDLL-1017): License not fou | | | | | |
+| 4-scan200 | 18/30 (60%) | 95% | 100% | 0/72 (0%) | verified, 19 parts, 55 pins | 108 s |
+| 4-scan300 | 24/30 (80%) | 86% | 96% | 26/72 (36%) | verified, 28 parts, 233 pins | 100 s |
+| 5 | 19/25 (76%) | 100% | 79% | 21/48 (44%) | verified, 23 parts, 210 pins | 137 s |

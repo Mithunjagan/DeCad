@@ -1,0 +1,12 @@
+{
+  "components": [
+    {"ref":"V1","value":"5","library":"Simulation_SPICE:VDC"},
+    {"ref":"R1","value":"10k","library":"Device:R"},
+    {"ref":"R2","value":"10k","library":"Device:R"}
+  ],
+  "nets": [
+    {"name":"VIN","nodes":[{"ref":"V1","pin":"1"},{"ref":"R1","pin":"1"}]},
+    {"name":"VOUT","nodes":[{"ref":"R1","pin":"2"},{"ref":"R2","pin":"1"}]},
+    {"name":"GND","nodes":[{"ref":"V1","pin":"2"},{"ref":"R2","pin":"2"}]}
+  ]
+}

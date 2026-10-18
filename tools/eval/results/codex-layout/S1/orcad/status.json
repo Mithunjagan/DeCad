@@ -1,0 +1,43 @@
+{
+  "generated_symbols": [],
+  "corrections": [
+    "U90 pin 16 removed from N00688: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S1.DSN",
+  "size": 125440,
+  "passed": true,
+  "components": 23,
+  "checked_pins": 188,
+  "nets": 138,
+  "rendered_parts": 25,
+  "preview_error": null,
+  "implicit_power_pins": 38,
+  "substitutions": {},
+  "footprints": {
+    "assigned": 23,
+    "total": 23,
+    "placed": 23,
+    "sources": {
+      "standard (by package and pin count)": 4,
+      "symbol library": 19
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 140,
+    "connections": 226,
+    "parts": 23,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 24,
+    "labelled_pins": 126,
+    "crossings": 30,
+    "labelled_nets": 114
+  },
+  "source": null,
+  "sha256": "9e1a99c1a473b1078818d7ca7a4ad490b5c4a4acc8f5dd0708d3e010c626ca14"
+}

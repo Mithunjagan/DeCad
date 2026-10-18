@@ -1,0 +1,72 @@
+{
+  "generated_symbols": [
+    "PART_U1",
+    "PART_U13",
+    "PART_U14",
+    "PART_U15",
+    "PART_U2",
+    "PART_U3"
+  ],
+  "corrections": [
+    "P1 pin 83 was on D1SAD and N00021; kept D1SAD.",
+    "P1 pin 86 was on N00026 and N00101; kept N00026.",
+    "P1 pin 84 was on N00015 and N00103; kept N00015.",
+    "P2 pin 19 was on N00077 and N00113; kept N00077.",
+    "U3 pin 03 removed from INST1: the part has no such pin.",
+    "U31 pin 30 removed from N00515: it is a fixed power/ground pin of the part.",
+    "U39 pin 7 removed from N00665: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S4_scan300.DSN",
+  "size": 172544,
+  "passed": true,
+  "components": 29,
+  "checked_pins": 260,
+  "nets": 193,
+  "rendered_parts": 34,
+  "preview_error": null,
+  "implicit_power_pins": 25,
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "footprints": {
+    "assigned": 29,
+    "total": 29,
+    "placed": 29,
+    "sources": {
+      "standard (by package and pin count)": 12,
+      "placeholder header (review)": 5,
+      "symbol library": 12
+    },
+    "without": [],
+    "placeholder": [
+      "U1",
+      "U13",
+      "U15",
+      "U2",
+      "U3"
+    ],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 189,
+    "connections": 285,
+    "parts": 29,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 41,
+    "labelled_pins": 150,
+    "crossings": 315,
+    "labelled_nets": 146
+  },
+  "source": null,
+  "sha256": "1cbfaf564211696b68253abc646436e0de16cda34995bd95bf74463881d8abae"
+}

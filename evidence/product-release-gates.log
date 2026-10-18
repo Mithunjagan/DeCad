@@ -1,0 +1,20 @@
+{
+  "ready_for_release_review": false,
+  "blockers": [
+    "macos_native_acceptance: recorded review and local evidence artifact required",
+    "windows_native_acceptance: recorded review and local evidence artifact required",
+    "linux_native_acceptance: recorded review and local evidence artifact required",
+    "current_ui_acceptance: recorded review and local evidence artifact required",
+    "ltspice_roundtrip: recorded review and local evidence artifact required",
+    "hardware_performance: recorded review and local evidence artifact required",
+    "dataset_license_review: recorded review and local evidence artifact required",
+    "vision_failure_review: recorded review and local evidence artifact required",
+    "gpu_training_validation: recorded review and local evidence artifact required",
+    "custom training: completed training report required",
+    "custom training: adapter configuration and safetensors weights required",
+    "vision: at least 100 held-out cases, zero extraction failures and >=99% exact graph matches required by provisional policy",
+    "vision: complete per-sample results with unique sample identifiers required",
+    "vision: aggregate metrics must match per-sample results"
+  ],
+  "note": "Checks recorded artifacts only. This does not certify authenticity, safety, accuracy or every machine. Native acceptance and accountable human review remain required."
+}

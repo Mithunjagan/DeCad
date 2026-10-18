@@ -1,0 +1,11 @@
+{
+  "freerouting_version": "2.0.1",
+  "java_version": "21",
+  "heap_cap_mib": 512,
+  "cpu_cap": 2,
+  "dsn_loaded_and_routed": true,
+  "ses_imported_by_kicad": true,
+  "track_count": 7,
+  "manufacturing_approved": false,
+  "scope": "Three-component divider fixture only; DRC and broad router acceptance remain required."
+}

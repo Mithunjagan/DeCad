@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 15,
+  "checked_pins": 45,
+  "implicit_power_pins": [
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U25.10=GND",
+    "U25.20=VCC",
+    "U27.16=VCC",
+    "U27.8=GND",
+    "U28.16=VCC",
+    "U28.8=GND",
+    "U29.16=VCC",
+    "U29.8=GND",
+    "U33.10=GND",
+    "U33.20=VCC",
+    "U34.10=GND",
+    "U34.20=VCC",
+    "U39.14=VCC",
+    "U39.7=GND",
+    "U40.14=VCC",
+    "U40.7=GND",
+    "U_1.10=GND",
+    "U_1.20=VCC",
+    "U_2.10=VCC",
+    "U_2.30=GND",
+    "U_3.16=VCC",
+    "U_3.8=GND"
+  ],
+  "placed_footprints": {
+    "U40": "DIP10014W300L800",
+    "U_2": "dip40_6",
+    "U_1": "DIP10020W300L1050",
+    "U27": "DIP10016W300L900",
+    "U33": "DIP10020W300L1050",
+    "U_3": "DIP10016W300L900",
+    "U28": "DIP10016W300L900",
+    "R20": "res400",
+    "U19": "DIP10014W300L800",
+    "U34": "DIP10020W300L1050",
+    "U25": "DIP10020W300L1050",
+    "P2": "din96abcv",
+    "P1": "din96abcv",
+    "U29": "DIP10016W300L900",
+    "U39": "DIP10014W300L800"
+  },
+  "substitutions": {
+    "U_2": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "routing": {
+    "wired_nets": 0,
+    "labelled_pins": 45,
+    "crossings": 0,
+    "labelled_nets": 45
+  },
+  "generated_symbols": [],
+  "corrections": [
+    "U_3 pin 8 removed from N00788: it is a fixed power/ground pin of the part."
+  ],
+  "footprints": {
+    "assigned": 15,
+    "total": 15,
+    "placed": 15,
+    "sources": {
+      "standard (by package and pin count)": 4,
+      "symbol library": 11
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {}
+}

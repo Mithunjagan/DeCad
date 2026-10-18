@@ -1,0 +1,14 @@
+# Digital schematic OCR (app/digital_vision.py): PaddleOCR models on ONNX Runtime, CPU only.
+# Install with:  pip install --no-deps -r requirements-ocr.txt
+# --no-deps matters: rapidocr declares opencv-python, which would shadow the pinned
+# opencv-python-headless from requirements.txt (same cv2 module, incompatible 5.x API).
+rapidocr-onnxruntime==1.4.4
+onnxruntime==1.31.0
+flatbuffers==25.12.19
+protobuf==7.36.2
+packaging==26.3
+pyclipper==1.4.0
+shapely==2.2.0
+PyYAML==6.0.3
+six==1.17.0
+tqdm==4.70.1

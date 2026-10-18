@@ -1,0 +1,38 @@
+{
+  "task": "template planning",
+  "cases": 3,
+  "passed": 3,
+  "results": [
+    {
+      "prompt": "Make a divider powered by 3.3V with R1 4.7k and R2 22k.",
+      "passed": true,
+      "exact_values": true,
+      "erc_passed": true,
+      "vout": 2.7191011235955056,
+      "expected_vout": 2.7191011235955056,
+      "model": "qwen3:0.6b",
+      "elapsed_seconds": 15.98
+    },
+    {
+      "prompt": "I need an RC lowpass using V1 5, R1 2.2k, C1 220nF.",
+      "passed": true,
+      "exact_values": true,
+      "erc_passed": true,
+      "vout": 4.9999999935657105,
+      "expected_vout": 5,
+      "model": "qwen3:0.6b",
+      "elapsed_seconds": 13.44
+    },
+    {
+      "prompt": "Build a voltage divider V1 12, R1 10k, R2 10k.",
+      "passed": true,
+      "exact_values": true,
+      "erc_passed": true,
+      "vout": 6.000000000000001,
+      "expected_vout": 6,
+      "model": "qwen3:0.6b",
+      "elapsed_seconds": 12.55
+    }
+  ],
+  "coverage": "Three controlled requests; not a general image-to-netlist accuracy benchmark."
+}

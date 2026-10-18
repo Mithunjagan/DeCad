@@ -1,0 +1,39 @@
+{
+  "generated_symbols": [
+    "74F103",
+    "PART_U1",
+    "PART_U13",
+    "PART_U15",
+    "PART_U2",
+    "PART_U3"
+  ],
+  "corrections": [
+    "P1 pin 83 was on D1SAD and N00022; kept D1SAD.",
+    "P1 pin 86 was on N00027 and N00102; kept N00027.",
+    "P1 pin 84 was on N00015 and N00104; kept N00015.",
+    "P2 pin 19 was on N00078 and N00114; kept N00078.",
+    "U3 pin 03 removed from INST1: the part has no such pin.",
+    "U31 pin 30 removed from N00539: it is a fixed power/ground pin of the part.",
+    "U39 pin 14 removed from N00607_715: it is a fixed power/ground pin of the part.",
+    "U39 pin 7 removed from N00694: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S4_scan300.DSN",
+  "size": 154112,
+  "passed": true,
+  "components": 28,
+  "checked_pins": 233,
+  "nets": 176,
+  "rendered_parts": 30,
+  "preview_error": null,
+  "implicit_power_pins": 23,
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910"
+    }
+  },
+  "source": null,
+  "sha256": "684d35ffc86179c1a9ace220462ac1cf9ee5b38a7a31b8d7d7970036e2cf708d"
+}

@@ -1,0 +1,306 @@
+{
+  "sample_id": "AMS_611",
+  "source_dataset": "AMSnet-1.0",
+  "image_rel_path": "circuit.jpg",
+  "has_exact_connectivity": true,
+  "components": [
+    {
+      "ref": "I1",
+      "value": "DC 1mA",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "I2",
+      "value": "DC 1mA",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "R1",
+      "value": "1k",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M2",
+      "value": "NMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M1",
+      "value": "NMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    }
+  ],
+  "nets": [
+    {
+      "name": "VDD",
+      "nodes": [
+        {
+          "ref": "I1",
+          "pin": "1"
+        },
+        {
+          "ref": "M1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "3",
+      "nodes": [
+        {
+          "ref": "I1",
+          "pin": "2"
+        },
+        {
+          "ref": "M2",
+          "pin": "1"
+        },
+        {
+          "ref": "M1",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "1",
+      "nodes": [
+        {
+          "ref": "I2",
+          "pin": "1"
+        },
+        {
+          "ref": "R1",
+          "pin": "2"
+        },
+        {
+          "ref": "M2",
+          "pin": "3"
+        },
+        {
+          "ref": "M2",
+          "pin": "4"
+        },
+        {
+          "ref": "M1",
+          "pin": "3"
+        },
+        {
+          "ref": "M1",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "GND",
+      "nodes": [
+        {
+          "ref": "I2",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "5",
+      "nodes": [
+        {
+          "ref": "R1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "2",
+      "nodes": [
+        {
+          "ref": "M2",
+          "pin": "2"
+        }
+      ]
+    }
+  ],
+  "spice_netlist": "*SPICE Netlist for circuit 611\nI1 VDD 3 DC 1mA\nI2 1 0 DC 1mA\nR1 5 1 1k\nM2 3 2 1 1 NMOS W=1u L=1u\nM1 VDD 3 1 1 NMOS W=1u L=1u\n.MODEL NMOS NMOS (LEVEL=1 VTO=1 KP=1.0e-4 LAMBDA=0.02)\n\n.OP\n.END\n\n",
+  "bboxes": {
+    "capacitor_0": [],
+    "capacitor_180": [],
+    "capacitor_270": [],
+    "capacitor_90": [],
+    "current-arrow_0": [
+      [
+        90,
+        430,
+        159,
+        498
+      ],
+      [
+        455,
+        278,
+        524,
+        346
+      ]
+    ],
+    "current-arrow_180": [],
+    "current-arrow_270": [],
+    "current-arrow_90": [],
+    "current_0": [],
+    "current_180": [],
+    "current_270": [
+      [
+        423,
+        238,
+        451,
+        285
+      ]
+    ],
+    "current_90": [],
+    "gnd_0": [
+      [
+        565,
+        293,
+        604,
+        331
+      ]
+    ],
+    "gnd_180": [],
+    "gnd_270": [],
+    "gnd_90": [],
+    "inductor_0": [],
+    "inductor_180": [],
+    "inductor_270": [],
+    "inductor_90": [],
+    "net-black_100": [],
+    "net-black_10": [],
+    "net-black_1111": [
+      [
+        390,
+        296,
+        420,
+        326
+      ]
+    ],
+    "net-black_111": [],
+    "net-black_120": [],
+    "net-black_181": [],
+    "net-black_190": [],
+    "net-black_1": [
+      [
+        328,
+        570,
+        359,
+        601
+      ]
+    ],
+    "net-black_201": [],
+    "net-black_210": [],
+    "net-black_21": [
+      [
+        207,
+        449,
+        237,
+        479
+      ]
+    ],
+    "net-black_271": [],
+    "net-black_280": [],
+    "net-black_291": [],
+    "net-black_300": [],
+    "net-black_30": [],
+    "net-black_91": [],
+    "net-white_100": [
+      [
+        208,
+        540,
+        238,
+        570
+      ]
+    ],
+    "net-white_10": [],
+    "net-white_181": [],
+    "net-white_190": [],
+    "net-white_1": [],
+    "net-white_271": [],
+    "net-white_280": [
+      [
+        390,
+        83,
+        420,
+        113
+      ]
+    ],
+    "net-white_91": [],
+    "nmos-cross_0": [],
+    "nmos-cross_180": [],
+    "nmos-cross_270": [],
+    "nmos-cross_90": [],
+    "nmos-mirror-cross_0": [],
+    "nmos-mirror-cross_180": [],
+    "nmos-mirror-cross_270": [],
+    "nmos-mirror-cross_90": [],
+    "nmos-mirror_0": [
+      [
+        189,
+        309,
+        258,
+        373
+      ],
+      [
+        311,
+        461,
+        380,
+        525
+      ]
+    ],
+    "nmos-mirror_180": [],
+    "nmos-mirror_270": [],
+    "nmos-mirror_90": [],
+    "nmos_0": [],
+    "nmos_180": [],
+    "nmos_270": [],
+    "nmos_90": [],
+    "pmos-cross_0": [],
+    "pmos-cross_180": [],
+    "pmos-cross_270": [],
+    "pmos-cross_90": [],
+    "pmos-mirror_0": [],
+    "pmos-mirror_180": [],
+    "pmos-mirror_270": [],
+    "pmos-mirror_90": [],
+    "pmos_0": [],
+    "pmos_180": [],
+    "pmos_270": [],
+    "pmos_90": [],
+    "resistor_0": [],
+    "resistor_180": [],
+    "resistor_270": [],
+    "resistor_90": [
+      [
+        381,
+        165,
+        432,
+        221
+      ]
+    ],
+    "vdd_0": [
+      [
+        36,
+        279,
+        71,
+        345
+      ],
+      [
+        36,
+        431,
+        71,
+        497
+      ]
+    ],
+    "voltage-lines_0": [],
+    "voltage-mirror_0": [],
+    "voltage_0": []
+  },
+  "image_source_review": "verified"
+}

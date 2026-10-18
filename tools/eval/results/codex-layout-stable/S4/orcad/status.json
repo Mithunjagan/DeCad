@@ -1,0 +1,66 @@
+{
+  "generated_symbols": [
+    "74F103",
+    "PART_U1",
+    "PART_U13",
+    "PART_U15",
+    "PART_U2",
+    "PART_U27",
+    "PART_U3"
+  ],
+  "corrections": [
+    "P1 pin 84 was on N00013 and N00058; kept N00013.",
+    "P1 pin 83 was on N00016 and N00368; kept N00016.",
+    "U31 pin 30 removed from N00506: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S4.DSN",
+  "size": 156672,
+  "passed": true,
+  "components": 24,
+  "checked_pins": 251,
+  "nets": 179,
+  "rendered_parts": 0,
+  "preview_error": "OrCAD Capture: RuntimeError ERROR(ORDBDLL-1017): License not found\n    while executing\n\"DboTclHelper_sCreateSession\"\n    invoked from within\n\"set s [DboTclHelper_sCreateSession]\"\n    (file \"D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_render.tcl\" line 17)\n",
+  "implicit_power_pins": 19,
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "footprints": {
+    "assigned": 24,
+    "total": 24,
+    "placed": 24,
+    "sources": {
+      "standard (by package and pin count)": 13,
+      "placeholder header (review)": 2,
+      "symbol library": 9
+    },
+    "without": [],
+    "placeholder": [
+      "U1",
+      "U15"
+    ],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 178,
+    "connections": 270,
+    "parts": 24,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 34,
+    "labelled_pins": 158,
+    "crossings": 186,
+    "labelled_nets": 142
+  },
+  "source": null,
+  "sha256": "89fabbacb17f3515a1e239febba2841b53acb0374b188bc315a69d6c22b383f0"
+}

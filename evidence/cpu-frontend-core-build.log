@@ -1,0 +1,206 @@
+ Image schematic2sdn-finished-kicad Building 
+ Image schematic2sdn-finished-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.20kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 698B 0.0s done
+#2 DONE 0.0s
+
+#3 [kicad internal] load build definition from Dockerfile
+#3 transferring dockerfile: 1.87kB 0.0s done
+#3 DONE 0.0s
+
+#4 [frontend internal] load metadata for docker.io/library/node:22-bookworm-slim
+#4 DONE 0.1s
+
+#5 [kicad internal] load metadata for docker.io/library/debian:trixie-slim
+#5 ...
+
+#6 [frontend builder 1/8] FROM docker.io/library/node:22-bookworm-slim@sha256:c3de60bf2f9dd0ac6370e6117950ff62d6e339527e7472301c9c78a017978392
+#6 resolve docker.io/library/node:22-bookworm-slim@sha256:c3de60bf2f9dd0ac6370e6117950ff62d6e339527e7472301c9c78a017978392 0.1s done
+#6 DONE 0.1s
+
+#7 [frontend builder 4/8] RUN npm ci
+#7 CACHED
+
+#8 [frontend internal] load .dockerignore
+#8 transferring context: 242B done
+#8 DONE 0.0s
+
+#9 [frontend internal] load build context
+#9 transferring context: 111.30kB 0.0s done
+#9 DONE 0.0s
+
+#10 [frontend builder 3/8] COPY frontend/package*.json ./
+#10 CACHED
+
+#11 [frontend builder 4/8] RUN npm ci
+#11 CACHED
+
+#12 [frontend builder 2/8] WORKDIR /app
+#12 CACHED
+
+#13 [frontend builder 5/8] COPY frontend/app ./app
+#13 DONE 0.1s
+
+#14 [frontend builder 6/8] COPY frontend/public ./public
+#14 DONE 0.0s
+
+#15 [frontend builder 7/8] COPY frontend/next.config.mjs ./
+#15 DONE 0.0s
+
+#16 [frontend builder 8/8] RUN npm run build
+#16 0.440 
+#16 0.440 > build
+#16 0.440 > next build --webpack
+#16 0.440 
+#16 1.205 ▲ Next.js 16.4.0 (webpack)
+#16 1.266 ✓ Running next.config.mjs took 59ms
+#16 1.331 - Experiments (use with caution):
+#16 1.331   · cpus: 1
+#16 1.331   · proxyTimeout: 360000
+#16 1.331   ⨯ webpackBuildWorker
+#16 1.331 
+#16 1.364   Creating an optimized production build ...
+#16 ...
+
+#5 [kicad internal] load metadata for docker.io/library/debian:trixie-slim
+#5 DONE 3.4s
+
+#8 [kicad internal] load .dockerignore
+#8 transferring context: 242B done
+#8 DONE 0.0s
+
+#17 [kicad qucs_builder 1/4] FROM docker.io/library/debian:trixie-slim@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f
+#17 resolve docker.io/library/debian:trixie-slim@sha256:a29215f6a35e51e22adffa17f89e9d2ef06214e64a2bad10d765c46aea49f11f 0.0s done
+#17 DONE 0.0s
+
+#18 [kicad internal] load build context
+#18 transferring context: 99.45kB 0.0s done
+#18 DONE 0.0s
+
+#19 [kicad stage-1  2/14] RUN apt-get update && apt-get install -y --no-install-recommends     kicad kicad-symbols kicad-footprints ngspice xvfb x11vnc novnc websockify openbox ca-certificates xdotool procps     python3 python3-venv git fonts-dejavu-core curl tesseract-ocr librsvg2-bin libqt6widgets6 libqt6svg6 libqt6svgwidgets6 libqt6xml6 libqt6printsupport6     && rm -rf /var/lib/apt/lists/*
+#19 CACHED
+
+#20 [kicad stage-1  3/14] COPY --from=qucs_builder /src/build/qucs/qucs-s /usr/local/bin/qucs-s
+#20 CACHED
+
+#21 [kicad qucs_builder 2/4] RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake flex bison gperf libreadline-dev qt6-base-dev qt6-tools-dev qt6-tools-dev-tools qt6-svg-dev ca-certificates curl && rm -rf /var/lib/apt/lists/*
+#21 CACHED
+
+#22 [kicad stage-1  5/14] WORKDIR /app/backend
+#22 CACHED
+
+#23 [kicad stage-1  6/14] COPY backend/requirements.txt /app/backend/requirements.txt
+#23 CACHED
+
+#24 [kicad qucs_builder 4/4] RUN curl -fsSL https://github.com/ra3xdh/qucs_s/releases/download/26.1.1/qucs-s-26.1.1.tar.gz -o qucs.tar.gz && tar -xzf qucs.tar.gz --strip-components=1 && cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build --target qucs-s -j2
+#24 CACHED
+
+#25 [kicad qucs_builder 3/4] WORKDIR /src
+#25 CACHED
+
+#26 [kicad stage-1  4/14] COPY --from=qucs_builder /src/qucs.tar.gz /usr/share/qucs-s/source.tar.gz
+#26 CACHED
+
+#27 [kicad stage-1  7/14] RUN python3 -m venv /opt/venv && /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
+#27 CACHED
+
+#28 [kicad stage-1  8/14] COPY backend/app /app/backend/app
+#28 DONE 0.1s
+
+#29 [kicad stage-1  9/14] COPY backend/models /app/backend/models
+#29 DONE 0.0s
+
+#16 [frontend builder 8/8] RUN npm run build
+#16 ...
+
+#30 [kicad stage-1 10/14] COPY docker/kicad/embedded.html /usr/share/novnc/embedded.html
+#30 DONE 0.0s
+
+#31 [kicad stage-1 11/14] COPY docker/kicad/start.sh /start.sh
+#31 DONE 0.1s
+
+#32 [kicad stage-1 12/14] COPY docker/kicad/entrypoint.sh /entrypoint.sh
+#32 DONE 0.1s
+
+#33 [kicad stage-1 13/14] COPY docker/kicad/switch-project.sh /usr/local/bin/switch-project.sh
+#33 DONE 0.2s
+
+#16 [frontend builder 8/8] RUN npm run build
+#16 ...
+
+#34 [kicad stage-1 14/14] RUN chmod +x /entrypoint.sh /start.sh /usr/local/bin/switch-project.sh
+#34 DONE 0.5s
+
+#35 [kicad] exporting to image
+#35 exporting layers
+#35 exporting layers 0.3s done
+#35 exporting manifest sha256:bf36319459ae7474d7d4c6a7344599328f98cfe1d2e2c57b10212a007ab2e373 0.0s done
+#35 exporting config sha256:474455f42dab1ae302535497a6f69c5e68f49aa211d03375d97c72cbf71d4ab9 0.0s done
+#35 exporting attestation manifest sha256:fc062624794c046c034e04015698e293f516a52f871711da73ee09a28152a52e
+#35 exporting attestation manifest sha256:fc062624794c046c034e04015698e293f516a52f871711da73ee09a28152a52e 0.0s done
+#35 exporting manifest list sha256:158b80745c0614a81f2c135fe864b7947ccad0ceadf949435931e5d171aca444 0.0s done
+#35 naming to docker.io/library/schematic2sdn-finished-kicad:latest done
+#35 unpacking to docker.io/library/schematic2sdn-finished-kicad:latest
+#35 unpacking to docker.io/library/schematic2sdn-finished-kicad:latest 0.2s done
+#35 DONE 0.8s
+
+#16 [frontend builder 8/8] RUN npm run build
+#16 ...
+
+#36 [kicad] resolving provenance for metadata file
+#36 DONE 0.0s
+
+#16 [frontend builder 8/8] RUN npm run build
+#16 14.15 ✓ Compiled successfully in 12.3s
+#16 14.17   Running TypeScript ...
+#16 14.17   Finished TypeScript in 4ms ...
+#16 14.17   Collecting page data using 1 worker ...
+#16 16.25   Generating static pages using 1 worker (0/3) ...
+#16 16.73 ✓ Generating static pages using 1 worker (3/3) in 485ms
+#16 17.44   Finalizing page optimization ...
+#16 17.44   Collecting build traces ...
+#16 ...
+
+#12 [frontend builder 2/8] WORKDIR /app
+#12 CACHED
+
+#16 [frontend builder 8/8] RUN npm run build
+#16 69.69 
+#16 69.69 Route (app)
+#16 69.69 ┌ ○ /
+#16 69.69 └ ○ /_not-found
+#16 69.69 
+#16 69.69 
+#16 69.69 ○  (Static)  prerendered as static content
+#16 69.69 
+#16 DONE 69.9s
+
+#37 [frontend stage-1 3/5] COPY --from=builder --chown=node:node /app/.next/standalone ./
+#37 DONE 0.4s
+
+#38 [frontend stage-1 4/5] COPY --from=builder --chown=node:node /app/.next/static ./.next/static
+#38 DONE 0.0s
+
+#39 [frontend stage-1 5/5] COPY --from=builder --chown=node:node /app/public ./public
+#39 DONE 0.0s
+
+#40 [frontend] exporting to image
+#40 exporting layers
+#40 exporting layers 2.0s done
+#40 exporting manifest sha256:17894ef054092a7393e44b8cc13b10a8e5f3c0807a5d2c3a86fac0f11360d986 done
+#40 exporting config sha256:3b22a8a863581014981a2a1af834782a88f4d038aaf071f41da78777f80bef32 0.0s done
+#40 exporting attestation manifest sha256:f191bbe599f80e5ed46fad4230e2ff5b41846a2bba221e26d2327dc506ba5be5 done
+#40 exporting manifest list sha256:459d18c80a73fa2326194c8b0feb8b3d1060deb7a413574a9dedcf9d6531aff9 done
+#40 naming to docker.io/library/schematic2sdn-finished-frontend:latest done
+#40 unpacking to docker.io/library/schematic2sdn-finished-frontend:latest
+#40 unpacking to docker.io/library/schematic2sdn-finished-frontend:latest 0.6s done
+#40 DONE 2.7s
+
+#41 [frontend] resolving provenance for metadata file
+#41 DONE 0.1s
+ Image schematic2sdn-finished-kicad Built 
+ Image schematic2sdn-finished-frontend Built 

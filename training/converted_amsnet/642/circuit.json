@@ -1,0 +1,709 @@
+{
+  "sample_id": "AMS_642",
+  "source_dataset": "AMSnet-1.0",
+  "image_rel_path": "circuit.jpg",
+  "has_exact_connectivity": true,
+  "components": [
+    {
+      "ref": "C1",
+      "value": "1nF",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "R1",
+      "value": "1k",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "C2",
+      "value": "1nF",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "R2",
+      "value": "1k",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "I1",
+      "value": "DC 1mA",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M2",
+      "value": "40 NMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M6",
+      "value": "NMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "R4",
+      "value": "1k",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M4",
+      "value": "NMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M3",
+      "value": "NMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "R3",
+      "value": "1k",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M8",
+      "value": "PMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M9",
+      "value": "PMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M7",
+      "value": "42 PMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M5",
+      "value": "NMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "M1",
+      "value": "43 NMOS W=1u L=1u",
+      "library": null,
+      "footprint": null
+    }
+  ],
+  "nets": [
+    {
+      "name": "8",
+      "nodes": [
+        {
+          "ref": "C1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "37",
+      "nodes": [
+        {
+          "ref": "C1",
+          "pin": "2"
+        },
+        {
+          "ref": "R1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "1",
+      "nodes": [
+        {
+          "ref": "R1",
+          "pin": "2"
+        },
+        {
+          "ref": "R4",
+          "pin": "2"
+        },
+        {
+          "ref": "M4",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "9",
+      "nodes": [
+        {
+          "ref": "C2",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "38",
+      "nodes": [
+        {
+          "ref": "C2",
+          "pin": "2"
+        },
+        {
+          "ref": "R2",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "2",
+      "nodes": [
+        {
+          "ref": "R2",
+          "pin": "2"
+        },
+        {
+          "ref": "M3",
+          "pin": "2"
+        },
+        {
+          "ref": "R3",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "3",
+      "nodes": [
+        {
+          "ref": "I1",
+          "pin": "1"
+        },
+        {
+          "ref": "M4",
+          "pin": "3"
+        },
+        {
+          "ref": "M4",
+          "pin": "4"
+        },
+        {
+          "ref": "M3",
+          "pin": "3"
+        },
+        {
+          "ref": "M3",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "GND",
+      "nodes": [
+        {
+          "ref": "I1",
+          "pin": "2"
+        },
+        {
+          "ref": "M2",
+          "pin": "3"
+        },
+        {
+          "ref": "M6",
+          "pin": "3"
+        },
+        {
+          "ref": "M6",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "39",
+      "nodes": [
+        {
+          "ref": "M2",
+          "pin": "1"
+        },
+        {
+          "ref": "M1",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "34",
+      "nodes": [
+        {
+          "ref": "M2",
+          "pin": "2"
+        },
+        {
+          "ref": "M6",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "40",
+      "nodes": [
+        {
+          "ref": "M2",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "41",
+      "nodes": [
+        {
+          "ref": "M6",
+          "pin": "1"
+        },
+        {
+          "ref": "M5",
+          "pin": "3"
+        },
+        {
+          "ref": "M5",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "6",
+      "nodes": [
+        {
+          "ref": "R4",
+          "pin": "1"
+        },
+        {
+          "ref": "M7",
+          "pin": "1"
+        },
+        {
+          "ref": "M1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "4",
+      "nodes": [
+        {
+          "ref": "M4",
+          "pin": "1"
+        },
+        {
+          "ref": "M8",
+          "pin": "1"
+        },
+        {
+          "ref": "M7",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "5",
+      "nodes": [
+        {
+          "ref": "M3",
+          "pin": "1"
+        },
+        {
+          "ref": "M9",
+          "pin": "3"
+        },
+        {
+          "ref": "M9",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "7",
+      "nodes": [
+        {
+          "ref": "R3",
+          "pin": "2"
+        },
+        {
+          "ref": "M9",
+          "pin": "1"
+        },
+        {
+          "ref": "M5",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "20",
+      "nodes": [
+        {
+          "ref": "M8",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "VDD",
+      "nodes": [
+        {
+          "ref": "M8",
+          "pin": "3"
+        },
+        {
+          "ref": "M8",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "35",
+      "nodes": [
+        {
+          "ref": "M9",
+          "pin": "2"
+        },
+        {
+          "ref": "M7",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "42",
+      "nodes": [
+        {
+          "ref": "M7",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "36",
+      "nodes": [
+        {
+          "ref": "M5",
+          "pin": "2"
+        },
+        {
+          "ref": "M1",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "43",
+      "nodes": [
+        {
+          "ref": "M1",
+          "pin": "4"
+        }
+      ]
+    }
+  ],
+  "spice_netlist": "*SPICE Netlist for circuit 642\nC1 8 37 1nF\nR1 37 1 1k\nC2 9 38 1nF\nR2 38 2 1k\nI1 3 0 DC 1mA\nM2 39 34 0 40 40 NMOS W=1u L=1u\nM6 41 34 0 0 NMOS W=1u L=1u\nR4 6 1 1k\nM4 4 1 3 3 NMOS W=1u L=1u\nM3 5 2 3 3 NMOS W=1u L=1u\nR3 2 7 1k\nM8 4 20 VDD VDD PMOS W=1u L=1u\nM9 7 35 5 5 PMOS W=1u L=1u\nM7 6 35 4 42 42 PMOS W=1u L=1u\nM5 7 36 41 41 NMOS W=1u L=1u\nM1 6 36 39 43 43 NMOS W=1u L=1u\n.MODEL NMOS NMOS (LEVEL=1 VTO=1 KP=1.0e-4 LAMBDA=0.02)\n.MODEL PMOS PMOS (LEVEL=1 VTO=1 KP=1.0e-4 LAMBDA=0.02)\n\n.OP\n.END\n\n",
+  "bboxes": {
+    "capacitor_0": [],
+    "capacitor_180": [
+      [
+        636,
+        172,
+        672,
+        233
+      ],
+      [
+        636,
+        599,
+        672,
+        660
+      ]
+    ],
+    "capacitor_270": [],
+    "capacitor_90": [],
+    "current-arrow_0": [
+      [
+        578,
+        382,
+        647,
+        450
+      ]
+    ],
+    "current-arrow_180": [],
+    "current-arrow_270": [],
+    "current-arrow_90": [],
+    "current_0": [],
+    "current_180": [],
+    "current_270": [],
+    "current_90": [],
+    "gnd_0": [
+      [
+        688,
+        397,
+        727,
+        435
+      ],
+      [
+        750,
+        854,
+        789,
+        892
+      ],
+      [
+        750,
+        1159,
+        789,
+        1197
+      ]
+    ],
+    "gnd_180": [],
+    "gnd_270": [],
+    "gnd_90": [],
+    "inductor_0": [],
+    "inductor_180": [],
+    "inductor_270": [],
+    "inductor_90": [],
+    "net-black_100": [],
+    "net-black_10": [],
+    "net-black_1111": [],
+    "net-black_111": [
+      [
+        452,
+        187,
+        482,
+        217
+      ],
+      [
+        452,
+        614,
+        482,
+        644
+      ],
+      [
+        513,
+        401,
+        543,
+        431
+      ]
+    ],
+    "net-black_120": [],
+    "net-black_181": [],
+    "net-black_190": [],
+    "net-black_1": [],
+    "net-black_201": [],
+    "net-black_210": [],
+    "net-black_21": [],
+    "net-black_271": [],
+    "net-black_280": [],
+    "net-black_291": [
+      [
+        147,
+        858,
+        177,
+        888
+      ],
+      [
+        179,
+        1163,
+        209,
+        1193
+      ],
+      [
+        360,
+        858,
+        390,
+        888
+      ],
+      [
+        453,
+        1163,
+        483,
+        1193
+      ]
+    ],
+    "net-black_300": [],
+    "net-black_30": [],
+    "net-black_91": [],
+    "net-white_100": [],
+    "net-white_10": [],
+    "net-white_181": [],
+    "net-white_190": [
+      [
+        695,
+        187,
+        727,
+        219
+      ],
+      [
+        696,
+        615,
+        726,
+        645
+      ]
+    ],
+    "net-white_1": [],
+    "net-white_271": [],
+    "net-white_280": [],
+    "net-white_91": [],
+    "nmos-cross_0": [
+      [
+        524,
+        809,
+        596,
+        880
+      ],
+      [
+        646,
+        809,
+        718,
+        880
+      ]
+    ],
+    "nmos-cross_180": [],
+    "nmos-cross_270": [],
+    "nmos-cross_90": [],
+    "nmos-mirror-cross_0": [],
+    "nmos-mirror-cross_180": [],
+    "nmos-mirror-cross_270": [],
+    "nmos-mirror-cross_90": [],
+    "nmos-mirror_0": [
+      [
+        433,
+        505,
+        502,
+        569
+      ]
+    ],
+    "nmos-mirror_180": [],
+    "nmos-mirror_270": [],
+    "nmos-mirror_90": [],
+    "nmos_0": [
+      [
+        431,
+        262,
+        504,
+        333
+      ],
+      [
+        524,
+        1116,
+        597,
+        1187
+      ],
+      [
+        646,
+        1116,
+        719,
+        1187
+      ]
+    ],
+    "nmos_180": [],
+    "nmos_270": [],
+    "nmos_90": [],
+    "pmos-cross_0": [
+      [
+        252,
+        813,
+        321,
+        877
+      ]
+    ],
+    "pmos-cross_180": [],
+    "pmos-cross_270": [],
+    "pmos-cross_90": [],
+    "pmos-mirror_0": [
+      [
+        67,
+        866,
+        140,
+        937
+      ]
+    ],
+    "pmos-mirror_180": [],
+    "pmos-mirror_270": [],
+    "pmos-mirror_90": [],
+    "pmos_0": [
+      [
+        252,
+        1118,
+        321,
+        1182
+      ]
+    ],
+    "pmos_180": [],
+    "pmos_270": [],
+    "pmos_90": [],
+    "resistor_0": [],
+    "resistor_180": [
+      [
+        529,
+        178,
+        589,
+        228
+      ],
+      [
+        529,
+        605,
+        589,
+        655
+      ]
+    ],
+    "resistor_270": [
+      [
+        443,
+        699,
+        494,
+        755
+      ]
+    ],
+    "resistor_90": [
+      [
+        442,
+        86,
+        493,
+        142
+      ]
+    ],
+    "vdd_0": [
+      [
+        35,
+        937,
+        70,
+        997
+      ],
+      [
+        35,
+        997,
+        70,
+        1057
+      ],
+      [
+        35,
+        1057,
+        70,
+        1117
+      ],
+      [
+        35,
+        1149,
+        70,
+        1209
+      ]
+    ],
+    "voltage-lines_0": [],
+    "voltage-mirror_0": [],
+    "voltage_0": []
+  },
+  "image_source_review": "verified"
+}

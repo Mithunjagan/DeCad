@@ -1,0 +1,1313 @@
+{
+  "sheet_aspect": 1.414627,
+  "components": [
+    {
+      "ref": "P1",
+      "value": "CONNECTOR",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "P2",
+      "value": "CONNECTOR",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "U43",
+      "value": "74F374",
+      "library": null,
+      "footprint": null,
+      "x": 0.7216,
+      "y": 0.2788
+    },
+    {
+      "ref": "U53",
+      "value": "UNKNOWN",
+      "library": null,
+      "footprint": null,
+      "x": 0.7201,
+      "y": 0.1991
+    },
+    {
+      "ref": "U6",
+      "value": "1R",
+      "library": null,
+      "footprint": null,
+      "x": 0.1929,
+      "y": 0.2982
+    },
+    {
+      "ref": "U67",
+      "value": "UNKNOWN",
+      "library": null,
+      "footprint": null,
+      "x": 0.7046,
+      "y": 0.3538
+    },
+    {
+      "ref": "U7",
+      "value": "74F374",
+      "library": null,
+      "footprint": null,
+      "x": 0.7217,
+      "y": 0.3547
+    },
+    {
+      "ref": "U70",
+      "value": "74F244",
+      "library": null,
+      "footprint": null,
+      "x": 0.6239,
+      "y": 0.2688
+    },
+    {
+      "ref": "U74",
+      "value": "TC514100",
+      "library": null,
+      "footprint": null,
+      "x": 0.3966,
+      "y": 0.3248
+    },
+    {
+      "ref": "U76",
+      "value": "UNKNOWN",
+      "library": null,
+      "footprint": null,
+      "x": 0.3967,
+      "y": 0.3985
+    },
+    {
+      "ref": "U8",
+      "value": "TC514100",
+      "library": null,
+      "footprint": null,
+      "x": 0.5129,
+      "y": 0.3216
+    },
+    {
+      "ref": "U94",
+      "value": "TC514100",
+      "library": null,
+      "footprint": null,
+      "x": 0.1929,
+      "y": 0.2982
+    },
+    {
+      "ref": "U_1",
+      "value": "TC514100",
+      "library": null,
+      "footprint": null,
+      "x": 0.3975,
+      "y": 0.1653
+    },
+    {
+      "ref": "U_2",
+      "value": "TC514100",
+      "library": null,
+      "footprint": null,
+      "x": 0.5128,
+      "y": 0.1657
+    },
+    {
+      "ref": "U_3",
+      "value": "TC514100",
+      "library": null,
+      "footprint": null,
+      "x": 0.5119,
+      "y": 0.3987
+    },
+    {
+      "ref": "U_4",
+      "value": "74F211",
+      "library": null,
+      "footprint": null,
+      "x": 0.6247,
+      "y": 0.2178
+    },
+    {
+      "ref": "U_5",
+      "value": "74F374",
+      "library": null,
+      "footprint": null,
+      "x": 0.4947,
+      "y": 0.4815
+    },
+    {
+      "ref": "U_6",
+      "value": "TC514100",
+      "library": null,
+      "footprint": null,
+      "x": 0.2874,
+      "y": 0.3216
+    },
+    {
+      "ref": "U_7",
+      "value": "74F374",
+      "library": null,
+      "footprint": null,
+      "x": 0.7196,
+      "y": 0.5009
+    },
+    {
+      "ref": "U_8",
+      "value": "74F273",
+      "library": null,
+      "footprint": null,
+      "x": 0.7204,
+      "y": 0.1288
+    },
+    {
+      "ref": "U_9",
+      "value": "74F244",
+      "library": null,
+      "footprint": null,
+      "x": 0.6226,
+      "y": 0.3597
+    }
+  ],
+  "nets": [
+    {
+      "name": "-18",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "79"
+        }
+      ]
+    },
+    {
+      "name": "CC4",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "E",
+      "nodes": [
+        {
+          "ref": "U_4",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "EM",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "8"
+        }
+      ]
+    },
+    {
+      "name": "EM4",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "6"
+        }
+      ]
+    },
+    {
+      "name": "FFL",
+      "nodes": [
+        {
+          "ref": "U94",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "G4",
+      "nodes": [
+        {
+          "ref": "U_3",
+          "pin": "8"
+        }
+      ]
+    },
+    {
+      "name": "H13",
+      "nodes": [
+        {
+          "ref": "U43",
+          "pin": "13"
+        }
+      ]
+    },
+    {
+      "name": "IDEE",
+      "nodes": [
+        {
+          "ref": "U7",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "IEEI13",
+      "nodes": [
+        {
+          "ref": "U_4",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "IKL",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "INI",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "18"
+        }
+      ]
+    },
+    {
+      "name": "IV",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "J3",
+      "nodes": [
+        {
+          "ref": "U_3",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "K10",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "KE",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "16"
+        }
+      ]
+    },
+    {
+      "name": "KI",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "14"
+        }
+      ]
+    },
+    {
+      "name": "KO",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "6"
+        }
+      ]
+    },
+    {
+      "name": "LL",
+      "nodes": [
+        {
+          "ref": "U94",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "LT",
+      "nodes": [
+        {
+          "ref": "U_5",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "MNL",
+      "nodes": [
+        {
+          "ref": "U43",
+          "pin": "17"
+        }
+      ]
+    },
+    {
+      "name": "N00036",
+      "nodes": [
+        {
+          "ref": "U94",
+          "pin": "6"
+        }
+      ]
+    },
+    {
+      "name": "N00047",
+      "nodes": [
+        {
+          "ref": "U94",
+          "pin": "18"
+        },
+        {
+          "ref": "U94",
+          "pin": "8"
+        }
+      ]
+    },
+    {
+      "name": "N00049",
+      "nodes": [
+        {
+          "ref": "U94",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N00063",
+      "nodes": [
+        {
+          "ref": "U_6",
+          "pin": "18"
+        }
+      ]
+    },
+    {
+      "name": "N00065",
+      "nodes": [
+        {
+          "ref": "U_6",
+          "pin": "16"
+        }
+      ]
+    },
+    {
+      "name": "N00092",
+      "nodes": [
+        {
+          "ref": "U74",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00100",
+      "nodes": [
+        {
+          "ref": "U6",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00112",
+      "nodes": [
+        {
+          "ref": "U74",
+          "pin": "9"
+        }
+      ]
+    },
+    {
+      "name": "N00147",
+      "nodes": [
+        {
+          "ref": "U_3",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00157",
+      "nodes": [
+        {
+          "ref": "U_6",
+          "pin": "14"
+        }
+      ]
+    },
+    {
+      "name": "N00272",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00310",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "21"
+        }
+      ]
+    },
+    {
+      "name": "N00339",
+      "nodes": [
+        {
+          "ref": "U74",
+          "pin": "12"
+        }
+      ]
+    },
+    {
+      "name": "N00341",
+      "nodes": [
+        {
+          "ref": "U8",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00401",
+      "nodes": [
+        {
+          "ref": "U74",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N00472",
+      "nodes": [
+        {
+          "ref": "U_5",
+          "pin": "12"
+        }
+      ]
+    },
+    {
+      "name": "N00473",
+      "nodes": [
+        {
+          "ref": "U_5",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00475",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00503",
+      "nodes": [
+        {
+          "ref": "U_4",
+          "pin": "9"
+        }
+      ]
+    },
+    {
+      "name": "N00507",
+      "nodes": [
+        {
+          "ref": "U70",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00516",
+      "nodes": [
+        {
+          "ref": "U_4",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00523",
+      "nodes": [
+        {
+          "ref": "P2",
+          "pin": "A2"
+        }
+      ]
+    },
+    {
+      "name": "N00539",
+      "nodes": [
+        {
+          "ref": "U70",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "N00559",
+      "nodes": [
+        {
+          "ref": "U_7",
+          "pin": "17"
+        }
+      ]
+    },
+    {
+      "name": "N00560",
+      "nodes": [
+        {
+          "ref": "U_7",
+          "pin": "12"
+        }
+      ]
+    },
+    {
+      "name": "N00566",
+      "nodes": [
+        {
+          "ref": "U_7",
+          "pin": "6"
+        }
+      ]
+    },
+    {
+      "name": "N00585",
+      "nodes": [
+        {
+          "ref": "U53",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00591",
+      "nodes": [
+        {
+          "ref": "U53",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00594",
+      "nodes": [
+        {
+          "ref": "U53",
+          "pin": "50"
+        }
+      ]
+    },
+    {
+      "name": "N00599",
+      "nodes": [
+        {
+          "ref": "U_8",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00602",
+      "nodes": [
+        {
+          "ref": "U_8",
+          "pin": "15"
+        }
+      ]
+    },
+    {
+      "name": "N00607",
+      "nodes": [
+        {
+          "ref": "U_8",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00610",
+      "nodes": [
+        {
+          "ref": "U_7",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N00617",
+      "nodes": [
+        {
+          "ref": "U_7",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00625",
+      "nodes": [
+        {
+          "ref": "U53",
+          "pin": "8"
+        }
+      ]
+    },
+    {
+      "name": "N00635",
+      "nodes": [
+        {
+          "ref": "U53",
+          "pin": "10"
+        },
+        {
+          "ref": "U53",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N00646",
+      "nodes": [
+        {
+          "ref": "P2",
+          "pin": "C20"
+        }
+      ]
+    },
+    {
+      "name": "N00658",
+      "nodes": [
+        {
+          "ref": "U53",
+          "pin": "16"
+        }
+      ]
+    },
+    {
+      "name": "N00659",
+      "nodes": [
+        {
+          "ref": "P2",
+          "pin": "34"
+        }
+      ]
+    },
+    {
+      "name": "N00660",
+      "nodes": [
+        {
+          "ref": "P2",
+          "pin": "38"
+        },
+        {
+          "ref": "U53",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "N00668",
+      "nodes": [
+        {
+          "ref": "U7",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "N00673",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "A5"
+        }
+      ]
+    },
+    {
+      "name": "N00676",
+      "nodes": [
+        {
+          "ref": "P2",
+          "pin": "B26"
+        }
+      ]
+    },
+    {
+      "name": "N00756",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "N00766",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "10"
+        }
+      ]
+    },
+    {
+      "name": "N00792",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N00798",
+      "nodes": [
+        {
+          "ref": "U_8",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N00799",
+      "nodes": [
+        {
+          "ref": "U_8",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N00830",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "14"
+        }
+      ]
+    },
+    {
+      "name": "N00832",
+      "nodes": [
+        {
+          "ref": "U_5",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N00837",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N00838",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00853",
+      "nodes": [
+        {
+          "ref": "U53",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N00879",
+      "nodes": [
+        {
+          "ref": "U_6",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00895",
+      "nodes": [
+        {
+          "ref": "U6",
+          "pin": "71"
+        }
+      ]
+    },
+    {
+      "name": "N00917",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "8"
+        }
+      ]
+    },
+    {
+      "name": "N00920",
+      "nodes": [
+        {
+          "ref": "U_4",
+          "pin": "16"
+        }
+      ]
+    },
+    {
+      "name": "N00921",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "N00922",
+      "nodes": [
+        {
+          "ref": "U74",
+          "pin": "15"
+        }
+      ]
+    },
+    {
+      "name": "N00948",
+      "nodes": [
+        {
+          "ref": "U_6",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "N00975",
+      "nodes": [
+        {
+          "ref": "U_3",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00998",
+      "nodes": [
+        {
+          "ref": "U_4",
+          "pin": "10"
+        }
+      ]
+    },
+    {
+      "name": "N01035",
+      "nodes": [
+        {
+          "ref": "U_7",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N01036",
+      "nodes": [
+        {
+          "ref": "U70",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N01074",
+      "nodes": [
+        {
+          "ref": "U7",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N01093",
+      "nodes": [
+        {
+          "ref": "U67",
+          "pin": "23"
+        }
+      ]
+    },
+    {
+      "name": "N01114",
+      "nodes": [
+        {
+          "ref": "U_6",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N01122",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "81"
+        }
+      ]
+    },
+    {
+      "name": "N01133",
+      "nodes": [
+        {
+          "ref": "U8",
+          "pin": "10"
+        }
+      ]
+    },
+    {
+      "name": "N01169",
+      "nodes": [
+        {
+          "ref": "U_6",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N01175",
+      "nodes": [
+        {
+          "ref": "U8",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N01211",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "12"
+        }
+      ]
+    },
+    {
+      "name": "N01212",
+      "nodes": [
+        {
+          "ref": "U76",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "N01230",
+      "nodes": [
+        {
+          "ref": "U_3",
+          "pin": "14"
+        }
+      ]
+    },
+    {
+      "name": "N01268",
+      "nodes": [
+        {
+          "ref": "U_5",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "N4",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "8"
+        }
+      ]
+    },
+    {
+      "name": "NIN2",
+      "nodes": [
+        {
+          "ref": "U43",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "P888R",
+      "nodes": [
+        {
+          "ref": "U67",
+          "pin": "08"
+        }
+      ]
+    },
+    {
+      "name": "RCB",
+      "nodes": [
+        {
+          "ref": "U_6",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "REKI",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "SCS",
+      "nodes": [
+        {
+          "ref": "U_3",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "T77",
+      "nodes": [
+        {
+          "ref": "U8",
+          "pin": "14"
+        }
+      ]
+    },
+    {
+      "name": "VR",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "16"
+        }
+      ]
+    },
+    {
+      "name": "WL",
+      "nodes": [
+        {
+          "ref": "U_9",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "WUNJ",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "X0",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "7"
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "Recognized 21 parts and 110 pin connections in 107 nets. Check them against the source before generating the design.",
+    "Not in the installed Capture libraries; a matching symbol will be generated with the used pins: U53 (UNKNOWN), U6 (1R), U67 (UNKNOWN), U76 (UNKNOWN)",
+    "Removed pins that do not exist on the identified part (likely misread numbers): U_9.01, U7.101, U94.65, U94.67, P1.020, U_2.493, U_1.31, U8.21, P2.813, U74.4, U_5.153, U_2.23, U7.23, U_7.40, U43.22, P1.08, P1.05, U_8.01, U94.451, U43.23, U43.38, U_4.909, U_4.30, U_9.106, U_6.4, U8.31, U_3.17, U74.61",
+    "Input assessment: low-resolution/blurry sheet (1600 px, text a few px tall); enhanced automatically (6.2x super-sampling, stroke-preserving binarization, grayscale OCR).",
+    "Review required: detail lost to blur or a scan below 300 dpi cannot be recovered by any reader. Check every part, pin number and net label against the source, or rescan at 300 dpi or better.",
+    "9 IC bodies have a legible part number but an unreadable reference; placed as U_1..U_9. Annotate them in Capture.",
+    "2 faint pin numbers taken from other copies of the same part drawn identically (e.g. ?->14, ?->14). Check them.",
+    "U94 pin 6 was read on two different wires; kept the first. Check it.",
+    "U94 pin 2 was read on two different wires; kept the first. Check it.",
+    "U94 pin 2 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 2 was read on two different wires; kept the first. Check it.",
+    "U_3 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_5 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_4 pin 7 was read on two different wires; kept the first. Check it.",
+    "U_4 pin 9 was read on two different wires; kept the first. Check it.",
+    "U_4 pin 3 was read on two different wires; kept the first. Check it.",
+    "U7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U53 pin 1 was read on two different wires; kept the first. Check it.",
+    "U43 pin 1 was read on two different wires; kept the first. Check it.",
+    "U43 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_7 pin 2 was read on two different wires; kept the first. Check it.",
+    "U76 pin 7 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U53 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 7 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U53 pin 5 was read on two different wires; kept the first. Check it.",
+    "U8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U8 pin 14 was read on two different wires; kept the first. Check it.",
+    "U8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_3 pin 17 was read on two different wires; kept the first. Check it.",
+    "U8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_3 pin 1 was read on two different wires; kept the first. Check it.",
+    "U76 pin 10 was read on two different wires; kept the first. Check it.",
+    "U_3 pin 8 was read on two different wires; kept the first. Check it.",
+    "U_7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U94 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U6 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_6 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_6 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 2 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U74 pin 4 was read on two different wires; kept the first. Check it.",
+    "U8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_3 pin 1 was read on two different wires; kept the first. Check it.",
+    "U8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_9 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_4 pin 7 was read on two different wires; kept the first. Check it.",
+    "U7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U70 pin 1 was read on two different wires; kept the first. Check it.",
+    "U70 pin 1 was read on two different wires; kept the first. Check it.",
+    "U70 pin 1 was read on two different wires; kept the first. Check it.",
+    "U70 pin 1 was read on two different wires; kept the first. Check it.",
+    "U70 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U7 pin 11 was read on two different wires; kept the first. Check it.",
+    "U7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U7 pin 23 was read on two different wires; kept the first. Check it.",
+    "U53 pin 1 was read on two different wires; kept the first. Check it.",
+    "U53 pin 11 was read on two different wires; kept the first. Check it.",
+    "U43 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U43 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 11 was read on two different wires; kept the first. Check it.",
+    "U43 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U7 pin 3 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 11 was read on two different wires; kept the first. Check it.",
+    "U74 pin 1 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_8 pin 1 was read on two different wires; kept the first. Check it.",
+    "U6 pin 1 was read on two different wires; kept the first. Check it.",
+    "U6 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U74 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 11 was read on two different wires; kept the first. Check it.",
+    "U8 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U53 pin 7 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 3 was read on two different wires; kept the first. Check it.",
+    "U6 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_6 pin 3 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_4 pin 30 was read on two different wires; kept the first. Check it.",
+    "U_6 pin 3 was read on two different wires; kept the first. Check it.",
+    "U_4 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_4 pin 1 was read on two different wires; kept the first. Check it.",
+    "U70 pin 5 was read on two different wires; kept the first. Check it.",
+    "U_4 pin 30 was read on two different wires; kept the first. Check it.",
+    "U70 pin 1 was read on two different wires; kept the first. Check it.",
+    "U74 pin 1 was read on two different wires; kept the first. Check it.",
+    "U74 pin 1 was read on two different wires; kept the first. Check it.",
+    "U8 pin 11 was read on two different wires; kept the first. Check it.",
+    "U70 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_9 pin 1 was read on two different wires; kept the first. Check it.",
+    "U70 pin 5 was read on two different wires; kept the first. Check it.",
+    "U70 pin 1 was read on two different wires; kept the first. Check it.",
+    "U70 pin 1 was read on two different wires; kept the first. Check it.",
+    "U70 pin 5 was read on two different wires; kept the first. Check it.",
+    "U_7 pin 12 was read on two different wires; kept the first. Check it.",
+    "U43 pin 1 was read on two different wires; kept the first. Check it.",
+    "U7 pin 3 was read on two different wires; kept the first. Check it.",
+    "U43 pin 23 was read on two different wires; kept the first. Check it.",
+    "U43 pin 38 was read on two different wires; kept the first. Check it.",
+    "U43 pin 38 was read on two different wires; kept the first. Check it.",
+    "U_7 pin 1 was read on two different wires; kept the first. Check it.",
+    "U8 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_3 pin 14 was read on two different wires; kept the first. Check it.",
+    "U43 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_6 pin 16 was read on two different wires; kept the first. Check it.",
+    "U_9 pin 1 was read on two different wires; kept the first. Check it.",
+    "U7 pin 3 was read on two different wires; kept the first. Check it.",
+    "U76 pin 7 was read on two different wires; kept the first. Check it.",
+    "U_5 pin 1 was read on two different wires; kept the first. Check it.",
+    "U76 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_9 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_3 pin 14 was read on two different wires; kept the first. Check it.",
+    "U_3 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_5 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_5 pin 3 was read on two different wires; kept the first. Check it.",
+    "U_5 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_5 pin 153 was read on two different wires; kept the first. Check it.",
+    "96 pins connect to nothing else that was recognized; review them."
+  ]
+}

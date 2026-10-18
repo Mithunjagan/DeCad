@@ -1,0 +1,49 @@
+{
+  "generated_symbols": [
+    "2148",
+    "54321",
+    "PART_U35",
+    "PART_U53"
+  ],
+  "corrections": [],
+  "design": "S5.DSN",
+  "size": 169984,
+  "passed": true,
+  "components": 27,
+  "checked_pins": 271,
+  "nets": 172,
+  "rendered_parts": 30,
+  "preview_error": null,
+  "implicit_power_pins": 32,
+  "substitutions": {},
+  "footprints": {
+    "assigned": 27,
+    "total": 27,
+    "placed": 27,
+    "sources": {
+      "standard (by package and pin count)": 10,
+      "symbol library": 16,
+      "placeholder header (review)": 1
+    },
+    "without": [],
+    "placeholder": [
+      "U54"
+    ],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 174,
+    "connections": 303,
+    "parts": 27,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 60,
+    "labelled_pins": 116,
+    "crossings": 318,
+    "labelled_nets": 112
+  },
+  "source": null,
+  "sha256": "54638d9736b025ea4dab6f4164766ca4dabb0219a2a5bbcb6c280de4da0662f5"
+}

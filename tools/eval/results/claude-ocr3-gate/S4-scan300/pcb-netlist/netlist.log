@@ -1,0 +1,18 @@
+{ Using PSTWRITER 26.1.0 d001Oct-18-2026 at 18:33:52 }
+
+#1 WARNING(ORCAP-36006): Part Name "CON40A_BLKCON100VHTM2OEW20040_CONNECTOR" is renamed to "CON40A_BLKCON100VHTM2OEW20040_C".
+#2 WARNING(ORCAP-36006): Part Name "PART_U1_BLKCON100VHTM2OEW20026_UNKNOWN" is renamed to "PART_U1_BLKCON100VHTM2OEW20026_".
+#3 WARNING(ORCAP-36006): Part Name "PART_U13_BLKCON100VHTM2OEW20026_UNKNOWN" is renamed to "PART_U13_BLKCON100VHTM2OEW20026".
+#4 WARNING(ORCAP-36006): Part Name "PART_U15_BLKCON100VHTM2OEW20026_UNKNOWN" is renamed to "PART_U15_BLKCON100VHTM2OEW20026".
+#5 WARNING(ORCAP-36006): Part Name "PART_U2_BLKCON100VHTM2OEW20026_UNKNOWN" is renamed to "PART_U2_BLKCON100VHTM2OEW20026_".
+#6 WARNING(ORCAP-36006): Part Name "PART_U3_BLKCON100VHTM2OEW20026_UNKNOWN" is renamed to "PART_U3_BLKCON100VHTM2OEW20026_".
+INFO(ORCAP-36080): Scanning netlist files ...
+
+Loading... D:\DeCad-main\Jrk_DeCad\Schematic2SDN\tools\eval\results\claude-ocr3-gate\S4-scan300\pcb-netlist\pstchip.dat
+
+Loading... D:\DeCad-main\Jrk_DeCad\Schematic2SDN\tools\eval\results\claude-ocr3-gate\S4-scan300\pcb-netlist\pstchip.dat
+
+Loading... D:\DeCad-main\Jrk_DeCad\Schematic2SDN\tools\eval\results\claude-ocr3-gate\S4-scan300\pcb-netlist\pstxprt.dat
+
+Loading... D:\DeCad-main\Jrk_DeCad\Schematic2SDN\tools\eval\results\claude-ocr3-gate\S4-scan300\pcb-netlist\pstxnet.dat
+packaging the design view...

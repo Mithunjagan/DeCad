@@ -1,0 +1,99 @@
+{
+ "parts_gt": 30,
+ "parts_found": 24,
+ "parts_spurious": 0,
+ "values_ok": 22,
+ "pins_gt": 72,
+ "pins_exact": 60,
+ "pins_present": 61,
+ "missed_parts": [
+  "U14",
+  "U17",
+  "R14",
+  "R15",
+  "R17",
+  "S3"
+ ],
+ "spurious_parts": [],
+ "wrong_values": [
+  [
+   "U27",
+   "UNKNOWN",
+   "74F174"
+  ],
+  [
+   "U40",
+   "74F103",
+   "74F10"
+  ]
+ ],
+ "wrong_pins": [
+  [
+   "U31.19",
+   null,
+   "ADDA7"
+  ],
+  [
+   "U31.23",
+   null,
+   "ADDA9"
+  ],
+  [
+   "U31.33",
+   null,
+   "PRAD0"
+  ],
+  [
+   "U31.37",
+   null,
+   "PRAD2"
+  ],
+  [
+   "U31.39",
+   null,
+   "PRAD3"
+  ],
+  [
+   "U31.1",
+   "F",
+   "PRAD4"
+  ],
+  [
+   "U31.18",
+   null,
+   "PRAD6"
+  ],
+  [
+   "U31.20",
+   null,
+   "PRAD7"
+  ],
+  [
+   "U31.24",
+   null,
+   "PRAD9"
+  ],
+  [
+   "U33.14",
+   null,
+   "ADDA9"
+  ],
+  [
+   "U34.9",
+   null,
+   "ADDA7"
+  ],
+  [
+   "U1.1",
+   null,
+   "PRAD7"
+  ]
+ ],
+ "token_replay": true,
+ "dsn_passed": true,
+ "dsn_pins": 251,
+ "strip_replay": {
+  "hits": 237,
+  "misses": 0
+ }
+}

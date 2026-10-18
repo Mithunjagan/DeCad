@@ -1,0 +1,14 @@
+{ Using PSTWRITER 26.1.0 d001Oct-18-2026 at 18:33:52 }
+
+#1 WARNING(ORCAP-36006): Part Name "CON40A_BLKCON100VHTM2OEW20040_CONNECTOR" is renamed to "CON40A_BLKCON100VHTM2OEW20040_C".
+#2 WARNING(ORCAP-36006): Part Name "54321_BLKCON100VHTM2OEW20026_54321" is renamed to "54321_BLKCON100VHTM2OEW20026_54".
+INFO(ORCAP-36080): Scanning netlist files ...
+
+Loading... D:\DeCad-main\Jrk_DeCad\Schematic2SDN\tools\eval\results\claude-ocr3-gate\S5\pcb-netlist\pstchip.dat
+
+Loading... D:\DeCad-main\Jrk_DeCad\Schematic2SDN\tools\eval\results\claude-ocr3-gate\S5\pcb-netlist\pstchip.dat
+
+Loading... D:\DeCad-main\Jrk_DeCad\Schematic2SDN\tools\eval\results\claude-ocr3-gate\S5\pcb-netlist\pstxprt.dat
+
+Loading... D:\DeCad-main\Jrk_DeCad\Schematic2SDN\tools\eval\results\claude-ocr3-gate\S5\pcb-netlist\pstxnet.dat
+packaging the design view...

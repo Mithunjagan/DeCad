@@ -1,0 +1,1 @@
+{'passed': True, 'samples': 108, 'signals': ['v(in)', 'v(out)'], 'ignored': ['i(v1)']}

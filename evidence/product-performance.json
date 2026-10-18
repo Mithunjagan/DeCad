@@ -1,0 +1,46 @@
+{
+  "scope": "Six serial CPU recognition calls on two 800x800 independently specified fixtures, in a 1 GiB/two-CPU Linux container. Not a general hardware or accuracy benchmark.",
+  "machine": "aarch64",
+  "runs": [
+    {
+      "fixture": "divider",
+      "seconds": 0.793,
+      "components": 3,
+      "nets": 3
+    },
+    {
+      "fixture": "rc",
+      "seconds": 0.728,
+      "components": 3,
+      "nets": 3
+    },
+    {
+      "fixture": "divider",
+      "seconds": 0.745,
+      "components": 3,
+      "nets": 3
+    },
+    {
+      "fixture": "rc",
+      "seconds": 0.78,
+      "components": 3,
+      "nets": 3
+    },
+    {
+      "fixture": "divider",
+      "seconds": 0.869,
+      "components": 3,
+      "nets": 3
+    },
+    {
+      "fixture": "rc",
+      "seconds": 0.97,
+      "components": 3,
+      "nets": 3
+    }
+  ],
+  "maximum_latency_seconds": 0.97,
+  "python_peak_rss_kib": 111840,
+  "child_peak_rss_kib": 111820,
+  "measurement_note": "Peak process RSS for Python and OCR children; not a simultaneous whole-container peak."
+}

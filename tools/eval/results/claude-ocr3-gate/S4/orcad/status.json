@@ -1,0 +1,60 @@
+{
+  "generated_symbols": [
+    "PART_U1",
+    "PART_U13",
+    "PART_U15",
+    "PART_U2",
+    "PART_U3"
+  ],
+  "corrections": [
+    "P1 pin 84 was on N00013 and N00057; kept N00013.",
+    "P1 pin 83 was on N00015 and N00345; kept N00015.",
+    "U31 pin 30 removed from N00475: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S4.DSN",
+  "size": 163328,
+  "passed": true,
+  "components": 25,
+  "checked_pins": 276,
+  "nets": 184,
+  "rendered_parts": 27,
+  "preview_error": null,
+  "implicit_power_pins": 25,
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "footprints": {
+    "assigned": 25,
+    "total": 25,
+    "placed": 25,
+    "sources": {
+      "standard (by package and pin count)": 13,
+      "symbol library": 12
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 183,
+    "connections": 301,
+    "parts": 25,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 42,
+    "labelled_pins": 150,
+    "crossings": 413,
+    "labelled_nets": 139
+  },
+  "source": null,
+  "sha256": "58fab46de9ccc62a2f72b32dd2f6c70cc7a2a9ac8cea9696a3a5b8f18a538909"
+}

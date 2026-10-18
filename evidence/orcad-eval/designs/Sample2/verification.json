@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 2,
+  "checked_pins": 11,
+  "implicit_power_pins": [],
+  "substitutions": {},
+  "generated_symbols": [
+    "PART_U0",
+    "PART_U76"
+  ],
+  "corrections": []
+}

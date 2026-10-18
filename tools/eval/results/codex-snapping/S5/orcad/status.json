@@ -1,0 +1,54 @@
+{
+  "generated_symbols": [
+    "31822",
+    "51021",
+    "54321",
+    "PART_U10",
+    "PART_U35",
+    "PART_U4",
+    "PART_U53"
+  ],
+  "corrections": [
+    "U19 pin 7 removed from N00563: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S5.DSN",
+  "size": 148992,
+  "passed": true,
+  "components": 23,
+  "checked_pins": 210,
+  "nets": 150,
+  "rendered_parts": 24,
+  "preview_error": null,
+  "implicit_power_pins": 22,
+  "substitutions": {},
+  "footprints": {
+    "assigned": 23,
+    "total": 23,
+    "placed": 23,
+    "sources": {
+      "standard (by package and pin count)": 11,
+      "symbol library": 11,
+      "placeholder header (review)": 1
+    },
+    "without": [],
+    "placeholder": [
+      "U35"
+    ],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 152,
+    "connections": 232,
+    "parts": 23,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 26,
+    "labelled_pins": 133,
+    "crossings": 148,
+    "labelled_nets": 124
+  },
+  "source": null,
+  "sha256": "d1dba6b049a11793968026c3485ce3db48a0db7f7a554536afed0cecb022a2d1"
+}

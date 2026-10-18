@@ -1,0 +1,15 @@
+{
+  "format": "OrCAD Capture native design (.DSN)",
+  "orcad_root": "D:\\",
+  "files": {
+    "S4_blur300.DSN": "1099acdbb164adfb5658a24b6e0cb38914fdd1a7ae03cd37ab65b2d2c144b947",
+    "circuit.json": "37942a51a375c07703d6649113168490e2335ca6b26adc3aa0892b8a5d13efae",
+    "orcad-mapping.json": "e097c590e7eae26f5001a27bdfd69d9561ad26c27fa9d46682d8e25d2317631a",
+    "verification.json": "ae7c13c746ca04b1e7dcae43aff4be801d569e90d0f2f08ca15e6a146a410c7c",
+    "footprints.csv": "cf418b9f99ce5cb12ae6e4a2ae5b2aed6e30f2d7f42ba02f711f43850bf18722",
+    "netlist.json": "625d63dd88943974e9331420eadbb8c1b7bbf2e45fb7fc436f68ad3ff5f2616f",
+    "netlist.csv": "4fc7ca60618979acbcee1948bb078949f9070981ec8faa053ffac29ca0d22fa8",
+    "S4_blur300.net": "aa1810e97bb228e69c692e3f117a626205d11aaeb71fb6b06036cd1205fe489d",
+    "S4_blur300.opj": "2b01f07bf53e535db81f96ad935355518299d54cfadcec1737f6a2f7109fe164"
+  }
+}

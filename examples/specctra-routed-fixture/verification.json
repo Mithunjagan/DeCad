@@ -1,0 +1,8 @@
+{
+  "format": "Specctra DSN",
+  "native_kicad_export": true,
+  "pcb_pin_net_roundtrip": true,
+  "kicad_version": "10.0.7",
+  "manufacturing_approved": false,
+  "note": "Unrouted board. Placement, courtyard overlap, DRC and routing require review."
+}

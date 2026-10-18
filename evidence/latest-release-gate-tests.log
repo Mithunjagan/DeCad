@@ -1,0 +1,9 @@
+test_complete_recorded_evidence_allows_review_only (test_check_release.ReleaseChecks.test_complete_recorded_evidence_allows_review_only) ... ok
+test_duplicate_evaluation_rows_block_release (test_check_release.ReleaseChecks.test_duplicate_evaluation_rows_block_release) ... ok
+test_missing_evidence_blocks_release (test_check_release.ReleaseChecks.test_missing_evidence_blocks_release) ... ok
+test_outside_artifact_cannot_satisfy_acceptance (test_check_release.ReleaseChecks.test_outside_artifact_cannot_satisfy_acceptance) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.010s
+
+OK

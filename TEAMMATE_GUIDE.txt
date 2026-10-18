@@ -1,0 +1,280 @@
+================================================================================
+          DeCad / Schematic2SDN — COMPLETE TEAM HANDOVER & RUN GUIDE
+================================================================================
+
+1. WHAT IS THIS PROJECT?
+--------------------------------------------------------------------------------
+DeCad (Schematic2SDN) is a full-stack engineering workbench that converts 
+circuit schematics (from images, PDFs, netlists, or text prompts) into:
+  - Native KiCad schematics (.kicad_sch) & PCB layouts (.kicad_pcb)
+  - Specctra DSN autorouting files (.dsn) ready for Freerouting / autorouters
+  - Full Bill of Materials (BOM) with real LCSC part numbers, unit prices, and stock
+  - SPICE netlists & Ngspice waveform simulations
+  - Git-versioned schematic revisions with direct GitHub push sync
+
+The system has a Next.js frontend, a FastAPI Python backend, an embedded 
+headless KiCad/Xvfb engine, and an optional GPU-trained Qwen2.5-VL Vision Adapter.
+
+
+2. SYSTEM ARCHITECTURE & COMPONENTS
+--------------------------------------------------------------------------------
+- Frontend:   Next.js (React) running on port 3000 (mapped to localhost:3100)
+- Backend:    FastAPI + KiCad CLI + pcbnew running on port 8000 (localhost:8100)
+- NoVNC/KiCad:Headless desktop for KiCad rendering on port 6080 (localhost:6180)
+- Storage:    Persisted under backend/workspaces/<username>/<project_name>
+- Libraries:  Official KiCad 9 symbol and footprint libraries + components.db
+- Vision:     Dual mode:
+              a) CPU Engine (default): OpenCV + Tesseract OCR (0 GPU needed)
+              b) GPU Adapter: Qwen2.5-VL 4-bit LoRA adapter (runs on Colab/GPU)
+
+
+3. REQUIRED & OPTIONAL EXTERNAL APPS FOR TESTING
+--------------------------------------------------------------------------------
+A. MANDATORY TO RUN THE APPLICATION:
+   1. Docker Desktop (Mac, Windows WSL2, or Linux)
+      - The backend runs KiCad 9, pcbnew, and Ngspice inside Docker.
+      - Go to Docker Desktop Settings -> Resources:
+        Allocate at least 4 GB to 6 GB of RAM and 2 CPUs.
+   2. Git (Command Line)
+      - Used for cloning the repo and testing schematic commit/push workflows.
+   3. Modern Web Browser (Chrome, Firefox, Brave, Safari, Edge)
+      - Used to interact with the workbench on http://localhost:3100.
+
+B. OPTIONAL EXTERNAL APPS FOR VERIFYING GENERATED FILES:
+   4. KiCad (Desktop App, version 8 or 9) — https://www.kicad.org/download/
+      - Useful if your teammate wants to double-check downloaded schematic files
+        (.kicad_sch) and PCB files (.kicad_pcb) natively on their operating system.
+      - Note: KiCad is ALREADY bundled and runs headlessly inside the Docker
+        container, so installing it on the host is purely for optional manual review.
+   5. Freerouting (for Specctra .DSN autorouting) — https://freerouting.mihosoft.eu/
+      - Freerouting is the standard open-source autorouter for PCB designers.
+      - Teammate can import the downloaded .dsn file (from "ROUTING / SPECTRA DSN"),
+        let Freerouting route all traces, and export a routed .ses session file back
+        into KiCad PCB editor!
+   6. Java Runtime Environment (JRE 17+)
+      - Only needed if running Freerouting standalone (.jar).
+   7. Postman / cURL (Optional API Testing)
+      - Useful for testing backend endpoints directly:
+        * GET  http://localhost:8100/health
+        * GET  http://localhost:8100/projects/Test1/details
+        * GET  http://localhost:8100/projects/Test1/export/specctra-dsn
+   8. Ngspice (Desktop CLI) — https://ngspice.sourceforge.io/
+      - Ngspice is already built into the Docker container for the "Waveform Scope"
+        tab, but having local Ngspice allows running raw exported .cir files.
+   9. VS Code / Cursor / Any Code Editor
+      - For inspecting code, JSON payloads, and logs.
+
+
+4. QUICKSTART: HOW TO RUN THE APP LOCALLY (3 STEPS)
+--------------------------------------------------------------------------------
+Step 1: Clone or navigate to the project directory:
+   cd Schematic2SDN
+
+Step 2: Start the application via Docker Compose:
+   docker compose up -d --build
+
+   (Or on macOS, double-click: ./start.command)
+
+Step 3: Open the browser:
+   http://localhost:3100
+
+That's it! The full workbench will load up with KiCad ready.
+
+
+5. COMPLETE UI GUIDE: WHAT EVERY BUTTON & OPTION DOES
+--------------------------------------------------------------------------------
+
+A. TOP NAVIGATION BAR (Header):
+   - [DeCad Logo & Tag]: Branding and application version indicator.
+   - [Project Breadcrumbs] (e.g. "Test1 / rev 6c9eb70"):
+     Shows active project name and short Git commit hash of current schematic.
+   - [Theme Dropdown]:
+     Switches live between 10 UI themes (Forge Industrial Dark, Nebula Violet,
+     Phosphor CRT Matrix, Neon Cyber, Daylight Light, Cyberpunk, Monokai,
+     Obsidian OLED, Blueprint Engineering, Solarized Slate).
+   - [KiCad ready / KiCad unavailable Badge]:
+     Green dot indicates the backend KiCad CLI and rendering server is healthy.
+   - [CPU circuit recognition / Vision setup Badge]:
+     Shows whether CPU image extraction (OpenCV/Tesseract) or GPU vision is active.
+   - [@username Dropdown Menu]:
+     * "Signed in as @user": Shows your authenticated GitHub account.
+     * "View GitHub profile": Opens your profile on github.com in a new tab.
+     * "Switch / Link GitHub account": Lets you link another account or paste a PAT.
+     * "Log out session": Clears credentials and returns to landing screen.
+   - [View Repo Button]:
+     Opens the project's GitHub repository. If the repo hasn't been created yet,
+     it automatically creates the private repo "s2sdn-<pid>", pushes the code,
+     and navigates directly to the live GitHub repository without giving a 404.
+   - [Git Push Button]:
+     Stages all current schematic edits, creates a Git commit, and pushes to GitHub.
+   - [Git Push Dropdown (arrow)]:
+     Provides quick options: "View Repository" or "Push latest changes".
+
+
+B. LEFT SIDEBAR (Projects & Files):
+   - [+] "New Project" Button:
+     Opens the dialog to create a new KiCad project folder with clean Git history.
+   - [Local Host Storage (📁) Card]:
+     Displays host filesystem directory where your files live. Clicking it copies
+     the absolute host path to your clipboard.
+   - [Project Cards] (e.g. "Test1"):
+     * Single-click: Switches active project.
+     * DOUBLE-CLICK: Instantly returns to the KiCad schematic design window.
+   - [KICAD Files] (e.g. *.kicad_sch, *.kicad_pcb, *.kicad_pro):
+     Click to view raw S-Expression source code in the Source editor tab.
+   - [ROUTING / SPECTRA DSN] (e.g. "Test1.dsn"):
+     Click to download the Specctra DSN autorouter file generated via KiCad's
+     pcbnew engine. Ready to feed into Freerouting or other autorouters.
+   - [CHECKS: netlist.xml]:
+     Click to view electrical connectivity netlist in the Nets tab.
+   - [CHECKS: validation.json]:
+     Click to view Electrical Rules Check (ERC) violations and check status.
+   - [DATA: bom.csv]:
+     Click to switch to the Bill of Materials table.
+   - [DATA: circuit.json]:
+     Click to view the connectivity graph structure.
+   - [Import circuit source (File/Text) Button]:
+     Upload circuit documents (PDF, TXT, DOCX, PNG, JPG, CSV, SPICE netlist).
+   - [Place exact KiCad symbol Button]:
+     Fills the assistant chat prompt to search and place specific symbol libraries.
+   - [Search supplier catalog Button]:
+     Opens LCSC electronics supplier in a new browser tab.
+   - [Push project to GitHub Button]:
+     Quick sidebar shortcut to trigger remote repository push.
+
+
+C. CENTER WORKSPACE (Tabs & Viewer):
+   1. Tab Bar Options:
+      - [Applications & models]:
+        Shows connected AI models, Ollama endpoints, dataset counts, and audit logs.
+      - [Schematic]:
+        The main design view. Displays vector preview of the KiCad schematic sheet.
+      - [Source]:
+        Interactive code editor showing raw KiCad S-Expression schematic code.
+        Supports in-place editing, syntax checking, and "Save source" committing.
+      - [BOM] (Bill of Materials):
+        Comprehensive component table with:
+        * Reference (e.g. U1, R1)
+        * Value (e.g. 74LS240, 10k)
+        * Footprint (e.g. Package_DIP:DIP-20_W7.62mm, Resistor_THT)
+        * LCSC Part (e.g. C13831)
+        * Unit Price in INR (e.g. ₹41.75)
+        * Stock availability (e.g. 7,031 in stock)
+        * "Check on LCSC / JLCPCB" external purchase link
+      - [Nets]:
+        Electrical nets breakdown showing each signal rail and attached pins.
+      - [Checks]:
+        KiCad Electrical Rules Check (ERC) summary: flags unbuffered inputs,
+        shorts, floating nets, and design rule violations.
+      - [History]:
+        Git commit timeline showing author, timestamp, hash, and commit messages.
+      - [Waveform Scope]:
+        Runs Ngspice transient circuit simulation and renders interactive
+        interactive voltage/current oscilloscope waveforms.
+
+   2. Schematic Secondary Toolbar (under the tabs in Schematic mode):
+      - [New File Icon]: Creates a new circuit project.
+      - [Save / Push Icon]: Pushes schematic changes.
+      - [Refresh / Redraw Icon]: Re-renders KiCad vector preview canvas.
+      - [Zoom In (+)] / [Zoom Out (-)]: Scales schematic preview canvas.
+      - [Fit / Reset Zoom]: Resets canvas magnification to 100%.
+      - [Grid Toggle]: Toggles visual reference alignment grid.
+      - [Edit in KiCad Button]: Opens embedded KiCad desktop editor in-browser.
+      - [Download Dropdown]:
+        * In Schematic tab: Export as Vector .SVG, .KICAD_SCH, or Full Project .ZIP
+        * In Source tab: Export as S-Expression .KICAD_SCH or Plain .TXT
+        * In BOM tab: Export as Spreadsheet .CSV or .JSON structure
+        * In Nets tab: Export as PCB Specctra DSN .ZIP, EDIF .EDF, or SPICE .CIR
+
+
+D. RIGHT SIDEBAR (AI Assistant & Chat):
+   - [Model Selector Dropdown]:
+     Choose model tier (e.g. "Default circuit assistant" or "vision server").
+   - [Conversation Stream]:
+     Displays chat history, commands, and generated proposals.
+   - [Cheat Sheet Quick-Action Pills]:
+     * "voltage divider": Pre-fills a prompt for a divider circuit.
+     * "R1 = 4.7k": Pre-fills a prompt to modify component value.
+     * "add C1 / R1": Pre-fills a prompt to add passives.
+     * "net GND": Pre-fills a prompt to create net connections.
+   - [Uploaded File Cards]:
+     Shows thumbnail previews of attached files.
+     * DOUBLE-CLICK any image thumbnail to open the enlarged Lightbox Inspection
+       modal box with full resolution!
+   - [Message Input Box]:
+     Type prompts like "Add dual op-amp LM358" or "Invert enable on U1".
+   - [Attach (+) Button]:
+     Browse and attach schematic diagrams, drawings, or netlists to your message.
+   - [Send Arrow Button]:
+     Submits prompt and attachments to the assistant engine.
+
+
+E. MODAL DIALOGS:
+   - [Circuit Review Dialog]:
+     Appears after uploading an image/PDF. Shows proposed components and pin
+     connections side-by-side with your source. Lets you review, correct values,
+     and check "I verified these connections" before applying into KiCad.
+   - [Board Export Dialog] (Specctra PCB):
+     Lets you customize PCB dimensions (width/height mm), track width, clearances,
+     and footprint package mappings before exporting .dsn and .kicad_pcb.
+   - [Image Lightbox Modal]:
+     Opened by double-clicking uploaded images in chat for pixel-level inspection.
+
+
+6. HOW TO RUN WITH THE TRAINED GPU VISION ADAPTER (COLAB / REMOTE GPU)
+--------------------------------------------------------------------------------
+By default, the app uses the built-in CPU Circuit Engine. If you want to run 
+inference using the trained Qwen2.5-VL LoRA Adapter:
+
+1. Open Google Colab (with T4 or A100 GPU).
+2. Open the notebook: training/Train_Schematic2SDN_Colab.ipynb
+3. Upload the adapter folder: checkpoints/circuit-lora/adapter
+4. Start the inference server in Colab:
+   S2SDN_ADAPTER=/content/checkpoints/circuit-lora/adapter \
+   S2SDN_MODEL_TAG=schematic2sdn-qwen-vl \
+   python -m uvicorn serve:app --app-dir training --host 0.0.0.0 --port 11435
+
+5. Forward port 11435 to your local machine:
+   ssh -N -L 11435:127.0.0.1:11435 user@colab-instance
+
+6. In your root .env file, update:
+   IMAGE_MODE=vision
+   VISION_MODEL=schematic2sdn-qwen-vl
+   VISION_OLLAMA_URL=http://host.docker.internal:11435
+
+7. Restart the backend:
+   docker compose up -d kicad
+   The status indicator in the top navbar will show "Vision model installed".
+
+
+7. WHY OUTPUTS ARE GUARANTEED CORRECT
+--------------------------------------------------------------------------------
+1. Circuit Review Dialog: Any AI-recognized circuit opens a preview verification
+   box before anything is committed to the file. You inspect values & nets.
+2. Electrical Rules Check (ERC): KiCad's native validator checks every single
+   trace and net connection immediately upon saving.
+3. Specctra DSN Pin-Net Equivalence: Exported .dsn files are validated against
+   KiCad pcbnew's netlist before download to guarantee 100% pin-level fidelity.
+
+
+8. KEY DIRECTORY MAP
+--------------------------------------------------------------------------------
+├── backend/
+│   ├── app/
+│   │   ├── main.py            # API routes (BOM, DSN export, GitHub sync)
+│   │   ├── engine.py          # KiCad S-Expression manipulation & placement
+│   │   ├── specctra.py        # Specctra DSN export orchestrator
+│   │   └── specctra_worker.py # Native pcbnew Python binding for .dsn export
+│   └── workspaces/            # Saved user schematic files
+├── frontend/
+│   └── app/
+│       ├── page.js            # Main workbench interface
+│       ├── globals.css        # Responsive layouts & 10 theme styles
+│       └── BoardExport.js     # Interactive PCB placement dialog
+├── checkpoints/
+│   └── circuit-lora/adapter/  # Trained LoRA safetensors weights
+├── training/                  # Finetuning scripts, Colab notebook, & evaluator
+├── libraries/                 # KiCad official symbols, footprints, & SQLite DB
+├── docker-compose.yml         # Container definitions
+└── .env                       # Environment configuration
+================================================================================

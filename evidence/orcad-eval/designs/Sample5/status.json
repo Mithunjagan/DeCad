@@ -1,0 +1,26 @@
+{
+  "generated_symbols": [
+    "31822",
+    "51021",
+    "54321",
+    "PART_U10",
+    "PART_U35",
+    "PART_U4",
+    "PART_U53"
+  ],
+  "corrections": [
+    "U19 pin 7 removed from N00563: it is a fixed power/ground pin of the part."
+  ],
+  "design": "Sample5.DSN",
+  "size": 142848,
+  "passed": true,
+  "components": 23,
+  "checked_pins": 210,
+  "nets": 150,
+  "rendered_parts": 24,
+  "preview_error": null,
+  "implicit_power_pins": 22,
+  "substitutions": {},
+  "source": null,
+  "sha256": "8d84a6df24350b036506efd6170b94cc704dc4a1103b9a297719c988fada337c"
+}

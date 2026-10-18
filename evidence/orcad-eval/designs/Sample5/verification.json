@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 23,
+  "checked_pins": 210,
+  "implicit_power_pins": [
+    "U17.14=VCC",
+    "U17.7=GND",
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U36.12=GND",
+    "U36.24=VCC",
+    "U37.12=GND",
+    "U37.24=VCC",
+    "U49.12=GND",
+    "U49.24=VCC",
+    "U50.12=GND",
+    "U50.24=VCC",
+    "U56.16=VCC",
+    "U56.8=GND",
+    "U60.16=VCC",
+    "U60.8=GND",
+    "U63.14=VCC",
+    "U63.7=GND",
+    "U64.16=VCC",
+    "U64.8=GND",
+    "U8.16=VCC",
+    "U8.8=GND"
+  ],
+  "substitutions": {},
+  "generated_symbols": [
+    "31822",
+    "51021",
+    "54321",
+    "PART_U10",
+    "PART_U35",
+    "PART_U4",
+    "PART_U53"
+  ],
+  "corrections": [
+    "U19 pin 7 removed from N00563: it is a fixed power/ground pin of the part."
+  ]
+}

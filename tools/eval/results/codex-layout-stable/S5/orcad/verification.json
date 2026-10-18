@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 23,
+  "checked_pins": 210,
+  "implicit_power_pins": [
+    "U17.14=VCC",
+    "U17.7=GND",
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U36.12=GND",
+    "U36.24=VCC",
+    "U37.12=GND",
+    "U37.24=VCC",
+    "U49.12=GND",
+    "U49.24=VCC",
+    "U50.12=GND",
+    "U50.24=VCC",
+    "U56.16=VCC",
+    "U56.8=GND",
+    "U60.16=VCC",
+    "U60.8=GND",
+    "U63.14=VCC",
+    "U63.7=GND",
+    "U64.16=VCC",
+    "U64.8=GND",
+    "U8.16=VCC",
+    "U8.8=GND"
+  ],
+  "placed_footprints": {
+    "U56": "DIP10016W300L900",
+    "R12": "res400",
+    "U4": "dip8_3",
+    "U19": "DIP10014W300L800",
+    "U60": "DIP10016W300L900",
+    "U54": "dip32_6",
+    "U22": "dip18_3",
+    "R19": "res400",
+    "U53": "dip24_3",
+    "P2": "din96abcv",
+    "U64": "DIP10016W300L900",
+    "U35": "blkcon100vhtm2oew20026",
+    "U49": "DIP10024W300L1250",
+    "P1": "din96abcv",
+    "U50": "DIP10024W300L1250",
+    "J1": "blkcon100vhtm2oew20040",
+    "U21": "dip20_3",
+    "U63": "DIP10014W300L800",
+    "U8": "DIP10016W300L900",
+    "U36": "DIP10024W300L1250",
+    "U17": "DIP10014W300L800",
+    "U37": "DIP10024W300L1250",
+    "U10": "dip20_3"
+  },
+  "substitutions": {},
+  "routing": {
+    "wired_nets": 27,
+    "labelled_pins": 135,
+    "crossings": 109,
+    "labelled_nets": 123
+  },
+  "generated_symbols": [
+    "31822",
+    "51021",
+    "54321",
+    "PART_U10",
+    "PART_U35",
+    "PART_U4",
+    "PART_U53"
+  ],
+  "corrections": [
+    "U19 pin 7 removed from N00563: it is a fixed power/ground pin of the part."
+  ],
+  "footprints": {
+    "assigned": 23,
+    "total": 23,
+    "placed": 23,
+    "sources": {
+      "standard (by package and pin count)": 11,
+      "symbol library": 11,
+      "placeholder header (review)": 1
+    },
+    "without": [],
+    "placeholder": [
+      "U35"
+    ],
+    "not_in_library": []
+  },
+  "user_libraries": {}
+}

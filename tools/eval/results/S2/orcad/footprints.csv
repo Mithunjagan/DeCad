@@ -1,0 +1,22 @@
+Reference,Value,Library,Package,PCB Footprint,Footprint source
+P1,CONNECTOR,Connector.olb,DIN96,din96abcv,standard (by package and pin count)
+P2,CONNECTOR,Connector.olb,DIN96,din96abcv,standard (by package and pin count)
+U43,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U53,UNKNOWN,DECAD_GENERATED.OLB,PART_U53,dip18_3,standard (by package and pin count)
+U6,1R,DECAD_GENERATED.OLB,1R,blkcon100vhtm2oew2004,placeholder header (review)
+U67,UNKNOWN,DECAD_GENERATED.OLB,PART_U67,dip10_3,standard (by package and pin count)
+U7,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U70,74F244,74f.olb,74F244,DIP10020W300L1050,symbol library
+U74,TC514100,DRAM.OLB,HM514100JP_20SOJ,dip18_3,standard (by package and pin count)
+U76,UNKNOWN,DECAD_GENERATED.OLB,PART_U76,dip24_3,standard (by package and pin count)
+U8,TC514100,DRAM.OLB,HM514100JP_20SOJ,dip18_3,standard (by package and pin count)
+U94,TC514100,DRAM.OLB,HM514100JP_20SOJ,dip18_3,standard (by package and pin count)
+U_1,TC514100,DRAM.OLB,HM514100JP_20SOJ,dip18_3,standard (by package and pin count)
+U_2,TC514100,DRAM.OLB,HM514100JP_20SOJ,dip18_3,standard (by package and pin count)
+U_3,TC514100,DRAM.OLB,HM514100JP_20SOJ,dip18_3,standard (by package and pin count)
+U_4,74F211,TTL4.OLB,74F211,dip20_3,standard (by package and pin count)
+U_5,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U_6,TC514100,DRAM.OLB,HM514100JP_20SOJ,dip18_3,standard (by package and pin count)
+U_7,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U_8,74F273,74f.olb,74F273,DIP10020W300L1050,symbol library
+U_9,74F244,74f.olb,74F244,DIP10020W300L1050,symbol library

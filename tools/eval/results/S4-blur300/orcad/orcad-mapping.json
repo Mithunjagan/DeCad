@@ -1,0 +1,86 @@
+{
+  "P1": {
+    "library": "Connector.olb",
+    "package": "DIN96",
+    "match": "connector by pin names",
+    "value": "CONNECTOR"
+  },
+  "P2": {
+    "library": "Connector.olb",
+    "package": "DIN96",
+    "match": "connector by pin names",
+    "value": "CONNECTOR"
+  },
+  "R20": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "510R"
+  },
+  "U19": {
+    "library": "74f.olb",
+    "package": "74F02",
+    "match": "part number",
+    "value": "74F02"
+  },
+  "U25": {
+    "library": "74f.olb",
+    "package": "74F240",
+    "match": "part number",
+    "value": "74F240"
+  },
+  "U27": {
+    "library": "74f.olb",
+    "package": "74F174",
+    "match": "part number",
+    "value": "74F174"
+  },
+  "U28": {
+    "library": "74f.olb",
+    "package": "74F174",
+    "match": "part number",
+    "value": "74F174"
+  },
+  "U29": {
+    "library": "74f.olb",
+    "package": "74F174",
+    "match": "part number",
+    "value": "74F174"
+  },
+  "U33": {
+    "library": "74f.olb",
+    "package": "74F240",
+    "match": "part number",
+    "value": "74F240"
+  },
+  "U34": {
+    "library": "74f.olb",
+    "package": "74F240",
+    "match": "part number",
+    "value": "74F240"
+  },
+  "U39": {
+    "library": "74f.olb",
+    "package": "74F00",
+    "match": "part number",
+    "value": "74F00"
+  },
+  "U40": {
+    "library": "74f.olb",
+    "package": "74F10",
+    "match": "part number",
+    "value": "74F10"
+  },
+  "U_1": {
+    "library": "74f.olb",
+    "package": "74F240",
+    "match": "part number",
+    "value": "74F240"
+  },
+  "U_2": {
+    "library": "74f.olb",
+    "package": "74F151",
+    "match": "part number",
+    "value": "74F151"
+  }
+}

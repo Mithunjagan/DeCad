@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 28,
+  "checked_pins": 233,
+  "implicit_power_pins": [
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U25.10=GND",
+    "U25.20=VCC",
+    "U27.16=VCC",
+    "U27.8=GND",
+    "U28.16=VCC",
+    "U28.8=GND",
+    "U29.16=VCC",
+    "U29.8=GND",
+    "U31.30=GND",
+    "U33.10=GND",
+    "U33.20=VCC",
+    "U34.10=GND",
+    "U34.20=VCC",
+    "U38.16=VCC",
+    "U38.8=GND",
+    "U39.14=VCC",
+    "U39.7=GND",
+    "U_1.16=VCC",
+    "U_1.8=GND",
+    "U_2.14=VCC",
+    "U_2.7=GND"
+  ],
+  "placed_footprints": {
+    "R15": "res400",
+    "U38": "DIP10016W300L900",
+    "U_1": "DIP10016W300L900",
+    "U15": "blkcon100vhtm2oew20026",
+    "U_2": "DIP10014W300L800",
+    "U40": "dip8_3",
+    "U1": "blkcon100vhtm2oew20026",
+    "P3": "din96abcv",
+    "R18": "res400",
+    "U19": "DIP10014W300L800",
+    "U39": "DIP10014W300L800",
+    "U3": "dip22_3",
+    "U29": "DIP10016W300L900",
+    "U28": "DIP10016W300L900",
+    "R20": "res400",
+    "R14": "res400",
+    "R11": "res400",
+    "U25": "DIP10020W300L1050",
+    "R1": "res400",
+    "U31": "dip40_6",
+    "U13": "blkcon100vhtm2oew20026",
+    "J1": "blkcon100vhtm2oew20040",
+    "P1": "din96abcv",
+    "U33": "DIP10020W300L1050",
+    "U34": "DIP10020W300L1050",
+    "U27": "DIP10016W300L900",
+    "U2": "blkcon100vhtm2oew20026",
+    "P2": "din96abcv"
+  },
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "routing": {
+    "error": "wiring skipped: OrCAD Capture: RuntimeError ERROR(ORDBDLL-1017): License not found\n    while executing\n\"DboTclHelper_sCreateSession\"\n    invoked from within\n\"set s [DboTclHelper_sCreateSession]\"\n    (file \"D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_dump.tcl\" line 6)\n"
+  },
+  "generated_symbols": [
+    "74F103",
+    "PART_U1",
+    "PART_U13",
+    "PART_U15",
+    "PART_U2",
+    "PART_U3"
+  ],
+  "corrections": [
+    "P1 pin 83 was on D1SAD and N00022; kept D1SAD.",
+    "P1 pin 86 was on N00027 and N00102; kept N00027.",
+    "P1 pin 84 was on N00015 and N00104; kept N00015.",
+    "P2 pin 19 was on N00078 and N00114; kept N00078.",
+    "U3 pin 03 removed from INST1: the part has no such pin.",
+    "U31 pin 30 removed from N00539: it is a fixed power/ground pin of the part.",
+    "U39 pin 14 removed from N00607_715: it is a fixed power/ground pin of the part.",
+    "U39 pin 7 removed from N00694: it is a fixed power/ground pin of the part."
+  ],
+  "footprints": {
+    "assigned": 28,
+    "total": 28,
+    "placed": 28,
+    "sources": {
+      "standard (by package and pin count)": 13,
+      "placeholder header (review)": 4,
+      "symbol library": 11
+    },
+    "without": [],
+    "placeholder": [
+      "U1",
+      "U13",
+      "U15",
+      "U2"
+    ],
+    "not_in_library": []
+  },
+  "user_libraries": {}
+}

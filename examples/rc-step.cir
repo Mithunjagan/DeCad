@@ -1,0 +1,6 @@
+* RC lowpass: R*C = 1 ms
+V1 VIN 0 PULSE(0 5 10u 1n 1n 10m 20m)
+R1 VIN VOUT 10k
+C1 VOUT 0 100nF
+.tran 1u 5m
+.end

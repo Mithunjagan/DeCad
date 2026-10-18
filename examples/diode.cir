@@ -1,0 +1,7 @@
+* Diode with an explicit device model
+V1 VIN 0 DC 5
+R1 VIN OUT 1k
+D1 OUT 0 DTEST
+.model DTEST D(IS=1e-14 N=1)
+.tran 10u 1m
+.end

@@ -1,0 +1,18 @@
+{
+  "generated_symbols": [],
+  "corrections": [
+    "U_2 pin 8 removed from N00810: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S4_blur300.DSN",
+  "size": 67584,
+  "passed": true,
+  "components": 14,
+  "checked_pins": 34,
+  "nets": 35,
+  "rendered_parts": 14,
+  "preview_error": null,
+  "implicit_power_pins": 22,
+  "substitutions": {},
+  "source": null,
+  "sha256": "fae8525f0a2ae06342f0ce2a14076c437798600cae311ebc579e7ec2a8187585"
+}

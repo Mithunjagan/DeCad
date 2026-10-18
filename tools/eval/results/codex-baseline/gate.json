@@ -1,0 +1,24 @@
+{
+  "regressions": [
+    "S4: {}",
+    "S3: {}",
+    "S5: {}",
+    "S4-scan300: {}",
+    "S4-blur300: {}",
+    "S4-scan200: {}",
+    "S1: PCB netlist did not report zero errors",
+    "S2: PCB netlist did not report zero errors"
+  ],
+  "netlists": {
+    "S1": {
+      "passed": false,
+      "returncode": 0,
+      "error_counts": []
+    },
+    "S2": {
+      "passed": false,
+      "returncode": 0,
+      "error_counts": []
+    }
+  }
+}

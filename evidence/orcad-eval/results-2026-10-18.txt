@@ -1,0 +1,23 @@
+1 OK 105 s 23 parts 188 pins 138 nets gen []
+2 OK 137 s 2 parts 11 pins 11 nets gen ['PART_U0', 'PART_U76']
+3 OK 153 s 39 parts 390 pins 278 nets gen ['29520', '74BCI2244', '74F161', '74F163', 'PART_U20', 'PART_U21', 'PART_U27', 'PART_U28', 'PART_U29', 'PART_U34', 'PART_U4', 'PART_U54', 'PART_U86']
+4 OK 115 s 24 parts 251 pins 179 nets gen ['74F103', 'PART_U1', 'PART_U13', 'PART_U15', 'PART_U2', 'PART_U27', 'PART_U3']
+5 OK 139 s 23 parts 210 pins 150 nets gen ['31822', '51021', '54321', 'PART_U10', 'PART_U35', 'PART_U4', 'PART_U53']
+== S1
+PARTS recall 23/28=82% precision 23/23=100% values 23/23
+PINS labeled-net exact 29/56=52%; pin present 38/56
+== S2
+PARTS (partial GT: unlisted U-refs not counted) recall 0/0=0% precision 0/0=0% values 0/0
+PINS labeled-net exact 0/0=0%; pin present 0/0
+VALUE COUNTS (expected at least): {'TC514100': '0/16', '74F374': '0/8', '74F244': '0/4'}  total parts read 2
+== S3
+PARTS (partial GT: unlisted U-refs not counted) recall 27/34=79% precision 27/28=96% values 25/27
+PINS labeled-net exact 38/69=55%; pin present 49/69
+== S4
+PARTS recall 24/30=80% precision 24/24=100% values 22/24
+PINS labeled-net exact 38/72=53%; pin present 61/72
+== S5
+PARTS (partial GT: unlisted U-refs not counted) recall 19/25=76% precision 19/19=100% values 15/19
+PINS labeled-net exact 20/48=42%; pin present 30/48
+
+[exited with code 0]

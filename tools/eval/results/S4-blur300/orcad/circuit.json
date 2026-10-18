@@ -1,0 +1,405 @@
+{
+  "components": [
+    {
+      "ref": "P1",
+      "value": "CONNECTOR",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "P2",
+      "value": "CONNECTOR",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "R20",
+      "value": "510R",
+      "library": "Device:R",
+      "footprint": null
+    },
+    {
+      "ref": "U19",
+      "value": "74F02",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "U25",
+      "value": "74F240",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "U27",
+      "value": "74F174",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "U28",
+      "value": "74F174",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "U29",
+      "value": "74F174",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "U33",
+      "value": "74F240",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "U34",
+      "value": "74F240",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "U39",
+      "value": "74F00",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "U40",
+      "value": "74F10",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "U_1",
+      "value": "74F240",
+      "library": null,
+      "footprint": null
+    },
+    {
+      "ref": "U_2",
+      "value": "74F151",
+      "library": null,
+      "footprint": null
+    }
+  ],
+  "nets": [
+    {
+      "name": "ANNNANAN",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "B19"
+        }
+      ]
+    },
+    {
+      "name": "IM",
+      "nodes": [
+        {
+          "ref": "U34",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "IT",
+      "nodes": [
+        {
+          "ref": "U33",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "LL",
+      "nodes": [
+        {
+          "ref": "U33",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "M151",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "9"
+        }
+      ]
+    },
+    {
+      "name": "MM",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00013",
+      "nodes": [
+        {
+          "ref": "U40",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00074",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "B18"
+        }
+      ]
+    },
+    {
+      "name": "N00101",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "A19"
+        }
+      ]
+    },
+    {
+      "name": "N00105",
+      "nodes": [
+        {
+          "ref": "U27",
+          "pin": "13"
+        }
+      ]
+    },
+    {
+      "name": "N00455",
+      "nodes": [
+        {
+          "ref": "U27",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00458",
+      "nodes": [
+        {
+          "ref": "U29",
+          "pin": "15"
+        }
+      ]
+    },
+    {
+      "name": "N00606",
+      "nodes": [
+        {
+          "ref": "U27",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00636",
+      "nodes": [
+        {
+          "ref": "U25",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00671",
+      "nodes": [
+        {
+          "ref": "U34",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "N00711",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00712",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00789",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "13"
+        }
+      ]
+    },
+    {
+      "name": "N00809",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N00810",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "8"
+        }
+      ]
+    },
+    {
+      "name": "N00821",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "N00844",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00851",
+      "nodes": [
+        {
+          "ref": "P2",
+          "pin": "A23"
+        }
+      ]
+    },
+    {
+      "name": "N00925",
+      "nodes": [
+        {
+          "ref": "U34",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00986",
+      "nodes": [
+        {
+          "ref": "U33",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N01069",
+      "nodes": [
+        {
+          "ref": "U34",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N01166",
+      "nodes": [
+        {
+          "ref": "U39",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N01289",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "12"
+        }
+      ]
+    },
+    {
+      "name": "N01396",
+      "nodes": [
+        {
+          "ref": "R20",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N01495",
+      "nodes": [
+        {
+          "ref": "U28",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N01498",
+      "nodes": [
+        {
+          "ref": "U29",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "N01499",
+      "nodes": [
+        {
+          "ref": "U29",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N01583",
+      "nodes": [
+        {
+          "ref": "U28",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N01629",
+      "nodes": [
+        {
+          "ref": "U19",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N01634",
+      "nodes": [
+        {
+          "ref": "P2",
+          "pin": "C20"
+        }
+      ]
+    }
+  ]
+}

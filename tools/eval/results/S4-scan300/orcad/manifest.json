@@ -1,0 +1,12 @@
+{
+  "format": "OrCAD Capture native design (.DSN)",
+  "orcad_root": "D:\\",
+  "files": {
+    "S4_scan300.DSN": "684d35ffc86179c1a9ace220462ac1cf9ee5b38a7a31b8d7d7970036e2cf708d",
+    "circuit.json": "f800813581c6f451b0b3459fcadd2ce91dfb4e7c0c592adeec6e62dbabef8f06",
+    "orcad-mapping.json": "89ce3cd3166b98c650ea9d4c798482867a6a86fa0dcb17e16b1f2dbea041f39d",
+    "verification.json": "64dfa7ea87bda30d2d955493a76bd4598a8290e4df5b1014467aeaf246a09fe9",
+    "DECAD_GENERATED.OLB": "736122cb04efdbfe8740b15a8c3786d2264e0330a17f8776a045329cb2cb0f7c",
+    "S4_scan300.opj": "ac84510d1f005ab164edae4f96b31e247dc3e2e40f9e4b27f69a11cb4d12d105"
+  }
+}

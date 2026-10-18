@@ -1,0 +1,52 @@
+{
+  "generated_symbols": [],
+  "corrections": [
+    "U_3 pin 8 removed from N00788: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S4_blur300.DSN",
+  "size": 76800,
+  "passed": true,
+  "components": 15,
+  "checked_pins": 45,
+  "nets": 46,
+  "rendered_parts": 15,
+  "preview_error": null,
+  "implicit_power_pins": 24,
+  "substitutions": {
+    "U_2": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "footprints": {
+    "assigned": 15,
+    "total": 15,
+    "placed": 15,
+    "sources": {
+      "standard (by package and pin count)": 4,
+      "symbol library": 11
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 47,
+    "connections": 69,
+    "parts": 15,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 0,
+    "labelled_pins": 45,
+    "crossings": 0,
+    "labelled_nets": 45
+  },
+  "source": null,
+  "sha256": "1099acdbb164adfb5658a24b6e0cb38914fdd1a7ae03cd37ab65b2d2c144b947"
+}

@@ -1,0 +1,187 @@
+{
+ "parts_gt": 34,
+ "parts_found": 27,
+ "parts_spurious": 1,
+ "values_ok": 25,
+ "pins_gt": 69,
+ "pins_exact": 40,
+ "pins_present": 49,
+ "missed_parts": [
+  "U7",
+  "U84",
+  "U66",
+  "U89",
+  "R8",
+  "R11",
+  "S2"
+ ],
+ "spurious_parts": [
+  "R1"
+ ],
+ "wrong_values": [
+  [
+   "U4",
+   "UNKNOWN",
+   "74F161"
+  ],
+  [
+   "U83",
+   "74BCI2244",
+   "74BCT2244"
+  ]
+ ],
+ "wrong_pins": [
+  [
+   "U6.14",
+   "N00726_681",
+   "AAA1"
+  ],
+  [
+   "U6.13",
+   null,
+   "AAA2"
+  ],
+  [
+   "U6.12",
+   "AAA2",
+   "AAA3"
+  ],
+  [
+   "U6.11",
+   null,
+   "AAA4"
+  ],
+  [
+   "U7.14",
+   null,
+   "AAA5"
+  ],
+  [
+   "U7.13",
+   null,
+   "AAA6"
+  ],
+  [
+   "U7.12",
+   null,
+   "AAA7"
+  ],
+  [
+   "U7.11",
+   null,
+   "AAA8"
+  ],
+  [
+   "U8.14",
+   "N00673",
+   "AAA9"
+  ],
+  [
+   "U8.13",
+   "N00673",
+   "AAA10"
+  ],
+  [
+   "U8.11",
+   null,
+   "AAA12"
+  ],
+  [
+   "U4.14",
+   null,
+   "AAA13"
+  ],
+  [
+   "U23.13",
+   null,
+   "AAA5"
+  ],
+  [
+   "U24.4",
+   null,
+   "AAA12"
+  ],
+  [
+   "U26.18",
+   null,
+   "AAA10"
+  ],
+  [
+   "U26.14",
+   null,
+   "AAA8"
+  ],
+  [
+   "U26.13",
+   null,
+   "AAA7"
+  ],
+  [
+   "U26.19",
+   null,
+   "AR8"
+  ],
+  [
+   "U26.16",
+   null,
+   "AR7"
+  ],
+  [
+   "U26.15",
+   "AR7",
+   "AR6"
+  ],
+  [
+   "U26.12",
+   "AR4",
+   "AR5"
+  ],
+  [
+   "U27.17",
+   null,
+   "AR12"
+  ],
+  [
+   "U27.19",
+   null,
+   "AR10"
+  ],
+  [
+   "U27.2",
+   null,
+   "AR8"
+  ],
+  [
+   "U27.6",
+   "AAA1",
+   "AR4"
+  ],
+  [
+   "U27.7",
+   "RG9",
+   "AR3"
+  ],
+  [
+   "U28.17",
+   null,
+   "AR12"
+  ],
+  [
+   "U28.18",
+   "AR12",
+   "AR11"
+  ],
+  [
+   "U28.19",
+   null,
+   "AR10"
+  ]
+ ],
+ "token_replay": true,
+ "dsn_passed": true,
+ "dsn_pins": 390,
+ "strip_replay": {
+  "hits": 354,
+  "misses": 0
+ }
+}

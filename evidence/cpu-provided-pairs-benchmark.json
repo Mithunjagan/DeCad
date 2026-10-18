@@ -1,0 +1,27 @@
+{
+  "samples": 4,
+  "passed": 0,
+  "scope": "Four supplied synthetic samples only; no general accuracy approval.",
+  "results": [
+    {
+      "sample_id": "SYNTH_DIV_0001",
+      "passed": false,
+      "error": "No readable value for R1."
+    },
+    {
+      "sample_id": "SYNTH_DIV_0003",
+      "passed": false,
+      "error": "A component symbol has no reliable reference/value association; choose vision or reviewed JSON."
+    },
+    {
+      "sample_id": "SYNTH_RC_0002",
+      "passed": false,
+      "error": "A component symbol has no reliable reference/value association; choose vision or reviewed JSON."
+    },
+    {
+      "sample_id": "SYNTH_RC_0004",
+      "passed": false,
+      "error": "A component symbol has no reliable reference/value association; choose vision or reviewed JSON."
+    }
+  ]
+}

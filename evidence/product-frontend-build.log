@@ -1,0 +1,100 @@
+ Image schematic2sdn-finished-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.18kB done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 698B 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:22-bookworm-slim
+#3 DONE 0.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 242B done
+#4 DONE 0.0s
+
+#5 [builder 1/8] FROM docker.io/library/node:22-bookworm-slim@sha256:c3de60bf2f9dd0ac6370e6117950ff62d6e339527e7472301c9c78a017978392
+#5 resolve docker.io/library/node:22-bookworm-slim@sha256:c3de60bf2f9dd0ac6370e6117950ff62d6e339527e7472301c9c78a017978392 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 2.38MB 0.2s done
+#6 DONE 0.2s
+
+#7 [builder 3/8] COPY frontend/package*.json ./
+#7 CACHED
+
+#8 [builder 2/8] WORKDIR /app
+#8 CACHED
+
+#9 [builder 4/8] RUN npm ci
+#9 CACHED
+
+#10 [builder 5/8] COPY frontend/app ./app
+#10 DONE 0.0s
+
+#11 [builder 6/8] COPY frontend/public ./public
+#11 DONE 0.0s
+
+#12 [builder 7/8] COPY frontend/next.config.mjs ./
+#12 DONE 0.0s
+
+#13 [builder 8/8] RUN npm run build
+#13 0.470 
+#13 0.470 > build
+#13 0.470 > next build --webpack
+#13 0.470 
+#13 0.992 ▲ Next.js 16.4.0 (webpack)
+#13 1.022 ✓ Running next.config.mjs took 29ms
+#13 1.065 - Experiments (use with caution):
+#13 1.065   · cpus: 1
+#13 1.065   · proxyTimeout: 360000
+#13 1.065   ⨯ webpackBuildWorker
+#13 1.065 
+#13 1.080   Creating an optimized production build ...
+#13 9.172 ✓ Compiled successfully in 7.8s
+#13 9.177   Running TypeScript ...
+#13 9.179   Finished TypeScript in 2ms ...
+#13 9.183   Collecting page data using 1 worker ...
+#13 10.30   Generating static pages using 1 worker (0/3) ...
+#13 10.51 ✓ Generating static pages using 1 worker (3/3) in 214ms
+#13 10.89   Finalizing page optimization ...
+#13 10.89   Collecting build traces ...
+#13 30.48 
+#13 30.48 Route (app)
+#13 30.48 ┌ ○ /
+#13 30.48 └ ○ /_not-found
+#13 30.48 
+#13 30.48 
+#13 30.48 ○  (Static)  prerendered as static content
+#13 30.48 
+#13 DONE 30.6s
+
+#8 [builder 2/8] WORKDIR /app
+#8 CACHED
+
+#14 [stage-1 3/5] COPY --from=builder --chown=node:node /app/.next/standalone ./
+#14 DONE 0.4s
+
+#15 [stage-1 4/5] COPY --from=builder --chown=node:node /app/.next/static ./.next/static
+#15 DONE 0.1s
+
+#16 [stage-1 5/5] COPY --from=builder --chown=node:node /app/public ./public
+#16 DONE 0.0s
+
+#17 exporting to image
+#17 exporting layers
+#17 exporting layers 1.8s done
+#17 exporting manifest sha256:fc73c2576c8aba2d5126e7e2aeab6e50155802aa05b419810a3aa2067cf97377 done
+#17 exporting config sha256:15e1f6b52d8a20bedaaabf0640e2cbaf8e4c6097570bb3533a596b56e5c04e9d done
+#17 exporting attestation manifest sha256:118087765fa5952d0668fd2179ede3f5e8721a31df70d2bdf0bbdc98d1d73322 done
+#17 exporting manifest list sha256:fb7997b183b8f6faaceb130e2488756be58d64ad75b9a0f3271e4e22d5674993 done
+#17 naming to docker.io/library/schematic2sdn-finished-frontend:latest done
+#17 unpacking to docker.io/library/schematic2sdn-finished-frontend:latest
+#17 unpacking to docker.io/library/schematic2sdn-finished-frontend:latest 0.6s done
+#17 DONE 2.4s
+
+#18 resolving provenance for metadata file
+#18 DONE 0.0s
+ Image schematic2sdn-finished-frontend Built 

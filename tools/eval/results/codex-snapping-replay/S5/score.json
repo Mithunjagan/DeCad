@@ -1,0 +1,169 @@
+{
+ "parts_gt": 25,
+ "parts_found": 19,
+ "parts_spurious": 0,
+ "values_ok": 15,
+ "pins_gt": 48,
+ "pins_exact": 24,
+ "pins_present": 30,
+ "missed_parts": [
+  "U58",
+  "U61",
+  "U59",
+  "U7",
+  "U18",
+  "R9"
+ ],
+ "spurious_parts": [],
+ "wrong_values": [
+  [
+   "U4",
+   "UNKNOWN",
+   "74F00"
+  ],
+  [
+   "U22",
+   "31822",
+   "2148"
+  ],
+  [
+   "U21",
+   "51021",
+   "2148"
+  ],
+  [
+   "R19",
+   "1K05",
+   "1K00"
+  ]
+ ],
+ "wrong_pins": [
+  [
+   "U58.6",
+   null,
+   "INBU15"
+  ],
+  [
+   "U58.5",
+   null,
+   "INBU14"
+  ],
+  [
+   "U58.4",
+   null,
+   "INBU13"
+  ],
+  [
+   "U58.3",
+   null,
+   "INBU12"
+  ],
+  [
+   "U36.19",
+   "N00587_66",
+   "INDA15"
+  ],
+  [
+   "U36.23",
+   null,
+   "INDA13"
+  ],
+  [
+   "U36.2",
+   "N00619",
+   "INDA12"
+  ],
+  [
+   "U56.6",
+   "NBUI1",
+   "INBU11"
+  ],
+  [
+   "U56.4",
+   null,
+   "INBU9"
+  ],
+  [
+   "U49.21",
+   "INDA8",
+   "INDA10"
+  ],
+  [
+   "U49.2",
+   "_TT2",
+   "INDA8"
+  ],
+  [
+   "U49.11",
+   null,
+   "INBU10"
+  ],
+  [
+   "U49.9",
+   "N00699",
+   "INBU8"
+  ],
+  [
+   "U61.6",
+   null,
+   "INBU7"
+  ],
+  [
+   "U61.5",
+   null,
+   "INBU6"
+  ],
+  [
+   "U61.4",
+   null,
+   "INBU5"
+  ],
+  [
+   "U61.3",
+   null,
+   "INBU4"
+  ],
+  [
+   "U37.9",
+   null,
+   "INBU4"
+  ],
+  [
+   "U59.6",
+   null,
+   "INBU3"
+  ],
+  [
+   "U59.5",
+   null,
+   "INBU2"
+  ],
+  [
+   "U59.4",
+   null,
+   "INBU1"
+  ],
+  [
+   "U59.3",
+   null,
+   "INBU0"
+  ],
+  [
+   "U50.21",
+   null,
+   "INDA2"
+  ],
+  [
+   "U50.9",
+   null,
+   "INBU0"
+  ]
+ ],
+ "token_replay": true,
+ "dsn_passed": true,
+ "dsn_pins": 210,
+ "strip_replay": {
+  "hits": 250,
+  "misses": 0
+ }
+}

@@ -1,0 +1,61 @@
+{
+  "regressions": [],
+  "netlists": {
+    "S1": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S2": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S3": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S4": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S4-blur300": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S4-scan200": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S4-scan300": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S5": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    }
+  },
+  "source_sha256": {
+    "backend/app/ingestion.py": "db5a497815ce871e8cb40ed0f4b4a8440fe79ffd78e8f0ba0779d13c5584e0e8",
+    "backend/app/digital_vision.py": "3a27d9da1037373ad300839864e8585ec3bbbcf0cc35f69a9c88d5d002b8aa58",
+    "backend/app/orcad_capture.py": "39c4f8c031d18c3d921d7fbe10fc8fd5dca336052496d26dd27e8fd7b6cc813b",
+    "backend/app/orcad_writer.tcl": "d7ba2c52376bae9ca40e07a5c30de3b2ff5c12d51d9c3e4f8c03015632c1c491",
+    "backend/app/orcad_route.py": "28953868c35ec77a5309e345beca65d17ed040719df402fa6202f64bff060034",
+    "tools/eval/run_eval.py": "662b313978950bad55ccb4c715a146bbbf5edac1168ffc76052ecf9ddf1c1a30"
+  }
+}

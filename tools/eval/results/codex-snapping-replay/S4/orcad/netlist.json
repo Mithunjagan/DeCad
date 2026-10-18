@@ -1,0 +1,2119 @@
+{
+ "parts": [
+  {
+   "ref": "J1",
+   "value": "CONNECTOR",
+   "footprint": "blkcon100vhtm2oew20040",
+   "library": "Connector.olb",
+   "package": "CON40A"
+  },
+  {
+   "ref": "P1",
+   "value": "CONNECTOR",
+   "footprint": "din96abcv",
+   "library": "Connector.olb",
+   "package": "DIN96"
+  },
+  {
+   "ref": "P2",
+   "value": "CONNECTOR",
+   "footprint": "din96abcv",
+   "library": "Connector.olb",
+   "package": "DIN96"
+  },
+  {
+   "ref": "R11",
+   "value": "1K00",
+   "footprint": "res400",
+   "library": "Discrete.olb",
+   "package": "R"
+  },
+  {
+   "ref": "R13",
+   "value": "1K00",
+   "footprint": "res400",
+   "library": "Discrete.olb",
+   "package": "R"
+  },
+  {
+   "ref": "R18",
+   "value": "330R",
+   "footprint": "res400",
+   "library": "Discrete.olb",
+   "package": "R"
+  },
+  {
+   "ref": "R20",
+   "value": "510R",
+   "footprint": "res400",
+   "library": "Discrete.olb",
+   "package": "R"
+  },
+  {
+   "ref": "U1",
+   "value": "UNKNOWN",
+   "footprint": "blkcon100vhtm2oew20026",
+   "library": "DECAD_GENERATED.OLB",
+   "package": "PART_U1"
+  },
+  {
+   "ref": "U2",
+   "value": "UNKNOWN",
+   "footprint": "dip24_3",
+   "library": "DECAD_GENERATED.OLB",
+   "package": "PART_U2"
+  },
+  {
+   "ref": "U3",
+   "value": "UNKNOWN",
+   "footprint": "dip24_3",
+   "library": "DECAD_GENERATED.OLB",
+   "package": "PART_U3"
+  },
+  {
+   "ref": "U13",
+   "value": "UNKNOWN",
+   "footprint": "dip24_3",
+   "library": "DECAD_GENERATED.OLB",
+   "package": "PART_U13"
+  },
+  {
+   "ref": "U15",
+   "value": "UNKNOWN",
+   "footprint": "blkcon100vhtm2oew20026",
+   "library": "DECAD_GENERATED.OLB",
+   "package": "PART_U15"
+  },
+  {
+   "ref": "U16",
+   "value": "74F174",
+   "footprint": "DIP10016W300L900",
+   "library": "74f.olb",
+   "package": "74F174"
+  },
+  {
+   "ref": "U19",
+   "value": "74F02",
+   "footprint": "DIP10014W300L800",
+   "library": "74f.olb",
+   "package": "74F02"
+  },
+  {
+   "ref": "U25",
+   "value": "74F240",
+   "footprint": "DIP10020W300L1050",
+   "library": "74f.olb",
+   "package": "74F240"
+  },
+  {
+   "ref": "U27",
+   "value": "UNKNOWN",
+   "footprint": "dip16_3",
+   "library": "DECAD_GENERATED.OLB",
+   "package": "PART_U27"
+  },
+  {
+   "ref": "U28",
+   "value": "74F174",
+   "footprint": "DIP10016W300L900",
+   "library": "74f.olb",
+   "package": "74F174"
+  },
+  {
+   "ref": "U29",
+   "value": "74F174",
+   "footprint": "DIP10016W300L900",
+   "library": "74f.olb",
+   "package": "74F174"
+  },
+  {
+   "ref": "U31",
+   "value": "AM2910",
+   "footprint": "dip40_6",
+   "library": "Misc3.olb",
+   "package": "AM2910A"
+  },
+  {
+   "ref": "U33",
+   "value": "74F240",
+   "footprint": "DIP10020W300L1050",
+   "library": "74f.olb",
+   "package": "74F240"
+  },
+  {
+   "ref": "U34",
+   "value": "74F240",
+   "footprint": "DIP10020W300L1050",
+   "library": "74f.olb",
+   "package": "74F240"
+  },
+  {
+   "ref": "U38",
+   "value": "74F151",
+   "footprint": "DIP10016W300L900",
+   "library": "74f.olb",
+   "package": "74F151"
+  },
+  {
+   "ref": "U39",
+   "value": "74F00",
+   "footprint": "DIP10014W300L800",
+   "library": "74f.olb",
+   "package": "74F00"
+  },
+  {
+   "ref": "U40",
+   "value": "74F103",
+   "footprint": "dip6_3",
+   "library": "DECAD_GENERATED.OLB",
+   "package": "74F103"
+  }
+ ],
+ "nets": [
+  {
+   "name": "ADDA0",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "34"
+    },
+    {
+     "ref": "U34",
+     "pin": "12"
+    }
+   ]
+  },
+  {
+   "name": "ADDA1",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "36"
+    },
+    {
+     "ref": "U34",
+     "pin": "14"
+    }
+   ]
+  },
+  {
+   "name": "ADDA10",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "25"
+    },
+    {
+     "ref": "U33",
+     "pin": "16"
+    }
+   ]
+  },
+  {
+   "name": "ADDA11",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "27"
+    },
+    {
+     "ref": "U33",
+     "pin": "18"
+    }
+   ]
+  },
+  {
+   "name": "ADDA12",
+   "nodes": [
+    {
+     "ref": "U33",
+     "pin": "3"
+    }
+   ]
+  },
+  {
+   "name": "ADDA13",
+   "nodes": [
+    {
+     "ref": "U33",
+     "pin": "5"
+    }
+   ]
+  },
+  {
+   "name": "ADDA14",
+   "nodes": [
+    {
+     "ref": "U33",
+     "pin": "7"
+    }
+   ]
+  },
+  {
+   "name": "ADDA15",
+   "nodes": [
+    {
+     "ref": "U33",
+     "pin": "9"
+    }
+   ]
+  },
+  {
+   "name": "ADDA2",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "38"
+    },
+    {
+     "ref": "U34",
+     "pin": "16"
+    }
+   ]
+  },
+  {
+   "name": "ADDA3",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "40"
+    },
+    {
+     "ref": "U34",
+     "pin": "18"
+    }
+   ]
+  },
+  {
+   "name": "ADDA4",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "2"
+    },
+    {
+     "ref": "U34",
+     "pin": "3"
+    }
+   ]
+  },
+  {
+   "name": "ADDA5",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "4"
+    },
+    {
+     "ref": "U34",
+     "pin": "5"
+    }
+   ]
+  },
+  {
+   "name": "ADDA6",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "17"
+    },
+    {
+     "ref": "U34",
+     "pin": "7"
+    }
+   ]
+  },
+  {
+   "name": "ADDA8",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "21"
+    },
+    {
+     "ref": "U33",
+     "pin": "12"
+    }
+   ]
+  },
+  {
+   "name": "BI",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "82"
+    }
+   ]
+  },
+  {
+   "name": "CL",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "38"
+    }
+   ]
+  },
+  {
+   "name": "DI",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "23"
+    }
+   ]
+  },
+  {
+   "name": "F",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "1"
+    }
+   ]
+  },
+  {
+   "name": "GND",
+   "nodes": [
+    {
+     "ref": "U16",
+     "pin": "8"
+    },
+    {
+     "ref": "U19",
+     "pin": "7"
+    },
+    {
+     "ref": "U25",
+     "pin": "10"
+    },
+    {
+     "ref": "U28",
+     "pin": "8"
+    },
+    {
+     "ref": "U29",
+     "pin": "8"
+    },
+    {
+     "ref": "U31",
+     "pin": "30"
+    },
+    {
+     "ref": "U33",
+     "pin": "10"
+    },
+    {
+     "ref": "U34",
+     "pin": "10"
+    },
+    {
+     "ref": "U38",
+     "pin": "8"
+    },
+    {
+     "ref": "U39",
+     "pin": "7"
+    }
+   ]
+  },
+  {
+   "name": "INADD0",
+   "nodes": [
+    {
+     "ref": "U34",
+     "pin": "8"
+    }
+   ]
+  },
+  {
+   "name": "INADD1",
+   "nodes": [
+    {
+     "ref": "U34",
+     "pin": "6"
+    }
+   ]
+  },
+  {
+   "name": "INADD10",
+   "nodes": [
+    {
+     "ref": "U33",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "INADD11",
+   "nodes": [
+    {
+     "ref": "U33",
+     "pin": "2"
+    }
+   ]
+  },
+  {
+   "name": "INADD13",
+   "nodes": [
+    {
+     "ref": "U33",
+     "pin": "15"
+    }
+   ]
+  },
+  {
+   "name": "INADD2",
+   "nodes": [
+    {
+     "ref": "U34",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "INADD3",
+   "nodes": [
+    {
+     "ref": "U34",
+     "pin": "2"
+    }
+   ]
+  },
+  {
+   "name": "INADD4",
+   "nodes": [
+    {
+     "ref": "U34",
+     "pin": "17"
+    }
+   ]
+  },
+  {
+   "name": "INADD5",
+   "nodes": [
+    {
+     "ref": "U34",
+     "pin": "15"
+    }
+   ]
+  },
+  {
+   "name": "INADD6",
+   "nodes": [
+    {
+     "ref": "U28",
+     "pin": "10"
+    },
+    {
+     "ref": "U34",
+     "pin": "13"
+    }
+   ]
+  },
+  {
+   "name": "INADD7",
+   "nodes": [
+    {
+     "ref": "U34",
+     "pin": "11"
+    }
+   ]
+  },
+  {
+   "name": "INADD8",
+   "nodes": [
+    {
+     "ref": "U28",
+     "pin": "7"
+    },
+    {
+     "ref": "U33",
+     "pin": "8"
+    }
+   ]
+  },
+  {
+   "name": "INADD9",
+   "nodes": [
+    {
+     "ref": "U33",
+     "pin": "6"
+    }
+   ]
+  },
+  {
+   "name": "INADDO",
+   "nodes": [
+    {
+     "ref": "U29",
+     "pin": "7"
+    }
+   ]
+  },
+  {
+   "name": "INANM",
+   "nodes": [
+    {
+     "ref": "U27",
+     "pin": "5"
+    }
+   ]
+  },
+  {
+   "name": "INAQDTHS",
+   "nodes": [
+    {
+     "ref": "U28",
+     "pin": "5"
+    }
+   ]
+  },
+  {
+   "name": "INSI10",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "87"
+    }
+   ]
+  },
+  {
+   "name": "INSI4",
+   "nodes": [
+    {
+     "ref": "U15",
+     "pin": "14"
+    }
+   ]
+  },
+  {
+   "name": "INSILS",
+   "nodes": [
+    {
+     "ref": "U13",
+     "pin": "17"
+    }
+   ]
+  },
+  {
+   "name": "INST",
+   "nodes": [
+    {
+     "ref": "U13",
+     "pin": "14"
+    }
+   ]
+  },
+  {
+   "name": "INST0",
+   "nodes": [
+    {
+     "ref": "U15",
+     "pin": "9"
+    },
+    {
+     "ref": "U29",
+     "pin": "3"
+    },
+    {
+     "ref": "U3",
+     "pin": "9"
+    }
+   ]
+  },
+  {
+   "name": "INST1",
+   "nodes": [
+    {
+     "ref": "U15",
+     "pin": "10"
+    },
+    {
+     "ref": "U28",
+     "pin": "4"
+    },
+    {
+     "ref": "U3",
+     "pin": "10"
+    }
+   ]
+  },
+  {
+   "name": "INST12",
+   "nodes": [
+    {
+     "ref": "U27",
+     "pin": "3"
+    }
+   ]
+  },
+  {
+   "name": "INST13",
+   "nodes": [
+    {
+     "ref": "U27",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "INST14",
+   "nodes": [
+    {
+     "ref": "U13",
+     "pin": "16"
+    },
+    {
+     "ref": "U27",
+     "pin": "6"
+    }
+   ]
+  },
+  {
+   "name": "INST16",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "9"
+    },
+    {
+     "ref": "U2",
+     "pin": "9"
+    }
+   ]
+  },
+  {
+   "name": "INST17",
+   "nodes": [
+    {
+     "ref": "U2",
+     "pin": "10"
+    },
+    {
+     "ref": "U27",
+     "pin": "1"
+    }
+   ]
+  },
+  {
+   "name": "INST18",
+   "nodes": [
+    {
+     "ref": "U16",
+     "pin": "3"
+    },
+    {
+     "ref": "U2",
+     "pin": "11"
+    }
+   ]
+  },
+  {
+   "name": "INST19",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "13"
+    },
+    {
+     "ref": "U2",
+     "pin": "13"
+    }
+   ]
+  },
+  {
+   "name": "INST2",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "15"
+    },
+    {
+     "ref": "U29",
+     "pin": "1"
+    }
+   ]
+  },
+  {
+   "name": "INST20",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "14"
+    },
+    {
+     "ref": "U16",
+     "pin": "6"
+    },
+    {
+     "ref": "U2",
+     "pin": "14"
+    }
+   ]
+  },
+  {
+   "name": "INST21",
+   "nodes": [
+    {
+     "ref": "U16",
+     "pin": "11"
+    },
+    {
+     "ref": "U2",
+     "pin": "15"
+    }
+   ]
+  },
+  {
+   "name": "INST22",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "16"
+    },
+    {
+     "ref": "U2",
+     "pin": "16"
+    }
+   ]
+  },
+  {
+   "name": "INST23",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "17"
+    },
+    {
+     "ref": "U16",
+     "pin": "14"
+    },
+    {
+     "ref": "U2",
+     "pin": "17"
+    }
+   ]
+  },
+  {
+   "name": "INST3",
+   "nodes": [
+    {
+     "ref": "U15",
+     "pin": "13"
+    },
+    {
+     "ref": "U3",
+     "pin": "13"
+    }
+   ]
+  },
+  {
+   "name": "INST4",
+   "nodes": [
+    {
+     "ref": "U3",
+     "pin": "14"
+    }
+   ]
+  },
+  {
+   "name": "INST5",
+   "nodes": [
+    {
+     "ref": "U28",
+     "pin": "11"
+    },
+    {
+     "ref": "U3",
+     "pin": "15"
+    }
+   ]
+  },
+  {
+   "name": "INST6",
+   "nodes": [
+    {
+     "ref": "U15",
+     "pin": "16"
+    }
+   ]
+  },
+  {
+   "name": "INST7",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "10"
+    },
+    {
+     "ref": "U15",
+     "pin": "17"
+    },
+    {
+     "ref": "U3",
+     "pin": "17"
+    }
+   ]
+  },
+  {
+   "name": "INST8",
+   "nodes": [
+    {
+     "ref": "U13",
+     "pin": "9"
+    },
+    {
+     "ref": "U28",
+     "pin": "6"
+    }
+   ]
+  },
+  {
+   "name": "INST9",
+   "nodes": [
+    {
+     "ref": "U13",
+     "pin": "10"
+    }
+   ]
+  },
+  {
+   "name": "INSY6",
+   "nodes": [
+    {
+     "ref": "U3",
+     "pin": "16"
+    }
+   ]
+  },
+  {
+   "name": "N00012",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "82"
+    }
+   ]
+  },
+  {
+   "name": "N00013",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "84"
+    }
+   ]
+  },
+  {
+   "name": "N00014",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "19"
+    }
+   ]
+  },
+  {
+   "name": "N00016",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "83"
+    }
+   ]
+  },
+  {
+   "name": "N00026",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "20"
+    }
+   ]
+  },
+  {
+   "name": "N00027",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "52"
+    }
+   ]
+  },
+  {
+   "name": "N00033",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "22"
+    }
+   ]
+  },
+  {
+   "name": "N00036",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "54"
+    }
+   ]
+  },
+  {
+   "name": "N00039",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "25"
+    }
+   ]
+  },
+  {
+   "name": "N00041",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "66"
+    }
+   ]
+  },
+  {
+   "name": "N00042",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "48"
+    }
+   ]
+  },
+  {
+   "name": "N00049",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "6"
+    }
+   ]
+  },
+  {
+   "name": "N00051",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "37"
+    }
+   ]
+  },
+  {
+   "name": "N00065",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "40"
+    }
+   ]
+  },
+  {
+   "name": "N00067",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "71"
+    }
+   ]
+  },
+  {
+   "name": "N00069",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "47"
+    }
+   ]
+  },
+  {
+   "name": "N00070",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "15"
+    }
+   ]
+  },
+  {
+   "name": "N00071",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "68"
+    }
+   ]
+  },
+  {
+   "name": "N00072",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "51"
+    }
+   ]
+  },
+  {
+   "name": "N00075",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "50"
+    }
+   ]
+  },
+  {
+   "name": "N00077",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "18"
+    }
+   ]
+  },
+  {
+   "name": "N00079",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "81"
+    }
+   ]
+  },
+  {
+   "name": "N00081",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "49"
+    }
+   ]
+  },
+  {
+   "name": "N00085",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "80"
+    }
+   ]
+  },
+  {
+   "name": "N00087",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "48"
+    }
+   ]
+  },
+  {
+   "name": "N00090",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "14"
+    }
+   ]
+  },
+  {
+   "name": "N00099",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "19"
+    }
+   ]
+  },
+  {
+   "name": "N00103",
+   "nodes": [
+    {
+     "ref": "P1",
+     "pin": "57"
+    }
+   ]
+  },
+  {
+   "name": "N00124",
+   "nodes": [
+    {
+     "ref": "U25",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "N00157",
+   "nodes": [
+    {
+     "ref": "R18",
+     "pin": "1"
+    }
+   ]
+  },
+  {
+   "name": "N00181",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "29"
+    }
+   ]
+  },
+  {
+   "name": "N00190",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "7"
+    }
+   ]
+  },
+  {
+   "name": "N00193",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "5"
+    }
+   ]
+  },
+  {
+   "name": "N00220",
+   "nodes": [
+    {
+     "ref": "U19",
+     "pin": "6"
+    }
+   ]
+  },
+  {
+   "name": "N00222",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "23"
+    }
+   ]
+  },
+  {
+   "name": "N00300",
+   "nodes": [
+    {
+     "ref": "U38",
+     "pin": "14"
+    }
+   ]
+  },
+  {
+   "name": "N00303",
+   "nodes": [
+    {
+     "ref": "U38",
+     "pin": "11"
+    }
+   ]
+  },
+  {
+   "name": "N00304",
+   "nodes": [
+    {
+     "ref": "U40",
+     "pin": "6"
+    }
+   ]
+  },
+  {
+   "name": "N00305",
+   "nodes": [
+    {
+     "ref": "U40",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "N00306",
+   "nodes": [
+    {
+     "ref": "U38",
+     "pin": "13"
+    }
+   ]
+  },
+  {
+   "name": "N00307",
+   "nodes": [
+    {
+     "ref": "U38",
+     "pin": "12"
+    }
+   ]
+  },
+  {
+   "name": "N00309",
+   "nodes": [
+    {
+     "ref": "U16",
+     "pin": "5"
+    },
+    {
+     "ref": "U27",
+     "pin": "10"
+    },
+    {
+     "ref": "U27",
+     "pin": "12"
+    },
+    {
+     "ref": "U27",
+     "pin": "15"
+    }
+   ]
+  },
+  {
+   "name": "N00319",
+   "nodes": [
+    {
+     "ref": "U38",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "N00321",
+   "nodes": [
+    {
+     "ref": "U39",
+     "pin": "9"
+    }
+   ]
+  },
+  {
+   "name": "N00338",
+   "nodes": [
+    {
+     "ref": "U25",
+     "pin": "17"
+    }
+   ]
+  },
+  {
+   "name": "N00343",
+   "nodes": [
+    {
+     "ref": "U39",
+     "pin": "8"
+    }
+   ]
+  },
+  {
+   "name": "N00355",
+   "nodes": [
+    {
+     "ref": "U38",
+     "pin": "5"
+    }
+   ]
+  },
+  {
+   "name": "N00363",
+   "nodes": [
+    {
+     "ref": "P2",
+     "pin": "61"
+    }
+   ]
+  },
+  {
+   "name": "N00436",
+   "nodes": [
+    {
+     "ref": "U33",
+     "pin": "13"
+    }
+   ]
+  },
+  {
+   "name": "N00445",
+   "nodes": [
+    {
+     "ref": "U16",
+     "pin": "2"
+    }
+   ]
+  },
+  {
+   "name": "N00449_246",
+   "nodes": [
+    {
+     "ref": "U33",
+     "pin": "1"
+    }
+   ]
+  },
+  {
+   "name": "N00462",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "13"
+    }
+   ]
+  },
+  {
+   "name": "N00464",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "8"
+    }
+   ]
+  },
+  {
+   "name": "N00466",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "14"
+    }
+   ]
+  },
+  {
+   "name": "N00471",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "10"
+    }
+   ]
+  },
+  {
+   "name": "N00511",
+   "nodes": [
+    {
+     "ref": "U16",
+     "pin": "15"
+    }
+   ]
+  },
+  {
+   "name": "N00514",
+   "nodes": [
+    {
+     "ref": "J1",
+     "pin": "6"
+    },
+    {
+     "ref": "U16",
+     "pin": "7"
+    }
+   ]
+  },
+  {
+   "name": "N00521",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "26"
+    }
+   ]
+  },
+  {
+   "name": "N00541_140",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "101"
+    }
+   ]
+  },
+  {
+   "name": "N00541_165",
+   "nodes": [
+    {
+     "ref": "U13",
+     "pin": "18"
+    }
+   ]
+  },
+  {
+   "name": "N00541_166",
+   "nodes": [
+    {
+     "ref": "U3",
+     "pin": "19"
+    }
+   ]
+  },
+  {
+   "name": "N00541_241",
+   "nodes": [
+    {
+     "ref": "U27",
+     "pin": "9"
+    }
+   ]
+  },
+  {
+   "name": "N00541_243",
+   "nodes": [
+    {
+     "ref": "U28",
+     "pin": "9"
+    }
+   ]
+  },
+  {
+   "name": "N00541_274",
+   "nodes": [
+    {
+     "ref": "U29",
+     "pin": "12"
+    }
+   ]
+  },
+  {
+   "name": "N00541_275",
+   "nodes": [
+    {
+     "ref": "U29",
+     "pin": "9"
+    }
+   ]
+  },
+  {
+   "name": "N00541_302",
+   "nodes": [
+    {
+     "ref": "U39",
+     "pin": "10"
+    }
+   ]
+  },
+  {
+   "name": "N00541_724",
+   "nodes": [
+    {
+     "ref": "U28",
+     "pin": "3"
+    }
+   ]
+  },
+  {
+   "name": "N00545",
+   "nodes": [
+    {
+     "ref": "U39",
+     "pin": "2"
+    }
+   ]
+  },
+  {
+   "name": "N00548",
+   "nodes": [
+    {
+     "ref": "U25",
+     "pin": "11"
+    }
+   ]
+  },
+  {
+   "name": "N00579",
+   "nodes": [
+    {
+     "ref": "U19",
+     "pin": "5"
+    }
+   ]
+  },
+  {
+   "name": "N00618",
+   "nodes": [
+    {
+     "ref": "U39",
+     "pin": "3"
+    }
+   ]
+  },
+  {
+   "name": "N00633",
+   "nodes": [
+    {
+     "ref": "U13",
+     "pin": "19"
+    }
+   ]
+  },
+  {
+   "name": "N00639_139",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "191"
+    }
+   ]
+  },
+  {
+   "name": "N00639_160",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "20"
+    }
+   ]
+  },
+  {
+   "name": "N00639_203",
+   "nodes": [
+    {
+     "ref": "U3",
+     "pin": "18"
+    }
+   ]
+  },
+  {
+   "name": "N00639_205",
+   "nodes": [
+    {
+     "ref": "U2",
+     "pin": "19"
+    }
+   ]
+  },
+  {
+   "name": "N00639_248",
+   "nodes": [
+    {
+     "ref": "U2",
+     "pin": "20"
+    }
+   ]
+  },
+  {
+   "name": "N00639_278",
+   "nodes": [
+    {
+     "ref": "U15",
+     "pin": "191"
+    }
+   ]
+  },
+  {
+   "name": "N00639_324",
+   "nodes": [
+    {
+     "ref": "U38",
+     "pin": "6"
+    }
+   ]
+  },
+  {
+   "name": "N00639_613",
+   "nodes": [
+    {
+     "ref": "U15",
+     "pin": "7"
+    }
+   ]
+  },
+  {
+   "name": "N00653",
+   "nodes": [
+    {
+     "ref": "U15",
+     "pin": "19"
+    }
+   ]
+  },
+  {
+   "name": "N00678",
+   "nodes": [
+    {
+     "ref": "U19",
+     "pin": "1"
+    }
+   ]
+  },
+  {
+   "name": "N00708",
+   "nodes": [
+    {
+     "ref": "U25",
+     "pin": "3"
+    },
+    {
+     "ref": "U38",
+     "pin": "15"
+    }
+   ]
+  },
+  {
+   "name": "N00710",
+   "nodes": [
+    {
+     "ref": "U38",
+     "pin": "2"
+    }
+   ]
+  },
+  {
+   "name": "N00712",
+   "nodes": [
+    {
+     "ref": "U38",
+     "pin": "3"
+    }
+   ]
+  },
+  {
+   "name": "N00736",
+   "nodes": [
+    {
+     "ref": "U16",
+     "pin": "9"
+    }
+   ]
+  },
+  {
+   "name": "N00753_730",
+   "nodes": [
+    {
+     "ref": "U29",
+     "pin": "5"
+    }
+   ]
+  },
+  {
+   "name": "N00753_753",
+   "nodes": [
+    {
+     "ref": "U27",
+     "pin": "2"
+    }
+   ]
+  },
+  {
+   "name": "N00753_760",
+   "nodes": [
+    {
+     "ref": "U28",
+     "pin": "2"
+    }
+   ]
+  },
+  {
+   "name": "N00791",
+   "nodes": [
+    {
+     "ref": "J1",
+     "pin": "7"
+    },
+    {
+     "ref": "U19",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "NSTL5",
+   "nodes": [
+    {
+     "ref": "U27",
+     "pin": "11"
+    }
+   ]
+  },
+  {
+   "name": "PR",
+   "nodes": [
+    {
+     "ref": "U15",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "PRA1",
+   "nodes": [
+    {
+     "ref": "U15",
+     "pin": "1"
+    }
+   ]
+  },
+  {
+   "name": "PRA4",
+   "nodes": [
+    {
+     "ref": "U2",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "PRAD0",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "8"
+    },
+    {
+     "ref": "U13",
+     "pin": "8"
+    },
+    {
+     "ref": "U15",
+     "pin": "8"
+    },
+    {
+     "ref": "U3",
+     "pin": "8"
+    }
+   ]
+  },
+  {
+   "name": "PRAD1",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "7"
+    },
+    {
+     "ref": "U13",
+     "pin": "7"
+    },
+    {
+     "ref": "U2",
+     "pin": "12"
+    },
+    {
+     "ref": "U3",
+     "pin": "7"
+    },
+    {
+     "ref": "U31",
+     "pin": "35"
+    }
+   ]
+  },
+  {
+   "name": "PRAD10",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "21"
+    },
+    {
+     "ref": "U13",
+     "pin": "21"
+    },
+    {
+     "ref": "U15",
+     "pin": "21"
+    },
+    {
+     "ref": "U2",
+     "pin": "21"
+    },
+    {
+     "ref": "U3",
+     "pin": "21"
+    }
+   ]
+  },
+  {
+   "name": "PRAD2",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "6"
+    },
+    {
+     "ref": "U13",
+     "pin": "6"
+    },
+    {
+     "ref": "U15",
+     "pin": "6"
+    },
+    {
+     "ref": "U2",
+     "pin": "6"
+    },
+    {
+     "ref": "U3",
+     "pin": "6"
+    }
+   ]
+  },
+  {
+   "name": "PRAD3",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "5"
+    },
+    {
+     "ref": "U13",
+     "pin": "5"
+    },
+    {
+     "ref": "U2",
+     "pin": "5"
+    },
+    {
+     "ref": "U3",
+     "pin": "5"
+    }
+   ]
+  },
+  {
+   "name": "PRAD4",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "4"
+    },
+    {
+     "ref": "U13",
+     "pin": "4"
+    },
+    {
+     "ref": "U3",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "PRAD5",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "3"
+    },
+    {
+     "ref": "U13",
+     "pin": "3"
+    },
+    {
+     "ref": "U15",
+     "pin": "3"
+    },
+    {
+     "ref": "U2",
+     "pin": "3"
+    },
+    {
+     "ref": "U3",
+     "pin": "3"
+    },
+    {
+     "ref": "U31",
+     "pin": "3"
+    }
+   ]
+  },
+  {
+   "name": "PRAD6",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "2"
+    },
+    {
+     "ref": "U13",
+     "pin": "2"
+    },
+    {
+     "ref": "U15",
+     "pin": "2"
+    },
+    {
+     "ref": "U2",
+     "pin": "2"
+    },
+    {
+     "ref": "U3",
+     "pin": "2"
+    }
+   ]
+  },
+  {
+   "name": "PRAD7",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "11"
+    },
+    {
+     "ref": "U13",
+     "pin": "1"
+    },
+    {
+     "ref": "U2",
+     "pin": "1"
+    }
+   ]
+  },
+  {
+   "name": "PRAD8",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "23"
+    },
+    {
+     "ref": "U13",
+     "pin": "23"
+    },
+    {
+     "ref": "U15",
+     "pin": "23"
+    },
+    {
+     "ref": "U2",
+     "pin": "23"
+    },
+    {
+     "ref": "U3",
+     "pin": "23"
+    },
+    {
+     "ref": "U31",
+     "pin": "22"
+    }
+   ]
+  },
+  {
+   "name": "PRAD9",
+   "nodes": [
+    {
+     "ref": "U1",
+     "pin": "22"
+    },
+    {
+     "ref": "U13",
+     "pin": "22"
+    },
+    {
+     "ref": "U15",
+     "pin": "22"
+    },
+    {
+     "ref": "U2",
+     "pin": "22"
+    },
+    {
+     "ref": "U3",
+     "pin": "22"
+    }
+   ]
+  },
+  {
+   "name": "TNST10",
+   "nodes": [
+    {
+     "ref": "U13",
+     "pin": "11"
+    }
+   ]
+  },
+  {
+   "name": "TNST13",
+   "nodes": [
+    {
+     "ref": "U13",
+     "pin": "15"
+    }
+   ]
+  },
+  {
+   "name": "TT",
+   "nodes": [
+    {
+     "ref": "U25",
+     "pin": "15"
+    }
+   ]
+  },
+  {
+   "name": "VCC",
+   "nodes": [
+    {
+     "ref": "U16",
+     "pin": "16"
+    },
+    {
+     "ref": "U19",
+     "pin": "14"
+    },
+    {
+     "ref": "U25",
+     "pin": "20"
+    },
+    {
+     "ref": "U28",
+     "pin": "16"
+    },
+    {
+     "ref": "U29",
+     "pin": "16"
+    },
+    {
+     "ref": "U33",
+     "pin": "20"
+    },
+    {
+     "ref": "U34",
+     "pin": "20"
+    },
+    {
+     "ref": "U38",
+     "pin": "16"
+    },
+    {
+     "ref": "U39",
+     "pin": "14"
+    }
+   ]
+  },
+  {
+   "name": "WW",
+   "nodes": [
+    {
+     "ref": "U31",
+     "pin": "15"
+    },
+    {
+     "ref": "U31",
+     "pin": "16"
+    }
+   ]
+  },
+  {
+   "name": "YNSI19",
+   "nodes": [
+    {
+     "ref": "U16",
+     "pin": "4"
+    }
+   ]
+  },
+  {
+   "name": "_TT",
+   "nodes": [
+    {
+     "ref": "U38",
+     "pin": "10"
+    }
+   ]
+  }
+ ]
+}

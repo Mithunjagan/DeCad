@@ -1,0 +1,41 @@
+{
+  "generated_symbols": [],
+  "corrections": [],
+  "design": "S1.DSN",
+  "size": 163840,
+  "passed": true,
+  "components": 24,
+  "checked_pins": 296,
+  "nets": 187,
+  "rendered_parts": 26,
+  "preview_error": null,
+  "implicit_power_pins": 40,
+  "substitutions": {},
+  "footprints": {
+    "assigned": 24,
+    "total": 24,
+    "placed": 24,
+    "sources": {
+      "standard (by package and pin count)": 5,
+      "symbol library": 19
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 189,
+    "connections": 336,
+    "parts": 24,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 45,
+    "labelled_pins": 152,
+    "crossings": 483,
+    "labelled_nets": 142
+  },
+  "source": null,
+  "sha256": "93319af6f072805cbc1e8a8fc9669406d44f7d6b172e41fa43a2374c1e1869cb"
+}

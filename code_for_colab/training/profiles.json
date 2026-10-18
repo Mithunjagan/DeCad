@@ -1,0 +1,4 @@
+{
+  "7b": {"model":"Qwen/Qwen2.5-VL-7B-Instruct","minimum_free_gib":12,"image_tokens":512,"rank":16,"alpha":32,"sequence_tokens":3072},
+  "3b-8gb": {"model":"Qwen/Qwen2.5-VL-3B-Instruct","minimum_free_gib":6.5,"image_tokens":256,"rank":4,"alpha":8,"sequence_tokens":1536}
+}

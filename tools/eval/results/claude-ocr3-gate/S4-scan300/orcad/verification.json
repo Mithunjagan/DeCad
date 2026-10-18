@@ -1,0 +1,119 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 29,
+  "checked_pins": 260,
+  "implicit_power_pins": [
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U25.10=GND",
+    "U25.20=VCC",
+    "U27.16=VCC",
+    "U27.8=GND",
+    "U28.16=VCC",
+    "U28.8=GND",
+    "U29.16=VCC",
+    "U29.8=GND",
+    "U31.30=GND",
+    "U33.10=GND",
+    "U33.20=VCC",
+    "U34.10=GND",
+    "U34.20=VCC",
+    "U38.16=VCC",
+    "U38.8=GND",
+    "U39.14=VCC",
+    "U39.7=GND",
+    "U40.14=VCC",
+    "U40.7=GND",
+    "U_1.16=VCC",
+    "U_1.8=GND",
+    "U_2.14=VCC",
+    "U_2.7=GND"
+  ],
+  "placed_footprints": {
+    "U27": "DIP10016W300L900",
+    "R15": "res400",
+    "U40": "DIP10014W300L800",
+    "U33": "DIP10020W300L1050",
+    "U_2": "DIP10014W300L800",
+    "U2": "blkcon100vhtm2oew20026",
+    "R20": "res400",
+    "U29": "DIP10016W300L900",
+    "U1": "blkcon100vhtm2oew20026",
+    "U28": "DIP10016W300L900",
+    "U25": "DIP10020W300L1050",
+    "R18": "res400",
+    "R14": "res400",
+    "R11": "res400",
+    "R1": "res400",
+    "U31": "dip40_6",
+    "U19": "DIP10014W300L800",
+    "U_1": "DIP10016W300L900",
+    "U13": "blkcon100vhtm2oew20026",
+    "U14": "dip6_3",
+    "U34": "DIP10020W300L1050",
+    "P3": "din96abcv",
+    "P2": "din96abcv",
+    "U38": "DIP10016W300L900",
+    "P1": "din96abcv",
+    "U15": "blkcon100vhtm2oew20026",
+    "U39": "DIP10014W300L800",
+    "U3": "blkcon100vhtm2oew20026",
+    "J1": "blkcon100vhtm2oew20040"
+  },
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "routing": {
+    "wired_nets": 41,
+    "labelled_pins": 150,
+    "crossings": 315,
+    "labelled_nets": 146
+  },
+  "generated_symbols": [
+    "PART_U1",
+    "PART_U13",
+    "PART_U14",
+    "PART_U15",
+    "PART_U2",
+    "PART_U3"
+  ],
+  "corrections": [
+    "P1 pin 83 was on D1SAD and N00021; kept D1SAD.",
+    "P1 pin 86 was on N00026 and N00101; kept N00026.",
+    "P1 pin 84 was on N00015 and N00103; kept N00015.",
+    "P2 pin 19 was on N00077 and N00113; kept N00077.",
+    "U3 pin 03 removed from INST1: the part has no such pin.",
+    "U31 pin 30 removed from N00515: it is a fixed power/ground pin of the part.",
+    "U39 pin 7 removed from N00665: it is a fixed power/ground pin of the part."
+  ],
+  "footprints": {
+    "assigned": 29,
+    "total": 29,
+    "placed": 29,
+    "sources": {
+      "standard (by package and pin count)": 12,
+      "placeholder header (review)": 5,
+      "symbol library": 12
+    },
+    "without": [],
+    "placeholder": [
+      "U1",
+      "U13",
+      "U15",
+      "U2",
+      "U3"
+    ],
+    "not_in_library": []
+  },
+  "user_libraries": {}
+}

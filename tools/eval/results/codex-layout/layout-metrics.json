@@ -1,0 +1,20 @@
+{
+  "codex-baseline": {
+    "page": [
+      3300,
+      4500
+    ],
+    "positioned_refs": 20,
+    "similarity_rms_sheet_width": 0.17266246688022002,
+    "similarity_median_sheet_width": 0.17121216493981017
+  },
+  "codex-layout": {
+    "page": [
+      8500,
+      6000
+    ],
+    "positioned_refs": 20,
+    "similarity_rms_sheet_width": 0.014851080173959485,
+    "similarity_median_sheet_width": 0.006512422701924939
+  }
+}

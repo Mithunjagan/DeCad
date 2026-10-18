@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 24,
+  "checked_pins": 251,
+  "implicit_power_pins": [
+    "U16.16=VCC",
+    "U16.8=GND",
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U25.10=GND",
+    "U25.20=VCC",
+    "U28.16=VCC",
+    "U28.8=GND",
+    "U29.16=VCC",
+    "U29.8=GND",
+    "U31.30=GND",
+    "U33.10=GND",
+    "U33.20=VCC",
+    "U34.10=GND",
+    "U34.20=VCC",
+    "U38.16=VCC",
+    "U38.8=GND",
+    "U39.14=VCC",
+    "U39.7=GND"
+  ],
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910"
+    }
+  },
+  "generated_symbols": [
+    "74F103",
+    "PART_U1",
+    "PART_U13",
+    "PART_U15",
+    "PART_U2",
+    "PART_U27",
+    "PART_U3"
+  ],
+  "corrections": [
+    "P1 pin 84 was on N00013 and N00058; kept N00013.",
+    "P1 pin 83 was on N00016 and N00368; kept N00016.",
+    "U31 pin 30 removed from N00506: it is a fixed power/ground pin of the part."
+  ]
+}

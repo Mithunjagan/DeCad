@@ -1,0 +1,91 @@
+{
+  "sample_id": "SYNTH_DIV_0001",
+  "source_dataset": "Synthetic-KiCad",
+  "image_rel_path": "image.png",
+  "has_exact_connectivity": true,
+  "components": [
+    {
+      "ref": "V1",
+      "val": "9.0V",
+      "footprint": "",
+      "bbox": [
+        100,
+        50,
+        400,
+        150
+      ],
+      "pins": [
+        {
+          "1": "VCC"
+        },
+        {
+          "2": "GND"
+        }
+      ]
+    },
+    {
+      "ref": "R1",
+      "val": "10k",
+      "footprint": "",
+      "bbox": [
+        150,
+        250,
+        350,
+        350
+      ],
+      "pins": [
+        {
+          "1": "VCC"
+        },
+        {
+          "2": "VDIV"
+        }
+      ]
+    },
+    {
+      "ref": "R2",
+      "val": "10k",
+      "footprint": "",
+      "bbox": [
+        400,
+        250,
+        600,
+        350
+      ],
+      "pins": [
+        {
+          "1": "VDIV"
+        },
+        {
+          "2": "GND"
+        }
+      ]
+    }
+  ],
+  "nets": [
+    {
+      "name": "VCC",
+      "nodes": [
+        "V1:1",
+        "R1:1"
+      ]
+    },
+    {
+      "name": "VDIV",
+      "nodes": [
+        "R1:2",
+        "R2:1"
+      ]
+    },
+    {
+      "name": "GND",
+      "nodes": [
+        "V1:2",
+        "R2:2"
+      ]
+    }
+  ],
+  "spice_netlist": "* Synthetic Voltage Divider SYNTH_DIV_0001\nV1 VCC 0 DC 9.0\nR1 VCC VDIV 10k\nR2 VDIV 0 10k\n.op\n.end\n",
+  "edif_netlist": "",
+  "image_source_review": "required"
+}

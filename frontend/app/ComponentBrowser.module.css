@@ -1,0 +1,12 @@
+.browser { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.browser label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 12px 0; }
+.browser input:not([type='checkbox']), .browser select { box-sizing: border-box; max-width: 100%; width: 360px; min-width: 0; padding: 8px 10px; border: 1px solid #45413a; border-radius: 7px; color: inherit; background: #111; font: inherit; }
+.browser input[type='checkbox'] { accent-color: #dcaa73; }
+.browser input[type='file'] { width: 100%; }
+.browser select option { background: #181818; }
+.browser button { margin: 4px 6px 4px 0; }
+.browser details { margin: 16px 0; }
+.browser summary { cursor: pointer; font-weight: 600; margin-bottom: 10px; }
+.browser table { width: 100%; text-align: left; }
+.browser th, .browser td { padding: 9px 10px; vertical-align: top; }
+.browser p { line-height: 1.6; }

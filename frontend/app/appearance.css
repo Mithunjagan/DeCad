@@ -1,0 +1,115 @@
+/* Real-size text: no scaled text layers, blur, or external font dependency. */
+html, body, button, input, select, textarea {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.app {font-size:13px}
+.workbench-grid {grid-template-columns:240px minmax(0,1fr) 360px}
+.theme-pill-selector, .theme-select-dropdown, .command-trigger,
+.project-search input, .project-title-name, .file-row, .library-action-btn,
+.signin-btn-compact, .git-push-btn, .tab-btn, .focus-toggle,
+.welcome-explainer, .starter-prompt>span {font-size:12px}
+.sidebar-header-row, .assistant-title-row {font-size:14px;font-weight:600;letter-spacing:0}
+.project-rev-label, .file-size, .sidebar-subheading, .file-group-label,
+.canvas-zoom-label, .workspace-heading p, .workspace-heading .eyebrow,
+.assistant-settings summary, .assistant-settings summary span,
+.assistant-settings .recognition-choice, .recognition-choice small,
+.recognition-choice select, .model-selector-pill, .assistant-workflow,
+.welcome-cf-subtitle, .starter-prompt small, .composer-footnote,
+.composer-mode-label, .composer-quick-preset-chip, .tab-badge,
+.bottom-status-strip, .status-left-coordinates, .route-badge {font-size:11px}
+.workspace-heading .eyebrow, .sidebar-subheading, .file-group-label,
+.welcome-cf-subtitle {letter-spacing:.8px}
+.assistant-title-row {flex-wrap:wrap}
+.assistant-title-row .signin-btn-compact {font-size:11px;min-height:28px;padding:5px 7px}
+.assistant-settings summary {padding:11px 12px}
+.composer-textarea {font:14px/1.65 'Segoe UI',system-ui,sans-serif}
+.composer-toolbar-bottom .signin-btn-compact {font-size:11px;padding:6px 8px}
+.chat-message-bubble, .agent-prompt-body {font-size:14px;line-height:1.65}
+.cf-table th {font-size:11px}.cf-table td {font-size:12px}
+.tab-btn {padding:12px}.tab-btn svg {width:15px;height:15px}
+.workspace-heading h1 {font-weight:600;letter-spacing:-.4px}
+.project-title-name {font-weight:500}
+.studio-primary {color:#231c17}
+.theme-daylight .studio-primary {color:#fff}
+.theme-daylight .send-arrow-btn {color:#fff}
+.theme-daylight .signin-btn-compact,.theme-daylight .git-push-btn,
+.theme-daylight .composer-quick-preset-chip,.theme-daylight .edit-kicad-btn {
+  background:var(--panel2);background-image:none;color:var(--text);border-color:var(--line-strong)
+}
+.theme-daylight .agent-preview-card {background:var(--panel2);border-color:var(--line);box-shadow:none}
+.theme-daylight .agent-preview-name {color:var(--text)}
+.theme-daylight .welcome-copy h1, .theme-daylight .welcome-github,
+.theme-daylight .welcome-bottom b {color:var(--text)}
+.theme-daylight .welcome-copy>p, .theme-daylight .welcome-copy .eyebrow,
+.theme-daylight .welcome-assurance, .theme-daylight .local-badge,
+.theme-daylight .welcome-nav-label, .theme-daylight .visual-kicker,
+.theme-daylight .welcome-bottom {color:var(--muted)}
+.theme-daylight .composer-textarea::placeholder {opacity:1}
+/* Keep Undo in the web sidebar, outside the native editor's HWND region. */
+.app:has(.native-kicad-pane) .project-undo-toast {
+  left:auto;right:16px;transform:none;width:328px;max-width:calc(100vw - 32px);
+  gap:8px;font-size:12px
+}
+
+/* Signals travel into a chip while an actual assistant request is pending. */
+.assistant-activity {flex-shrink:0;border:1px solid var(--accent-border);border-radius:12px;
+  background:var(--bg);overflow:hidden;animation:assistant-arrive .22s ease-out}
+.activity-circuit {position:relative;height:112px;padding:5px 14px 20px;color:var(--accent);
+  background:radial-gradient(ellipse at center,var(--accent-dim),transparent 75%),
+  radial-gradient(var(--line) 1px,transparent 1px);background-size:auto,12px 12px}
+.activity-circuit svg {display:block;width:100%;height:88px;overflow:visible}
+.activity-traces {stroke:var(--accent-border);stroke-width:1.5;stroke-linejoin:round}
+.activity-flow {stroke:var(--accent);stroke-width:2;stroke-dasharray:12 130;
+  animation:signal-travel 2.2s linear infinite;stroke-linecap:round}
+.activity-nodes {fill:var(--panel);stroke:var(--accent);stroke-width:1.5}
+.activity-chip {fill:var(--panel2);stroke:var(--accent);stroke-width:1.5}
+.activity-core {stroke:var(--accent);stroke-width:1.4;fill:var(--accent-dim);animation:chip-breathe 2.2s ease-in-out infinite}
+.activity-live {position:absolute;bottom:9px;left:0;right:0;text-align:center;font-size:10px;font-weight:600;letter-spacing:1px;color:var(--muted)}
+.activity-copy {padding:15px 17px 13px;border-top:1px solid var(--line)}
+.activity-copy strong {display:block;color:var(--text);font-size:14px;font-weight:600;line-height:1.5}
+.activity-copy p {color:var(--muted);font-size:12px;line-height:1.6;margin:6px 0 0}
+.activity-footer {display:flex;align-items:center;gap:7px;border-top:1px solid var(--line);
+  padding:10px 17px;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+.activity-footer>span:last-child {margin-left:auto}
+.activity-dot {width:5px;height:5px;background:var(--accent);border-radius:50%;animation:chip-breathe 2.2s ease-in-out infinite}
+.chat-message-bubble {animation:assistant-arrive .18s ease-out}
+.send-arrow-btn {transition:background .15s,transform .15s}
+.send-arrow-btn:hover:not(:disabled) {transform:translateY(-1px)}
+.send-arrow-btn:active:not(:disabled) {transform:translateY(1px)}
+@keyframes signal-travel {to {stroke-dashoffset:-142}}
+@keyframes chip-breathe {0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes assistant-arrive {from{opacity:0}to{opacity:1}}
+@media(min-width:901px) and (max-width:1200px) {
+  .workbench-grid {grid-template-columns:205px minmax(0,1fr) 330px}
+}
+@media(max-width:900px) {.workbench-grid {grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce) {
+  .activity-flow {stroke-dasharray:none;opacity:.65}
+  .activity-core,.activity-dot {opacity:1}
+}
+
+/* Netlist: one scroll region, opaque table header and readable pin tags. */
+.nets-workspace{display:flex;flex-direction:column;flex:1;min-width:0;min-height:0;overflow:hidden;background:var(--bg)}
+.nets-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 24px 12px;flex-shrink:0}
+.nets-heading h2{font-size:18px;font-weight:600;margin:0 0 7px}.nets-heading p{font-size:12px;line-height:1.6;color:var(--muted);margin:0}
+.nets-heading>button{flex-shrink:0;font-size:12px}
+.nets-filters{display:flex;align-items:end;flex-wrap:wrap;gap:12px;padding:0 24px 16px;flex-shrink:0;border-bottom:1px solid var(--line)}
+.nets-filters label{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+.nets-filters label:first-child{flex:1;min-width:140px}.nets-filters input,.nets-filters select{min-width:0;width:100%;padding:9px 11px;border:1px solid var(--line-strong);border-radius:6px;background:var(--panel);color:var(--text);font-size:13px}
+.nets-filters>span{font-size:11px;color:var(--muted);padding-bottom:9px;white-space:nowrap}
+.nets-table-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;isolation:isolate}
+.nets-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;text-align:left;table-layout:fixed}
+.nets-table th{position:sticky;top:0;z-index:2;padding:13px 24px;border-bottom:1px solid var(--line-strong);background:var(--panel2);color:var(--muted);font-size:12px;font-weight:500}
+.nets-table th:first-child{width:38%}.nets-table th:last-child{width:16%}
+.nets-table td{padding:14px 24px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+.nets-table td:first-child strong{display:block;font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--accent)}
+.nets-table td small{display:block;font-size:11px;color:var(--muted);margin-top:6px}.nets-table tr:hover td{background:var(--panel)}
+.net-pin-tags{display:flex;gap:6px;flex-wrap:wrap}.net-pin-tags span{font-family:var(--font-mono);font-size:12px;padding:4px 6px;border:1px solid var(--line);border-radius:5px;background:var(--panel)}.net-pin-tags b{color:var(--muted);font-weight:400}
+.nets-empty{padding:40px 24px;text-align:center;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:15px;line-height:1.7}
+.bottom-status-strip{min-width:0;overflow:hidden}.bottom-status-strip .status-right-warnings{flex:1;min-width:0;justify-content:flex-end;overflow:hidden}
+.bottom-status-strip .status-right-warnings>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.status-right-warnings>span:last-child{flex-shrink:0;white-space:nowrap}
+.chat-message-bubble[role=alert]{border-color:var(--err);background:var(--panel2)}
+.chat-message-bubble[role=alert] .agent-prompt-body>strong{display:block;color:var(--err);font-weight:600;margin-bottom:7px}
+.chat-message-bubble[role=alert] .agent-prompt-body>p{margin:0 0 12px;font-size:13px;line-height:1.7}
+.chat-error-details{font-size:12px;margin:10px 0;color:var(--muted)}.chat-error-details summary{cursor:pointer}.chat-error-details p{max-height:160px;overflow:auto;white-space:pre-wrap;margin-top:10px}
+@media(max-width:720px){.nets-heading{padding:15px 16px 10px;align-items:flex-start;flex-wrap:wrap}.nets-filters{padding:0 16px 12px;gap:8px}.nets-heading h2{font-size:17px}.nets-filters label:nth-child(2){width:130px}.nets-table th,.nets-table td{padding:11px 12px}.nets-table th:first-child{width:40%}.nets-table th:last-child{width:19%}.net-pin-tags span{font-size:11px}.nets-table td:first-child strong{font-size:11px}}

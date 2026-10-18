@@ -1,0 +1,11 @@
+{
+  "format": "Specctra PCB autorouter DSN",
+  "files": {
+    "board.kicad_pcb": "e5a2bc2b1e0824ef46196bfd2753c0bea595ac91a40dc88de967a29564d2f1d7",
+    "board.kicad_pro": "3f3df658fcc87ee58f8070d1d8de3d5130b020590ff6bc27d0bd25dd87b5285e",
+    "board.dsn": "7c6e79c57974c992436e16642c1a6b9dce8398458c469f8cfa5c120b834522f8",
+    "verification.json": "15a47c17e9faeec1e1c04466a23151ec48d24b788470467fae440bf49a877f23",
+    "board-plan.json": "cf873881d6115e730681637af445bfc1d3a48a8437430e36d740a15ab2b56ace",
+    "circuit.json": "e584f989aaf741d9238e768f629695fe2381dd524a00483a4392bbeaa89f376e"
+  }
+}

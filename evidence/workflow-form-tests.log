@@ -1,0 +1,13 @@
+✔ renaming carries every pin connection without mutating original (3.571ms)
+✔ removing a component removes its pins and empty nets (0.287292ms)
+✔ duplicate refs and duplicate pin membership block apply (0.243083ms)
+✔ unknown references and missing pin numbers block apply (0.129959ms)
+✔ board bounds, missing footprints and nonnumeric placement block export (0.361ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 160.633

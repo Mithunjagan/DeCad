@@ -1,0 +1,44 @@
+Reference,Value,Library,Package,PCB Footprint,Footprint source
+P1,CONNECTOR,Connector.olb,DIN96,din96abcv,standard (by package and pin count)
+P2,CONNECTOR,Connector.olb,DIN96,din96abcv,standard (by package and pin count)
+R1,1K00,Discrete.olb,R,res400,standard (by package and pin count)
+R12,120R,Discrete.olb,R,res400,standard (by package and pin count)
+R13,120R,Discrete.olb,R,res400,standard (by package and pin count)
+R6,1K00,Discrete.olb,R,res400,standard (by package and pin count)
+R7,1K00,Discrete.olb,R,res400,standard (by package and pin count)
+R9,1K00,Discrete.olb,R,res400,standard (by package and pin count)
+U1,74F244,74f.olb,74F244,DIP10020W300L1050,symbol library
+U2,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U20,UNKNOWN,DECAD_GENERATED.OLB,PART_U20,dip24_3,standard (by package and pin count)
+U21,UNKNOWN,DECAD_GENERATED.OLB,PART_U21,dip24_3,standard (by package and pin count)
+U23,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U24,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U26,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U27,UNKNOWN,DECAD_GENERATED.OLB,PART_U27,dip20_3,standard (by package and pin count)
+U28,UNKNOWN,DECAD_GENERATED.OLB,PART_U28,dip18_3,standard (by package and pin count)
+U29,UNKNOWN,DECAD_GENERATED.OLB,PART_U29,dip20_3,standard (by package and pin count)
+U3,74F244,74f.olb,74F244,DIP10020W300L1050,symbol library
+U30,74F244,74f.olb,74F244,DIP10020W300L1050,symbol library
+U31,74F244,74f.olb,74F244,DIP10020W300L1050,symbol library
+U32,29520,DECAD_GENERATED.OLB,29520,dip24_3,standard (by package and pin count)
+U33,29520,DECAD_GENERATED.OLB,29520,dip24_3,standard (by package and pin count)
+U34,74F244,74f.olb,74F244,DIP10020W300L1050,symbol library
+U35,74S163,74s.olb,74S163,DIP10016W300L900,symbol library
+U36,74S163,74s.olb,74S163,DIP10016W300L900,symbol library
+U38,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U4,74F161,DECAD_GENERATED.OLB,74F161,dip20_3,standard (by package and pin count)
+U54,UNKNOWN,DECAD_GENERATED.OLB,PART_U54,dip24_3,standard (by package and pin count)
+U6,74F161,DECAD_GENERATED.OLB,74F161,dip20_3,standard (by package and pin count)
+U60,74F240,74f.olb,74F240,DIP10020W300L1050,symbol library
+U68,74LS298,74ls.olb,74LS298,DIP10016W300L900,symbol library
+U69,74LS298,74ls.olb,74LS298,DIP10016W300L900,symbol library
+U7,74F161,DECAD_GENERATED.OLB,74F161,dip20_3,standard (by package and pin count)
+U72,74F32,74f.olb,74F32,DIP10014W300L800,symbol library
+U8,74F161,DECAD_GENERATED.OLB,74F161,dip20_3,standard (by package and pin count)
+U83,74BCI2244,DECAD_GENERATED.OLB,74BCI2244,dip8_3,standard (by package and pin count)
+U84,74F161,DECAD_GENERATED.OLB,74F161,dip20_3,standard (by package and pin count)
+U85,74F240,74f.olb,74F240,DIP10020W300L1050,symbol library
+U86,UNKNOWN,DECAD_GENERATED.OLB,PART_U86,dip20_3,standard (by package and pin count)
+U87,74F244,74f.olb,74F244,DIP10020W300L1050,symbol library
+U89,74F08,74f.olb,74F08,DIP10014W300L800,symbol library
+U91,74LS298,74ls.olb,74LS298,DIP10016W300L900,symbol library

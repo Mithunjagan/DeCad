@@ -1,0 +1,136 @@
+{
+ "parts_gt": 28,
+ "parts_found": 24,
+ "parts_spurious": 0,
+ "values_ok": 24,
+ "pins_gt": 56,
+ "pins_exact": 34,
+ "pins_present": 39,
+ "missed_parts": [
+  "U1",
+  "R1",
+  "R3",
+  "S1"
+ ],
+ "spurious_parts": [],
+ "wrong_values": [],
+ "wrong_pins": [
+  [
+   "U73.7",
+   null,
+   "DD16"
+  ],
+  [
+   "U74.14",
+   null,
+   "CC10"
+  ],
+  [
+   "U74.15",
+   null,
+   "CC9"
+  ],
+  [
+   "U64.4",
+   null,
+   "DD6"
+  ],
+  [
+   "U64.12",
+   null,
+   "CC8"
+  ],
+  [
+   "U64.13",
+   null,
+   "CC7"
+  ],
+  [
+   "U64.14",
+   "N00414_416",
+   "CC6"
+  ],
+  [
+   "U64.15",
+   "N00414_123",
+   "CC5"
+  ],
+  [
+   "U62.9",
+   null,
+   "DD3"
+  ],
+  [
+   "U62.3",
+   null,
+   "DD1"
+  ],
+  [
+   "U62.12",
+   "N00414_109",
+   "CC4"
+  ],
+  [
+   "U62.13",
+   null,
+   "CC3"
+  ],
+  [
+   "U62.14",
+   "N00414_414",
+   "CC2"
+  ],
+  [
+   "U62.15",
+   null,
+   "CC1"
+  ],
+  [
+   "U43.16",
+   "GND",
+   "SPWE6"
+  ],
+  [
+   "U43.15",
+   null,
+   "SPWE5"
+  ],
+  [
+   "U43.14",
+   null,
+   "SPWE4"
+  ],
+  [
+   "U43.13",
+   null,
+   "SPWE3"
+  ],
+  [
+   "U43.12",
+   null,
+   "SPWE2"
+  ],
+  [
+   "U43.11",
+   null,
+   "SPWE1"
+  ],
+  [
+   "U43.37",
+   null,
+   "DD19"
+  ],
+  [
+   "U43.36",
+   null,
+   "DD18"
+  ]
+ ],
+ "token_replay": true,
+ "dsn_passed": true,
+ "dsn_pins": 191,
+ "strip_replay": {
+  "hits": 182,
+  "misses": 1
+ }
+}

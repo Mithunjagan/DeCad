@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 19,
+  "checked_pins": 55,
+  "implicit_power_pins": [
+    "U16.16=VCC",
+    "U16.8=GND",
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U25.10=GND",
+    "U25.20=VCC",
+    "U27.16=VCC",
+    "U27.8=GND",
+    "U28.16=VCC",
+    "U28.8=GND",
+    "U29.16=VCC",
+    "U29.8=GND",
+    "U31.30=GND",
+    "U33.10=GND",
+    "U33.20=VCC",
+    "U34.10=GND",
+    "U34.20=VCC",
+    "U38.16=VCC",
+    "U38.8=GND",
+    "U39.14=VCC",
+    "U39.7=GND",
+    "U40.14=VCC",
+    "U40.7=GND",
+    "U_1.10=GND",
+    "U_1.20=VCC"
+  ],
+  "placed_footprints": {
+    "U40": "DIP10014W300L800",
+    "U28": "DIP10016W300L900",
+    "P2": "din96abcv",
+    "R14": "res400",
+    "U19": "DIP10014W300L800",
+    "U33": "DIP10020W300L1050",
+    "P1": "din96abcv",
+    "R20": "res400",
+    "U34": "DIP10020W300L1050",
+    "U16": "DIP10016W300L900",
+    "J1": "blkcon100vhtm2oew20040",
+    "U29": "DIP10016W300L900",
+    "U39": "DIP10014W300L800",
+    "U31": "dip40_6",
+    "R11": "res400",
+    "U27": "DIP10016W300L900",
+    "U_1": "DIP10020W300L1050",
+    "U25": "DIP10020W300L1050",
+    "U38": "DIP10016W300L900"
+  },
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "routing": {
+    "wired_nets": 1,
+    "labelled_pins": 52,
+    "crossings": 0,
+    "labelled_nets": 52
+  },
+  "generated_symbols": [],
+  "corrections": [
+    "U31 pin 30 removed from N00280: it is a fixed power/ground pin of the part.",
+    "U33 pin 10 removed from AVNA: it is a fixed power/ground pin of the part.",
+    "U33 pin 20 removed from N00945: it is a fixed power/ground pin of the part.",
+    "U38 pin 8 removed from N00581: it is a fixed power/ground pin of the part."
+  ],
+  "footprints": {
+    "assigned": 19,
+    "total": 19,
+    "placed": 19,
+    "sources": {
+      "standard (by package and pin count)": 7,
+      "symbol library": 12
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {}
+}

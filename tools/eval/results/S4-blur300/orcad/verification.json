@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 14,
+  "checked_pins": 34,
+  "implicit_power_pins": [
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U25.10=GND",
+    "U25.20=VCC",
+    "U27.16=VCC",
+    "U27.8=GND",
+    "U28.16=VCC",
+    "U28.8=GND",
+    "U29.16=VCC",
+    "U29.8=GND",
+    "U33.10=GND",
+    "U33.20=VCC",
+    "U34.10=GND",
+    "U34.20=VCC",
+    "U39.14=VCC",
+    "U39.7=GND",
+    "U40.14=VCC",
+    "U40.7=GND",
+    "U_1.10=GND",
+    "U_1.20=VCC",
+    "U_2.16=VCC",
+    "U_2.8=GND"
+  ],
+  "substitutions": {},
+  "generated_symbols": [],
+  "corrections": [
+    "U_2 pin 8 removed from N00810: it is a fixed power/ground pin of the part."
+  ]
+}

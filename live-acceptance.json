@@ -1,0 +1,129 @@
+{
+  "checks": [
+    {
+      "name": "health",
+      "passed": true,
+      "result": {
+        "status": "ready",
+        "kicad": true,
+        "symbols": true,
+        "ngspice": true,
+        "embedded": true,
+        "vision_model": "qwen3-vl:2b-instruct"
+      }
+    },
+    {
+      "name": "native ERC",
+      "passed": true,
+      "result": {
+        "nets": 3,
+        "components": 3
+      }
+    },
+    {
+      "name": "ngspice",
+      "passed": true,
+      "result": {
+        "solver": "ngspice",
+        "vout": 2.5
+      }
+    },
+    {
+      "name": "qucs-s",
+      "passed": true,
+      "result": {
+        "solver": "qucs-s + ngspice",
+        "vout": 2.5
+      }
+    },
+    {
+      "name": "kicad bundle",
+      "passed": true,
+      "result": [
+        "ReleaseAcceptance.kicad_sch",
+        "ReleaseAcceptance.kicad_pro",
+        "circuit.json",
+        "README.txt",
+        "manifest.json"
+      ]
+    },
+    {
+      "name": "ngspice bundle",
+      "passed": true,
+      "result": [
+        "circuit.cir",
+        "circuit.json",
+        "README.txt",
+        "manifest.json"
+      ]
+    },
+    {
+      "name": "ltspice bundle",
+      "passed": true,
+      "result": [
+        "circuit.cir",
+        "circuit.json",
+        "README.txt",
+        "manifest.json"
+      ]
+    },
+    {
+      "name": "qucs-s bundle",
+      "passed": true,
+      "result": [
+        "circuit.sch",
+        "circuit.lib",
+        "node-map.json",
+        "circuit.json",
+        "README.txt",
+        "manifest.json"
+      ]
+    },
+    {
+      "name": "external waveform import",
+      "passed": true,
+      "result": 2
+    },
+    {
+      "name": "host bridge discovery",
+      "passed": true,
+      "result": {
+        "os": "Darwin",
+        "KiCad": true
+      }
+    },
+    {
+      "name": "model evidence",
+      "passed": true,
+      "result": {
+        "image_mode": "ocr",
+        "evaluation": 3
+      }
+    },
+    {
+      "name": "native synthetic generation",
+      "passed": true,
+      "result": {
+        "generated": 2,
+        "samples": [
+          {
+            "sample_id": "SYNTH_1791714767527677009",
+            "type": "divider",
+            "components": 3,
+            "nets": 3,
+            "validated": true
+          },
+          {
+            "sample_id": "SYNTH_1791714768637883302",
+            "type": "rc",
+            "components": 3,
+            "nets": 3,
+            "validated": true
+          }
+        ]
+      }
+    }
+  ],
+  "project": "ReleaseAcceptance",
+  "passed": 12
+}

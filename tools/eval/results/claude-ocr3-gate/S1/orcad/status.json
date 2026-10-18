@@ -1,0 +1,44 @@
+{
+  "generated_symbols": [],
+  "corrections": [
+    "U43 pin 16 removed from SPWE6: it is a fixed power/ground pin of the part.",
+    "U90 pin 16 removed from N00659: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S1.DSN",
+  "size": 158720,
+  "passed": true,
+  "components": 24,
+  "checked_pins": 277,
+  "nets": 185,
+  "rendered_parts": 26,
+  "preview_error": null,
+  "implicit_power_pins": 40,
+  "substitutions": {},
+  "footprints": {
+    "assigned": 24,
+    "total": 24,
+    "placed": 24,
+    "sources": {
+      "standard (by package and pin count)": 5,
+      "symbol library": 19
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 186,
+    "connections": 317,
+    "parts": 24,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 44,
+    "labelled_pins": 148,
+    "crossings": 430,
+    "labelled_nets": 140
+  },
+  "source": null,
+  "sha256": "5905793266c4dfb74e0bfdfc00a5bcc321d567b22594facef628b1416f44344b"
+}

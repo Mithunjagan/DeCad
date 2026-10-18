@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>KiCad Embedded</title>
+    <meta charset="utf-8">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #0d1117;
+            user-select: none;
+        }
+        #screen {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            outline: none;
+        }
+        #screen > div {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: fill !important;
+            cursor: default !important;
+        }
+    </style>
+    <script type="module" crossorigin="anonymous">
+        import RFB from "./core/rfb.js";
+        const screenEl = document.getElementById("screen");
+        const host = window.location.hostname;
+        const port = window.location.port;
+        const url = (window.location.protocol === "https:" ? "wss://" : "ws://") + host + (port ? ":" + port : "") + "/websockify";
+        
+        const rfb = new RFB(screenEl, url, {
+            credentials: { password: "" }
+        });
+        
+        rfb.scaleViewport = true;
+        rfb.resizeSession = true;
+        rfb.clipViewport = false;
+        rfb.viewOnly = false;
+        
+        rfb.addEventListener("connect", () => {
+            rfb.scaleViewport = true;
+            rfb.focus();
+        });
+
+        rfb.addEventListener("disconnect", () => {
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
+        });
+
+        window.addEventListener("focus", () => {
+            if (rfb) rfb.focus();
+        });
+
+        document.addEventListener("pointerdown", () => {
+            if (rfb) rfb.focus();
+        });
+
+        document.addEventListener("keydown", () => {
+            if (rfb) rfb.focus();
+        });
+    </script>
+</head>
+<body>
+    <div id="screen" tabindex="0"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+Reference,Value,Library,Package,PCB Footprint,Footprint source
+J1,CONNECTOR,Connector.olb,CON40A,blkcon100vhtm2oew20040,standard (by package and pin count)
+P1,CONNECTOR,Connector.olb,DIN96,din96abcv,standard (by package and pin count)
+P2,CONNECTOR,Connector.olb,DIN96,din96abcv,standard (by package and pin count)
+R5,1K00,Discrete.olb,R,res400,standard (by package and pin count)
+U10,74F244,74f.olb,74F244,DIP10020W300L1050,symbol library
+U11,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U12,74F374,74f.olb,74F374,DIP10020W300L1050,symbol library
+U13,74F257,74f.olb,74F257,DIP10016W300L900,symbol library
+U14,74F257,74f.olb,74F257,DIP10016W300L900,symbol library
+U15,74F257,74f.olb,74F257,DIP10016W300L900,symbol library
+U16,74F257,74f.olb,74F257,DIP10016W300L900,symbol library
+U43,IDT7210L,Arithmetic.olb,IDT7210L,dip64_6,standard (by package and pin count)
+U59,74LS85,74ls.olb,74LS85,DIP10016W300L900,symbol library
+U61,74LS85,74ls.olb,74LS85,DIP10016W300L900,symbol library
+U62,74LS298,74ls.olb,74LS298,DIP10016W300L900,symbol library
+U64,74LS298,74ls.olb,74LS298,DIP10016W300L900,symbol library
+U65,74LS85,74ls.olb,74LS85,DIP10016W300L900,symbol library
+U71,74F08,74f.olb,74F08,DIP10014W300L800,symbol library
+U73,74LS298,74ls.olb,74LS298,DIP10016W300L900,symbol library
+U74,74LS298,74ls.olb,74LS298,DIP10016W300L900,symbol library
+U85,74F240,74f.olb,74F240,DIP10020W300L1050,symbol library
+U88,74F32,74f.olb,74F32,DIP10014W300L800,symbol library
+U9,74F244,74f.olb,74F244,DIP10020W300L1050,symbol library
+U90,74LS85,74ls.olb,74LS85,DIP10016W300L900,symbol library

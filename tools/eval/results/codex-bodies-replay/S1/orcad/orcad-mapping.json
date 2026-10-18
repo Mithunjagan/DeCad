@@ -1,0 +1,194 @@
+{
+  "J1": {
+    "library": "Connector.olb",
+    "package": "CON40A",
+    "match": "connector by pin names",
+    "value": "CONNECTOR",
+    "footprint": "blkcon100vhtm2oew20040",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "P1": {
+    "library": "Connector.olb",
+    "package": "DIN96",
+    "match": "connector by pin names",
+    "value": "CONNECTOR",
+    "footprint": "din96abcv",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "P2": {
+    "library": "Connector.olb",
+    "package": "DIN96",
+    "match": "connector by pin names",
+    "value": "CONNECTOR",
+    "footprint": "din96abcv",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "R5": {
+    "library": "Discrete.olb",
+    "package": "R",
+    "match": "generic symbol",
+    "value": "1K00",
+    "footprint": "res400",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U10": {
+    "library": "74f.olb",
+    "package": "74F244",
+    "match": "part number",
+    "value": "74F244",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U11": {
+    "library": "74f.olb",
+    "package": "74F374",
+    "match": "part number",
+    "value": "74F374",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U12": {
+    "library": "74f.olb",
+    "package": "74F374",
+    "match": "part number",
+    "value": "74F374",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U13": {
+    "library": "74f.olb",
+    "package": "74F257",
+    "match": "part number",
+    "value": "74F257",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U14": {
+    "library": "74f.olb",
+    "package": "74F257",
+    "match": "part number",
+    "value": "74F257",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U15": {
+    "library": "74f.olb",
+    "package": "74F257",
+    "match": "part number",
+    "value": "74F257",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U16": {
+    "library": "74f.olb",
+    "package": "74F257",
+    "match": "part number",
+    "value": "74F257",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U43": {
+    "library": "Arithmetic.olb",
+    "package": "IDT7210L",
+    "match": "part number",
+    "value": "IDT7210L",
+    "footprint": "dip64_6",
+    "footprint_source": "standard (by package and pin count)"
+  },
+  "U59": {
+    "library": "74ls.olb",
+    "package": "74LS85",
+    "match": "part number",
+    "value": "74LS85",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U61": {
+    "library": "74ls.olb",
+    "package": "74LS85",
+    "match": "part number",
+    "value": "74LS85",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U62": {
+    "library": "74ls.olb",
+    "package": "74LS298",
+    "match": "part number",
+    "value": "74LS298",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U64": {
+    "library": "74ls.olb",
+    "package": "74LS298",
+    "match": "part number",
+    "value": "74LS298",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U65": {
+    "library": "74ls.olb",
+    "package": "74LS85",
+    "match": "part number",
+    "value": "74LS85",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U71": {
+    "library": "74f.olb",
+    "package": "74F08",
+    "match": "part number",
+    "value": "74F08",
+    "footprint": "DIP10014W300L800",
+    "footprint_source": "symbol library"
+  },
+  "U73": {
+    "library": "74ls.olb",
+    "package": "74LS298",
+    "match": "part number",
+    "value": "74LS298",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U74": {
+    "library": "74ls.olb",
+    "package": "74LS298",
+    "match": "part number",
+    "value": "74LS298",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  },
+  "U85": {
+    "library": "74f.olb",
+    "package": "74F240",
+    "match": "part number",
+    "value": "74F240",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U88": {
+    "library": "74f.olb",
+    "package": "74F32",
+    "match": "part number",
+    "value": "74F32",
+    "footprint": "DIP10014W300L800",
+    "footprint_source": "symbol library"
+  },
+  "U9": {
+    "library": "74f.olb",
+    "package": "74F244",
+    "match": "part number",
+    "value": "74F244",
+    "footprint": "DIP10020W300L1050",
+    "footprint_source": "symbol library"
+  },
+  "U90": {
+    "library": "74ls.olb",
+    "package": "74LS85",
+    "match": "part number",
+    "value": "74LS85",
+    "footprint": "DIP10016W300L900",
+    "footprint_source": "symbol library"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "model": "qwen3:0.6b",
+  "review_did_not_mutate": true,
+  "erc": true,
+  "vout": 6.0,
+  "elapsed_seconds": 6.718
+}

@@ -1,0 +1,811 @@
+{
+  "sheet_aspect": 1.414005,
+  "components": [
+    {
+      "ref": "J1",
+      "value": "CONNECTOR",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "P1",
+      "value": "CONNECTOR",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "P2",
+      "value": "CONNECTOR",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "R11",
+      "value": "1K00",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.0839,
+      "y": 0.3351
+    },
+    {
+      "ref": "R14",
+      "value": "1K00",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.1599,
+      "y": 0.1555
+    },
+    {
+      "ref": "R20",
+      "value": "510R",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.0843,
+      "y": 0.3756
+    },
+    {
+      "ref": "U16",
+      "value": "74F174",
+      "library": null,
+      "footprint": null,
+      "x": 0.2879,
+      "y": 0.4837
+    },
+    {
+      "ref": "U19",
+      "value": "74F02",
+      "library": null,
+      "footprint": null,
+      "x": 0.3444,
+      "y": 0.6322
+    },
+    {
+      "ref": "U25",
+      "value": "74F240",
+      "library": null,
+      "footprint": null,
+      "x": 0.8446,
+      "y": 0.3791
+    },
+    {
+      "ref": "U27",
+      "value": "74F174",
+      "library": null,
+      "footprint": null,
+      "x": 0.3784,
+      "y": 0.483
+    },
+    {
+      "ref": "U28",
+      "value": "74F174",
+      "library": null,
+      "footprint": null,
+      "x": 0.4668,
+      "y": 0.483
+    },
+    {
+      "ref": "U29",
+      "value": "74F174",
+      "library": null,
+      "footprint": null,
+      "x": 0.5603,
+      "y": 0.4826
+    },
+    {
+      "ref": "U31",
+      "value": "AM2910",
+      "library": null,
+      "footprint": null,
+      "x": 0.2876,
+      "y": 0.1802
+    },
+    {
+      "ref": "U33",
+      "value": "74F240",
+      "library": null,
+      "footprint": null,
+      "x": 0.5287,
+      "y": 0.1685
+    },
+    {
+      "ref": "U34",
+      "value": "74F240",
+      "library": null,
+      "footprint": null,
+      "x": 0.65,
+      "y": 0.167
+    },
+    {
+      "ref": "U38",
+      "value": "74F151",
+      "library": null,
+      "footprint": null,
+      "x": 0.8463,
+      "y": 0.4879
+    },
+    {
+      "ref": "U39",
+      "value": "74F00",
+      "library": null,
+      "footprint": null,
+      "x": 0.8103,
+      "y": 0.2029
+    },
+    {
+      "ref": "U40",
+      "value": "74F10",
+      "library": null,
+      "footprint": null,
+      "x": 0.8032,
+      "y": 0.1217
+    },
+    {
+      "ref": "U_1",
+      "value": "74F240",
+      "library": null,
+      "footprint": null,
+      "x": 0.4597,
+      "y": 0.1682
+    },
+    {
+      "ref": "U_2",
+      "value": "74F240",
+      "library": null,
+      "footprint": null,
+      "x": 0.844,
+      "y": 0.3206
+    }
+  ],
+  "nets": [
+    {
+      "name": "AEIA1",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "35"
+        }
+      ]
+    },
+    {
+      "name": "DO",
+      "nodes": [
+        {
+          "ref": "U16",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "ID",
+      "nodes": [
+        {
+          "ref": "P2",
+          "pin": "B29"
+        },
+        {
+          "ref": "U25",
+          "pin": "1"
+        },
+        {
+          "ref": "U38",
+          "pin": "11"
+        },
+        {
+          "ref": "U38",
+          "pin": "12"
+        },
+        {
+          "ref": "U39",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "INADD1",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "INSIIZ",
+      "nodes": [
+        {
+          "ref": "U27",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "INSTO",
+      "nodes": [
+        {
+          "ref": "U29",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "INSYIS",
+      "nodes": [
+        {
+          "ref": "U27",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "M5I",
+      "nodes": [
+        {
+          "ref": "U34",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "MNONMN",
+      "nodes": [
+        {
+          "ref": "U16",
+          "pin": "12"
+        }
+      ]
+    },
+    {
+      "name": "N00008",
+      "nodes": [
+        {
+          "ref": "U40",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00082",
+      "nodes": [
+        {
+          "ref": "U34",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00083",
+      "nodes": [
+        {
+          "ref": "P2",
+          "pin": "A23"
+        }
+      ]
+    },
+    {
+      "name": "N00089",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "C24"
+        }
+      ]
+    },
+    {
+      "name": "N00113",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "C19"
+        }
+      ]
+    },
+    {
+      "name": "N00117",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "B14"
+        }
+      ]
+    },
+    {
+      "name": "N00123",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "B13"
+        }
+      ]
+    },
+    {
+      "name": "N00172",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "B23"
+        }
+      ]
+    },
+    {
+      "name": "N00277",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "30"
+        }
+      ]
+    },
+    {
+      "name": "N00330",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "18"
+        }
+      ]
+    },
+    {
+      "name": "N00336",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "24"
+        }
+      ]
+    },
+    {
+      "name": "N00347",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "14"
+        }
+      ]
+    },
+    {
+      "name": "N00450",
+      "nodes": [
+        {
+          "ref": "J1",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N00456",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "13"
+        }
+      ]
+    },
+    {
+      "name": "N00462",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "1"
+        },
+        {
+          "ref": "U31",
+          "pin": "11"
+        },
+        {
+          "ref": "U31",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N00463",
+      "nodes": [
+        {
+          "ref": "U19",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00483",
+      "nodes": [
+        {
+          "ref": "U27",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00556",
+      "nodes": [
+        {
+          "ref": "U28",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N00557",
+      "nodes": [
+        {
+          "ref": "U38",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "N00564",
+      "nodes": [
+        {
+          "ref": "U38",
+          "pin": "8"
+        }
+      ]
+    },
+    {
+      "name": "N00578",
+      "nodes": [
+        {
+          "ref": "U33",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00581",
+      "nodes": [
+        {
+          "ref": "U28",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N00597",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00621",
+      "nodes": [
+        {
+          "ref": "U33",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00664",
+      "nodes": [
+        {
+          "ref": "U29",
+          "pin": "10"
+        }
+      ]
+    },
+    {
+      "name": "N00780",
+      "nodes": [
+        {
+          "ref": "U38",
+          "pin": "15"
+        }
+      ]
+    },
+    {
+      "name": "N00791",
+      "nodes": [
+        {
+          "ref": "U_2",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N00801",
+      "nodes": [
+        {
+          "ref": "U25",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N00861",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N00880",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "15"
+        }
+      ]
+    },
+    {
+      "name": "N00888",
+      "nodes": [
+        {
+          "ref": "U34",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "N00927",
+      "nodes": [
+        {
+          "ref": "U33",
+          "pin": "20"
+        }
+      ]
+    },
+    {
+      "name": "N00942",
+      "nodes": [
+        {
+          "ref": "R14",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N00974",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "N00978",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "N01018",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "10"
+        }
+      ]
+    },
+    {
+      "name": "N01231_189",
+      "nodes": [
+        {
+          "ref": "R20",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N01369",
+      "nodes": [
+        {
+          "ref": "U28",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "N01380",
+      "nodes": [
+        {
+          "ref": "U27",
+          "pin": "3"
+        }
+      ]
+    },
+    {
+      "name": "N01382",
+      "nodes": [
+        {
+          "ref": "U27",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "N01413",
+      "nodes": [
+        {
+          "ref": "U38",
+          "pin": "7"
+        }
+      ]
+    },
+    {
+      "name": "N01436",
+      "nodes": [
+        {
+          "ref": "U16",
+          "pin": "11"
+        }
+      ]
+    },
+    {
+      "name": "N01472",
+      "nodes": [
+        {
+          "ref": "U40",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "NA",
+      "nodes": [
+        {
+          "ref": "U_1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "NAD4",
+      "nodes": [
+        {
+          "ref": "U29",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "NO",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "34"
+        }
+      ]
+    },
+    {
+      "name": "P-M",
+      "nodes": [
+        {
+          "ref": "P1",
+          "pin": "B4"
+        }
+      ]
+    },
+    {
+      "name": "TMA1",
+      "nodes": [
+        {
+          "ref": "U34",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "WDWS",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "4"
+        }
+      ]
+    },
+    {
+      "name": "WO",
+      "nodes": [
+        {
+          "ref": "U31",
+          "pin": "23"
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "Recognized 20 parts and 65 pin connections in 59 nets. Check them against the source before generating the design.",
+    "U31: part number read as AM291C, corrected to AM2910 (library match).",
+    "Removed pins that do not exist on the identified part (likely misread numbers): U38.01, U16.20, U16.37, P1.924, P1.025, U27.821, U28.71, U38.73, P1.01, U28.31, U31.63, U_1.55, U33.201, U33.191, U16.71, U34.21, U38.17, U27.801, U16.21, P2.020, U31.111",
+    "Input assessment: blurred or greyscale scan (70% soft stroke edges, text ~24 px); enhanced automatically (1.7x resampling, stroke-preserving binarization, grayscale OCR).",
+    "Review required: detail lost to blur or a scan below 300 dpi cannot be recovered by any reader. Check every part, pin number and net label against the source, or rescan at 300 dpi or better.",
+    "2 IC bodies have a legible part number but an unreadable reference; placed as U_1..U_2. Annotate them in Capture.",
+    "U25 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U25 pin 1 was read on two different wires; kept the first. Check it.",
+    "U31 pin 7 was read on two different wires; kept the first. Check it.",
+    "U31 pin 2 was read on two different wires; kept the first. Check it.",
+    "U31 pin 2 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U31 pin 35 was read on two different wires; kept the first. Check it.",
+    "U31 pin 7 was read on two different wires; kept the first. Check it.",
+    "U31 pin 1 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U31 pin 7 was read on two different wires; kept the first. Check it.",
+    "U31 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 2 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U40 pin 1 was read on two different wires; kept the first. Check it.",
+    "U25 pin 1 was read on two different wires; kept the first. Check it.",
+    "U25 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U34 pin 1 was read on two different wires; kept the first. Check it.",
+    "U34 pin 1 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U25 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U33 pin 1 was read on two different wires; kept the first. Check it.",
+    "U33 pin 1 was read on two different wires; kept the first. Check it.",
+    "U33 pin 11 was read on two different wires; kept the first. Check it.",
+    "U33 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U31 pin 63 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U33 pin 20 was read on two different wires; kept the first. Check it.",
+    "U33 pin 201 was read on two different wires; kept the first. Check it.",
+    "U28 pin 71 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U28 pin 71 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U34 pin 2 was read on two different wires; kept the first. Check it.",
+    "U34 pin 11 was read on two different wires; kept the first. Check it.",
+    "U_1 pin 1 was read on two different wires; kept the first. Check it.",
+    "U33 pin 191 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U_2 pin 1 was read on two different wires; kept the first. Check it.",
+    "U25 pin 1 was read on two different wires; kept the first. Check it.",
+    "U28 pin 7 was read on two different wires; kept the first. Check it.",
+    "U25 pin 1 was read on two different wires; kept the first. Check it.",
+    "U29 pin 1 was read on two different wires; kept the first. Check it.",
+    "U28 pin 2 was read on two different wires; kept the first. Check it.",
+    "U28 pin 1 was read on two different wires; kept the first. Check it.",
+    "U27 pin 1 was read on two different wires; kept the first. Check it.",
+    "U27 pin 7 was read on two different wires; kept the first. Check it.",
+    "U27 pin 3 was read on two different wires; kept the first. Check it.",
+    "U27 pin 1 was read on two different wires; kept the first. Check it.",
+    "U28 pin 31 was read on two different wires; kept the first. Check it.",
+    "U16 pin 21 was read on two different wires; kept the first. Check it.",
+    "U16 pin 12 was read on two different wires; kept the first. Check it.",
+    "U16 pin 11 was read on two different wires; kept the first. Check it.",
+    "U16 pin 71 was read on two different wires; kept the first. Check it.",
+    "U16 pin 71 was read on two different wires; kept the first. Check it.",
+    "U28 pin 7 was read on two different wires; kept the first. Check it.",
+    "U27 pin 3 was read on two different wires; kept the first. Check it.",
+    "U16 pin 21 was read on two different wires; kept the first. Check it.",
+    "U16 pin 11 was read on two different wires; kept the first. Check it.",
+    "U38 pin 17 was read on two different wires; kept the first. Check it.",
+    "U38 pin 17 was read on two different wires; kept the first. Check it.",
+    "U29 pin 1 was read on two different wires; kept the first. Check it.",
+    "U19 pin 1 was read on two different wires; kept the first. Check it.",
+    "U19 pin 1 was read on two different wires; kept the first. Check it.",
+    "62 pins connect to nothing else that was recognized; review them."
+  ]
+}

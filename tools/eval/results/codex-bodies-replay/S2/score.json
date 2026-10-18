@@ -1,0 +1,47 @@
+{
+ "parts_gt": 0,
+ "parts_found": 0,
+ "parts_spurious": 12,
+ "values_ok": 0,
+ "pins_gt": 0,
+ "pins_exact": 0,
+ "pins_present": 0,
+ "missed_parts": [],
+ "spurious_parts": [
+  "U_9",
+  "U_7",
+  "P2",
+  "P1",
+  "U_8",
+  "U_1",
+  "U_4",
+  "U_5",
+  "U_6",
+  "U_3",
+  "U_2",
+  "U_10"
+ ],
+ "wrong_values": [],
+ "wrong_pins": [],
+ "value_counts": {
+  "TC514100": [
+   7,
+   16
+  ],
+  "74F374": [
+   5,
+   8
+  ],
+  "74F244": [
+   2,
+   4
+  ]
+ },
+ "token_replay": true,
+ "dsn_passed": true,
+ "dsn_pins": 104,
+ "strip_replay": {
+  "hits": 170,
+  "misses": 3
+ }
+}

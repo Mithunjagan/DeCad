@@ -1,0 +1,77 @@
+(session board
+  (base_design board)
+  (placement
+    (resolution um 10)
+    (component R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal
+      (place R1 100000 -100000 front 0)
+      (place R2 100000 -200000 front 0)
+    )
+    (component PinHeader_1x02_P2.54mm_Vertical
+      (place J1 50000 -50000 front 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version 10.0.7)
+    )
+    (library_out 
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_600:300_um"
+        (shape
+          (circle F.Cu 6000 0 0)
+        )
+        (shape
+          (circle B.Cu 6000 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+      (net VIN
+        (wire
+          (path B.Cu 2500
+            50000 -50000
+            61767 -50000
+          )
+        )
+        (wire
+          (path B.Cu 2500
+            61767 -50000
+            61767 -61767
+            100000 -100000
+          )
+        )
+      )
+      (net OUT
+        (wire
+          (path F.Cu 2500
+            100000 -200000
+            200000 -100000
+            201600 -100000
+          )
+        )
+      )
+      (net GND
+        (wire
+          (path B.Cu 2500
+            50000 -75400
+            174600 -200000
+            201600 -200000
+          )
+        )
+      )
+    )
+  )
+)

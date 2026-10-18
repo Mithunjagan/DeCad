@@ -1,0 +1,16 @@
+{
+  "format": "OrCAD Capture native design (.DSN)",
+  "orcad_root": "D:\\",
+  "files": {
+    "S4.DSN": "766b3b657e9139b9aa6fa1a7fb2b428d74658b6aa1378d15dbce44b9f0b8703c",
+    "circuit.json": "f7c301b1176c1579eaa11bd22f8f7afecb6e822f5ab2fe9021bd7c890a2603e1",
+    "orcad-mapping.json": "65ecbb7034dfff01aa88bfd57c51f9c8359aa56c638a7bf013b0546983db33c1",
+    "verification.json": "fca61e170de398ff64b498b51456c8c16d11e2c84aa44ad0ab07397106d02f21",
+    "DECAD_GENERATED.OLB": "03f58de24d0dbc44562f0658e5295887a4dddfc4ca4e9efc0dcaa2dc2f2184a7",
+    "footprints.csv": "4493a4a17328d057aa4d1666fb37e8c63c93b94d26b2cac90fe10db953b3c64c",
+    "netlist.json": "3721713d9d27faf032930ad6f0882c889327508000ff35b58ade2f1a6d9e5864",
+    "netlist.csv": "644771d9281bbdc451006a32fab237c4c3184c4b447d9f0cdda45d2eb792e2ae",
+    "S4.net": "356794e0d9f5efc67d3c21da2140599d8206ba04690c60b5d8a19f5fe116e9c0",
+    "S4.opj": "d1e9d4ba3694f9fe647bc35f15b26f02a492bee5d97af8d30217835095fc3f29"
+  }
+}

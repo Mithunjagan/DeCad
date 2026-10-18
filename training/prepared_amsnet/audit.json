@@ -1,0 +1,12 @@
+{
+  "accepted": 729,
+  "rejected": [],
+  "groups": 562,
+  "custom_training_ready": true,
+  "note": "Counts are read from files. JSON/SPICE agreement does not prove source-image fidelity. Review image annotations before training.",
+  "splits": {
+    "train": 593,
+    "validation": 72,
+    "test": 64
+  }
+}

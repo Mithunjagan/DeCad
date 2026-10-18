@@ -1,0 +1,12 @@
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+S4-scan200: {'parts_gt': 30, 'parts_found': 18, 'parts_spurious': 1, 'values_ok': 18, 'pins_gt': 72, 'pins_exact': 0, 'pins_present': 12, 'seconds': 121, 'dsn_passed': True, 'dsn_components': 19, 'dsn_pins': 55, 'dsn_nets': 57}
+| Sample | Parts found | Precision | Values | Labelled pins exact | DSN | Time |
+|---|---|---|---|---|---|---|
+| 1 | 23/28 (82%) | 100% | 100% | 34/56 (61%) | verified, 23 parts, 188 pins | 148 s |
+| 2 | 0/0 (–) | 0% | – | 0/0 (–) | verified, 21 parts, 103 pins | 201 s |
+| | part-number counts (found/expected): TC514100 7/16, 74F374 5/8, 74F244 2/4 | | | | | |
+| 3 | 27/34 (79%) | 96% | 93% | 40/69 (58%) | verified, 39 parts, 390 pins | 213 s |
+| 4 | 24/30 (80%) | 100% | 92% | 60/72 (83%) | verified, 24 parts, 251 pins | 140 s |
+| 4-scan200 | 18/30 (60%) | 95% | 100% | 0/72 (0%) | verified, 19 parts, 55 pins | 121 s |
+| 4-scan300 | 24/30 (80%) | 86% | 96% | 37/72 (51%) | verified, 28 parts, 233 pins | 128 s |
+| 5 | 19/25 (76%) | 100% | 79% | 24/48 (50%) | verified, 23 parts, 210 pins | 165 s |

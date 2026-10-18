@@ -1,0 +1,30 @@
+{
+  "health": {
+    "status": "ready",
+    "kicad": true,
+    "symbols": true,
+    "ngspice": true,
+    "embedded": true,
+    "image_mode": "circuit",
+    "vision_model": null
+  },
+  "auth/config": {
+    "github": true,
+    "local": true
+  },
+  "vision/status": {
+    "ready": true,
+    "mode": "circuit",
+    "model": null,
+    "models": [],
+    "connectivity_verified": false
+  },
+  "native_footprint_lookup": {
+    "id": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
+    "pads": [
+      "1",
+      "2"
+    ],
+    "description": "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=10.16mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf"
+  }
+}

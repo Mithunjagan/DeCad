@@ -1,0 +1,55 @@
+{
+  "generated_symbols": [
+    "29520",
+    "74BCI2244",
+    "74F161",
+    "PART_U20",
+    "PART_U21",
+    "PART_U27",
+    "PART_U28",
+    "PART_U29",
+    "PART_U54",
+    "PART_U86"
+  ],
+  "corrections": [
+    "P1 pin 84 was on N00018 and N00566; kept N00018.",
+    "U1 pin 10 removed from WV: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S3.DSN",
+  "size": 243200,
+  "passed": true,
+  "components": 43,
+  "checked_pins": 499,
+  "nets": 301,
+  "rendered_parts": 45,
+  "preview_error": null,
+  "implicit_power_pins": 40,
+  "substitutions": {},
+  "footprints": {
+    "assigned": 43,
+    "total": 43,
+    "placed": 43,
+    "sources": {
+      "standard (by package and pin count)": 23,
+      "symbol library": 20
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 302,
+    "connections": 539,
+    "parts": 43,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 89,
+    "labelled_pins": 234,
+    "crossings": 712,
+    "labelled_nets": 211
+  },
+  "source": null,
+  "sha256": "5d8fcb5979b3526a7ccf4d3cc8687d86568e8323c368f8dfab39f1d489f0a623"
+}

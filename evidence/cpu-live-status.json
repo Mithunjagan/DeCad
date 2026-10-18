@@ -1,0 +1,21 @@
+{
+  "health": {
+    "status": "ready",
+    "kicad": true,
+    "symbols": true,
+    "ngspice": true,
+    "embedded": true,
+    "vision_model": "qwen3-vl:2b-instruct"
+  },
+  "auth/config": {
+    "github": true,
+    "local": true
+  },
+  "vision/status": {
+    "ready": true,
+    "mode": "circuit",
+    "model": null,
+    "models": [],
+    "connectivity_verified": false
+  }
+}

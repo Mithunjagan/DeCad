@@ -1,0 +1,16 @@
+**/node_modules/
+**/.next/
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+backend/.env
+backend/.state/
+**/backend/.state/
+backend/workspaces/
+backend/datasets/
+
+.env
+checkpoints/
+**/.venv-training/
+**/*.safetensors
+**/*.gguf

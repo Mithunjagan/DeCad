@@ -1,0 +1,65 @@
+{
+  "regressions": [
+    "S2: fewer 74F374",
+    "S4-blur300: spurious parts increased",
+    "S4-scan200: spurious parts increased"
+  ],
+  "netlists": {
+    "S1": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S2": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S3": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S4": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S4-blur300": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S4-scan200": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S4-scan300": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    },
+    "S5": {
+      "passed": true,
+      "returncode": 0,
+      "errors": 0,
+      "summary_counts": []
+    }
+  },
+  "source_sha256": {
+    "backend/app/ingestion.py": "1db0fb745b5512327bfc5c254c0fc75faefc3e84ab42af7e376657a4f98ec754",
+    "backend/app/digital_vision.py": "cd16c5b0e90e0908870c8304cd1db6f83befbd75ef31090fa63d1b5228d732f2",
+    "backend/app/orcad_capture.py": "1714e8b8356e0567491d0e6095f0a90ec141dc30a353ab417535cf5c60f8c026",
+    "backend/app/orcad_writer.tcl": "6b73427f9b20e474ebb2939ca4735eb36c56007c48cc5354b1e0d05f31b7acd4",
+    "backend/app/orcad_route.py": "28953868c35ec77a5309e345beca65d17ed040719df402fa6202f64bff060034",
+    "tools/eval/run_eval.py": "662b313978950bad55ccb4c715a146bbbf5edac1168ffc76052ecf9ddf1c1a30"
+  }
+}

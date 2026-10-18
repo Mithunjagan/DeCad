@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 28,
+  "checked_pins": 233,
+  "implicit_power_pins": [
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U25.10=GND",
+    "U25.20=VCC",
+    "U27.16=VCC",
+    "U27.8=GND",
+    "U28.16=VCC",
+    "U28.8=GND",
+    "U29.16=VCC",
+    "U29.8=GND",
+    "U31.30=GND",
+    "U33.10=GND",
+    "U33.20=VCC",
+    "U34.10=GND",
+    "U34.20=VCC",
+    "U38.16=VCC",
+    "U38.8=GND",
+    "U39.14=VCC",
+    "U39.7=GND",
+    "U_1.16=VCC",
+    "U_1.8=GND",
+    "U_2.14=VCC",
+    "U_2.7=GND"
+  ],
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910"
+    }
+  },
+  "generated_symbols": [
+    "74F103",
+    "PART_U1",
+    "PART_U13",
+    "PART_U15",
+    "PART_U2",
+    "PART_U3"
+  ],
+  "corrections": [
+    "P1 pin 83 was on D1SAD and N00022; kept D1SAD.",
+    "P1 pin 86 was on N00027 and N00102; kept N00027.",
+    "P1 pin 84 was on N00015 and N00104; kept N00015.",
+    "P2 pin 19 was on N00078 and N00114; kept N00078.",
+    "U3 pin 03 removed from INST1: the part has no such pin.",
+    "U31 pin 30 removed from N00539: it is a fixed power/ground pin of the part.",
+    "U39 pin 14 removed from N00607_715: it is a fixed power/ground pin of the part.",
+    "U39 pin 7 removed from N00694: it is a fixed power/ground pin of the part."
+  ]
+}

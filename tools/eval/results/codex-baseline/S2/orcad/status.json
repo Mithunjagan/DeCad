@@ -1,0 +1,108 @@
+{
+  "generated_symbols": [
+    "1R",
+    "PART_U53",
+    "PART_U76"
+  ],
+  "corrections": [
+    "U53 pin 01 removed from N00826: the part has no such pin.",
+    "U_5 pin 10 removed from N01017: it is a fixed power/ground pin of the part."
+  ],
+  "design": "S2.DSN",
+  "size": 104448,
+  "passed": true,
+  "components": 21,
+  "checked_pins": 103,
+  "nets": 100,
+  "rendered_parts": 21,
+  "preview_error": null,
+  "implicit_power_pins": 32,
+  "substitutions": {
+    "U74": {
+      "library": "DRAM.OLB",
+      "package": "HM514100JP_20SOJ",
+      "match": "substitute for TC514100 (review pinout)",
+      "value": "TC514100",
+      "footprint": "dip18_3",
+      "footprint_source": "standard (by package and pin count)"
+    },
+    "U8": {
+      "library": "DRAM.OLB",
+      "package": "HM514100JP_20SOJ",
+      "match": "substitute for TC514100 (review pinout)",
+      "value": "TC514100",
+      "footprint": "dip18_3",
+      "footprint_source": "standard (by package and pin count)"
+    },
+    "U94": {
+      "library": "DRAM.OLB",
+      "package": "HM514100JP_20SOJ",
+      "match": "substitute for TC514100 (review pinout)",
+      "value": "TC514100",
+      "footprint": "dip18_3",
+      "footprint_source": "standard (by package and pin count)"
+    },
+    "U_1": {
+      "library": "DRAM.OLB",
+      "package": "HM514100JP_20SOJ",
+      "match": "substitute for TC514100 (review pinout)",
+      "value": "TC514100",
+      "footprint": "dip18_3",
+      "footprint_source": "standard (by package and pin count)"
+    },
+    "U_2": {
+      "library": "DRAM.OLB",
+      "package": "HM514100JP_20SOJ",
+      "match": "substitute for TC514100 (review pinout)",
+      "value": "TC514100",
+      "footprint": "dip18_3",
+      "footprint_source": "standard (by package and pin count)"
+    },
+    "U_3": {
+      "library": "DRAM.OLB",
+      "package": "HM514100JP_20SOJ",
+      "match": "substitute for TC514100 (review pinout)",
+      "value": "TC514100",
+      "footprint": "dip18_3",
+      "footprint_source": "standard (by package and pin count)"
+    },
+    "U_7": {
+      "library": "DRAM.OLB",
+      "package": "HM514100JP_20SOJ",
+      "match": "substitute for TC514100 (review pinout)",
+      "value": "TC514100",
+      "footprint": "dip18_3",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "footprints": {
+    "assigned": 21,
+    "total": 21,
+    "placed": 21,
+    "sources": {
+      "standard (by package and pin count)": 12,
+      "symbol library": 8,
+      "placeholder header (review)": 1
+    },
+    "without": [],
+    "placeholder": [
+      "U6"
+    ],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 100,
+    "connections": 135,
+    "parts": 21,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 4,
+    "labelled_pins": 94,
+    "crossings": 0,
+    "labelled_nets": 94
+  },
+  "source": null,
+  "sha256": "125bf1114bfb041cebae03ef01b10de6344d9588ed2e3c0a89a75405de3a0c47"
+}

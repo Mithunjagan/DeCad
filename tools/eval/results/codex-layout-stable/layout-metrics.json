@@ -1,0 +1,102 @@
+{
+  "S1": {
+    "before": {
+      "page": [
+        3300,
+        4500
+      ],
+      "positioned_refs": 20,
+      "similarity_rms_sheet_width": 0.17266246688022002,
+      "similarity_median_sheet_width": 0.17121216493981017
+    },
+    "after": {
+      "page": [
+        8500,
+        6000
+      ],
+      "positioned_refs": 20,
+      "similarity_rms_sheet_width": 0.014851080173959485,
+      "similarity_median_sheet_width": 0.006512422701924939
+    }
+  },
+  "S2": {
+    "before": {
+      "page": [
+        4000,
+        4800
+      ],
+      "positioned_refs": 19,
+      "similarity_rms_sheet_width": 0.21944963177948074,
+      "similarity_median_sheet_width": 0.17320539912674365
+    },
+    "after": {
+      "page": [
+        8500,
+        6000
+      ],
+      "positioned_refs": 19,
+      "similarity_rms_sheet_width": 0.010375992084394837,
+      "similarity_median_sheet_width": 0.0030158416143538794
+    }
+  },
+  "S3": {
+    "before": {
+      "page": [
+        4600,
+        5100
+      ],
+      "positioned_refs": 37,
+      "similarity_rms_sheet_width": 0.11523023019708839,
+      "similarity_median_sheet_width": 0.0925155740594234
+    },
+    "after": {
+      "page": [
+        8500,
+        6000
+      ],
+      "positioned_refs": 37,
+      "similarity_rms_sheet_width": 0.008146146073292025,
+      "similarity_median_sheet_width": 0.0016360328847496086
+    }
+  },
+  "S4": {
+    "before": {
+      "page": [
+        4800,
+        4600
+      ],
+      "positioned_refs": 21,
+      "similarity_rms_sheet_width": 0.24728540300794702,
+      "similarity_median_sheet_width": 0.19098908697611586
+    },
+    "after": {
+      "page": [
+        8500,
+        6000
+      ],
+      "positioned_refs": 21,
+      "similarity_rms_sheet_width": 0.004703565552794573,
+      "similarity_median_sheet_width": 0.0017694386570179987
+    }
+  },
+  "S5": {
+    "before": {
+      "page": [
+        3900,
+        4100
+      ],
+      "positioned_refs": 20,
+      "similarity_rms_sheet_width": 0.22080700992502217,
+      "similarity_median_sheet_width": 0.1683308941957995
+    },
+    "after": {
+      "page": [
+        8500,
+        6000
+      ],
+      "positioned_refs": 20,
+      "similarity_rms_sheet_width": 0.004053603808672922,
+      "similarity_median_sheet_width": 0.0014026856965727748
+    }
+  }
+}

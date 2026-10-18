@@ -1,0 +1,103 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 25,
+  "checked_pins": 281,
+  "implicit_power_pins": [
+    "U16.16=VCC",
+    "U16.8=GND",
+    "U17.14=VCC",
+    "U17.7=GND",
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U25.10=GND",
+    "U25.20=VCC",
+    "U27.16=VCC",
+    "U27.8=GND",
+    "U28.16=VCC",
+    "U28.8=GND",
+    "U29.16=VCC",
+    "U29.8=GND",
+    "U31.30=GND",
+    "U33.10=GND",
+    "U33.20=VCC",
+    "U34.10=GND",
+    "U34.20=VCC",
+    "U38.16=VCC",
+    "U38.8=GND",
+    "U39.14=VCC",
+    "U39.7=GND",
+    "U40.14=VCC",
+    "U40.7=GND"
+  ],
+  "placed_footprints": {
+    "U40": "DIP10014W300L800",
+    "R18": "res400",
+    "U38": "DIP10016W300L900",
+    "U25": "DIP10020W300L1050",
+    "R11": "res400",
+    "R13": "res400",
+    "U31": "dip40_6",
+    "U15": "dip24_3",
+    "U3": "dip24_3",
+    "U1": "dip24_3",
+    "U33": "DIP10020W300L1050",
+    "U28": "DIP10016W300L900",
+    "U17": "DIP10014W300L800",
+    "U16": "DIP10016W300L900",
+    "U19": "DIP10014W300L800",
+    "U29": "DIP10016W300L900",
+    "R20": "res400",
+    "U2": "dip24_3",
+    "U13": "dip24_3",
+    "U34": "DIP10020W300L1050",
+    "P2": "din96abcv",
+    "P1": "din96abcv",
+    "U39": "DIP10014W300L800",
+    "J1": "blkcon100vhtm2oew20040",
+    "U27": "DIP10016W300L900"
+  },
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "routing": {
+    "wired_nets": 44,
+    "labelled_pins": 149,
+    "crossings": 463,
+    "labelled_nets": 138
+  },
+  "generated_symbols": [
+    "PART_U1",
+    "PART_U13",
+    "PART_U15",
+    "PART_U2",
+    "PART_U3"
+  ],
+  "corrections": [
+    "P1 pin 84 was on N00013 and N00057; kept N00013.",
+    "P1 pin 83 was on N00015 and N00345; kept N00015.",
+    "U31 pin 30 removed from N00475: it is a fixed power/ground pin of the part."
+  ],
+  "footprints": {
+    "assigned": 25,
+    "total": 25,
+    "placed": 25,
+    "sources": {
+      "standard (by package and pin count)": 13,
+      "symbol library": 12
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {}
+}

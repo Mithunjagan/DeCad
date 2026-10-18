@@ -1,0 +1,1431 @@
+{
+ "S2": {
+  "parts_gt": 0,
+  "parts_found": 0,
+  "parts_spurious": 11,
+  "values_ok": 0,
+  "pins_gt": 0,
+  "pins_exact": 0,
+  "pins_present": 0,
+  "missed_parts": [],
+  "spurious_parts": [
+   "U_8",
+   "U_7",
+   "U_3",
+   "U_9",
+   "U_1",
+   "U_6",
+   "P2",
+   "U_4",
+   "P1",
+   "U_5",
+   "U_2"
+  ],
+  "wrong_values": [],
+  "wrong_pins": [],
+  "value_counts": {
+   "TC514100": [
+    7,
+    16
+   ],
+   "74F374": [
+    4,
+    8
+   ],
+   "74F244": [
+    2,
+    4
+   ]
+  },
+  "seconds": 71,
+  "dsn_passed": true,
+  "dsn_components": 21,
+  "dsn_pins": 119,
+  "dsn_nets": 119,
+  "notes": [
+   "Input assessment: low-resolution/blurry sheet (1600 px, text a few px tall); enhanced automatically (6.2x super-sampling, stroke-preserving binarization, grayscale OCR)."
+  ]
+ },
+ "S4": {
+  "parts_gt": 30,
+  "parts_found": 25,
+  "parts_spurious": 0,
+  "values_ok": 25,
+  "pins_gt": 72,
+  "pins_exact": 63,
+  "pins_present": 67,
+  "missed_parts": [
+   "U14",
+   "R14",
+   "R15",
+   "R17",
+   "S3"
+  ],
+  "spurious_parts": [],
+  "wrong_values": [],
+  "wrong_pins": [
+   [
+    "U31.38",
+    null,
+    "ADDA2"
+   ],
+   [
+    "U31.4",
+    "ADDA0",
+    "ADDA5"
+   ],
+   [
+    "U31.19",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U31.27",
+    "ADDA5",
+    "ADDA11"
+   ],
+   [
+    "U31.1",
+    "ADDA7",
+    "PRAD4"
+   ],
+   [
+    "U31.20",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U31.24",
+    "PRAD8",
+    "PRAD9"
+   ],
+   [
+    "U33.14",
+    null,
+    "ADDA9"
+   ],
+   [
+    "U34.9",
+    null,
+    "ADDA7"
+   ]
+  ],
+  "seconds": 64,
+  "dsn_passed": true,
+  "dsn_components": 25,
+  "dsn_pins": 281,
+  "dsn_nets": 185,
+  "notes": []
+ },
+ "S1": {
+  "parts_gt": 28,
+  "parts_found": 24,
+  "parts_spurious": 0,
+  "values_ok": 24,
+  "pins_gt": 56,
+  "pins_exact": 45,
+  "pins_present": 47,
+  "missed_parts": [
+   "U1",
+   "R1",
+   "R3",
+   "S1"
+  ],
+  "spurious_parts": [],
+  "wrong_values": [],
+  "wrong_pins": [
+   [
+    "U73.4",
+    null,
+    "DD14"
+   ],
+   [
+    "U73.3",
+    null,
+    "DD13"
+   ],
+   [
+    "U74.4",
+    null,
+    "DD10"
+   ],
+   [
+    "U74.3",
+    null,
+    "DD9"
+   ],
+   [
+    "U64.4",
+    "WZPLJ6",
+    "DD6"
+   ],
+   [
+    "U64.3",
+    null,
+    "DD5"
+   ],
+   [
+    "U64.13",
+    null,
+    "CC7"
+   ],
+   [
+    "U62.4",
+    null,
+    "DD2"
+   ],
+   [
+    "U62.3",
+    null,
+    "DD1"
+   ],
+   [
+    "U62.13",
+    null,
+    "CC3"
+   ],
+   [
+    "U43.16",
+    "GND",
+    "SPWE6"
+   ]
+  ],
+  "seconds": 72,
+  "dsn_passed": true,
+  "dsn_components": 24,
+  "dsn_pins": 296,
+  "dsn_nets": 187,
+  "notes": []
+ },
+ "S3": {
+  "parts_gt": 34,
+  "parts_found": 30,
+  "parts_spurious": 1,
+  "values_ok": 28,
+  "pins_gt": 69,
+  "pins_exact": 59,
+  "pins_present": 62,
+  "missed_parts": [
+   "U66",
+   "R8",
+   "R11",
+   "S2"
+  ],
+  "spurious_parts": [
+   "R1"
+  ],
+  "wrong_values": [
+   [
+    "U36",
+    "74S163",
+    "74F163"
+   ],
+   [
+    "U83",
+    "74BCI2244",
+    "74BCT2244"
+   ]
+  ],
+  "wrong_pins": [
+   [
+    "U6.14",
+    "KAAI",
+    "AAA1"
+   ],
+   [
+    "U6.11",
+    null,
+    "AAA4"
+   ],
+   [
+    "U7.11",
+    null,
+    "AAA8"
+   ],
+   [
+    "U8.14",
+    "AAA6",
+    "AAA9"
+   ],
+   [
+    "U8.11",
+    null,
+    "AAA12"
+   ],
+   [
+    "U24.4",
+    null,
+    "AAA12"
+   ],
+   [
+    "U26.9",
+    null,
+    "AR4"
+   ],
+   [
+    "U27.17",
+    null,
+    "AR12"
+   ],
+   [
+    "U27.7",
+    "RG9",
+    "AR3"
+   ],
+   [
+    "U28.19",
+    null,
+    "AR10"
+   ]
+  ],
+  "seconds": 97,
+  "dsn_passed": true,
+  "dsn_components": 43,
+  "dsn_pins": 503,
+  "dsn_nets": 300,
+  "notes": []
+ },
+ "S5": {
+  "parts_gt": 25,
+  "parts_found": 22,
+  "parts_spurious": 0,
+  "values_ok": 21,
+  "pins_gt": 48,
+  "pins_exact": 39,
+  "pins_present": 45,
+  "missed_parts": [
+   "U7",
+   "U18",
+   "R9"
+  ],
+  "spurious_parts": [],
+  "wrong_values": [
+   [
+    "R19",
+    "1K05",
+    "1K00"
+   ]
+  ],
+  "wrong_pins": [
+   [
+    "U58.3",
+    "N00056",
+    "INBU12"
+   ],
+   [
+    "U36.21",
+    "INDA13",
+    "INDA14"
+   ],
+   [
+    "U36.2",
+    "N00549",
+    "INDA12"
+   ],
+   [
+    "U49.11",
+    null,
+    "INBU10"
+   ],
+   [
+    "U49.9",
+    "N00619",
+    "INBU8"
+   ],
+   [
+    "U37.19",
+    "INBU4",
+    "INDA7"
+   ],
+   [
+    "U37.21",
+    "INDA7",
+    "INDA6"
+   ],
+   [
+    "U37.9",
+    null,
+    "INBU4"
+   ],
+   [
+    "U50.9",
+    null,
+    "INBU0"
+   ]
+  ],
+  "seconds": 73,
+  "dsn_passed": true,
+  "dsn_components": 27,
+  "dsn_pins": 271,
+  "dsn_nets": 172,
+  "notes": [
+   "Input assessment: scan with small text (~24 px); upscaled 1.7x automatically."
+  ]
+ },
+ "S4-scan300": {
+  "parts_gt": 30,
+  "parts_found": 24,
+  "parts_spurious": 4,
+  "values_ok": 23,
+  "pins_gt": 72,
+  "pins_exact": 26,
+  "pins_present": 51,
+  "missed_parts": [
+   "U14",
+   "U16",
+   "U17",
+   "R13",
+   "R17",
+   "S3"
+  ],
+  "spurious_parts": [
+   "U_1",
+   "P3",
+   "R1",
+   "U_2"
+  ],
+  "wrong_values": [
+   [
+    "U40",
+    "74F103",
+    "74F10"
+   ]
+  ],
+  "wrong_pins": [
+   [
+    "U31.34",
+    "ADAO",
+    "ADDA0"
+   ],
+   [
+    "U31.36",
+    "ADDAI",
+    "ADDA1"
+   ],
+   [
+    "U31.38",
+    null,
+    "ADDA2"
+   ],
+   [
+    "U31.4",
+    "ADDAS",
+    "ADDA5"
+   ],
+   [
+    "U31.17",
+    null,
+    "ADDA6"
+   ],
+   [
+    "U31.19",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U31.27",
+    null,
+    "ADDA11"
+   ],
+   [
+    "U31.33",
+    null,
+    "PRAD0"
+   ],
+   [
+    "U31.35",
+    "PRA",
+    "PRAD1"
+   ],
+   [
+    "U31.39",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U31.1",
+    "N00524",
+    "PRAD4"
+   ],
+   [
+    "U31.3",
+    "PRADS",
+    "PRAD5"
+   ],
+   [
+    "U31.18",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U31.20",
+    "N00607_475",
+    "PRAD7"
+   ],
+   [
+    "U31.24",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U33.3",
+    null,
+    "ADDA12"
+   ],
+   [
+    "U33.14",
+    null,
+    "ADDA9"
+   ],
+   [
+    "U33.12",
+    null,
+    "ADDA8"
+   ],
+   [
+    "U33.2",
+    "ADDA8",
+    "INADD11"
+   ],
+   [
+    "U33.6",
+    "INADD5",
+    "INADD9"
+   ],
+   [
+    "U33.8",
+    "ADDA8",
+    "INADD8"
+   ],
+   [
+    "U34.9",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U34.5",
+    "ADDAS",
+    "ADDA5"
+   ],
+   [
+    "U34.18",
+    null,
+    "ADDA3"
+   ],
+   [
+    "U34.14",
+    "ADDAI",
+    "ADDA1"
+   ],
+   [
+    "U34.12",
+    "ADAO",
+    "ADDA0"
+   ],
+   [
+    "U34.11",
+    "INADD2",
+    "INADD7"
+   ],
+   [
+    "U34.13",
+    null,
+    "INADD6"
+   ],
+   [
+    "U34.15",
+    "N3",
+    "INADD5"
+   ],
+   [
+    "U34.17",
+    null,
+    "INADD4"
+   ],
+   [
+    "U34.6",
+    "INADDI",
+    "INADD1"
+   ],
+   [
+    "U34.8",
+    "INADDO",
+    "INADD0"
+   ],
+   [
+    "U1.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U1.22",
+    "PRAD6",
+    "PRAD9"
+   ],
+   [
+    "U1.23",
+    "PRADE",
+    "PRAD8"
+   ],
+   [
+    "U1.3",
+    "PRA5",
+    "PRAD5"
+   ],
+   [
+    "U1.4",
+    "S20",
+    "PRAD4"
+   ],
+   [
+    "U1.5",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U1.8",
+    null,
+    "PRAD0"
+   ],
+   [
+    "U13.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U13.22",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U13.23",
+    "PRANR",
+    "PRAD8"
+   ],
+   [
+    "U13.1",
+    "PRADY",
+    "PRAD7"
+   ],
+   [
+    "U13.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U13.7",
+    "INST15",
+    "PRAD1"
+   ],
+   [
+    "U13.8",
+    "PRADS",
+    "PRAD0"
+   ]
+  ],
+  "seconds": 109,
+  "dsn_passed": true,
+  "dsn_components": 28,
+  "dsn_pins": 233,
+  "dsn_nets": 176,
+  "notes": []
+ },
+ "S4-blur300": {
+  "parts_gt": 30,
+  "parts_found": 12,
+  "parts_spurious": 2,
+  "values_ok": 12,
+  "pins_gt": 72,
+  "pins_exact": 0,
+  "pins_present": 4,
+  "missed_parts": [
+   "U31",
+   "U1",
+   "U13",
+   "U3",
+   "U2",
+   "U14",
+   "U15",
+   "U16",
+   "U38",
+   "U17",
+   "R11",
+   "R13",
+   "R14",
+   "R15",
+   "R17",
+   "R18",
+   "S3",
+   "J1"
+  ],
+  "spurious_parts": [
+   "U_1",
+   "U_2"
+  ],
+  "wrong_values": [],
+  "wrong_pins": [
+   [
+    "U31.34",
+    null,
+    "ADDA0"
+   ],
+   [
+    "U31.36",
+    null,
+    "ADDA1"
+   ],
+   [
+    "U31.38",
+    null,
+    "ADDA2"
+   ],
+   [
+    "U31.40",
+    null,
+    "ADDA3"
+   ],
+   [
+    "U31.2",
+    null,
+    "ADDA4"
+   ],
+   [
+    "U31.4",
+    null,
+    "ADDA5"
+   ],
+   [
+    "U31.17",
+    null,
+    "ADDA6"
+   ],
+   [
+    "U31.19",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U31.21",
+    null,
+    "ADDA8"
+   ],
+   [
+    "U31.23",
+    null,
+    "ADDA9"
+   ],
+   [
+    "U31.25",
+    null,
+    "ADDA10"
+   ],
+   [
+    "U31.27",
+    null,
+    "ADDA11"
+   ],
+   [
+    "U31.33",
+    null,
+    "PRAD0"
+   ],
+   [
+    "U31.35",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U31.37",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U31.39",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U31.1",
+    null,
+    "PRAD4"
+   ],
+   [
+    "U31.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U31.18",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U31.20",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U31.22",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U31.24",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U33.9",
+    null,
+    "ADDA15"
+   ],
+   [
+    "U33.7",
+    "IT",
+    "ADDA14"
+   ],
+   [
+    "U33.5",
+    null,
+    "ADDA13"
+   ],
+   [
+    "U33.3",
+    null,
+    "ADDA12"
+   ],
+   [
+    "U33.18",
+    null,
+    "ADDA11"
+   ],
+   [
+    "U33.16",
+    null,
+    "ADDA10"
+   ],
+   [
+    "U33.14",
+    null,
+    "ADDA9"
+   ],
+   [
+    "U33.12",
+    null,
+    "ADDA8"
+   ],
+   [
+    "U33.2",
+    null,
+    "INADD11"
+   ],
+   [
+    "U33.4",
+    null,
+    "INADD10"
+   ],
+   [
+    "U33.6",
+    null,
+    "INADD9"
+   ],
+   [
+    "U33.8",
+    null,
+    "INADD8"
+   ],
+   [
+    "U34.9",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U34.7",
+    "N01069",
+    "ADDA6"
+   ],
+   [
+    "U34.5",
+    "N00671",
+    "ADDA5"
+   ],
+   [
+    "U34.3",
+    null,
+    "ADDA4"
+   ],
+   [
+    "U34.18",
+    null,
+    "ADDA3"
+   ],
+   [
+    "U34.16",
+    null,
+    "ADDA2"
+   ],
+   [
+    "U34.14",
+    null,
+    "ADDA1"
+   ],
+   [
+    "U34.12",
+    null,
+    "ADDA0"
+   ],
+   [
+    "U34.11",
+    "N00925",
+    "INADD7"
+   ],
+   [
+    "U34.13",
+    null,
+    "INADD6"
+   ],
+   [
+    "U34.15",
+    null,
+    "INADD5"
+   ],
+   [
+    "U34.17",
+    null,
+    "INADD4"
+   ],
+   [
+    "U34.2",
+    null,
+    "INADD3"
+   ],
+   [
+    "U34.4",
+    null,
+    "INADD2"
+   ],
+   [
+    "U34.6",
+    null,
+    "INADD1"
+   ],
+   [
+    "U34.8",
+    null,
+    "INADD0"
+   ],
+   [
+    "U1.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U1.22",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U1.23",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U1.1",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U1.2",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U1.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U1.4",
+    null,
+    "PRAD4"
+   ],
+   [
+    "U1.5",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U1.6",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U1.7",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U1.8",
+    null,
+    "PRAD0"
+   ],
+   [
+    "U13.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U13.22",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U13.23",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U13.1",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U13.2",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U13.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U13.4",
+    null,
+    "PRAD4"
+   ],
+   [
+    "U13.5",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U13.6",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U13.7",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U13.8",
+    null,
+    "PRAD0"
+   ]
+  ],
+  "seconds": 160,
+  "dsn_passed": true,
+  "dsn_components": 14,
+  "dsn_pins": 34,
+  "dsn_nets": 35,
+  "notes": []
+ },
+ "S4-scan200": {
+  "parts_gt": 30,
+  "parts_found": 18,
+  "parts_spurious": 2,
+  "values_ok": 18,
+  "pins_gt": 72,
+  "pins_exact": 0,
+  "pins_present": 17,
+  "missed_parts": [
+   "U1",
+   "U13",
+   "U3",
+   "U2",
+   "U14",
+   "U15",
+   "U17",
+   "R13",
+   "R15",
+   "R17",
+   "R18",
+   "S3"
+  ],
+  "spurious_parts": [
+   "U_2",
+   "U_1"
+  ],
+  "wrong_values": [],
+  "wrong_pins": [
+   [
+    "U31.34",
+    "NO",
+    "ADDA0"
+   ],
+   [
+    "U31.36",
+    "AEIA1",
+    "ADDA1"
+   ],
+   [
+    "U31.38",
+    "AI",
+    "ADDA2"
+   ],
+   [
+    "U31.40",
+    "N00923",
+    "ADDA3"
+   ],
+   [
+    "U31.2",
+    "N00861",
+    "ADDA4"
+   ],
+   [
+    "U31.4",
+    "WDWS",
+    "ADDA5"
+   ],
+   [
+    "U31.17",
+    null,
+    "ADDA6"
+   ],
+   [
+    "U31.19",
+    "MN",
+    "ADDA7"
+   ],
+   [
+    "U31.21",
+    "ADDA",
+    "ADDA8"
+   ],
+   [
+    "U31.23",
+    "WO",
+    "ADDA9"
+   ],
+   [
+    "U31.25",
+    null,
+    "ADDA10"
+   ],
+   [
+    "U31.27",
+    "MO",
+    "ADDA11"
+   ],
+   [
+    "U31.33",
+    null,
+    "PRAD0"
+   ],
+   [
+    "U31.35",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U31.37",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U31.39",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U31.1",
+    "PAI",
+    "PRAD4"
+   ],
+   [
+    "U31.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U31.18",
+    "N00330",
+    "PRAD6"
+   ],
+   [
+    "U31.20",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U31.22",
+    "N00277",
+    "PRAD8"
+   ],
+   [
+    "U31.24",
+    "N00336",
+    "PRAD9"
+   ],
+   [
+    "U33.9",
+    null,
+    "ADDA15"
+   ],
+   [
+    "U33.7",
+    null,
+    "ADDA14"
+   ],
+   [
+    "U33.5",
+    null,
+    "ADDA13"
+   ],
+   [
+    "U33.3",
+    null,
+    "ADDA12"
+   ],
+   [
+    "U33.18",
+    null,
+    "ADDA11"
+   ],
+   [
+    "U33.16",
+    null,
+    "ADDA10"
+   ],
+   [
+    "U33.14",
+    null,
+    "ADDA9"
+   ],
+   [
+    "U33.12",
+    null,
+    "ADDA8"
+   ],
+   [
+    "U33.2",
+    null,
+    "INADD11"
+   ],
+   [
+    "U33.4",
+    null,
+    "INADD10"
+   ],
+   [
+    "U33.6",
+    null,
+    "INADD9"
+   ],
+   [
+    "U33.8",
+    null,
+    "INADD8"
+   ],
+   [
+    "U34.9",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U34.7",
+    null,
+    "ADDA6"
+   ],
+   [
+    "U34.5",
+    null,
+    "ADDA5"
+   ],
+   [
+    "U34.3",
+    null,
+    "ADDA4"
+   ],
+   [
+    "U34.18",
+    null,
+    "ADDA3"
+   ],
+   [
+    "U34.16",
+    null,
+    "ADDA2"
+   ],
+   [
+    "U34.14",
+    null,
+    "ADDA1"
+   ],
+   [
+    "U34.12",
+    null,
+    "ADDA0"
+   ],
+   [
+    "U34.11",
+    "N00082",
+    "INADD7"
+   ],
+   [
+    "U34.13",
+    null,
+    "INADD6"
+   ],
+   [
+    "U34.15",
+    null,
+    "INADD5"
+   ],
+   [
+    "U34.17",
+    null,
+    "INADD4"
+   ],
+   [
+    "U34.2",
+    "N00888",
+    "INADD3"
+   ],
+   [
+    "U34.4",
+    "TMA1",
+    "INADD2"
+   ],
+   [
+    "U34.6",
+    null,
+    "INADD1"
+   ],
+   [
+    "U34.8",
+    null,
+    "INADD0"
+   ],
+   [
+    "U1.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U1.22",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U1.23",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U1.1",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U1.2",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U1.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U1.4",
+    null,
+    "PRAD4"
+   ],
+   [
+    "U1.5",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U1.6",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U1.7",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U1.8",
+    null,
+    "PRAD0"
+   ],
+   [
+    "U13.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U13.22",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U13.23",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U13.1",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U13.2",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U13.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U13.4",
+    null,
+    "PRAD4"
+   ],
+   [
+    "U13.5",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U13.6",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U13.7",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U13.8",
+    null,
+    "PRAD0"
+   ]
+  ],
+  "seconds": 81,
+  "dsn_passed": true,
+  "dsn_components": 20,
+  "dsn_pins": 76,
+  "dsn_nets": 70,
+  "notes": []
+ }
+}

@@ -1,0 +1,79 @@
+{
+  "health": {
+    "status": "ready",
+    "kicad": true,
+    "symbols": true,
+    "ngspice": true,
+    "embedded": true,
+    "image_mode": "circuit",
+    "vision_model": null
+  },
+  "github_configured": true,
+  "outputs": {
+    "kicad": {
+      "components": 3,
+      "nets": 3,
+      "VOUT": 2.5,
+      "bundle_files": [
+        "WorkflowCheck-1df904e5.kicad_sch",
+        "WorkflowCheck-1df904e5.kicad_pro",
+        "circuit.json",
+        "README.txt",
+        "manifest.json"
+      ],
+      "hashes_verified": true,
+      "preview": true
+    },
+    "ngspice": {
+      "components": 3,
+      "nets": 3,
+      "VOUT": 2.5,
+      "bundle_files": [
+        "circuit.cir",
+        "circuit.json",
+        "README.txt",
+        "manifest.json"
+      ],
+      "hashes_verified": true,
+      "preview": true
+    },
+    "ltspice": {
+      "components": 3,
+      "nets": 3,
+      "VOUT": 2.5,
+      "bundle_files": [
+        "circuit.cir",
+        "circuit.json",
+        "README.txt",
+        "manifest.json"
+      ],
+      "hashes_verified": true,
+      "preview": true
+    },
+    "qucs-s": {
+      "components": 3,
+      "nets": 3,
+      "VOUT": 2.5,
+      "bundle_files": [
+        "circuit.sch",
+        "circuit.lib",
+        "node-map.json",
+        "circuit.json",
+        "README.txt",
+        "manifest.json"
+      ],
+      "hashes_verified": true,
+      "preview": true
+    }
+  },
+  "image_fixture": {
+    "spaced_filename_uploaded": true,
+    "review_then_apply": true,
+    "selected_output": "ltspice"
+  },
+  "large_logic_image": {
+    "upload_accepted": true,
+    "recognition_status": 422,
+    "detail": "Image exceeds 16 million pixels. Resize it before import."
+  }
+}

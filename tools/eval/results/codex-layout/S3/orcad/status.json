@@ -1,0 +1,57 @@
+{
+  "generated_symbols": [
+    "29520",
+    "74BCI2244",
+    "74F161",
+    "74F163",
+    "PART_U20",
+    "PART_U21",
+    "PART_U27",
+    "PART_U28",
+    "PART_U29",
+    "PART_U34",
+    "PART_U4",
+    "PART_U54",
+    "PART_U86"
+  ],
+  "corrections": [
+    "P1 pin 84 was on N00572 and N00686; kept N00572."
+  ],
+  "design": "S3.DSN",
+  "size": 205312,
+  "passed": true,
+  "components": 39,
+  "checked_pins": 390,
+  "nets": 278,
+  "rendered_parts": 40,
+  "preview_error": null,
+  "implicit_power_pins": 32,
+  "substitutions": {},
+  "footprints": {
+    "assigned": 39,
+    "total": 39,
+    "placed": 39,
+    "sources": {
+      "standard (by package and pin count)": 23,
+      "symbol library": 16
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "user_libraries": {},
+  "netlist": {
+    "nets": 280,
+    "connections": 422,
+    "parts": 39,
+    "without_footprint": []
+  },
+  "routing": {
+    "wired_nets": 57,
+    "labelled_pins": 235,
+    "crossings": 194,
+    "labelled_nets": 221
+  },
+  "source": null,
+  "sha256": "83b998f09b1cab166689d3aaa731c07a074fa305215b7be7b4d6b2a4714e6d7f"
+}

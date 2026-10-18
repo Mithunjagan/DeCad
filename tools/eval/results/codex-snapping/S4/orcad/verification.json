@@ -1,0 +1,102 @@
+{
+  "passed": true,
+  "errors": [],
+  "failed_pins": [],
+  "missing_pins": [],
+  "components": 24,
+  "checked_pins": 251,
+  "implicit_power_pins": [
+    "U16.16=VCC",
+    "U16.8=GND",
+    "U19.14=VCC",
+    "U19.7=GND",
+    "U25.10=GND",
+    "U25.20=VCC",
+    "U28.16=VCC",
+    "U28.8=GND",
+    "U29.16=VCC",
+    "U29.8=GND",
+    "U31.30=GND",
+    "U33.10=GND",
+    "U33.20=VCC",
+    "U34.10=GND",
+    "U34.20=VCC",
+    "U38.16=VCC",
+    "U38.8=GND",
+    "U39.14=VCC",
+    "U39.7=GND"
+  ],
+  "placed_footprints": {
+    "R18": "res400",
+    "U40": "dip6_3",
+    "U2": "dip24_3",
+    "R20": "res400",
+    "U13": "dip24_3",
+    "U38": "DIP10016W300L900",
+    "U39": "DIP10014W300L800",
+    "R13": "res400",
+    "U25": "DIP10020W300L1050",
+    "U31": "dip40_6",
+    "U33": "DIP10020W300L1050",
+    "U28": "DIP10016W300L900",
+    "R11": "res400",
+    "U19": "DIP10014W300L800",
+    "U1": "blkcon100vhtm2oew20026",
+    "U15": "blkcon100vhtm2oew20026",
+    "U3": "dip24_3",
+    "P2": "din96abcv",
+    "U16": "DIP10016W300L900",
+    "P1": "din96abcv",
+    "U29": "DIP10016W300L900",
+    "U34": "DIP10020W300L1050",
+    "J1": "blkcon100vhtm2oew20040",
+    "U27": "dip16_3"
+  },
+  "substitutions": {
+    "U31": {
+      "library": "Misc3.olb",
+      "package": "AM2910A",
+      "match": "substitute for AM2910 (review pinout)",
+      "value": "AM2910",
+      "footprint": "dip40_6",
+      "footprint_source": "standard (by package and pin count)"
+    }
+  },
+  "routing": {
+    "wired_nets": 37,
+    "labelled_pins": 148,
+    "crossings": 377,
+    "labelled_nets": 135
+  },
+  "generated_symbols": [
+    "74F103",
+    "PART_U1",
+    "PART_U13",
+    "PART_U15",
+    "PART_U2",
+    "PART_U27",
+    "PART_U3"
+  ],
+  "corrections": [
+    "P1 pin 84 was on N00013 and N00058; kept N00013.",
+    "P1 pin 83 was on N00016 and N00368; kept N00016.",
+    "U31 pin 30 removed from N00506: it is a fixed power/ground pin of the part."
+  ],
+  "footprints": {
+    "assigned": 24,
+    "total": 24,
+    "placed": 24,
+    "sources": {
+      "standard (by package and pin count)": 13,
+      "placeholder header (review)": 2,
+      "symbol library": 9
+    },
+    "without": [],
+    "placeholder": [
+      "U1",
+      "U15"
+    ],
+    "not_in_library": []
+  },
+  "user_libraries": {}
+}
