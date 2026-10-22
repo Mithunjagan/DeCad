@@ -7,7 +7,8 @@ $env:KICAD_CLI = "$kicad\bin\kicad-cli.exe"
 $env:KICAD_SYMBOL_DIR = "$kicad\share\kicad\symbols"
 $env:KICAD_FOOTPRINT_DIR = "$kicad\share\kicad\footprints"
 $env:KICAD_PYTHON = "$kicad\bin\python.exe"
-if (-not $env:IMAGE_MODE) { $env:IMAGE_MODE = 'auto' }
+$env:S2SDN_PIPELINE_PROFILE = 'hybrid_max_accuracy'
+$env:IMAGE_MODE = 'hybrid_max_accuracy'
 $py = Join-Path $PSScriptRoot 'backend\.venv\Scripts\python.exe'
 if (-not (Test-Path $py)) {
  & $env:KICAD_PYTHON -m venv --system-site-packages backend\.venv

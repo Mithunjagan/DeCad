@@ -8,7 +8,9 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def snapshot():
     paths = [ROOT/'backend/app'/name for name in
-             ('digital_vision.py', 'ic_caption.py', 'recognition_catalog.py', 'pin_crop_recovery.py', 'orcad_capture.py', 'text_fallback.py')]
+             ('digital_vision.py', 'ic_caption.py', 'recognition_catalog.py', 'pin_crop_recovery.py', 'orcad_capture.py', 'text_fallback.py',
+              'pipeline_profile.py', 'vector_pdf.py')]
+    paths.append(ROOT/'backend/pipeline_profiles.json')
     paths.append(Path(os.getenv('S2SDN_COMPONENT_CATALOG') or ROOT/'backend/.state/recognition-catalog.sqlite'))
     result = {}
     for path in paths:

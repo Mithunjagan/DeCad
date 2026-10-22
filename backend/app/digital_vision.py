@@ -93,6 +93,8 @@ class Page:
     scale: float = 1.0          # page pixels per source pixel
     notes: list = field(default_factory=list)
     soft: np.ndarray = None     # low-resolution input only: smoothed grayscale text (dark on white, wires removed) for OCR
+    affine: np.ndarray = None   # source raster -> working pixels, including deskew
+    vector: object = None      # native PDF primitives, in working pixels
 
 
 # ---------------------------------------------------------------- preprocessing
@@ -213,10 +215,12 @@ def prepare(path):
                      f'automatically ({scale:.1f}x resampling, stroke-preserving binarization, grayscale OCR).')
     elif scale > 1.0:
         notes.append(f'Input assessment: scan with small text (~{ch:.0f} px); upscaled {scale:.1f}x automatically.')
+    affine = np.array([[scale, 0., 0.], [0., scale, 0.]])
     angle = deskew_angle(b)
     if abs(angle) > 0.15:
         h, w = gray.shape
         m = cv2.getRotationMatrix2D((w / 2, h / 2), angle, 1.0)
+        affine = (np.vstack((m, [0.,0.,1.])) @ np.vstack((affine, [0.,0.,1.])))[:2]
         gray = cv2.warpAffine(gray, m, (w, h), flags=cv2.INTER_CUBIC, borderValue=255)
         b = binarizer(gray)
         notes.append(f'Scan deskewed by {angle:.2f} degrees.')
@@ -233,7 +237,7 @@ def prepare(path):
                      'Check every part, pin number and net label against the source, or rescan at 300 dpi or better.')
     if not notes:
         notes.append(f'Input assessment: clear scan ({long_side} px, text ~{ch:.0f} px); no enhancement needed.')
-    return Page(gray=gray, binary=b, hlines=hl, vlines=vl, text=text, scale=scale, notes=notes, soft=soft)
+    return Page(gray=gray, binary=b, hlines=hl, vlines=vl, text=text, scale=scale, notes=notes, soft=soft, affine=affine)
 
 
 # ---------------------------------------------------------------- word-level OCR
@@ -295,6 +299,9 @@ def _pass(layer, ch, tile, overlap, soft=None):
 def tokens(page, tile=2400, overlap=200):
     """Word tokens in page coordinates from two passes: as printed, and rotated 90 degrees for
     vertical text. Where readings overlap, the more confident one wins."""
+    if page.vector is not None and page.vector.text:
+        from .vector_pdf import tokens as vector_tokens
+        return vector_tokens(page.vector)
     from concurrent.futures import ThreadPoolExecutor
     ch = char_height(page.text) or 40.0
     H, W = page.text.shape
@@ -557,6 +564,9 @@ class Seg:
 
 
 def segments(page):
+    if page.vector is not None:
+        from .vector_pdf import segments as vector_segments
+        return vector_segments(page.vector)
     segs = []
     # Banded (rows for horizontal lines, columns for vertical ones): no whole-page label image on 14k px sheets.
     hstats = _banded_stats(page.hlines)
@@ -607,6 +617,8 @@ def _bridge(segs, page):
 
 def dots(page, ch):
     """Junction dots: small, round, solid blobs (wires are thin, so their distance transform stays low)."""
+    if page.vector is not None:
+        return [(x,y) for x,y,_ in page.vector.dots]
     H, band, overlap = page.binary.shape[0], 2048, 256      # row bands: no whole-page float image
     out = []
     for y0 in range(0, H, band - overlap):
@@ -1636,7 +1648,7 @@ def recognize(page, toks):
     tol = max(4.0, ch * 0.25)
     warnings = list(page.notes)
     PIN_DEBUG.clear()
-    toks = refine_tokens(page, toks, ch)
+    toks = toks if page.vector is not None else refine_tokens(page, toks, ch)
     segs = segments(page)
     candidates = boxes(page, ch) + seg_boxes(segs, ch, tol)
     bxs = _split_stacked(_merge_boxes(candidates), segs, toks, ch, candidates)
@@ -2001,12 +2013,17 @@ def extract(path, cache_dir=None):
     from pathlib import Path
     from .ingestion import Circuit
     path = Path(path)
+    vector = None
     with tempfile.TemporaryDirectory() as td:
         if path.suffix.lower() == '.pdf':
             import fitz
             with fitz.open(path) as doc:
                 if len(doc) < 1:
                     raise ValueError('The PDF has no pages.')
+                from .pipeline_profile import enabled, profile
+                if enabled():
+                    from .vector_pdf import extract_page
+                    vector = extract_page(doc[0], dpi=400, minimum=profile()['vector_min_primitives'])
                 image = Path(td) / 'page.png'
                 doc[0].get_pixmap(dpi=400, colorspace=fitz.csGRAY).save(image)
                 extra = [f'PDF has {len(doc)} pages; page 1 was recognized.'] if len(doc) > 1 else []
@@ -2015,6 +2032,9 @@ def extract(path, cache_dir=None):
             extra = []
             page = prepare(path)
     page.notes += extra
+    if vector is not None:
+        page.vector = vector.transformed(page.affine)
+        page.notes.append(f'Native PDF fast path: {vector.primitive_count} vector primitives; exact text and geometry transformed into working pixels.')
     result = recognize(page, tokens(page))
     graph = {'components': result['components'], 'nets': result['nets'],
              'sheet_aspect': round(page.gray.shape[1] / page.gray.shape[0], 6)}

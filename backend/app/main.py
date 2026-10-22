@@ -39,6 +39,8 @@ from . import model_runtime
 
 BASE=Path(__file__).resolve().parent.parent
 load_dotenv(BASE/'.env')
+from .pipeline_profile import configure as configure_pipeline
+PIPELINE_PROFILE=configure_pipeline()
 ROOT=Path(os.getenv('WORKSPACE_ROOT',str(BASE/'workspaces'))).resolve();ROOT.mkdir(parents=True,exist_ok=True)
 STATE=Path(os.getenv('STATE_ROOT',str(BASE/'.state'))).resolve();STATE.mkdir(parents=True,exist_ok=True)
 FRONTEND=os.getenv('FRONTEND_URL','http://localhost:3100')
@@ -322,11 +324,12 @@ def graph(pid:str,u:dict=Depends(user)):return Schematic(pdir(u,pid)).graph()
 async def vision_status():
     mode=os.getenv('IMAGE_MODE','auto')
     if mode in ['ocr','circuit']:return {'ready':bool(shutil.which('tesseract')),'mode':mode,'model':None,'models':[],'connectivity_verified':False}
-    if mode in ['auto','digital']:
+    if mode in ['auto','digital','hybrid_max_accuracy']:
         from .ocr_runtime import runtime_status
         from .ingestion import VISION_LOCK
-        return {'ready':True,'mode':mode,'model':None,'models':[],
-                'accuracy_verified':False,'busy':VISION_LOCK.locked(),'runtime':runtime_status()}
+        runtime=runtime_status()
+        return {'ready':runtime['worker_exists'] or runtime.get('gpu_verified',False),'mode':mode,'model':None,'models':[],
+                'profile':PIPELINE_PROFILE,'accuracy_verified':False,'busy':VISION_LOCK.locked(),'runtime':runtime}
     model=os.getenv('VISION_MODEL','qwen3-vl:2b-instruct')
     if os.getenv('VISION_API_PROTOCOL')=='openai':
         models=await model_runtime.available_models(os.getenv('VISION_OLLAMA_URL') or os.getenv('OLLAMA_URL','http://localhost:11434'),vision=True)
@@ -588,7 +591,7 @@ def orcad_open(pid:str,u:dict=Depends(user)):
 
 class OrcadAuto(BaseModel):
     attachment:str
-    recognition_mode:Literal['auto','digital','circuit','vision']='auto'
+    recognition_mode:Literal['auto','digital','circuit','vision','hybrid_max_accuracy']='auto'
 
 @app.post('/projects/{pid}/orcad/auto')
 async def orcad_auto(pid:str,body:OrcadAuto,u:dict=Depends(user)):
@@ -931,7 +934,7 @@ class Chat(BaseModel):
     project:str | None=None
     message:str=Field(min_length=1,max_length=50000)
     attachments:list[str]=Field(default_factory=list,max_length=10)
-    recognition_mode:Literal['auto','ocr','circuit','digital','vision'] | None=None
+    recognition_mode:Literal['auto','ocr','circuit','digital','vision','hybrid_max_accuracy'] | None=None
     output_tool:Literal['kicad','ngspice','ltspice','qucs-s'] | None=None
     create_new_on_conflict:bool=False
 

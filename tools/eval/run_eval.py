@@ -85,6 +85,8 @@ def extract_for_eval(src, state, folder, cache_ocr=False):
 
 
 def main():
+    from app.pipeline_profile import configure
+    configure()
     ap = argparse.ArgumentParser()
     ap.add_argument('samples', nargs='*', type=int, default=[1, 2, 3, 4, 5])
     ap.add_argument('--images', default=str(SAMPLES))

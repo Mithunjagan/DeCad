@@ -51,6 +51,8 @@ def regressions(before, after):
 
 
 def main():
+    from app.pipeline_profile import configure
+    configure()
     from recognition_provenance import snapshot
     source_snapshot = snapshot()
     parser = argparse.ArgumentParser(description=__doc__)

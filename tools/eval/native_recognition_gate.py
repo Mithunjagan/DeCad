@@ -79,6 +79,8 @@ def retained(before_truth, before, after):
 
 
 def main(args):
+    from app.pipeline_profile import configure
+    configure()
     from recognition_provenance import snapshot
     source_snapshot = snapshot()
     oc.available = lambda: False

@@ -163,6 +163,22 @@ async def _extract_document(path,mode):
                 try:
                     if is_pdf:
                         page=document[index]
+                        if (mode or os.getenv('IMAGE_MODE')) == 'hybrid_max_accuracy':
+                            # Keep native paths/text through the process-isolated OCR
+                            # runtime. Rasterizing here would discard the PDF fast path.
+                            if not page.get_contents():
+                                blank.append(index+1);continue
+                            preview=page.get_pixmap(dpi=72,colorspace=fitz.csGRAY,alpha=False)
+                            if min(preview.samples,default=255)==255:
+                                blank.append(index+1);continue
+                            del preview
+                            from .ocr_runtime import extract_digital
+                            page_path=Path(td)/f'page-{index+1}.pdf'
+                            with fitz.open() as single:
+                                single.insert_pdf(document,from_page=index,to_page=index)
+                                single.save(page_path)
+                            pages.append((index+1,await asyncio.to_thread(extract_digital,page_path)))
+                            continue
                         # Preserve small text while bounding memory for oversized pages.
                         target_dpi=108 if (mode or os.getenv('IMAGE_MODE','auto')) in ('circuit','ocr') else 300
                         dpi=min(target_dpi,72*(25_000_000/max(1,page.rect.width*page.rect.height))**.5)
@@ -249,12 +265,14 @@ general reader; conflicting graph proposals are reported, never silently merged.
 
 async def _extract_image(path,mode=None):
     selected=mode or os.getenv('IMAGE_MODE','auto')
-    if selected not in ('auto','digital','ocr','circuit','vision'):
-        raise OperationError('Recognition mode must be auto, digital, circuit, ocr, or vision.')
+    from .pipeline_profile import enabled
+    if selected=='auto' and enabled():selected='hybrid_max_accuracy'
+    if selected not in ('auto','digital','ocr','circuit','vision','hybrid_max_accuracy'):
+        raise OperationError('Recognition mode must be auto, digital, circuit, ocr, vision, or hybrid_max_accuracy.')
     if path.suffix.lower() in ('.pdf','.tif','.tiff'):
         return await _extract_document(path,selected)
     if selected=='auto':return await _auto_extract(path)
-    if selected=='digital':
+    if selected in ('digital','hybrid_max_accuracy'):
         from .ocr_runtime import extract_digital as digital
         try:return await asyncio.to_thread(digital,path)
         except ValueError as e:raise OperationError(f'Digital schematic recognition failed: {e}') from e
