@@ -95,6 +95,7 @@ class Page:
     soft: np.ndarray = None     # low-resolution input only: smoothed grayscale text (dark on white, wires removed) for OCR
     affine: np.ndarray = None   # source raster -> working pixels, including deskew
     vector: object = None      # native PDF primitives, in working pixels
+    measurements: dict = field(default_factory=dict)
 
 
 # ---------------------------------------------------------------- preprocessing
@@ -182,6 +183,17 @@ def prepare(path):
     gray = load(path, notes)
     b = binarize(gray)
     ch = char_height(b)
+    initial_affine=np.array([[1.,0.,0.],[0.,1.,0.]])
+    measurements={}
+    from .pipeline_profile import enabled
+    if enabled():
+        from .normalization import normalize
+        gray,initial_affine,normal_notes,measurements=normalize(gray,b,ch)
+        notes+=normal_notes
+        # Mixed horizontal/vertical captions are common. Preserve page geometry;
+        # additional OCR orientations are selected on text crops instead.
+        if normal_notes:
+            b=binarize(gray);ch=char_height(b)
     scale, lowres = 1.0, False
     soft_edges = soft_edge_ratio(gray)
     # Blurry or low-resolution scans: upscale so characters are ~40 px before OCR and tracing.
@@ -216,6 +228,7 @@ def prepare(path):
     elif scale > 1.0:
         notes.append(f'Input assessment: scan with small text (~{ch:.0f} px); upscaled {scale:.1f}x automatically.')
     affine = np.array([[scale, 0., 0.], [0., scale, 0.]])
+    affine=(np.vstack((affine,[0,0,1])) @ np.vstack((initial_affine,[0,0,1])))[:2]
     angle = deskew_angle(b)
     if abs(angle) > 0.15:
         h, w = gray.shape
@@ -237,7 +250,7 @@ def prepare(path):
                      'Check every part, pin number and net label against the source, or rescan at 300 dpi or better.')
     if not notes:
         notes.append(f'Input assessment: clear scan ({long_side} px, text ~{ch:.0f} px); no enhancement needed.')
-    return Page(gray=gray, binary=b, hlines=hl, vlines=vl, text=text, scale=scale, notes=notes, soft=soft, affine=affine)
+    return Page(gray=gray, binary=b, hlines=hl, vlines=vl, text=text, scale=scale, notes=notes, soft=soft, affine=affine, measurements=measurements)
 
 
 # ---------------------------------------------------------------- word-level OCR
@@ -302,6 +315,7 @@ def tokens(page, tile=2400, overlap=200):
     if page.vector is not None and page.vector.text:
         from .vector_pdf import tokens as vector_tokens
         return vector_tokens(page.vector)
+    from .pipeline_profile import enabled, profile
     from concurrent.futures import ThreadPoolExecutor
     ch = char_height(page.text) or 40.0
     H, W = page.text.shape
@@ -312,6 +326,27 @@ def tokens(page, tile=2400, overlap=200):
     for t in turned:                      # rotated (x', y') -> page (y', H-1-x')
         t.x0, t.y0, t.x1, t.y1 = t.y0, H - t.x1, t.y1, H - t.x0
         t.vertical = True
+    if enabled() and not any(t.conf>=.92 and REF_RE.fullmatch(t.text.upper()) for t in flat+turned):
+        # Recognition of upside-down sources must not rotate a mixed-orientation
+        # sheet and perturb wire geometry. Read the remaining two text views.
+        extra=[]
+        tile=profile()['tile_size'];overlap=round(tile*profile()['tile_overlap'])
+        for turn in (0,2,1,3):
+            layer=np.ascontiguousarray(np.rot90(page.text,turn))
+            soft=np.ascontiguousarray(np.rot90(page.soft,turn)) if page.soft is not None else None
+            reads=_pass(layer,ch,tile,overlap,soft)
+            for t in reads:
+                if turn==2:t.x0,t.y0,t.x1,t.y1=W-t.x1,H-t.y1,W-t.x0,H-t.y0
+                elif turn==1:
+                    t.x0,t.y0,t.x1,t.y1=W-t.y1,t.x0,W-t.y0,t.x1
+                    t.vertical=True
+                elif turn==3:
+                    t.x0,t.y0,t.x1,t.y1=t.y0,H-t.x1,t.y1,H-t.x0
+                    t.vertical=True
+            extra+=reads
+        if sum(t.conf>=.92 and REF_RE.fullmatch(t.text.upper()) is not None for t in extra)>=3:
+            flat+=extra
+            page.notes.append('Inverted text views recovered multiple confident references; wire coordinates were preserved.')
     merged = []
     for t in sorted(flat + turned, key=lambda t: t.conf * len(t.text), reverse=True):
         area = (t.x1 - t.x0) * (t.y1 - t.y0)

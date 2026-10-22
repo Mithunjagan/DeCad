@@ -33,14 +33,22 @@ def main(args):
         if args.tests:
             run([ROOT/'backend/.venv/Scripts/python.exe','-m','pytest','backend/tests','-q','--disable-warnings'],args.out/'tests.log',env)
         original=args.out/'original'
+        before=json.loads((args.original_baseline/'report.json').read_text())
+        sys.path.insert(0,str(ROOT/'tools/eval'))
+        from recognition_gate import regressions
         for name in SAMPLES:
             command=[sys.executable,'tools/eval/profile_eval.py','recognition_gate',name,'--out',original]
             run(command,args.out/(name+'.log'),env)
+            observed=json.loads((original/'report.json').read_text())[name]
+            errors=regressions({name:before[name]},{name:observed})
+            for reader in ('detector','classifier','reader','schematic_reader'):
+                if 'CUDAExecutionProvider' not in observed['providers'].get(reader,[]):
+                    errors.append(f'{name}: {reader} did not confirm CUDA')
+            if errors:raise RuntimeError('; '.join(errors))
         # Compare the complete report at once, after all eight isolated workers.
         sys.path.insert(0,str(ROOT/'tools/eval'))
         from recognition_gate import regressions
         after=json.loads((original/'report.json').read_text())
-        before=json.loads((args.original_baseline/'report.json').read_text())
         summary['errors']+=regressions(before,after)
         run([sys.executable,'tools/eval/profile_eval.py','library_gate',original,'--out',args.out/'library'],args.out/'library.log',env)
         lib=json.loads((args.out/'library/report.json').read_text())
