@@ -131,7 +131,7 @@ def init_git(p,u):
 
 @app.get('/health')
 def health():
-    return {'status':'ready','kicad':bool(shutil.which(find_cli()) or Path(find_cli()).is_file()),'symbols':bool(library_dir()),'ngspice':bool(shutil.which('ngspice')),'embedded':os.getenv('KICAD_EMBEDDED','false')=='true','native_desktop':os.name=='nt' and (BASE.parent/'desktop'/'native_host.py').is_file(),'image_mode':os.getenv('IMAGE_MODE','circuit'),'vision_model':os.getenv('VISION_MODEL','qwen3-vl:2b-instruct') if os.getenv('IMAGE_MODE','circuit')=='vision' else None}
+    return {'status':'ready','kicad':bool(shutil.which(find_cli()) or Path(find_cli()).is_file()),'symbols':bool(library_dir()),'ngspice':bool(shutil.which('ngspice')),'embedded':os.getenv('KICAD_EMBEDDED','false')=='true','native_desktop':os.name=='nt' and (BASE.parent/'desktop'/'native_host.py').is_file(),'image_mode':os.getenv('IMAGE_MODE','auto'),'vision_model':os.getenv('VISION_MODEL','qwen3-vl:2b-instruct') if os.getenv('IMAGE_MODE','auto')=='vision' else None}
 
 class TokenLogin(BaseModel):
     token: str = Field(min_length=1, max_length=500)
@@ -320,7 +320,7 @@ def graph(pid:str,u:dict=Depends(user)):return Schematic(pdir(u,pid)).graph()
 
 @app.get('/vision/status')
 async def vision_status():
-    mode=os.getenv('IMAGE_MODE','circuit')
+    mode=os.getenv('IMAGE_MODE','auto')
     if mode in ['ocr','circuit']:return {'ready':bool(shutil.which('tesseract')),'mode':mode,'model':None,'models':[],'connectivity_verified':False}
     if mode in ['auto','digital']:
         from .ocr_runtime import runtime_status

@@ -883,6 +883,7 @@ def _strip_words(strip, axis, ch, reverse):
 
 
 _TEXT_MODEL = None
+_TEXT_FALLBACK = None
 TEXT_CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-+[]:/.<>=~*#_'
 
 
@@ -903,7 +904,17 @@ def text_model():
     return _TEXT_MODEL or None
 
 
-def read_text_model(page, x0, y0, x1, y1, rotate):
+def fallback_text_model():
+    global _TEXT_FALLBACK
+    import os
+    from pathlib import Path
+    from .text_fallback import load
+    baseline = Path(os.getenv('S2SDN_TEXT_MODEL') or Path(__file__).resolve().parents[2] / 'checkpoints/schematic-ocr/model.onnx')
+    _TEXT_FALLBACK = load(baseline, TEXT_CHARS, use_gpu())
+    return _TEXT_FALLBACK
+
+
+def read_text_model(page, x0, y0, x1, y1, rotate, *, fallback_scope=None):
     """Second reading of one crop by the fine-tuned model: (text, min character confidence)."""
     sess = text_model()
     if sess is None or x1 <= x0 or y1 <= y0:
@@ -926,10 +937,12 @@ def read_text_model(page, x0, y0, x1, y1, rotate):
         if k != prev and k != 0:
             out.append(TEXT_CHARS[k - 1]); confs.append(float(pk))
         prev = k
-    return (''.join(out), min(confs)) if out else None
+    reading = (''.join(out), min(confs)) if out else None
+    fallback = fallback_text_model() if fallback_scope is not None else None
+    return fallback.read(x, reading, scope=fallback_scope) if fallback else reading
 
 
-def _read_strip(page, x, y, ux, uy, ch, side):
+def _read_strip(page, x, y, ux, uy, ch, side, *, audit=None):
     """One candidate text strip beside a pin wire. side=-1: above / left of the wire, +1: below / right."""
     H, W = page.text.shape
     L = int(10 * ch)
@@ -955,9 +968,12 @@ def _read_strip(page, x, y, ux, uy, ch, side):
     if min(abs(words[0][0] - start), abs(words[0][1] - start)) > 0.9 * ch or words[0][1] - words[0][0] > 3.2 * ch:
         return None, None
     num = _ocr_box(page, *box(*words[0]), rotate)
+    if audit is not None:
+        audit['primary'] = (num.text, float(num.conf)) if num else None
+        audit['secondary'] = read_text_model(page, *box(*words[0]), rotate)
     num = as_number(num.text) if num else None
     if not num:                                    # second opinion from the fine-tuned reader
-        alt = read_text_model(page, *box(*words[0]), rotate)
+        alt = audit.get('secondary') if audit is not None else read_text_model(page, *box(*words[0]), rotate)
         num = alt[0] if alt and alt[1] >= 0.6 and re.fullmatch(r'\d{1,3}', alt[0]) and int(alt[0]) > 0 else None
     if not num:
         return None, None
@@ -1082,6 +1098,47 @@ def symbol_consensus(ends, reads, values, ch):
                 if k in agreed and reads[k][0] != agreed[k] and agreed[k] not in own:
                     fixed.append((reads[k][0], agreed[k]))
                     reads[k] = (agreed[k], reads[k][1]); own.add(agreed[k])
+    return fixed
+
+
+def recover_split_pin_digits(rows, reads):
+    """Recover a digit split off a duplicated pin number into its net label.
+
+    Both OCR readers must independently return the same leading digit and
+    indexed signal. At least three other signals on this edge must establish
+    that family. The destination number must be unused, and another observation
+    of the old number must remain. Unique pin readings are never changed.
+    """
+    owners = Counter((ref, reads[k][0]) for row in rows.values() for k, ref, _ in row if reads[k][0])
+    proposals = []
+    for row in rows.values():
+        for k, ref, _ in row:
+            number, labels = reads[k]
+            if not number or len(number) != 1 or owners[ref, number] < 2 or not labels or len(labels) < 2:
+                continue
+            # Leading 1 and 8 can belong to I/B signal prefixes; the existing
+            # label normalizer deliberately preserves them, so leave them alone.
+            matches = [re.fullmatch(r'([2-79])([A-Z]{2,8})(\d{1,2})', text) for text in labels]
+            if not all(matches) or len({m.groups() for m in matches}) != 1:
+                continue
+            digit, prefix, index = matches[0].groups()
+            want = number + digit
+            if owners[ref, want]:
+                continue
+            anchors = {m[1] for other, _, _ in row if other != k
+                       for text in reads[other][1] or []
+                       if (m := re.fullmatch(re.escape(prefix) + r'(\d{1,2})', text))}
+            if len(anchors) < 3:
+                continue
+            proposals.append((k, ref, number, want, prefix + index))
+    destinations = Counter((ref, want) for _, ref, _, want, _ in proposals)
+    removals = Counter((ref, old) for _, ref, old, _, _ in proposals)
+    fixed = []
+    for k, ref, old, want, label in proposals:
+        if destinations[ref, want] != 1 or removals[ref, old] >= owners[ref, old]:
+            continue
+        reads[k] = (want, [label])
+        fixed.append((ref, old, want))
     return fixed
 
 
@@ -1244,7 +1301,7 @@ def strip_label_options(readings, vocab):
     for s in raw:
         m = re.fullmatch(r'([A-Z]+)(\d{1,2})', s)
         if not m:continue
-        for prefix, members in _indexed_names(vocab).items():
+        for prefix, members in sorted(_indexed_names(vocab).items(), key=lambda item: (-len(item[1]), item[0])):
             if int(m[2]) in members and 0 < len(prefix) - len(m[1]) <= 2 and \
                     (prefix.startswith(m[1]) or prefix.endswith(m[1])):
                 if members[int(m[2])] not in options:options.append(members[int(m[2])])
@@ -1260,20 +1317,21 @@ def resolve_strip_rows(observations, vocab, ch):
     """
     anchors = []
     for o in observations:
-        if len(o['options']) == 1 and (m := re.fullmatch(r'([A-Z]{2,12})(\d{1,2})', o['options'][0])):
-            anchors.append((o, m[1], int(m[2])))
+        for option in o['options']:
+            if m := re.fullmatch(r'([A-Z]{2,12})(\d{1,2})', option):
+                anchors.append((o, m[1], int(m[2]), len(o['options']) == 1))
     for o in observations:
         allowed = set(o['options'])
         heads = {normalize_pin_label(s) for s in o['labels']}
         if len(allowed) == 1 and allowed.isdisjoint(heads):
             # A unique correction already has stronger direct evidence than interpolation.
             continue
-        nearby = [(a, p, n) for a, p, n in anchors if a is not o and a['ref'] == o['ref'] and
+        nearby = [(a, p, n, strong) for a, p, n, strong in anchors if a is not o and a['ref'] == o['ref'] and
                   a['side'] == o['side'] and abs(a['edge'] - o['edge']) <= ch and abs(a['axis'] - o['axis']) <= 6 * ch]
-        predictions = []
-        for j, (a, prefix, ia) in enumerate(nearby):
-            for b, other, ib in nearby[j + 1:]:
-                if prefix != other or not 1 <= abs(ib - ia) <= 2:continue
+        predictions, weak, support, strong_support = [], set(), {}, {}
+        for j, (a, prefix, ia, a_strong) in enumerate(nearby):
+            for b, other, ib, b_strong in nearby[j + 1:]:
+                if prefix != other or not 1 <= abs(ib - ia) <= 4:continue
                 step = (b['axis'] - a['axis']) / (ib - ia)
                 if not .6 * ch <= abs(step) <= 3 * ch:continue
                 if min(a['axis'], b['axis']) - 2 * abs(step) > o['axis'] or \
@@ -1281,10 +1339,29 @@ def resolve_strip_rows(observations, vocab, ch):
                 index = ia + (o['axis'] - a['axis']) / step
                 if abs(index - round(index)) > .18:continue
                 name = f'{prefix}{round(index)}'
-                if name not in vocab or (name not in allowed and prefix not in heads):continue
+                if name not in vocab:continue
+                if name not in allowed and prefix not in heads:
+                    # A clipped prefix and a 7 read as 1 need independent row
+                    # evidence; two neighbours alone cannot override the index.
+                    clipped = False
+                    for reading in heads:
+                        m = re.fullmatch(r'([A-Z]+)(\d{1,2})', reading)
+                        target = str(round(index))
+                        if m and 0 < len(prefix)-len(m[1]) <= 2 and (prefix.startswith(m[1]) or prefix.endswith(m[1])) and \
+                                len(m[2]) == len(target) and m[2] != target and \
+                                all(x == y or {x,y} == {'1','7'} for x,y in zip(m[2],target)):
+                            clipped = True
+                    if not clipped:continue
+                    weak.add(name)
+                    support.setdefault(name,set()).update((a['axis'],b['axis']))
+                    if a_strong:strong_support.setdefault(name,set()).add(a['axis'])
+                    if b_strong:strong_support.setdefault(name,set()).add(b['axis'])
+                elif not (a_strong and b_strong and abs(ib-ia)<=2):
+                    continue
                 distance = (abs(o['axis'] - a['axis']) + abs(o['axis'] - b['axis'])) / abs(step)
                 predictions.append((distance, name))
-        predictions.sort()
+        predictions = sorted(p for p in predictions if p[1] not in weak or
+                             len(support[p[1]]) >= 3 and strong_support.get(p[1]))
         if predictions:
             rivals = [score for score, name in predictions if name != predictions[0][1]]
             if not rivals or min(rivals) - predictions[0][0] >= 1:
@@ -1435,6 +1512,125 @@ def choose_wire_label(readings, wire):
                min(alignment(token) for label, token in readings if label == name), name))
 
 
+def reread_part_tokens(page, toks, boxes, ch):
+    """Second-reader recovery of damaged logic headers, preserving readable values.
+
+    Two confident crops must agree with a value already printed on this sheet,
+    and two other bodies must agree on dimensions and the header's position.
+    """
+    if page.soft is None:
+        return []
+    area = lambda b: (b[2] - b[0]) * (b[3] - b[1])
+    body = lambda p: min((b for b in boxes if _inside(b, p.cx, p.cy)), key=area, default=None)
+    shape = lambda p, b: (b[2] - b[0], b[3] - b[1], p.cx - b[0], p.cy - b[1])
+    known = {}
+    for p in toks:
+        if p.conf >= .7 and PART_RE.fullmatch(p.text.upper()) and _ic_value(p.text) and (b := body(p)) is not None:
+            known.setdefault((p.text.upper(), p.vertical), []).append((b, shape(p, b)))
+    fixed = []
+    for t in toks:
+        if PART_RE.fullmatch(t.text.upper()) or not re.fullmatch(r'[7RP][A41][A-Z0-9]{3,7}', t.text.upper()):
+            continue
+        b = body(t)
+        if b is None:
+            continue
+        reads = []
+        for fraction in (.12, .2):
+            pad = max(1, round(fraction * ch))
+            reads.append(read_text_model(page, t.x0 - pad, t.y0 - pad, t.x1 + pad, t.y1 + pad, t.vertical,
+                                         fallback_scope='part'))
+        if not all(r and r[1] >= .9 for r in reads) or reads[0][0] != reads[1][0]:
+            continue
+        value = reads[0][0].upper()
+        own_shape = shape(t, b)
+        supporting = {box for box, other in known.get((value, t.vertical), []) if box != b and
+                      all(abs(x - y) <= 1.25 * ch for x, y in zip(own_shape, other))}
+        if len(supporting) < 2:
+            continue
+        fixed.append((t.text, value))
+        t.text, t.conf = value, min(r[1] for r in reads)
+    return fixed
+
+
+def repeated_part_boxes(page, toks, boxes, ch):
+    """Recover broken outlines where repeated labels and four pixel edges agree.
+
+    At least three distinct bodies must agree on size, orientation and label
+    offset. Each recovered edge needs at least half its span in the line layer,
+    matching seg_boxes' closure rule. A repeated value alone is insufficient.
+    """
+    if page.soft is None:
+        return []
+    parts = [t for t in toks if t.conf >= .7 and PART_RE.fullmatch(t.text.upper()) and _ic_value(t.text)]
+    area = lambda b: (b[2] - b[0]) * (b[3] - b[1])
+    groups = {}
+    for p in parts:
+        body = min((b for b in boxes if _inside(b, p.cx, p.cy)), key=area, default=None)
+        if body is None:
+            continue
+        shape = (body[2] - body[0], body[3] - body[1], p.cx - body[0], p.cy - body[1])
+        clusters = groups.setdefault((p.text.upper(), p.vertical), [])
+        cluster = next((c for c in clusters if all(abs(a - b) <= .6 * ch for a, b in zip(c[0][1], shape))), None)
+        if cluster is None:
+            clusters.append([(body, shape)])
+        elif body not in [b for b, _ in cluster]:
+            cluster.append((body, shape))
+    out = []
+    H, W = page.binary.shape
+
+    def edge(mask, across, lo, hi, horizontal):
+        pad = max(3, round(.7 * ch))
+        limit = H if horizontal else W
+        a, b = max(0, round(across) - pad), min(limit, round(across) + pad + 1)
+        lo, hi = max(0, round(lo)), min(W if horizontal else H, round(hi))
+        if b <= a or hi <= lo:
+            return None
+        crop = mask[a:b, lo:hi] if horizontal else mask[lo:hi, a:b].T
+        coverage = np.count_nonzero(crop, axis=1) / (hi - lo)
+        k = int(np.argmax(coverage))
+        return a + k if coverage[k] >= .5 else None
+
+    for p in parts:
+        if any(_inside(b, p.cx, p.cy) for b in boxes + out):
+            continue
+        clusters = [c for c in groups.get((p.text.upper(), p.vertical), []) if len(c) >= 3]
+        # Different sections/packages sharing a value cannot supply a unique template.
+        if len(clusters) != 1:
+            continue
+        width, height, dx, dy = np.median([s for _, s in clusters[0]], axis=0)
+        x, y = p.cx - dx, p.cy - dy
+        x0 = edge(page.vlines, x, y + ch, y + height - ch, False)
+        x1 = edge(page.vlines, x + width, y + ch, y + height - ch, False)
+        y0 = edge(page.hlines, y, x + ch, x + width - ch, True)
+        y1 = edge(page.hlines, y + height, x + ch, x + width - ch, True)
+        if any(v is None for v in (x0, y0, x1, y1)):
+            continue
+        if abs(x1 - x0 - width) > ch or abs(y1 - y0 - height) > ch:
+            continue
+        candidate = (x0 - 3, y0 - 3, x1 + 3, y1 + 3)
+        if not _inside(candidate, p.cx, p.cy) or any(
+                _overlap(candidate, b) > .2 * min(area(candidate), area(b)) for b in boxes + out):
+            continue
+        out.append(candidate)
+    return out
+
+
+def unclaimed_body(part, box, boxes, anchors, pin_ends, ch):
+    """An enclosing wire rectangle must not consume a separately outlined IC.
+
+    Require a smaller closed body with multiple pin ends, no existing anchor,
+    and a part label far from every anchor assigned to the enclosing rectangle.
+    This only changes the assignment of an otherwise discarded part label.
+    """
+    owners = [a for a in anchors if a[3] == box] if box is not None else []
+    if not owners or any(math.hypot(a[1] - part.cx, a[2] - part.cy) <= 6 * ch for a in owners):
+        return box
+    area = lambda b: (b[2] - b[0]) * (b[3] - b[1])
+    candidates = [b for b in boxes if _inside(b, part.cx, part.cy) and area(b) < 0.5 * area(box)
+                  and pin_ends[b] >= 2 and not any(a[3] == b or _inside(b, a[1], a[2]) for a in anchors)]
+    return min(candidates, key=area, default=box)
+
+
 def recognize(page, toks):
     ch = char_height(page.text) or 40.0
     tol = max(4.0, ch * 0.25)
@@ -1444,9 +1640,18 @@ def recognize(page, toks):
     segs = segments(page)
     candidates = boxes(page, ch) + seg_boxes(segs, ch, tol)
     bxs = _split_stacked(_merge_boxes(candidates), segs, toks, ch, candidates)
+    caption_boxes = list(bxs)
+    reread = reread_part_tokens(page, toks, bxs, ch)
+    if reread:
+        warnings.append('Part labels confirmed by two second-reader crops and matching symbols: ' +
+                        ', '.join(f'{old}->{new}' for old, new in reread) + '. Check them.')
     # Rectangles closed by crossing wires are not IC bodies: a body holds its reference or part number.
     named = [t for t in toks if normalize_ref(t.text) or PART_RE.match(t.text.upper()) and re.search(r'[A-Z]', t.text.upper())]
     bxs = [b for b in bxs if any(_inside(b, t.cx, t.cy) for t in named)]
+    restored = repeated_part_boxes(page, toks, bxs, ch)
+    bxs += restored
+    if restored:
+        warnings.append(f'{len(restored)} IC outlines recovered using repeated part labels and four visible edges. Check them.')
     wires = [s for s in segs if not _is_outline(s, bxs, tol * 2)]
     dot_points = [d for d in dots(page, ch) if sum(s.dist(*d) <= tol * 1.5 for s in wires) >= 2]
     dsu = connect(wires, dot_points, tol)
@@ -1467,6 +1672,9 @@ def recognize(page, toks):
                 free.append((i, x, y, ((x - ox) / length, (y - oy) / length)))
 
     # Token roles.
+    # Keep the literal OCR casing for captions; the digital bus/part family
+    # normalizers below intentionally use uppercase spellings.
+    caption_tokens = [Token(t.text, t.conf, t.x0, t.y0, t.x1, t.y1, t.vertical) for t in toks]
     refs, parts, numbers, conns, labels = [], [], [], [], []
     printed = {t.text.upper() for t in toks if PART_RE.match(t.text.upper()) and t.text.upper().startswith('74')}
     for t in toks:
@@ -1534,6 +1742,8 @@ def recognize(page, toks):
         if id(p) in taken or not _ic_value(p.text):
             continue
         box = body_at(p.cx, p.cy)
+        if page.soft is not None:
+            box = unclaimed_body(p, box, bxs, anchors, pin_ends, ch)
         if box is not None and all(a[3] != box or math.hypot(a[1] - p.cx, a[2] - p.cy) > 6 * ch for a in anchors) \
                 and any(a[3] == box for a in anchors) and all(components.get(a[0]) != p.text.upper() for a in anchors if a[3] == box):
             box = None                    # a rectangle of wires around several gates (U4 ... 74F10): not one body
@@ -1586,6 +1796,22 @@ def recognize(page, toks):
         warnings.append(f'{len(unref)} IC bodies have a legible part number but an unreadable reference; '
                         f'placed as U_1..U_{len(unref)}. Annotate them in Capture.')
 
+    # Modern device names need not belong to a finite manufacturer-prefix
+    # regex. Read uniquely aligned captions beside visible bodies. This late
+    # pass supplies newly recognized bodies to the following pin extraction.
+    from .ic_caption import recover as recover_captions, external_connectors
+    from .recognition_catalog import correct_literal
+    recovered_captions = []
+    for ref, value, box in recover_captions(caption_tokens, caption_boxes, segs, ch, components, anchors):
+        literal = value
+        value = correct_literal(literal)
+        if value != literal:
+            warnings.append(f'{ref}: caption {literal} matched the unique library spelling {value}. Check the marking.')
+        components[ref] = value
+        anchors.append((ref, (box[0]+box[2])/2, (box[1]+box[3])/2, box))
+        recovered_captions.append((ref, value, box))
+    conns = external_connectors(conns, [box for _, _, box in recovered_captions], ch)
+
     meaningful = [t for t, _ in refs + numbers + labels] + parts + [t for t, _, _ in conns]
     numbers += _reread_numbers(page, free, numbers, meaningful, ch)
     nodes = {}                             # (ref, pin) -> wire index
@@ -1615,6 +1841,15 @@ def recognize(page, toks):
     if fixed:
         warnings.append(f'{len(fixed)} faint pin numbers taken from other copies of the same part drawn identically '
                         f'(e.g. {", ".join((a or "?") + "->" + b for a, b in fixed[:5])}). Check them.')
+    split_digits = recover_split_pin_digits(rows, strip_reads)
+    if split_digits:
+        warnings.append('Pin digits split into their adjacent net labels recovered by both OCR readers: '
+                        + ', '.join(f'{ref}:{old}->{new}' for ref, old, new in split_digits) + '. Check them.')
+    from .pin_crop_recovery import recover as recover_pin_crops
+    crop_fixes = recover_pin_crops(page, edge_pins, strip_reads, components, ch, _read_strip)
+    if crop_fixes:
+        warnings.append('Clipped pin digits reread by both OCR readers at two crop widths and checked against library pin numbers: '
+                        + ', '.join(f'{ref}:{old}->{new}' for ref, old, new in crop_fixes) + '. Check them.')
     for k, i, x, y, ux, uy, ref in edge_pins:
         num, label = strip_reads[k]
         PIN_DEBUG.append((ref, int(x), int(y), num, label))
@@ -1727,6 +1962,11 @@ def recognize(page, toks):
         else:name = f'N{root:05d}'
         nets.setdefault(name, []).append((ref, pin))
     nets = {n: sorted(set(m)) for n, m in nets.items()}
+    for ref, value, _ in recovered_captions:
+        if not any(r == ref for members in nets.values() for r, _ in members):
+            warnings.append(f'{ref}: marking {value} read beside its symbol; pin connections remain unrecognized.')
+        else:
+            warnings.append(f'{ref}: marking {value} read beside its symbol. Check the physical pin connections.')
     floating = [n for n, m in nets.items() if len(m) < 2 and n.startswith('N')]
     if floating:
         warnings.append(f'{len(floating)} pins connect to nothing else that was recognized; review them.')

@@ -14,6 +14,10 @@ from .engine import OperationError, atomic_text
 BASE = Path(__file__).resolve().parents[1]
 
 
+class RecognitionError(ValueError):
+    """The runtime ran successfully, but this drawing could not be recognized."""
+
+
 def state_dir():
     return Path(os.getenv('STATE_ROOT', str(BASE / '.state'))).resolve()
 
@@ -88,6 +92,10 @@ def extract_digital(path):
             if result.returncode or not result_path.is_file():
                 report = runtime_status()
                 detail = report.get('error') or result.stderr[-1200:] or 'Worker exited without a result.'
+                if (report.get('error_kind') == 'recognition' and report.get('started') == started
+                        and report.get('configured_python') == python
+                        and (device != 'cuda' or report.get('gpu_verified'))):
+                    raise RecognitionError('Local recognition could not read this drawing: ' + detail)
                 raise OperationError('Local GPU recognition failed: ' + detail)
             from .ingestion import Circuit
             payload = json.loads(result_path.read_text(encoding='utf-8'))
@@ -95,6 +103,8 @@ def extract_digital(path):
             if device == 'cuda' and not payload['runtime'].get('gpu_verified'):
                 raise OperationError('The OCR worker did not confirm CUDA execution; no circuit was applied.')
             return found
+        except RecognitionError:
+            raise
         except (subprocess.TimeoutExpired, OSError, ValueError, KeyError) as exc:
             error = 'Local OCR worker timed out; no circuit was applied.' if isinstance(exc, subprocess.TimeoutExpired) else f'Local OCR worker failed: {exc}'
             record({**base, 'state': 'failed', 'error': error[:1000]})

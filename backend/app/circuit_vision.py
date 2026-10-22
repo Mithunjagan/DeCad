@@ -60,7 +60,16 @@ def bodies(binary):
   if min(w,h)<12 or max(w,h)>240 or max(w,h)/min(w,h)<1.5:continue
   if not any(abs(f['x']-x)+abs(f['y']-y)<15 for f in found):found.append(dict(kind='R',x=int(x),y=int(y),w=int(w),h=int(h)))
  # Capacitor plates: short aligned parallel strokes, opposite pin axis.
- axes=[l for l in lines if min(abs(l[2]-l[0]),abs(l[3]-l[1]))<3 and 18<=max(abs(l[2]-l[0]),abs(l[3]-l[1]))<=110]
+ # Read whole straight strokes, not arbitrarily sampled Hough fragments. A
+ # partial plate shifts the inferred pin axis and can attach it to another net.
+ axes=[]
+ for horizontal,kernel in [(True,np.ones((1,18),np.uint8)),(False,np.ones((18,1),np.uint8))]:
+  strokes=cv2.morphologyEx(binary,cv2.MORPH_OPEN,kernel)
+  _,_,stats,_=cv2.connectedComponentsWithStats(strokes,8)
+  for x,y,w,h,area in stats[1:]:
+   length,thickness=(w,h) if horizontal else (h,w)
+   if 18<=length<=110 and thickness<=10:
+    axes.append((int(x),int(y+h//2),int(x+w-1),int(y+h//2)) if horizontal else (int(x+w//2),int(y),int(x+w//2),int(y+h-1)))
  for i,a in enumerate(axes[:400]):
   horizontal=abs(a[2]-a[0])>abs(a[3]-a[1]);ac=(np.array(a[:2])+a[2:])/2
   for b in axes[i+1:400]:
@@ -69,6 +78,7 @@ def bodies(binary):
    if not 7<=delta[normal]<=70 or delta[1-normal]>5:continue
    if abs(max(abs(a[2]-a[0]),abs(a[3]-a[1]))-max(abs(b[2]-b[0]),abs(b[3]-b[1])))>6:continue
    coords=np.array([a[:2],a[2:],b[:2],b[2:]]);x,y=coords.min(axis=0);w,h=coords.max(axis=0)-coords.min(axis=0)+1
+   if any(f.get('closed') and x>=f['x']-5 and y>=f['y']-5 and x+w<=f['x']+f['w']+5 and y+h<=f['y']+f['h']+5 for f in found):continue
    if any(abs(f['x']-x)+abs(f['y']-y)<15 for f in found):continue
    found.append(dict(kind='C',x=int(x),y=int(y),w=int(w),h=int(h),vertical=horizontal))
  return found
@@ -77,12 +87,37 @@ def extract(path):
  if not shutil.which('tesseract'):raise OperationError('CPU circuit recognition requires Tesseract.')
  cv2.setNumThreads(1);image=prepare(path)
  scale=min(3,1400/max(image.size))
- if scale>1:image=image.resize((round(image.width*scale),round(image.height*scale)),Image.Resampling.LANCZOS)
+ # Geometry tolerances below are calibrated in working-image pixels. Normalize
+ # large PDF renders as well as small screenshots to that working scale.
+ if scale!=1:image=image.resize((round(image.width*scale),round(image.height*scale)),Image.Resampling.LANCZOS)
  with tempfile.TemporaryDirectory() as td:
   p=Path(td)/'image.png';image.save(p)
   r=subprocess.run(['tesseract',str(p),'stdout','--psm','11','tsv'],stdin=subprocess.DEVNULL,capture_output=True,text=True,timeout=30)
   if r.returncode:raise OperationError('Circuit OCR failed.')
- return recover(image,words(r.stdout))
+  observed=words(r.stdout)
+  try:return recover(image,observed)
+  except OperationError as first:
+   # A different pixel rendering can resolve antialiasing/JPEG text errors.
+   # Do not retry ambiguous wire topology or discard clearly observed devices.
+   if not str(first).startswith(('No readable value','A component symbol has no reliable reference/value',
+                                 'No supported R/C/V','Cannot locate supported symbol geometry',
+                                 'Symbol/reference association is ambiguous')):raise
+   image.convert('L').point(lambda pixel:0 if pixel<200 else 255).save(p)
+   retry=subprocess.run(['tesseract',str(p),'stdout','--psm','11','tsv'],stdin=subprocess.DEVNULL,capture_output=True,text=True,timeout=30)
+   if retry.returncode:raise first
+   reread=words(retry.stdout)
+   references=lambda readings:{word['text'].upper() for word in readings if re.fullmatch(r'[RCVUDQML]\d+',word['text'],re.I)}
+   if not references(observed)<=references(reread):raise first
+   numeric=r'[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[fpnumkKMG])?(?:[FHVΩ]|ohms?)?'
+   for old in observed:
+    if not re.fullmatch(numeric,old['text']):continue
+    for new in reread:
+     if re.fullmatch(numeric,new['text']) and abs(old['x']-new['x'])<5 and abs(old['y']-new['y'])<5 and old['text']!=new['text']:
+      raise first  # Conflicting readable values need review, not an automatic vote.
+   try:result=recover(image,reread)
+   except OperationError:raise first
+   result.warnings.append('Component text was recovered by re-reading a binarized view of the same source. Verify the references and values against the original.')
+   return result
 
 def recover(image,ocr):
  gray=np.array(image.convert('L'));binary=(gray<150).astype('uint8')*255
@@ -90,11 +125,11 @@ def recover(image,ocr):
  for word in ocr:
   if re.search('[A-Za-z0-9]',word['text']):
    x,y,w,h=[word[k] for k in ['x','y','w','h']];cleaned[max(0,y-2):y+h+2,max(0,x-2):x+w+2]=0
- if any(re.fullmatch(r'[UDQML]\d+',w['text']) for w in ocr):raise OperationError('CPU circuit recognition does not support these device symbols yet. Choose the configured vision server or import reviewed JSON.')
+ if any(re.fullmatch(r'[UDQML]\d+',w['text'],re.I) for w in ocr):raise OperationError('CPU circuit recognition does not support these device symbols yet. Choose the configured vision server or import reviewed JSON.')
  symbols=bodies(cleaned);components=[];assigned=[];used=set()
  refs=[]
  for word in ocr:
-  text=word['text'];normalized=re.sub(r'(?<=[RCV])[lI]$','1',text)
+  text=word['text'];normalized=re.sub(r'(?<=[RCV])[LI]$','1',text.upper())
   if re.fullmatch(r'[RCV]\d+',normalized) and word['conf']>=30:
    if normalized!=text:warnings.append(f'OCR normalized {text} to {normalized}; confirm the reference.')
    refs.append((normalized,word))
@@ -118,7 +153,9 @@ def recover(image,ocr):
   if b['kind']=='V':
    # This supported source convention is vertical positive above negative.
    vertical=True;warnings.append(f'{ref}: confirm positive terminal is the upper pin.')
-  wire[max(0,y-3):y+h+3,max(0,x-3):x+w+3]=0
+  # Inner contours sit inside the printed symbol wall. Include that wall and
+  # its antialiased edge so the outline cannot bypass/short the two terminals.
+  wire[max(0,y-6):y+h+6,max(0,x-6):x+w+6]=0
   points=[(x+w//2,y-5),(x+w//2,y+h+5)] if vertical else [(x-5,y+h//2),(x+w+5,y+h//2)]
   pins.extend((ref,str(i+1),point) for i,point in enumerate(points))
  # Four-way crossings without a visible junction dot are ambiguous, not automatic shorts.

@@ -17,6 +17,9 @@ def session_providers(dv):
                 sessions[name] = session.get_providers()
     if dv._TEXT_MODEL:
         sessions['schematic_reader'] = dv._TEXT_MODEL.get_providers()
+    fallback = getattr(dv, '_TEXT_FALLBACK', None)
+    if fallback:
+        sessions['schematic_fallback'] = fallback.session.get_providers()
     return sessions
 
 
@@ -53,6 +56,8 @@ def run(request):
     # Keep Windows DLL search handles alive for the whole job. Preloading uses
     # the existing Torch/NVIDIA DLLs; no large Torch import or package change.
     dll_handles = []
+    info = None
+    recognizing = False
     try:
         import onnxruntime as ort
         if request['requested'] != 'cpu':
@@ -71,10 +76,13 @@ def run(request):
         # Initialize the optional second reader too, so status covers every
         # installed OCR model, rather than just ORT's list of possible providers.
         dv.text_model()
+        dv.fallback_text_model()
         providers = session_providers(dv)
         gpu = all('CUDAExecutionProvider' in providers.get(n, []) for n in ('detector', 'classifier', 'reader'))
         if dv._TEXT_MODEL:
             gpu = gpu and 'CUDAExecutionProvider' in providers.get('schematic_reader', [])
+        if dv._TEXT_FALLBACK:
+            gpu = gpu and 'CUDAExecutionProvider' in providers.get('schematic_fallback', [])
         if request['requested'] == 'cuda' and not gpu:
             raise RuntimeError('CUDA sessions could not initialize. Check CUDA/cuDNN DLLs in the configured OCR environment. CPU fallback was rejected.')
         info = {**base, 'device': 'cuda' if gpu else 'cpu', 'gpu_verified': gpu,
@@ -88,12 +96,17 @@ def run(request):
                 return _original(*args, **kwargs)
             setattr(dv, name, reporting)
         runtime.record({**info, 'state': 'running', 'stage': 'preprocessing'})
+        recognizing = True
         found = dv.extract(Path(request['path']), Path(request['state']))
+        recognizing = False
         info.update(state='completed', elapsed_seconds=time.time() - request['started'])
         Path(request['result']).write_text(json.dumps({'circuit': found.model_dump(), 'runtime': info}), encoding='utf-8')
         runtime.record(info)
     except Exception as exc:
-        runtime.record({**base, 'state': 'failed', 'device': 'unverified', 'error': str(exc)[:1000]})
+        from .engine import OperationError
+        kind = 'recognition' if recognizing and isinstance(exc, ValueError) and not isinstance(exc, OperationError) else 'runtime'
+        runtime.record({**(info or {**base, 'device': 'unverified'}), 'state': 'failed',
+                        'error_kind': kind, 'error': str(exc)[:1000]})
         raise
     finally:
         for handle in dll_handles:
