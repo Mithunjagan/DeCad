@@ -96,6 +96,9 @@ class Page:
     affine: np.ndarray = None   # source raster -> working pixels, including deskew
     vector: object = None      # native PDF primitives, in working pixels
     measurements: dict = field(default_factory=dict)
+    roi_audit: list = field(default_factory=list)
+    pin_evidence: dict = field(default_factory=dict)
+    internal_pin_labels: list = field(default_factory=list)
 
 
 # ---------------------------------------------------------------- preprocessing
@@ -1858,6 +1861,36 @@ def recognize(page, toks):
         anchors.append((ref, (box[0]+box[2])/2, (box[1]+box[3])/2, box))
         recovered_captions.append((ref, value, box))
     conns = external_connectors(conns, [box for _, _, box in recovered_captions], ch)
+    from .pipeline_profile import enabled
+    if enabled():
+        from .ic_caption import visible_pin_ends,inside
+        # Library identity plus multiple visible external terminals corroborate
+        # old-style IC bodies as well as newly recovered captions.
+        from .recognition_catalog import pin_tables
+        catalog_facts={ref:pin_tables(value) for ref,value in components.items()
+                       if re.fullmatch(r'(U|IC)\d+[A-H]?',ref)}
+        verified_bodies=[(ref,box) for ref,_,_,box in anchors if box is not None
+                         and any(table['pins'] for table in catalog_facts.get(ref,[]))
+                         and len(visible_pin_ends(box,segs,.55*ch))>=4]
+        function_names={ref:{name.upper() for table in tables for names in table['pins'].values() for name in names}
+                        for ref,tables in catalog_facts.items()}
+        def internal_owner(token):
+            text=token.text.upper()
+            return next((ref for ref,box in verified_bodies if inside(box,token.cx,token.cy,.4*ch)
+                         and (text in function_names.get(ref,set()) or re.fullmatch(r'P\d+\.\d+',text))),None)
+        # An enclosing wire rectangle can also contain a real J1 connector.
+        # Require pin-function spelling as well as interior geometry.
+        conns=[row for row in conns if not internal_owner(row[0])]
+        labels=[(token,label) for token,label in labels if not internal_owner(token)]
+        literals={str(value).upper() for value in components.values()}|set(components)
+        for token in caption_tokens:
+            if token.text.upper() in literals or not re.match(r'^[A-Za-z]',token.text):continue
+            owner=internal_owner(token)
+            if owner:page.internal_pin_labels.append({'ref':owner,'text':token.text,
+                'bbox':[token.x0,token.y0,token.x1,token.y1],'role':'internal_pin_label'})
+        for ref,value in components.items():
+            if re.fullmatch(r'(U|IC)\d+[A-H]?',ref) and not catalog_facts.get(ref):
+                warnings.append(f'{ref}: no exact catalog package for {value}; physical pin numbers require source review.')
 
     meaningful = [t for t, _ in refs + numbers + labels] + parts + [t for t, _, _ in conns]
     numbers += _reread_numbers(page, free, numbers, meaningful, ch)
@@ -1897,6 +1930,25 @@ def recognize(page, toks):
     if crop_fixes:
         warnings.append('Clipped pin digits reread by both OCR readers at two crop widths and checked against library pin numbers: '
                         + ', '.join(f'{ref}:{old}->{new}' for ref, old, new in crop_fixes) + '. Check them.')
+    if enabled():
+        from .catalog_pin_solver import recover_sequences,component_crop_pins
+        from .roi_vision import RoIReader
+        bounded=recover_sequences(rows,strip_reads,components,ch)
+        reader=RoIReader()
+        try:crop_pins=component_crop_pins(reader,page,anchors,components,edge_pins,strip_reads,ch)
+        finally:
+            page.roi_audit+=reader.audit
+            reader.close()
+        if bounded or crop_pins:
+            warnings.append('Catalog-bounded pin recovery (review required): '+
+                            ', '.join(f'{ref}:{old or "?"}->{new}' for ref,old,new in bounded+crop_pins)+'.')
+        for ref,old,new in bounded:page.pin_evidence[(ref,new)]={'confidence':.72,'source':'wire_trace','review':True}
+        for ref,old,new in crop_pins:page.pin_evidence[(ref,new)]={'confidence':.7,'source':'vlm_tiebreak','review':True}
+        if any(row.get('state')=='unavailable' for row in reader.audit):
+            warnings.append('One or more configured RoI helpers were unavailable. Unresolved crop interpretations were retained for review.')
+        for audit in reader.audit:
+            if audit.get('state')=='completed':
+                warnings.append(f'RoI {audit["task"]}: served by {audit["served_model"]} ({audit["role"]}); crop {audit["bbox"]}. Review the interpretation.')
     for k, i, x, y, ux, uy, ref in edge_pins:
         num, label = strip_reads[k]
         PIN_DEBUG.append((ref, int(x), int(y), num, label))
@@ -2036,7 +2088,8 @@ def recognize(page, toks):
         'nets': [{'name': n, 'nodes': [{'ref': r, 'pin': p} for r, p in m]} for n, m in sorted(nets.items())],
         'warnings': warnings,
         'debug': {'segments': len(segs), 'wires': len(wires), 'boxes': len(bxs), 'dots': len(dot_points), 'free_ends': len(free),
-                  'tokens': len(toks), 'refs': len(refs), 'numbers': len(numbers), 'labels': len(labels), 'pins': len(nodes)},
+                  'tokens': len(toks), 'refs': len(refs), 'numbers': len(numbers), 'labels': len(labels), 'pins': len(nodes),
+                  'roi_audit': page.roi_audit,'internal_pin_labels':page.internal_pin_labels},
     }
 
 
