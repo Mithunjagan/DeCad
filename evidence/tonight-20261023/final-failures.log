@@ -1,0 +1,126 @@
+# Saved-observation failure diagnostic
+
+cached diagnostic only; not a fresh recognition gate
+
+## S1: 54/56
+
+| Pin | Read net | Expected | Anchor / trace | Local observed labels |
+|---|---|---|---|---|
+| U64.4 | WZPLJ6 | DD6 | (6462.0,3221.0), root=298 | WZPLJ6, DD6, DD7, DC5 |
+| U64.13 | missing | CC7 | missing physical pin |  |
+
+## S3: 62/69
+
+| Pin | Read net | Expected | Anchor / trace | Local observed labels |
+|---|---|---|---|---|
+| U6.14 | KAAI | AAA1 | (2099.0,1639.0), root=360 | KAAI, AAA2, AAA3, AAA4 |
+| U6.11 | missing | AAA4 | missing physical pin |  |
+| U8.14 | AAA6 | AAA9 | (3582.0,1634.0), root=360 | AAAS, AAA10, AAA11, AAA12 |
+| U8.11 | missing | AAA12 | missing physical pin |  |
+| U27.17 | missing | AR12 | missing physical pin |  |
+| U27.7 | RG9 | AR3 | (3250.0,2517.0), root=125 | AR5, AR4, AR6, AR3 |
+| U28.19 | missing | AR10 | missing physical pin |  |
+
+## S4: 69/72
+
+| Pin | Read net | Expected | Anchor / trace | Local observed labels |
+|---|---|---|---|---|
+| U31.27 | missing | ADDA11 | missing physical pin |  |
+| U33.14 | missing | ADDA9 | missing physical pin |  |
+| U34.9 | missing | ADDA7 | missing physical pin |  |
+
+## S5: 42/48
+
+| Pin | Read net | Expected | Anchor / trace | Local observed labels |
+|---|---|---|---|---|
+| U36.21 | missing | INDA14 | missing physical pin |  |
+| U36.2 | N00549 | INDA12 | (3522.0,5597.0), root=736 | INDA13, ACC151, INBU14, INBU15 |
+| U49.2 | ~TT2 | INDA8 | (6157.0,5780.0), root=790 | INDA6, INBU10, AHY, CL |
+| U49.9 | N00619 | INBU8 | (6573.0,5749.0), root=None | INBU10, INDA6, AHY, ERN |
+| U37.9 | missing | INBU4 | missing physical pin |  |
+| U50.9 | missing | INBU0 | missing physical pin |  |
+
+## S4-scan300: 44/72
+
+| Pin | Read net | Expected | Anchor / trace | Local observed labels |
+|---|---|---|---|---|
+| U31.38 | missing | ADDA2 | missing physical pin |  |
+| U31.2 | PS3 | ADDA4 | (3904.0,2321.0), root=655 | PS3, PRAD339, PRAD237, ADDA8 |
+| U31.4 | ADDA4 | ADDA5 | (3439.0,1868.0), root=None | ADDAS, ADDA4, ADDA6, ADDA7 |
+| U31.19 | missing | ADDA7 | missing physical pin |  |
+| U31.35 | PRA | PRAD1 | (3219.0,2464.0), root=None | PRAD33, PRAD237, PRAD1, PRAD339 |
+| U31.1 | N00500 | PRAD4 | (3904.0,2053.0), root=620 | ADDA8, ADDA7, ADDA6, PS3 |
+| U31.3 | PRA5 | PRAD5 | (3494.0,2464.0), root=None | PRAD339, PRAD237, PRAD1, PRAD33 |
+| U31.18 | missing | PRAD6 | missing physical pin |  |
+| U31.24 | missing | PRAD9 | missing physical pin |  |
+| U33.3 | missing | ADDA12 | missing physical pin |  |
+| U33.14 | missing | ADDA9 | missing physical pin |  |
+| U33.12 | missing | ADDA8 | missing physical pin |  |
+| U33.2 | ADDA8 | INADD11 | (6408.0,1851.0), root=589 | ANDAR, ADDA10, ADDA11, NADIDS |
+| U33.6 | INADD5 | INADD9 | (6354.0,2187.0), root=None | NADIDS, INADD10, INADDM, ANDAR |
+| U34.9 | missing | ADDA7 | missing physical pin |  |
+| U34.18 | missing | ADDA3 | missing physical pin |  |
+| U34.12 | ADAO | ADDA0 | (7932.0,1845.0), root=589 | ADAO, ADDA1, ADDA2, ADDA3 |
+| U34.13 | missing | INADD6 | missing physical pin |  |
+| U34.15 | N3 | INADD5 | (7064.0,2176.0), root=None | N3, NADD, INADD5, INADD2 |
+| U1.21 | missing | PRAD10 | missing physical pin |  |
+| U1.22 | PRAD6 | PRAD9 | (1547.0,4212.0), root=None | PRAD9, PRADEI, PRAD7, PRAD10 |
+| U1.23 | PRADE | PRAD8 | (1603.0,4212.0), root=None | PRADEI, PRAD7, PRAD9, PRAD6 |
+| U1.4 | S20 | PRAD4 | (1766.0,4551.0), root=466 | INST19, INST21, YNSILE, YNSIIZ |
+| U1.5 | missing | PRAD3 | missing physical pin |  |
+| U13.21 | missing | PRAD10 | missing physical pin |  |
+| U13.22 | missing | PRAD9 | missing physical pin |  |
+| U13.23 | PRANR | PRAD8 | (2699.0,4207.0), root=None | PRANR, IPRADY, PRAD6, PRAD6 |
+| U13.1 | INST12 | PRAD7 | (2863.0,4548.0), root=None | ZONEEAOO, INST12, INST13, INST10 |
+
+## native-3b2a49a524e2d50dcf26: Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch
+
+- R34.1 -- U2.3
+- R34.1 -- U2.6
+- R34.1 -- U2.9
+- U2.17 -- U2.3
+- U2.17 -- U2.6
+- U2.17 -- U2.9
+- U2.2 -- U2.3
+- U2.2 -- U2.6
+- U2.2 -- U2.9
+- U2.3 -- U2.6
+- U2.6 -- U2.9
+
+## native-a39a7a1fc84f921b27fd: Seeed Studio Wio SX1262 for XIAO ESP32S3/Wio-SX1262 for ESP32S3.kicad_sch
+
+- R1.1 -- R1.4
+
+## native-fedf29b44113e135f31f: Seeed Studio Wio SX1262 for XIAO nRF52840 v1.3/Wio-SX1262 for XIAO nRF52840.kicad_sch
+
+No incorrect pairs.
+
+## native-c4d88e79bc63688e0e7c: Seeed Studio XIAO ESP32S3/ESP32S3.kicad_sch
+
+No incorrect pairs.
+
+## native-37735b083f0b9f56549f: Seeed Studio XIAO nRF52840 v1.3/Seeed Studio XIAO nRF52840 v1.3.kicad_sch
+
+- P0.00 -- P0.31
+
+## native-0a236a74292d04d831fa: XIAO Family/XIAO.kicad_sch
+
+No incorrect pairs.
+
+## native-e9b7597c67252bf7707d: source.kicad_sch
+
+No incorrect pairs.
+
+## native-901de51001a98cc2361a: source.kicad_sch
+
+No incorrect pairs.
+
+## native-c6bcc506a3200b19e089: source.kicad_sch
+
+No incorrect pairs.
+
+## native-c4d7791b4ebdf13c3944: CM4Card.kicad_sch
+
+- U504.4 -- U504.9
+
+

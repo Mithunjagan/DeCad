@@ -1,0 +1,35 @@
+
+> build
+> next build --webpack
+
+▲ Next.js 16.4.2 (webpack)
+✓ Running next.config.mjs took 67ms
+- Experiments (use with caution):
+  · cpus: 1
+  · proxyTimeout: 900000
+  ⨯ webpackBuildWorker
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.8s
+  Running TypeScript ...
+  Finished TypeScript in 3ms ...
+  Collecting page data using 1 worker ...
+  Generating static pages using 1 worker (0/5) ...
+  Generating static pages using 1 worker (1/5) 
+  Generating static pages using 1 worker (2/5) 
+  Generating static pages using 1 worker (3/5) 
+✓ Generating static pages using 1 worker (5/5) in 407ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/system/stats
+├ ○ /icon.png
+└ ○ /manifest.webmanifest
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

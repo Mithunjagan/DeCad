@@ -1,0 +1,30 @@
+{
+  "xml_passed": 7,
+  "xml_total": 18,
+  "native_totals": {
+    "component_detection": {
+      "tp": 60,
+      "fp": 18,
+      "fn": 420,
+      "precision": 0.7692307692307693,
+      "recall": 0.125,
+      "f1": 0.21505376344086022
+    },
+    "physical_pin_coverage": {
+      "tp": 103,
+      "fp": 126,
+      "fn": 2354,
+      "precision": 0.4497816593886463,
+      "recall": 0.04192104192104192,
+      "f1": 0.0766939687267312
+    },
+    "topology_pairwise": {
+      "tp": 9,
+      "fp": 14,
+      "fn": 21016,
+      "precision": 0.391304347826087,
+      "recall": 0.0004280618311533888,
+      "f1": 0.0008551881413911061
+    }
+  }
+}

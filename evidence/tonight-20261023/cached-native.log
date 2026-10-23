@@ -1,0 +1,11 @@
+native-3b2a49a524e2d50dcf26 {'physical_pins_found': 29, 'connected_pin_pairs_correct': 5, 'connected_pin_pairs_wrong': 11} []
+native-a39a7a1fc84f921b27fd {'physical_pins_found': 17, 'connected_pin_pairs_correct': 1, 'connected_pin_pairs_wrong': 1} []
+native-fedf29b44113e135f31f {'physical_pins_found': 13, 'connected_pin_pairs_correct': 0, 'connected_pin_pairs_wrong': 0} []
+native-c4d88e79bc63688e0e7c {'physical_pins_found': 4, 'connected_pin_pairs_correct': 0, 'connected_pin_pairs_wrong': 0} []
+native-37735b083f0b9f56549f {'physical_pins_found': 0, 'connected_pin_pairs_correct': 0, 'connected_pin_pairs_wrong': 1} []
+native-0a236a74292d04d831fa {'physical_pins_found': 14, 'connected_pin_pairs_correct': 0, 'connected_pin_pairs_wrong': 0} []
+native-e9b7597c67252bf7707d {'physical_pins_found': 3, 'connected_pin_pairs_correct': 0, 'connected_pin_pairs_wrong': 0} []
+native-901de51001a98cc2361a {'physical_pins_found': 7, 'connected_pin_pairs_correct': 0, 'connected_pin_pairs_wrong': 0} []
+native-c6bcc506a3200b19e089 {'physical_pins_found': 12, 'connected_pin_pairs_correct': 3, 'connected_pin_pairs_wrong': 0} []
+native-c4d7791b4ebdf13c3944 {'physical_pins_found': 4, 'connected_pin_pairs_correct': 0, 'connected_pin_pairs_wrong': 1} []
+Diagnostic regressions: [] seconds: 2.75

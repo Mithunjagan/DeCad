@@ -34,3 +34,12 @@ Every reported result will link to actual saved output. Vendor TD9 import remain
 - Cached diagnostics (not fresh recognition): clear S1 54/56, S3 62/69, S4 69/72, S5 42/48; no lost correct records. Native 103 valid pins / 9 correct pairs / 14 incorrect pairs, no regression. Full fresh gate still required.
 - Degraded ingestion diagnostic confirms cached CUDA providers, nonempty OCR/pin results, distinct source hashes and finite invertible transforms. scan200 has 20 parts / 86 pin assignments, blur has 15 / 59, versus clear 25 / 292. Their 0/72 scores are not empty-ingestion errors. This narrows the failure to recognition/association; it does not establish a universal root cause or a fix.
 - Independent unseen-family candidate: installed official KiCad simulation/rectifier/rectifier.kicad_sch, exported to PDF then rasterized to a drawing crop. Native XML is held solely for independent evaluation after raw prediction. No recognition tuning on this family.
+
+
+## Final verified handoff
+
+- Full fresh18 gate PASS: clear227/245; scan30044/72; scan2000/72; blur0/72. Native103validpins,9correctpairs,14wrongpairs; no regressions. All worker exits and CUDA providers confirmed; backend source snapshot held and protected model unchanged.
+- Native actual readback18/18 per format,2208/2208 assignments each, extras checked. Faculty fixture129/41 exact; reviewed unseen10/10 XML/native assignments. Raw XML corpus7/18 passed,11 explicitly blocked on zero-pin components; no omissions or invented pin numbers.
+- Final backend376 passed6 skipped; frontend18 passed; production build passed. Real launcher/restart and saved graph/source/physical inventory/XML recheck PASS. Workbench left running onlocalhost3100.
+- Source error counts were not improved. Final acceptance report records native full-coverage precision/recall, all remaining18clear/14native errors, raw-unseen failure, manual review burden and unsupported raw XML cases. No TD9 vendor acceptance claimed.
+- Latest measured allowance at17:46IST:19% remaining5-hour,87% weekly; optional development stopped. No training, large downloads, new dependencies, public push or subagents.

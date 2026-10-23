@@ -1,0 +1,13 @@
+{
+  "command": [
+    "backend/.venv/Scripts/python.exe",
+    "-c",
+    "print('resource monitor smoke')"
+  ],
+  "sampling_interval_s": 2,
+  "peak_system_ram_used_bytes": 6255403008,
+  "peak_gpu_used_mib": 9,
+  "scope": "Sampled system totals, including other applications. Not exact process allocation peaks.",
+  "exit_code": 0,
+  "runtime_s": 3.45
+}

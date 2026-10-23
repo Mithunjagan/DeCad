@@ -1,0 +1,318 @@
+{
+  "native-3b2a49a524e2d50dcf26": {
+    "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch",
+    "wrong_pairs": [
+      [
+        [
+          "R34",
+          "1"
+        ],
+        [
+          "U2",
+          "3"
+        ]
+      ],
+      [
+        [
+          "R34",
+          "1"
+        ],
+        [
+          "U2",
+          "6"
+        ]
+      ],
+      [
+        [
+          "R34",
+          "1"
+        ],
+        [
+          "U2",
+          "9"
+        ]
+      ],
+      [
+        [
+          "U2",
+          "17"
+        ],
+        [
+          "U2",
+          "3"
+        ]
+      ],
+      [
+        [
+          "U2",
+          "17"
+        ],
+        [
+          "U2",
+          "6"
+        ]
+      ],
+      [
+        [
+          "U2",
+          "17"
+        ],
+        [
+          "U2",
+          "9"
+        ]
+      ],
+      [
+        [
+          "U2",
+          "2"
+        ],
+        [
+          "U2",
+          "3"
+        ]
+      ],
+      [
+        [
+          "U2",
+          "2"
+        ],
+        [
+          "U2",
+          "6"
+        ]
+      ],
+      [
+        [
+          "U2",
+          "2"
+        ],
+        [
+          "U2",
+          "9"
+        ]
+      ],
+      [
+        [
+          "U2",
+          "3"
+        ],
+        [
+          "U2",
+          "6"
+        ]
+      ],
+      [
+        [
+          "U2",
+          "6"
+        ],
+        [
+          "U2",
+          "9"
+        ]
+      ]
+    ],
+    "parts": [
+      {
+        "ref": "R34",
+        "value": "22K",
+        "library": "Device:R",
+        "footprint": null,
+        "x": 0.7268,
+        "y": 0.3466
+      },
+      {
+        "ref": "U2",
+        "value": "UNKNOWN",
+        "library": null,
+        "footprint": null,
+        "x": 0.6991,
+        "y": 0.124
+      }
+    ],
+    "nets": [
+      {
+        "confidence": 0.4,
+        "source": "net_label",
+        "name": "GND",
+        "nodes": [
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "R34",
+            "pin": "1"
+          },
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "U2",
+            "pin": "17"
+          },
+          {
+            "confidence": 0.4,
+            "source": "wire_trace",
+            "ref": "U2",
+            "pin": "2"
+          },
+          {
+            "confidence": 0.4,
+            "source": "wire_trace",
+            "ref": "U2",
+            "pin": "3"
+          },
+          {
+            "confidence": 0.4,
+            "source": "wire_trace",
+            "ref": "U2",
+            "pin": "6"
+          },
+          {
+            "confidence": 0.4,
+            "source": "wire_trace",
+            "ref": "U2",
+            "pin": "9"
+          }
+        ]
+      }
+    ]
+  },
+  "native-a39a7a1fc84f921b27fd": {
+    "source": "Seeed Studio Wio SX1262 for XIAO ESP32S3/Wio-SX1262 for ESP32S3.kicad_sch",
+    "wrong_pairs": [
+      [
+        [
+          "R1",
+          "1"
+        ],
+        [
+          "R1",
+          "4"
+        ]
+      ]
+    ],
+    "parts": [
+      {
+        "ref": "R1",
+        "value": "10K",
+        "library": "Device:R",
+        "footprint": null,
+        "x": 0.706,
+        "y": 0.171
+      }
+    ],
+    "nets": [
+      {
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "name": "N00063",
+        "nodes": [
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "R1",
+            "pin": "1"
+          },
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "R1",
+            "pin": "4"
+          }
+        ]
+      }
+    ]
+  },
+  "native-37735b083f0b9f56549f": {
+    "source": "Seeed Studio XIAO nRF52840 v1.3/Seeed Studio XIAO nRF52840 v1.3.kicad_sch",
+    "wrong_pairs": [
+      [
+        [
+          "P0",
+          "00"
+        ],
+        [
+          "P0",
+          "31"
+        ]
+      ]
+    ],
+    "parts": [
+      {
+        "ref": "P0",
+        "value": "CONNECTOR",
+        "library": null,
+        "footprint": null,
+        "x": null,
+        "y": null
+      }
+    ],
+    "nets": [
+      {
+        "confidence": 0.9,
+        "source": "net_label",
+        "name": "GND",
+        "nodes": [
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "P0",
+            "pin": "00"
+          },
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "P0",
+            "pin": "31"
+          }
+        ]
+      }
+    ]
+  },
+  "native-c4d7791b4ebdf13c3944": {
+    "source": "CM4Card.kicad_sch",
+    "wrong_pairs": [
+      [
+        [
+          "U504",
+          "4"
+        ],
+        [
+          "U504",
+          "9"
+        ]
+      ]
+    ],
+    "parts": [
+      {
+        "ref": "U504",
+        "value": "UNKNOWN",
+        "library": null,
+        "footprint": null,
+        "x": 0.2651,
+        "y": 0.094
+      }
+    ],
+    "nets": [
+      {
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "name": "N00660",
+        "nodes": [
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "U504",
+            "pin": "4"
+          },
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "U504",
+            "pin": "9"
+          }
+        ]
+      }
+    ]
+  }
+}

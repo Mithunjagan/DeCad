@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "components": 5,
+  "nets": 4,
+  "physical_pins": 10,
+  "source": {
+    "name": "unseen-rectifier.png",
+    "path": "/projects/QmaxUnseenRectifier/file?name=references%2Funseen-rectifier.png"
+  },
+  "xml_fidelity": {
+    "passed": true,
+    "physical_pins": 10,
+    "assigned_pins": 10,
+    "wrong_assignments": [],
+    "missing_pins": [],
+    "extra_pins": [],
+    "missing_assignments": [],
+    "extra_assignments": [],
+    "missing_components": [],
+    "extra_components": []
+  },
+  "runtime_profile": {
+    "image_mode": "hybrid_max_accuracy",
+    "ocr_device": "cuda",
+    "ocr_checkpoint": "checkpoints/schematic-ocr/model.onnx",
+    "ocr_checkpoint_sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+    "vector_min_primitives": 30,
+    "pdf_dpi": 400,
+    "roi_primary": {
+      "url": "http://127.0.0.1:11437",
+      "protocol": "openai",
+      "model": "Qwen/Qwen3-VL-8B-Instruct"
+    },
+    "roi_fallback": {
+      "url": "http://127.0.0.1:11436",
+      "protocol": "openai",
+      "model": "schematic2sdn-qwen-vl"
+    },
+    "roi_timeout_seconds": 90,
+    "roi_max_requests": 12,
+    "tile_size": 1024,
+    "tile_overlap": 0.2,
+    "profile": "hybrid_max_accuracy",
+    "recognition_native_cleanup": false,
+    "profile_sha256": "4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6"
+  },
+  "post_restart": true
+}

@@ -1,0 +1,47 @@
+{
+  "scope": "Interchange fidelity, NOT image accuracy or TD9 vendor import",
+  "fixture_sha256": "213090621183df62b41b545cc6d46140e21e2bd8b78a658c9b86ec13bd0792a4",
+  "faculty_semantics": {
+    "equal": true,
+    "nodes_before": 129,
+    "nodes_after": 129,
+    "nets_before": 41,
+    "nets_after": 41,
+    "nodes_missing": [],
+    "nodes_extra": [],
+    "nodes_changed": [],
+    "nets_missing": [],
+    "nets_extra": [],
+    "nets_changed": []
+  },
+  "faculty_graph": {
+    "passed": true,
+    "physical_pins": 129,
+    "assigned_pins": 113,
+    "wrong_assignments": [],
+    "missing_pins": [],
+    "extra_pins": [],
+    "missing_assignments": [],
+    "extra_assignments": [],
+    "missing_components": [],
+    "extra_components": []
+  },
+  "vendor_import": "NOT VERIFIED",
+  "gate0": {
+    "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\tests\\vision_fixtures\\divider.png",
+    "synthetic": true,
+    "fresh_cpu_recognition": true,
+    "seconds": 1.031,
+    "passed": true,
+    "physical_pins": 6,
+    "assigned_pins": 6,
+    "wrong_assignments": [],
+    "missing_pins": [],
+    "extra_pins": [],
+    "missing_assignments": [],
+    "extra_assignments": [],
+    "missing_components": [],
+    "extra_components": []
+  },
+  "passed": true
+}

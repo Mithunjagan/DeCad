@@ -1,0 +1,18 @@
+{
+  "command": [
+    "backend/.state/claude-20261018/gpu-venv/Scripts/python.exe",
+    "tools/eval/sprint_gate.py",
+    "--out",
+    "evidence/tonight-20261023/final-fresh",
+    "--original-baseline",
+    "evidence/pipeline-sprint-20261022/phase6-final-fresh/original",
+    "--native-baseline",
+    "evidence/pipeline-sprint-20261022/phase6-final-fresh/native"
+  ],
+  "sampling_interval_s": 2,
+  "peak_system_ram_used_bytes": 7466106880,
+  "peak_gpu_used_mib": 1542,
+  "scope": "Sampled system totals, including other applications. Not exact process allocation peaks.",
+  "exit_code": 0,
+  "runtime_s": 2397.39
+}

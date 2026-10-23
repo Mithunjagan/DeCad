@@ -1,0 +1,6849 @@
+{
+  "sheet_aspect": 2.136276,
+  "components": [
+    {
+      "ref": "V1",
+      "value": "dc=0 ampl=1 f=1k ac=1",
+      "library": "Simulation_SPICE:VSIN"
+    },
+    {
+      "ref": "R1",
+      "value": "1k",
+      "library": "Device:R"
+    },
+    {
+      "ref": "D1",
+      "value": "1N4148",
+      "library": "Device:D"
+    },
+    {
+      "ref": "C1",
+      "value": "100n",
+      "library": "Device:C"
+    },
+    {
+      "ref": "R2",
+      "value": "100k",
+      "library": "Device:R"
+    }
+  ],
+  "nets": [
+    {
+      "name": "signal_in",
+      "nodes": [
+        {
+          "ref": "V1",
+          "pin": "1",
+          "confidence": null,
+          "source": null
+        },
+        {
+          "ref": "R1",
+          "pin": "1",
+          "confidence": null,
+          "source": null
+        }
+      ],
+      "metadata": {
+        "evidence_stale": true
+      },
+      "confidence": null,
+      "source": null
+    },
+    {
+      "name": "DRIVE",
+      "nodes": [
+        {
+          "ref": "R1",
+          "pin": "2",
+          "confidence": null,
+          "source": null
+        },
+        {
+          "ref": "D1",
+          "pin": "2",
+          "confidence": null,
+          "source": null
+        }
+      ],
+      "metadata": {
+        "evidence_stale": true
+      },
+      "confidence": null,
+      "source": null
+    },
+    {
+      "name": "rect_out",
+      "nodes": [
+        {
+          "ref": "D1",
+          "pin": "1",
+          "confidence": null,
+          "source": null
+        },
+        {
+          "ref": "C1",
+          "pin": "1",
+          "confidence": null,
+          "source": null
+        },
+        {
+          "ref": "R2",
+          "pin": "1",
+          "confidence": null,
+          "source": null
+        }
+      ],
+      "metadata": {
+        "evidence_stale": true
+      },
+      "confidence": null,
+      "source": null
+    },
+    {
+      "name": "GND",
+      "nodes": [
+        {
+          "ref": "V1",
+          "pin": "2",
+          "confidence": null,
+          "source": null
+        },
+        {
+          "ref": "C1",
+          "pin": "2",
+          "confidence": null,
+          "source": null
+        },
+        {
+          "ref": "R2",
+          "pin": "2",
+          "confidence": null,
+          "source": null
+        }
+      ],
+      "metadata": {
+        "evidence_stale": true
+      },
+      "confidence": null,
+      "source": null
+    }
+  ],
+  "warnings": [
+    "Recognized 2 parts and 3 pin connections in 3 nets. Check them against the source before generating the design.",
+    "Input assessment: low-resolution/blurry sheet (1113 px, text a few px tall); enhanced automatically (8.0x super-sampling, stroke-preserving binarization, grayscale OCR).",
+    "Review required: detail lost to blur or a scan below 300 dpi cannot be recovered by any reader. Check every part, pin number and net label against the source, or rescan at 300 dpi or better.",
+    "R1 pin 1 was read on two different wires; kept the first. Check it.",
+    "R1 pin 1 was read on two different wires; kept the first. Check it.",
+    "R2 pin 1 was read on two different wires; kept the first. Check it.",
+    "R2 pin 1 was read on two different wires; kept the first. Check it.",
+    "1 pins connect to nothing else that was recognized; review them.",
+    "Only isolated pin nets were recovered; connected wiring has not been established.",
+    "Manual source review: automatic recognition missed V1, D1 and C1 and did not recover connected wiring. This graph was manually transcribed; hidden pin numbering needs package verification."
+  ],
+  "image_metadata": {
+    "coordinate_space": "working_pixels",
+    "width": 8904,
+    "height": 4168,
+    "source_size": [
+      1113,
+      521
+    ],
+    "source_affine": [
+      [
+        8,
+        0,
+        0
+      ],
+      [
+        0,
+        8,
+        0
+      ]
+    ],
+    "wire_nodes": [
+      {
+        "id": "W0:0",
+        "x": 5155,
+        "y": 1103,
+        "kind": "endpoint",
+        "degree": 0,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 0
+      },
+      {
+        "id": "W1:0",
+        "x": 5104,
+        "y": 1251,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 1
+      },
+      {
+        "id": "W2:0",
+        "x": 5302,
+        "y": 1253,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 2
+      },
+      {
+        "id": "W3:0",
+        "x": 4406,
+        "y": 1268,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W4:0",
+        "x": 4602,
+        "y": 1268,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W5:0",
+        "x": 4696,
+        "y": 1271,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W6:0",
+        "x": 4702,
+        "y": 1273,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W7:0",
+        "x": 5301.5,
+        "y": 1350.5,
+        "kind": "crossing",
+        "degree": 4,
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "dot_score": 0.21585903083700442,
+        "physical_net": 2
+      },
+      {
+        "id": "W7:1",
+        "x": 5301.5,
+        "y": 1350.5,
+        "kind": "crossing",
+        "degree": 4,
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "dot_score": 0.21585903083700442,
+        "physical_net": 11
+      },
+      {
+        "id": "W8:0",
+        "x": 4301,
+        "y": 1351,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W9:0",
+        "x": 4696,
+        "y": 1351,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W10:0",
+        "x": 5101,
+        "y": 1351,
+        "kind": "crossing",
+        "degree": 4,
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "dot_score": 0.2709251101321586,
+        "physical_net": 1
+      },
+      {
+        "id": "W10:1",
+        "x": 5101,
+        "y": 1351,
+        "kind": "crossing",
+        "degree": 4,
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "dot_score": 0.2709251101321586,
+        "physical_net": 11
+      },
+      {
+        "id": "W11:0",
+        "x": 5801,
+        "y": 1404,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 6
+      },
+      {
+        "id": "W12:0",
+        "x": 4694,
+        "y": 1428,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W13:0",
+        "x": 4699,
+        "y": 1428,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W14:0",
+        "x": 5104,
+        "y": 1446,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 1
+      },
+      {
+        "id": "W15:0",
+        "x": 5302,
+        "y": 1446,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 2
+      },
+      {
+        "id": "W16:0",
+        "x": 2820,
+        "y": 1658,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 3
+      },
+      {
+        "id": "W17:0",
+        "x": 2887,
+        "y": 1659,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 3
+      },
+      {
+        "id": "W18:0",
+        "x": 2944,
+        "y": 1662,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "W19:0",
+        "x": 2942,
+        "y": 1674,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "W20:0",
+        "x": 2919,
+        "y": 1683,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "W21:0",
+        "x": 2853,
+        "y": 1733,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 3
+      },
+      {
+        "id": "W22:0",
+        "x": 6428,
+        "y": 1743,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W23:0",
+        "x": 2854,
+        "y": 1748,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 3
+      },
+      {
+        "id": "W24:0",
+        "x": 3103,
+        "y": 1749,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W25:0",
+        "x": 3100,
+        "y": 1750,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W26:0",
+        "x": 6579,
+        "y": 1751,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W27:0",
+        "x": 6503,
+        "y": 1752,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W28:0",
+        "x": 2943,
+        "y": 1753,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "W29:0",
+        "x": 2920,
+        "y": 1755,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "W30:0",
+        "x": 2968,
+        "y": 1755,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "W31:0",
+        "x": 6423,
+        "y": 1756,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W32:0",
+        "x": 6581,
+        "y": 1757,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W33:0",
+        "x": 3071,
+        "y": 1807,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 5
+      },
+      {
+        "id": "W34:0",
+        "x": 3102.5,
+        "y": 1807,
+        "kind": "crossing",
+        "degree": 4,
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "dot_score": 0.05726872246696035,
+        "physical_net": 11
+      },
+      {
+        "id": "W34:1",
+        "x": 3102.5,
+        "y": 1807,
+        "kind": "crossing",
+        "degree": 4,
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "dot_score": 0.05726872246696035,
+        "physical_net": 5
+      },
+      {
+        "id": "W35:0",
+        "x": 3134,
+        "y": 1807,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 5
+      },
+      {
+        "id": "W36:0",
+        "x": 3102,
+        "y": 1838,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W37:0",
+        "x": 5801,
+        "y": 1858,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 6
+      },
+      {
+        "id": "W38:0",
+        "x": 5790,
+        "y": 1866,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 6
+      },
+      {
+        "id": "W39:0",
+        "x": 5811,
+        "y": 1866,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 6
+      },
+      {
+        "id": "W40:0",
+        "x": 2993,
+        "y": 1945,
+        "kind": "endpoint",
+        "degree": 0,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 7
+      },
+      {
+        "id": "W41:0",
+        "x": 3203,
+        "y": 1950,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 8
+      },
+      {
+        "id": "W42:0",
+        "x": 3122,
+        "y": 1999,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 8
+      },
+      {
+        "id": "W43:0",
+        "x": 5790,
+        "y": 2034,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 9
+      },
+      {
+        "id": "W44:0",
+        "x": 3054,
+        "y": 2131,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W45:0",
+        "x": 6581,
+        "y": 2140,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W46:0",
+        "x": 6423,
+        "y": 2142,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W47:0",
+        "x": 6503,
+        "y": 2144,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W48:0",
+        "x": 3084,
+        "y": 2148,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W49:0",
+        "x": 3102,
+        "y": 2148,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W50:0",
+        "x": 6424,
+        "y": 2148,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W51:0",
+        "x": 6579,
+        "y": 2151,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W52:0",
+        "x": 5801,
+        "y": 2499,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 9
+      },
+      {
+        "id": "W53:0",
+        "x": 5795,
+        "y": 2503,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 9
+      },
+      {
+        "id": "W54:0",
+        "x": 5811,
+        "y": 2507,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 9
+      },
+      {
+        "id": "W55:0",
+        "x": 3070,
+        "y": 2551,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W56:0",
+        "x": 3103,
+        "y": 2551,
+        "kind": "junction",
+        "degree": 4,
+        "confidence": 0.85,
+        "source": "wire_trace",
+        "dot_score": 1,
+        "physical_net": 11
+      },
+      {
+        "id": "W57:0",
+        "x": 4414,
+        "y": 2729,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 10
+      },
+      {
+        "id": "W58:0",
+        "x": 4414,
+        "y": 2738,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 10
+      },
+      {
+        "id": "W59:0",
+        "x": 3102,
+        "y": 2749,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W60:0",
+        "x": 3008,
+        "y": 2751,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W61:0",
+        "x": 3193,
+        "y": 2751,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W62:0",
+        "x": 3016,
+        "y": 2752,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W63:0",
+        "x": 3187,
+        "y": 2753,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "W64:0",
+        "x": 4378,
+        "y": 2808.5,
+        "kind": "endpoint",
+        "degree": 0,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 12
+      },
+      {
+        "id": "W65:0",
+        "x": 4395,
+        "y": 2899,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      },
+      {
+        "id": "W66:0",
+        "x": 4371,
+        "y": 2914,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      },
+      {
+        "id": "W67:0",
+        "x": 4392,
+        "y": 2920,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      },
+      {
+        "id": "W68:0",
+        "x": 4392,
+        "y": 2927,
+        "kind": "t_junction",
+        "degree": 3,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      },
+      {
+        "id": "W69:0",
+        "x": 4380,
+        "y": 2944,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      },
+      {
+        "id": "W70:0",
+        "x": 4404,
+        "y": 2946,
+        "kind": "endpoint",
+        "degree": 1,
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      }
+    ],
+    "wire_edges": [
+      {
+        "id": "E0",
+        "a": "W1:0",
+        "b": "W10:0",
+        "points": [
+          [
+            5104,
+            1251
+          ],
+          [
+            5103,
+            1259
+          ],
+          [
+            5102,
+            1260
+          ],
+          [
+            5102,
+            1263
+          ],
+          [
+            5100,
+            1267
+          ],
+          [
+            5100,
+            1293
+          ],
+          [
+            5101,
+            1294
+          ],
+          [
+            5101,
+            1351
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 1
+      },
+      {
+        "id": "E1",
+        "a": "W2:0",
+        "b": "W7:0",
+        "points": [
+          [
+            5302,
+            1253
+          ],
+          [
+            5302,
+            1260
+          ],
+          [
+            5301,
+            1261
+          ],
+          [
+            5302,
+            1263
+          ],
+          [
+            5302,
+            1320
+          ],
+          [
+            5301,
+            1321
+          ],
+          [
+            5301,
+            1350
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 2
+      },
+      {
+        "id": "E2",
+        "a": "W3:0",
+        "b": "W8:0",
+        "points": [
+          [
+            4406,
+            1268
+          ],
+          [
+            4317,
+            1268
+          ],
+          [
+            4316,
+            1269
+          ],
+          [
+            4311,
+            1269
+          ],
+          [
+            4310,
+            1270
+          ],
+          [
+            4307,
+            1270
+          ],
+          [
+            4305,
+            1272
+          ],
+          [
+            4304,
+            1272
+          ],
+          [
+            4302,
+            1276
+          ],
+          [
+            4302,
+            1279
+          ],
+          [
+            4301,
+            1280
+          ],
+          [
+            4301,
+            1288
+          ],
+          [
+            4300,
+            1289
+          ],
+          [
+            4300,
+            1303
+          ],
+          [
+            4301,
+            1304
+          ],
+          [
+            4301,
+            1351
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E3",
+        "a": "W4:0",
+        "b": "W5:0",
+        "points": [
+          [
+            4602,
+            1268
+          ],
+          [
+            4688,
+            1268
+          ],
+          [
+            4689,
+            1269
+          ],
+          [
+            4692,
+            1269
+          ],
+          [
+            4696,
+            1271
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E4",
+        "a": "W5:0",
+        "b": "W6:0",
+        "points": [
+          [
+            4696,
+            1271
+          ],
+          [
+            4698,
+            1271
+          ],
+          [
+            4702,
+            1273
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E5",
+        "a": "W5:0",
+        "b": "W9:0",
+        "points": [
+          [
+            4696,
+            1271
+          ],
+          [
+            4696,
+            1351
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E6",
+        "a": "W7:0",
+        "b": "W15:0",
+        "points": [
+          [
+            5302,
+            1351
+          ],
+          [
+            5302,
+            1353
+          ],
+          [
+            5301,
+            1354
+          ],
+          [
+            5301,
+            1380
+          ],
+          [
+            5302,
+            1381
+          ],
+          [
+            5302,
+            1436
+          ],
+          [
+            5301,
+            1437
+          ],
+          [
+            5301,
+            1439
+          ],
+          [
+            5302,
+            1440
+          ],
+          [
+            5302,
+            1446
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 2
+      },
+      {
+        "id": "E7",
+        "a": "W7:1",
+        "b": "W27:0",
+        "points": [
+          [
+            5302,
+            1350
+          ],
+          [
+            5765,
+            1350
+          ],
+          [
+            5766,
+            1351
+          ],
+          [
+            5838,
+            1351
+          ],
+          [
+            5839,
+            1350
+          ],
+          [
+            6498,
+            1350
+          ],
+          [
+            6498,
+            1351
+          ],
+          [
+            6499,
+            1351
+          ],
+          [
+            6502,
+            1355
+          ],
+          [
+            6502,
+            1740
+          ],
+          [
+            6503,
+            1741
+          ],
+          [
+            6503,
+            1752
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E8",
+        "a": "W7:1",
+        "b": "W10:1",
+        "points": [
+          [
+            5301,
+            1351
+          ],
+          [
+            5257,
+            1351
+          ],
+          [
+            5256,
+            1350
+          ],
+          [
+            5107,
+            1350
+          ],
+          [
+            5106,
+            1351
+          ],
+          [
+            5101,
+            1351
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E9",
+        "a": "W8:0",
+        "b": "W24:0",
+        "points": [
+          [
+            4301,
+            1351
+          ],
+          [
+            4298,
+            1351
+          ],
+          [
+            4297,
+            1350
+          ],
+          [
+            3108,
+            1350
+          ],
+          [
+            3106,
+            1351
+          ],
+          [
+            3102,
+            1356
+          ],
+          [
+            3102,
+            1740
+          ],
+          [
+            3103,
+            1741
+          ],
+          [
+            3103,
+            1749
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E10",
+        "a": "W8:0",
+        "b": "W12:0",
+        "points": [
+          [
+            4301,
+            1351
+          ],
+          [
+            4301,
+            1393
+          ],
+          [
+            4300,
+            1394
+          ],
+          [
+            4300,
+            1413
+          ],
+          [
+            4301,
+            1414
+          ],
+          [
+            4301,
+            1419
+          ],
+          [
+            4302,
+            1421
+          ],
+          [
+            4303,
+            1421
+          ],
+          [
+            4303,
+            1424
+          ],
+          [
+            4305,
+            1426
+          ],
+          [
+            4305,
+            1427
+          ],
+          [
+            4308,
+            1427
+          ],
+          [
+            4309,
+            1428
+          ],
+          [
+            4694,
+            1428
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E11",
+        "a": "W9:0",
+        "b": "W10:1",
+        "points": [
+          [
+            4696,
+            1351
+          ],
+          [
+            4706,
+            1351
+          ],
+          [
+            4707,
+            1350
+          ],
+          [
+            5097,
+            1350
+          ],
+          [
+            5098,
+            1351
+          ],
+          [
+            5101,
+            1351
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E12",
+        "a": "W9:0",
+        "b": "W12:0",
+        "points": [
+          [
+            4696,
+            1351
+          ],
+          [
+            4696,
+            1421
+          ],
+          [
+            4695,
+            1422
+          ],
+          [
+            4695,
+            1424
+          ],
+          [
+            4694,
+            1424
+          ],
+          [
+            4694,
+            1428
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E13",
+        "a": "W10:0",
+        "b": "W14:0",
+        "points": [
+          [
+            5101,
+            1351
+          ],
+          [
+            5101,
+            1408
+          ],
+          [
+            5100,
+            1409
+          ],
+          [
+            5100,
+            1430
+          ],
+          [
+            5101,
+            1431
+          ],
+          [
+            5101,
+            1438
+          ],
+          [
+            5102,
+            1439
+          ],
+          [
+            5103,
+            1445
+          ],
+          [
+            5104,
+            1446
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 1
+      },
+      {
+        "id": "E14",
+        "a": "W11:0",
+        "b": "W37:0",
+        "points": [
+          [
+            5801,
+            1404
+          ],
+          [
+            5801,
+            1858
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 6
+      },
+      {
+        "id": "E15",
+        "a": "W12:0",
+        "b": "W13:0",
+        "points": [
+          [
+            4694,
+            1428
+          ],
+          [
+            4699,
+            1428
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E16",
+        "a": "W16:0",
+        "b": "W21:0",
+        "points": [
+          [
+            2820,
+            1658
+          ],
+          [
+            2821,
+            1659
+          ],
+          [
+            2821,
+            1661
+          ],
+          [
+            2823,
+            1665
+          ],
+          [
+            2824,
+            1665
+          ],
+          [
+            2824,
+            1667
+          ],
+          [
+            2825,
+            1667
+          ],
+          [
+            2825,
+            1670
+          ],
+          [
+            2826,
+            1670
+          ],
+          [
+            2826,
+            1673
+          ],
+          [
+            2827,
+            1674
+          ],
+          [
+            2827,
+            1677
+          ],
+          [
+            2828,
+            1678
+          ],
+          [
+            2828,
+            1682
+          ],
+          [
+            2831,
+            1687
+          ],
+          [
+            2831,
+            1689
+          ],
+          [
+            2832,
+            1689
+          ],
+          [
+            2832,
+            1691
+          ],
+          [
+            2833,
+            1691
+          ],
+          [
+            2833,
+            1694
+          ],
+          [
+            2834,
+            1694
+          ],
+          [
+            2834,
+            1697
+          ],
+          [
+            2836,
+            1701
+          ],
+          [
+            2836,
+            1706
+          ],
+          [
+            2837,
+            1706
+          ],
+          [
+            2837,
+            1708
+          ],
+          [
+            2838,
+            1710
+          ],
+          [
+            2839,
+            1710
+          ],
+          [
+            2840,
+            1715
+          ],
+          [
+            2841,
+            1715
+          ],
+          [
+            2841,
+            1718
+          ],
+          [
+            2843,
+            1721
+          ],
+          [
+            2844,
+            1728
+          ],
+          [
+            2848,
+            1731
+          ],
+          [
+            2853,
+            1733
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 3
+      },
+      {
+        "id": "E17",
+        "a": "W17:0",
+        "b": "W21:0",
+        "points": [
+          [
+            2887,
+            1659
+          ],
+          [
+            2884,
+            1663
+          ],
+          [
+            2884,
+            1666
+          ],
+          [
+            2883,
+            1667
+          ],
+          [
+            2882,
+            1673
+          ],
+          [
+            2881,
+            1673
+          ],
+          [
+            2881,
+            1676
+          ],
+          [
+            2880,
+            1676
+          ],
+          [
+            2879,
+            1681
+          ],
+          [
+            2878,
+            1681
+          ],
+          [
+            2878,
+            1683
+          ],
+          [
+            2877,
+            1685
+          ],
+          [
+            2876,
+            1685
+          ],
+          [
+            2876,
+            1690
+          ],
+          [
+            2875,
+            1691
+          ],
+          [
+            2875,
+            1694
+          ],
+          [
+            2874,
+            1695
+          ],
+          [
+            2874,
+            1697
+          ],
+          [
+            2873,
+            1697
+          ],
+          [
+            2873,
+            1700
+          ],
+          [
+            2872,
+            1700
+          ],
+          [
+            2872,
+            1702
+          ],
+          [
+            2871,
+            1702
+          ],
+          [
+            2871,
+            1704
+          ],
+          [
+            2869,
+            1707
+          ],
+          [
+            2869,
+            1709
+          ],
+          [
+            2868,
+            1709
+          ],
+          [
+            2868,
+            1714
+          ],
+          [
+            2866,
+            1718
+          ],
+          [
+            2866,
+            1721
+          ],
+          [
+            2865,
+            1721
+          ],
+          [
+            2865,
+            1724
+          ],
+          [
+            2863,
+            1728
+          ],
+          [
+            2862,
+            1728
+          ],
+          [
+            2862,
+            1729
+          ],
+          [
+            2855,
+            1732
+          ],
+          [
+            2855,
+            1733
+          ],
+          [
+            2853,
+            1733
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 3
+      },
+      {
+        "id": "E18",
+        "a": "W18:0",
+        "b": "W19:0",
+        "points": [
+          [
+            2944,
+            1662
+          ],
+          [
+            2943,
+            1663
+          ],
+          [
+            2943,
+            1669
+          ],
+          [
+            2942,
+            1670
+          ],
+          [
+            2942,
+            1674
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "E19",
+        "a": "W19:0",
+        "b": "W20:0",
+        "points": [
+          [
+            2942,
+            1674
+          ],
+          [
+            2939,
+            1674
+          ],
+          [
+            2933,
+            1677
+          ],
+          [
+            2926,
+            1678
+          ],
+          [
+            2919,
+            1683
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "E20",
+        "a": "W19:0",
+        "b": "W28:0",
+        "points": [
+          [
+            2942,
+            1674
+          ],
+          [
+            2943,
+            1675
+          ],
+          [
+            2943,
+            1679
+          ],
+          [
+            2944,
+            1680
+          ],
+          [
+            2944,
+            1749
+          ],
+          [
+            2943,
+            1750
+          ],
+          [
+            2943,
+            1753
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "E21",
+        "a": "W21:0",
+        "b": "W23:0",
+        "points": [
+          [
+            2853,
+            1733
+          ],
+          [
+            2853,
+            1735
+          ],
+          [
+            2854,
+            1736
+          ],
+          [
+            2854,
+            1748
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 3
+      },
+      {
+        "id": "E22",
+        "a": "W22:0",
+        "b": "W31:0",
+        "points": [
+          [
+            6428,
+            1743
+          ],
+          [
+            6426,
+            1746
+          ],
+          [
+            6426,
+            1748
+          ],
+          [
+            6425,
+            1748
+          ],
+          [
+            6423,
+            1756
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E23",
+        "a": "W24:0",
+        "b": "W25:0",
+        "points": [
+          [
+            3103,
+            1749
+          ],
+          [
+            3100,
+            1749
+          ],
+          [
+            3100,
+            1750
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E24",
+        "a": "W24:0",
+        "b": "W49:0",
+        "points": [
+          [
+            3103,
+            1749
+          ],
+          [
+            3112,
+            1749
+          ],
+          [
+            3113,
+            1750
+          ],
+          [
+            3122,
+            1750
+          ],
+          [
+            3122,
+            1751
+          ],
+          [
+            3128,
+            1751
+          ],
+          [
+            3129,
+            1752
+          ],
+          [
+            3137,
+            1752
+          ],
+          [
+            3138,
+            1753
+          ],
+          [
+            3141,
+            1753
+          ],
+          [
+            3142,
+            1754
+          ],
+          [
+            3145,
+            1754
+          ],
+          [
+            3146,
+            1755
+          ],
+          [
+            3153,
+            1756
+          ],
+          [
+            3153,
+            1757
+          ],
+          [
+            3155,
+            1758
+          ],
+          [
+            3169,
+            1760
+          ],
+          [
+            3173,
+            1762
+          ],
+          [
+            3173,
+            1763
+          ],
+          [
+            3176,
+            1764
+          ],
+          [
+            3176,
+            1765
+          ],
+          [
+            3178,
+            1765
+          ],
+          [
+            3179,
+            1766
+          ],
+          [
+            3185,
+            1767
+          ],
+          [
+            3188,
+            1769
+          ],
+          [
+            3190,
+            1769
+          ],
+          [
+            3190,
+            1770
+          ],
+          [
+            3194,
+            1772
+          ],
+          [
+            3195,
+            1774
+          ],
+          [
+            3203,
+            1776
+          ],
+          [
+            3203,
+            1777
+          ],
+          [
+            3206,
+            1778
+          ],
+          [
+            3207,
+            1780
+          ],
+          [
+            3208,
+            1780
+          ],
+          [
+            3213,
+            1784
+          ],
+          [
+            3218,
+            1786
+          ],
+          [
+            3218,
+            1787
+          ],
+          [
+            3219,
+            1787
+          ],
+          [
+            3220,
+            1789
+          ],
+          [
+            3226,
+            1792
+          ],
+          [
+            3226,
+            1793
+          ],
+          [
+            3227,
+            1793
+          ],
+          [
+            3230,
+            1796
+          ],
+          [
+            3231,
+            1796
+          ],
+          [
+            3231,
+            1797
+          ],
+          [
+            3232,
+            1797
+          ],
+          [
+            3232,
+            1798
+          ],
+          [
+            3233,
+            1798
+          ],
+          [
+            3234,
+            1800
+          ],
+          [
+            3236,
+            1800
+          ],
+          [
+            3236,
+            1801
+          ],
+          [
+            3237,
+            1801
+          ],
+          [
+            3237,
+            1802
+          ],
+          [
+            3238,
+            1802
+          ],
+          [
+            3238,
+            1803
+          ],
+          [
+            3239,
+            1803
+          ],
+          [
+            3239,
+            1804
+          ],
+          [
+            3240,
+            1804
+          ],
+          [
+            3240,
+            1805
+          ],
+          [
+            3241,
+            1805
+          ],
+          [
+            3241,
+            1806
+          ],
+          [
+            3242,
+            1806
+          ],
+          [
+            3242,
+            1807
+          ],
+          [
+            3243,
+            1807
+          ],
+          [
+            3243,
+            1808
+          ],
+          [
+            3244,
+            1808
+          ],
+          [
+            3244,
+            1809
+          ],
+          [
+            3245,
+            1809
+          ],
+          [
+            3245,
+            1810
+          ],
+          [
+            3247,
+            1811
+          ],
+          [
+            3249,
+            1815
+          ],
+          [
+            3250,
+            1815
+          ],
+          [
+            3250,
+            1816
+          ],
+          [
+            3251,
+            1816
+          ],
+          [
+            3251,
+            1817
+          ],
+          [
+            3252,
+            1817
+          ],
+          [
+            3252,
+            1818
+          ],
+          [
+            3253,
+            1818
+          ],
+          [
+            3253,
+            1819
+          ],
+          [
+            3255,
+            1820
+          ],
+          [
+            3256,
+            1823
+          ],
+          [
+            3257,
+            1823
+          ],
+          [
+            3257,
+            1824
+          ],
+          [
+            3258,
+            1824
+          ],
+          [
+            3258,
+            1825
+          ],
+          [
+            3261,
+            1828
+          ],
+          [
+            3261,
+            1829
+          ],
+          [
+            3262,
+            1829
+          ],
+          [
+            3264,
+            1834
+          ],
+          [
+            3265,
+            1834
+          ],
+          [
+            3265,
+            1835
+          ],
+          [
+            3267,
+            1836
+          ],
+          [
+            3268,
+            1839
+          ],
+          [
+            3269,
+            1839
+          ],
+          [
+            3269,
+            1840
+          ],
+          [
+            3271,
+            1842
+          ],
+          [
+            3273,
+            1847
+          ],
+          [
+            3278,
+            1853
+          ],
+          [
+            3279,
+            1857
+          ],
+          [
+            3280,
+            1858
+          ],
+          [
+            3280,
+            1860
+          ],
+          [
+            3282,
+            1864
+          ],
+          [
+            3283,
+            1864
+          ],
+          [
+            3283,
+            1866
+          ],
+          [
+            3284,
+            1866
+          ],
+          [
+            3284,
+            1867
+          ],
+          [
+            3285,
+            1867
+          ],
+          [
+            3286,
+            1869
+          ],
+          [
+            3286,
+            1871
+          ],
+          [
+            3287,
+            1872
+          ],
+          [
+            3287,
+            1876
+          ],
+          [
+            3288,
+            1877
+          ],
+          [
+            3288,
+            1880
+          ],
+          [
+            3291,
+            1886
+          ],
+          [
+            3292,
+            1886
+          ],
+          [
+            3293,
+            1890
+          ],
+          [
+            3294,
+            1890
+          ],
+          [
+            3294,
+            1893
+          ],
+          [
+            3295,
+            1894
+          ],
+          [
+            3295,
+            1900
+          ],
+          [
+            3296,
+            1901
+          ],
+          [
+            3296,
+            1906
+          ],
+          [
+            3297,
+            1907
+          ],
+          [
+            3297,
+            1910
+          ],
+          [
+            3298,
+            1911
+          ],
+          [
+            3298,
+            1916
+          ],
+          [
+            3300,
+            1920
+          ],
+          [
+            3300,
+            1979
+          ],
+          [
+            3299,
+            1980
+          ],
+          [
+            3299,
+            1983
+          ],
+          [
+            3298,
+            1984
+          ],
+          [
+            3298,
+            1989
+          ],
+          [
+            3296,
+            1993
+          ],
+          [
+            3296,
+            1999
+          ],
+          [
+            3295,
+            2000
+          ],
+          [
+            3295,
+            2005
+          ],
+          [
+            3294,
+            2006
+          ],
+          [
+            3294,
+            2009
+          ],
+          [
+            3291,
+            2015
+          ],
+          [
+            3290,
+            2015
+          ],
+          [
+            3288,
+            2019
+          ],
+          [
+            3288,
+            2023
+          ],
+          [
+            3287,
+            2023
+          ],
+          [
+            3287,
+            2027
+          ],
+          [
+            3286,
+            2028
+          ],
+          [
+            3285,
+            2033
+          ],
+          [
+            3284,
+            2033
+          ],
+          [
+            3284,
+            2034
+          ],
+          [
+            3282,
+            2035
+          ],
+          [
+            3282,
+            2037
+          ],
+          [
+            3281,
+            2037
+          ],
+          [
+            3280,
+            2041
+          ],
+          [
+            3279,
+            2042
+          ],
+          [
+            3279,
+            2045
+          ],
+          [
+            3278,
+            2045
+          ],
+          [
+            3276,
+            2049
+          ],
+          [
+            3273,
+            2052
+          ],
+          [
+            3272,
+            2056
+          ],
+          [
+            3271,
+            2056
+          ],
+          [
+            3271,
+            2058
+          ],
+          [
+            3269,
+            2060
+          ],
+          [
+            3269,
+            2061
+          ],
+          [
+            3268,
+            2061
+          ],
+          [
+            3268,
+            2062
+          ],
+          [
+            3266,
+            2063
+          ],
+          [
+            3266,
+            2064
+          ],
+          [
+            3264,
+            2066
+          ],
+          [
+            3260,
+            2073
+          ],
+          [
+            3259,
+            2073
+          ],
+          [
+            3259,
+            2074
+          ],
+          [
+            3258,
+            2074
+          ],
+          [
+            3258,
+            2075
+          ],
+          [
+            3256,
+            2076
+          ],
+          [
+            3254,
+            2080
+          ],
+          [
+            3253,
+            2080
+          ],
+          [
+            3253,
+            2081
+          ],
+          [
+            3252,
+            2081
+          ],
+          [
+            3252,
+            2082
+          ],
+          [
+            3251,
+            2082
+          ],
+          [
+            3251,
+            2083
+          ],
+          [
+            3249,
+            2084
+          ],
+          [
+            3249,
+            2085
+          ],
+          [
+            3248,
+            2085
+          ],
+          [
+            3247,
+            2088
+          ],
+          [
+            3246,
+            2088
+          ],
+          [
+            3246,
+            2089
+          ],
+          [
+            3245,
+            2089
+          ],
+          [
+            3245,
+            2090
+          ],
+          [
+            3244,
+            2090
+          ],
+          [
+            3244,
+            2091
+          ],
+          [
+            3242,
+            2093
+          ],
+          [
+            3241,
+            2093
+          ],
+          [
+            3241,
+            2094
+          ],
+          [
+            3240,
+            2094
+          ],
+          [
+            3240,
+            2095
+          ],
+          [
+            3239,
+            2095
+          ],
+          [
+            3238,
+            2097
+          ],
+          [
+            3237,
+            2097
+          ],
+          [
+            3234,
+            2100
+          ],
+          [
+            3233,
+            2100
+          ],
+          [
+            3232,
+            2102
+          ],
+          [
+            3228,
+            2104
+          ],
+          [
+            3228,
+            2105
+          ],
+          [
+            3227,
+            2105
+          ],
+          [
+            3227,
+            2106
+          ],
+          [
+            3226,
+            2106
+          ],
+          [
+            3226,
+            2107
+          ],
+          [
+            3225,
+            2107
+          ],
+          [
+            3224,
+            2109
+          ],
+          [
+            3221,
+            2110
+          ],
+          [
+            3219,
+            2112
+          ],
+          [
+            3215,
+            2114
+          ],
+          [
+            3215,
+            2115
+          ],
+          [
+            3214,
+            2115
+          ],
+          [
+            3214,
+            2116
+          ],
+          [
+            3210,
+            2118
+          ],
+          [
+            3210,
+            2119
+          ],
+          [
+            3205,
+            2120
+          ],
+          [
+            3205,
+            2121
+          ],
+          [
+            3201,
+            2123
+          ],
+          [
+            3198,
+            2126
+          ],
+          [
+            3196,
+            2126
+          ],
+          [
+            3196,
+            2127
+          ],
+          [
+            3191,
+            2128
+          ],
+          [
+            3187,
+            2130
+          ],
+          [
+            3187,
+            2131
+          ],
+          [
+            3184,
+            2132
+          ],
+          [
+            3184,
+            2133
+          ],
+          [
+            3182,
+            2134
+          ],
+          [
+            3180,
+            2134
+          ],
+          [
+            3179,
+            2135
+          ],
+          [
+            3175,
+            2135
+          ],
+          [
+            3174,
+            2136
+          ],
+          [
+            3171,
+            2136
+          ],
+          [
+            3165,
+            2139
+          ],
+          [
+            3165,
+            2140
+          ],
+          [
+            3163,
+            2140
+          ],
+          [
+            3163,
+            2141
+          ],
+          [
+            3161,
+            2141
+          ],
+          [
+            3160,
+            2142
+          ],
+          [
+            3157,
+            2142
+          ],
+          [
+            3156,
+            2143
+          ],
+          [
+            3151,
+            2143
+          ],
+          [
+            3150,
+            2144
+          ],
+          [
+            3143,
+            2144
+          ],
+          [
+            3139,
+            2146
+          ],
+          [
+            3134,
+            2146
+          ],
+          [
+            3133,
+            2147
+          ],
+          [
+            3130,
+            2147
+          ],
+          [
+            3129,
+            2148
+          ],
+          [
+            3102,
+            2148
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E25",
+        "a": "W25:0",
+        "b": "W44:0",
+        "points": [
+          [
+            3100,
+            1750
+          ],
+          [
+            3088,
+            1750
+          ],
+          [
+            3087,
+            1751
+          ],
+          [
+            3075,
+            1751
+          ],
+          [
+            3074,
+            1752
+          ],
+          [
+            3067,
+            1752
+          ],
+          [
+            3066,
+            1753
+          ],
+          [
+            3063,
+            1753
+          ],
+          [
+            3062,
+            1754
+          ],
+          [
+            3055,
+            1755
+          ],
+          [
+            3049,
+            1758
+          ],
+          [
+            3045,
+            1758
+          ],
+          [
+            3044,
+            1759
+          ],
+          [
+            3039,
+            1759
+          ],
+          [
+            3038,
+            1760
+          ],
+          [
+            3035,
+            1760
+          ],
+          [
+            3028,
+            1764
+          ],
+          [
+            3028,
+            1765
+          ],
+          [
+            3026,
+            1765
+          ],
+          [
+            3026,
+            1766
+          ],
+          [
+            3023,
+            1766
+          ],
+          [
+            3022,
+            1767
+          ],
+          [
+            3017,
+            1768
+          ],
+          [
+            3013,
+            1770
+          ],
+          [
+            3013,
+            1771
+          ],
+          [
+            3009,
+            1773
+          ],
+          [
+            3009,
+            1774
+          ],
+          [
+            3007,
+            1774
+          ],
+          [
+            3006,
+            1775
+          ],
+          [
+            3004,
+            1775
+          ],
+          [
+            3004,
+            1776
+          ],
+          [
+            3000,
+            1777
+          ],
+          [
+            2993,
+            1783
+          ],
+          [
+            2991,
+            1783
+          ],
+          [
+            2991,
+            1784
+          ],
+          [
+            2989,
+            1784
+          ],
+          [
+            2987,
+            1786
+          ],
+          [
+            2986,
+            1786
+          ],
+          [
+            2986,
+            1787
+          ],
+          [
+            2985,
+            1787
+          ],
+          [
+            2984,
+            1789
+          ],
+          [
+            2977,
+            1793
+          ],
+          [
+            2977,
+            1794
+          ],
+          [
+            2976,
+            1794
+          ],
+          [
+            2976,
+            1795
+          ],
+          [
+            2975,
+            1795
+          ],
+          [
+            2975,
+            1796
+          ],
+          [
+            2974,
+            1796
+          ],
+          [
+            2973,
+            1798
+          ],
+          [
+            2969,
+            1800
+          ],
+          [
+            2969,
+            1801
+          ],
+          [
+            2968,
+            1801
+          ],
+          [
+            2968,
+            1802
+          ],
+          [
+            2967,
+            1802
+          ],
+          [
+            2967,
+            1803
+          ],
+          [
+            2966,
+            1803
+          ],
+          [
+            2966,
+            1804
+          ],
+          [
+            2965,
+            1804
+          ],
+          [
+            2965,
+            1805
+          ],
+          [
+            2964,
+            1805
+          ],
+          [
+            2964,
+            1806
+          ],
+          [
+            2963,
+            1806
+          ],
+          [
+            2963,
+            1807
+          ],
+          [
+            2962,
+            1807
+          ],
+          [
+            2962,
+            1808
+          ],
+          [
+            2961,
+            1808
+          ],
+          [
+            2961,
+            1809
+          ],
+          [
+            2960,
+            1809
+          ],
+          [
+            2960,
+            1810
+          ],
+          [
+            2959,
+            1810
+          ],
+          [
+            2959,
+            1811
+          ],
+          [
+            2958,
+            1811
+          ],
+          [
+            2958,
+            1812
+          ],
+          [
+            2957,
+            1812
+          ],
+          [
+            2957,
+            1813
+          ],
+          [
+            2956,
+            1813
+          ],
+          [
+            2956,
+            1814
+          ],
+          [
+            2955,
+            1814
+          ],
+          [
+            2955,
+            1815
+          ],
+          [
+            2953,
+            1816
+          ],
+          [
+            2951,
+            1820
+          ],
+          [
+            2950,
+            1820
+          ],
+          [
+            2950,
+            1821
+          ],
+          [
+            2949,
+            1821
+          ],
+          [
+            2949,
+            1822
+          ],
+          [
+            2948,
+            1822
+          ],
+          [
+            2948,
+            1823
+          ],
+          [
+            2947,
+            1823
+          ],
+          [
+            2947,
+            1824
+          ],
+          [
+            2945,
+            1825
+          ],
+          [
+            2941,
+            1832
+          ],
+          [
+            2940,
+            1832
+          ],
+          [
+            2938,
+            1836
+          ],
+          [
+            2937,
+            1836
+          ],
+          [
+            2934,
+            1843
+          ],
+          [
+            2931,
+            1846
+          ],
+          [
+            2931,
+            1847
+          ],
+          [
+            2930,
+            1847
+          ],
+          [
+            2929,
+            1850
+          ],
+          [
+            2928,
+            1850
+          ],
+          [
+            2928,
+            1852
+          ],
+          [
+            2927,
+            1853
+          ],
+          [
+            2926,
+            1857
+          ],
+          [
+            2925,
+            1857
+          ],
+          [
+            2925,
+            1859
+          ],
+          [
+            2924,
+            1859
+          ],
+          [
+            2924,
+            1860
+          ],
+          [
+            2922,
+            1861
+          ],
+          [
+            2920,
+            1865
+          ],
+          [
+            2919,
+            1870
+          ],
+          [
+            2918,
+            1871
+          ],
+          [
+            2918,
+            1874
+          ],
+          [
+            2916,
+            1878
+          ],
+          [
+            2915,
+            1878
+          ],
+          [
+            2915,
+            1880
+          ],
+          [
+            2913,
+            1881
+          ],
+          [
+            2913,
+            1883
+          ],
+          [
+            2912,
+            1884
+          ],
+          [
+            2912,
+            1887
+          ],
+          [
+            2911,
+            1888
+          ],
+          [
+            2911,
+            1894
+          ],
+          [
+            2910,
+            1895
+          ],
+          [
+            2910,
+            1899
+          ],
+          [
+            2908,
+            1901
+          ],
+          [
+            2907,
+            1908
+          ],
+          [
+            2906,
+            1908
+          ],
+          [
+            2906,
+            1912
+          ],
+          [
+            2905,
+            1913
+          ],
+          [
+            2905,
+            1917
+          ],
+          [
+            2904,
+            1918
+          ],
+          [
+            2904,
+            1925
+          ],
+          [
+            2903,
+            1925
+          ],
+          [
+            2903,
+            1937
+          ],
+          [
+            2902,
+            1938
+          ],
+          [
+            2902,
+            1961
+          ],
+          [
+            2903,
+            1962
+          ],
+          [
+            2903,
+            1975
+          ],
+          [
+            2904,
+            1975
+          ],
+          [
+            2904,
+            1982
+          ],
+          [
+            2905,
+            1983
+          ],
+          [
+            2906,
+            1991
+          ],
+          [
+            2907,
+            1991
+          ],
+          [
+            2908,
+            1998
+          ],
+          [
+            2910,
+            2001
+          ],
+          [
+            2910,
+            2004
+          ],
+          [
+            2911,
+            2005
+          ],
+          [
+            2911,
+            2012
+          ],
+          [
+            2912,
+            2013
+          ],
+          [
+            2912,
+            2016
+          ],
+          [
+            2913,
+            2018
+          ],
+          [
+            2914,
+            2018
+          ],
+          [
+            2914,
+            2020
+          ],
+          [
+            2915,
+            2020
+          ],
+          [
+            2915,
+            2021
+          ],
+          [
+            2916,
+            2021
+          ],
+          [
+            2916,
+            2023
+          ],
+          [
+            2917,
+            2023
+          ],
+          [
+            2917,
+            2025
+          ],
+          [
+            2918,
+            2026
+          ],
+          [
+            2919,
+            2032
+          ],
+          [
+            2921,
+            2035
+          ],
+          [
+            2921,
+            2037
+          ],
+          [
+            2922,
+            2037
+          ],
+          [
+            2922,
+            2038
+          ],
+          [
+            2923,
+            2038
+          ],
+          [
+            2925,
+            2042
+          ],
+          [
+            2926,
+            2042
+          ],
+          [
+            2926,
+            2044
+          ],
+          [
+            2927,
+            2044
+          ],
+          [
+            2927,
+            2046
+          ],
+          [
+            2928,
+            2047
+          ],
+          [
+            2928,
+            2050
+          ],
+          [
+            2929,
+            2050
+          ],
+          [
+            2931,
+            2054
+          ],
+          [
+            2932,
+            2054
+          ],
+          [
+            2935,
+            2060
+          ],
+          [
+            2937,
+            2062
+          ],
+          [
+            2938,
+            2065
+          ],
+          [
+            2939,
+            2065
+          ],
+          [
+            2939,
+            2066
+          ],
+          [
+            2941,
+            2067
+          ],
+          [
+            2944,
+            2073
+          ],
+          [
+            2945,
+            2073
+          ],
+          [
+            2945,
+            2074
+          ],
+          [
+            2948,
+            2077
+          ],
+          [
+            2948,
+            2078
+          ],
+          [
+            2949,
+            2078
+          ],
+          [
+            2949,
+            2079
+          ],
+          [
+            2950,
+            2079
+          ],
+          [
+            2950,
+            2080
+          ],
+          [
+            2952,
+            2081
+          ],
+          [
+            2952,
+            2082
+          ],
+          [
+            2956,
+            2086
+          ],
+          [
+            2956,
+            2087
+          ],
+          [
+            2957,
+            2087
+          ],
+          [
+            2958,
+            2089
+          ],
+          [
+            2959,
+            2089
+          ],
+          [
+            2959,
+            2090
+          ],
+          [
+            2960,
+            2090
+          ],
+          [
+            2960,
+            2091
+          ],
+          [
+            2961,
+            2091
+          ],
+          [
+            2961,
+            2092
+          ],
+          [
+            2962,
+            2092
+          ],
+          [
+            2962,
+            2093
+          ],
+          [
+            2963,
+            2093
+          ],
+          [
+            2963,
+            2094
+          ],
+          [
+            2964,
+            2094
+          ],
+          [
+            2964,
+            2095
+          ],
+          [
+            2965,
+            2095
+          ],
+          [
+            2965,
+            2096
+          ],
+          [
+            2967,
+            2097
+          ],
+          [
+            2967,
+            2098
+          ],
+          [
+            2968,
+            2098
+          ],
+          [
+            2971,
+            2101
+          ],
+          [
+            2972,
+            2101
+          ],
+          [
+            2973,
+            2103
+          ],
+          [
+            2976,
+            2104
+          ],
+          [
+            2976,
+            2105
+          ],
+          [
+            2977,
+            2105
+          ],
+          [
+            2977,
+            2106
+          ],
+          [
+            2978,
+            2106
+          ],
+          [
+            2981,
+            2109
+          ],
+          [
+            2982,
+            2109
+          ],
+          [
+            2982,
+            2110
+          ],
+          [
+            2987,
+            2112
+          ],
+          [
+            2987,
+            2113
+          ],
+          [
+            2988,
+            2113
+          ],
+          [
+            2989,
+            2115
+          ],
+          [
+            2990,
+            2115
+          ],
+          [
+            2995,
+            2119
+          ],
+          [
+            2999,
+            2120
+          ],
+          [
+            2999,
+            2121
+          ],
+          [
+            3001,
+            2122
+          ],
+          [
+            3007,
+            2123
+          ],
+          [
+            3008,
+            2124
+          ],
+          [
+            3019,
+            2125
+          ],
+          [
+            3020,
+            2126
+          ],
+          [
+            3023,
+            2126
+          ],
+          [
+            3024,
+            2127
+          ],
+          [
+            3027,
+            2127
+          ],
+          [
+            3028,
+            2128
+          ],
+          [
+            3037,
+            2128
+          ],
+          [
+            3038,
+            2129
+          ],
+          [
+            3045,
+            2129
+          ],
+          [
+            3046,
+            2130
+          ],
+          [
+            3054,
+            2131
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E26",
+        "a": "W25:0",
+        "b": "W34:0",
+        "points": [
+          [
+            3100,
+            1750
+          ],
+          [
+            3100,
+            1769
+          ],
+          [
+            3101,
+            1770
+          ],
+          [
+            3101,
+            1775
+          ],
+          [
+            3102,
+            1776
+          ],
+          [
+            3102,
+            1807
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E27",
+        "a": "W26:0",
+        "b": "W32:0",
+        "points": [
+          [
+            6579,
+            1751
+          ],
+          [
+            6580,
+            1752
+          ],
+          [
+            6581,
+            1757
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E28",
+        "a": "W27:0",
+        "b": "W31:0",
+        "points": [
+          [
+            6503,
+            1752
+          ],
+          [
+            6502,
+            1752
+          ],
+          [
+            6502,
+            1753
+          ],
+          [
+            6501,
+            1753
+          ],
+          [
+            6501,
+            1754
+          ],
+          [
+            6500,
+            1754
+          ],
+          [
+            6500,
+            1755
+          ],
+          [
+            6498,
+            1756
+          ],
+          [
+            6423,
+            1756
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E29",
+        "a": "W27:0",
+        "b": "W32:0",
+        "points": [
+          [
+            6503,
+            1752
+          ],
+          [
+            6507,
+            1756
+          ],
+          [
+            6572,
+            1756
+          ],
+          [
+            6573,
+            1757
+          ],
+          [
+            6581,
+            1757
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E30",
+        "a": "W28:0",
+        "b": "W30:0",
+        "points": [
+          [
+            2943,
+            1753
+          ],
+          [
+            2947,
+            1755
+          ],
+          [
+            2968,
+            1755
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "E31",
+        "a": "W28:0",
+        "b": "W29:0",
+        "points": [
+          [
+            2943,
+            1753
+          ],
+          [
+            2943,
+            1754
+          ],
+          [
+            2941,
+            1754
+          ],
+          [
+            2940,
+            1755
+          ],
+          [
+            2920,
+            1755
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 4
+      },
+      {
+        "id": "E32",
+        "a": "W31:0",
+        "b": "W46:0",
+        "points": [
+          [
+            6423,
+            1756
+          ],
+          [
+            6422,
+            1756
+          ],
+          [
+            6422,
+            1759
+          ],
+          [
+            6421,
+            1760
+          ],
+          [
+            6421,
+            1768
+          ],
+          [
+            6420,
+            1769
+          ],
+          [
+            6420,
+            1783
+          ],
+          [
+            6421,
+            1784
+          ],
+          [
+            6421,
+            1863
+          ],
+          [
+            6420,
+            1864
+          ],
+          [
+            6420,
+            1928
+          ],
+          [
+            6421,
+            1929
+          ],
+          [
+            6421,
+            1958
+          ],
+          [
+            6420,
+            1959
+          ],
+          [
+            6420,
+            2034
+          ],
+          [
+            6421,
+            2035
+          ],
+          [
+            6421,
+            2113
+          ],
+          [
+            6420,
+            2114
+          ],
+          [
+            6420,
+            2133
+          ],
+          [
+            6421,
+            2134
+          ],
+          [
+            6421,
+            2139
+          ],
+          [
+            6422,
+            2141
+          ],
+          [
+            6423,
+            2141
+          ],
+          [
+            6423,
+            2142
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E33",
+        "a": "W32:0",
+        "b": "W45:0",
+        "points": [
+          [
+            6581,
+            1757
+          ],
+          [
+            6581,
+            2140
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E34",
+        "a": "W33:0",
+        "b": "W34:1",
+        "points": [
+          [
+            3071,
+            1807
+          ],
+          [
+            3102,
+            1807
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 5
+      },
+      {
+        "id": "E35",
+        "a": "W34:0",
+        "b": "W36:0",
+        "points": [
+          [
+            3103,
+            1807
+          ],
+          [
+            3102,
+            1809
+          ],
+          [
+            3102,
+            1838
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E36",
+        "a": "W34:1",
+        "b": "W35:0",
+        "points": [
+          [
+            3103,
+            1807
+          ],
+          [
+            3134,
+            1807
+          ]
+        ],
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "physical_net": 5
+      },
+      {
+        "id": "E37",
+        "a": "W37:0",
+        "b": "W38:0",
+        "points": [
+          [
+            5801,
+            1858
+          ],
+          [
+            5800,
+            1858
+          ],
+          [
+            5800,
+            1859
+          ],
+          [
+            5799,
+            1859
+          ],
+          [
+            5799,
+            1860
+          ],
+          [
+            5798,
+            1860
+          ],
+          [
+            5797,
+            1862
+          ],
+          [
+            5794,
+            1863
+          ],
+          [
+            5793,
+            1865
+          ],
+          [
+            5791,
+            1865
+          ],
+          [
+            5790,
+            1866
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 6
+      },
+      {
+        "id": "E38",
+        "a": "W37:0",
+        "b": "W39:0",
+        "points": [
+          [
+            5801,
+            1858
+          ],
+          [
+            5802,
+            1858
+          ],
+          [
+            5809,
+            1865
+          ],
+          [
+            5811,
+            1866
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 6
+      },
+      {
+        "id": "E39",
+        "a": "W41:0",
+        "b": "W42:0",
+        "points": [
+          [
+            3203,
+            1950
+          ],
+          [
+            3202,
+            1958
+          ],
+          [
+            3200,
+            1961
+          ],
+          [
+            3199,
+            1966
+          ],
+          [
+            3198,
+            1966
+          ],
+          [
+            3197,
+            1968
+          ],
+          [
+            3197,
+            1970
+          ],
+          [
+            3196,
+            1971
+          ],
+          [
+            3196,
+            1973
+          ],
+          [
+            3194,
+            1977
+          ],
+          [
+            3189,
+            1982
+          ],
+          [
+            3189,
+            1983
+          ],
+          [
+            3188,
+            1983
+          ],
+          [
+            3187,
+            1986
+          ],
+          [
+            3184,
+            1987
+          ],
+          [
+            3184,
+            1988
+          ],
+          [
+            3180,
+            1990
+          ],
+          [
+            3177,
+            1993
+          ],
+          [
+            3176,
+            1993
+          ],
+          [
+            3176,
+            1994
+          ],
+          [
+            3174,
+            1994
+          ],
+          [
+            3174,
+            1995
+          ],
+          [
+            3171,
+            1995
+          ],
+          [
+            3170,
+            1996
+          ],
+          [
+            3162,
+            1997
+          ],
+          [
+            3161,
+            1998
+          ],
+          [
+            3156,
+            1998
+          ],
+          [
+            3155,
+            1999
+          ],
+          [
+            3148,
+            1999
+          ],
+          [
+            3148,
+            2000
+          ],
+          [
+            3147,
+            2000
+          ],
+          [
+            3147,
+            2001
+          ],
+          [
+            3146,
+            2001
+          ],
+          [
+            3145,
+            2003
+          ],
+          [
+            3137,
+            2002
+          ],
+          [
+            3136,
+            2001
+          ],
+          [
+            3132,
+            2001
+          ],
+          [
+            3131,
+            2000
+          ],
+          [
+            3125,
+            2000
+          ],
+          [
+            3124,
+            1999
+          ],
+          [
+            3122,
+            1999
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 8
+      },
+      {
+        "id": "E40",
+        "a": "W43:0",
+        "b": "W52:0",
+        "points": [
+          [
+            5790,
+            2034
+          ],
+          [
+            5794,
+            2035
+          ],
+          [
+            5801,
+            2042
+          ],
+          [
+            5801,
+            2499
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 9
+      },
+      {
+        "id": "E41",
+        "a": "W45:0",
+        "b": "W47:0",
+        "points": [
+          [
+            6581,
+            2140
+          ],
+          [
+            6578,
+            2140
+          ],
+          [
+            6575,
+            2142
+          ],
+          [
+            6572,
+            2142
+          ],
+          [
+            6571,
+            2143
+          ],
+          [
+            6504,
+            2143
+          ],
+          [
+            6504,
+            2144
+          ],
+          [
+            6503,
+            2144
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E42",
+        "a": "W45:0",
+        "b": "W51:0",
+        "points": [
+          [
+            6581,
+            2140
+          ],
+          [
+            6581,
+            2145
+          ],
+          [
+            6580,
+            2146
+          ],
+          [
+            6580,
+            2149
+          ],
+          [
+            6579,
+            2149
+          ],
+          [
+            6579,
+            2151
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E43",
+        "a": "W46:0",
+        "b": "W47:0",
+        "points": [
+          [
+            6423,
+            2142
+          ],
+          [
+            6428,
+            2142
+          ],
+          [
+            6429,
+            2143
+          ],
+          [
+            6501,
+            2143
+          ],
+          [
+            6503,
+            2144
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E44",
+        "a": "W46:0",
+        "b": "W50:0",
+        "points": [
+          [
+            6423,
+            2142
+          ],
+          [
+            6424,
+            2148
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E45",
+        "a": "W47:0",
+        "b": "W56:0",
+        "points": [
+          [
+            6503,
+            2144
+          ],
+          [
+            6503,
+            2154
+          ],
+          [
+            6502,
+            2155
+          ],
+          [
+            6502,
+            2543
+          ],
+          [
+            6501,
+            2544
+          ],
+          [
+            6501,
+            2546
+          ],
+          [
+            6499,
+            2548
+          ],
+          [
+            6498,
+            2548
+          ],
+          [
+            6498,
+            2549
+          ],
+          [
+            6496,
+            2549
+          ],
+          [
+            6495,
+            2550
+          ],
+          [
+            5839,
+            2550
+          ],
+          [
+            5838,
+            2551
+          ],
+          [
+            5766,
+            2551
+          ],
+          [
+            5765,
+            2550
+          ],
+          [
+            3138,
+            2550
+          ],
+          [
+            3137,
+            2551
+          ],
+          [
+            3103,
+            2551
+          ]
+        ],
+        "confidence": 0.85,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E46",
+        "a": "W48:0",
+        "b": "W49:0",
+        "points": [
+          [
+            3084,
+            2148
+          ],
+          [
+            3102,
+            2148
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E47",
+        "a": "W49:0",
+        "b": "W56:0",
+        "points": [
+          [
+            3102,
+            2148
+          ],
+          [
+            3102,
+            2513
+          ],
+          [
+            3103,
+            2514
+          ],
+          [
+            3103,
+            2551
+          ]
+        ],
+        "confidence": 0.85,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E48",
+        "a": "W52:0",
+        "b": "W53:0",
+        "points": [
+          [
+            5801,
+            2499
+          ],
+          [
+            5800,
+            2499
+          ],
+          [
+            5800,
+            2500
+          ],
+          [
+            5799,
+            2500
+          ],
+          [
+            5799,
+            2501
+          ],
+          [
+            5798,
+            2501
+          ],
+          [
+            5797,
+            2503
+          ],
+          [
+            5795,
+            2503
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 9
+      },
+      {
+        "id": "E49",
+        "a": "W52:0",
+        "b": "W54:0",
+        "points": [
+          [
+            5801,
+            2499
+          ],
+          [
+            5802,
+            2499
+          ],
+          [
+            5809,
+            2506
+          ],
+          [
+            5811,
+            2507
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 9
+      },
+      {
+        "id": "E50",
+        "a": "W55:0",
+        "b": "W56:0",
+        "points": [
+          [
+            3070,
+            2551
+          ],
+          [
+            3103,
+            2551
+          ]
+        ],
+        "confidence": 0.85,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E51",
+        "a": "W56:0",
+        "b": "W59:0",
+        "points": [
+          [
+            3103,
+            2551
+          ],
+          [
+            3103,
+            2586
+          ],
+          [
+            3102,
+            2587
+          ],
+          [
+            3102,
+            2749
+          ]
+        ],
+        "confidence": 0.85,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E52",
+        "a": "W57:0",
+        "b": "W58:0",
+        "points": [
+          [
+            4414,
+            2729
+          ],
+          [
+            4414,
+            2732
+          ],
+          [
+            4413,
+            2733
+          ],
+          [
+            4414,
+            2735
+          ],
+          [
+            4414,
+            2738
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 10
+      },
+      {
+        "id": "E53",
+        "a": "W59:0",
+        "b": "W63:0",
+        "points": [
+          [
+            3102,
+            2749
+          ],
+          [
+            3104,
+            2750
+          ],
+          [
+            3184,
+            2750
+          ],
+          [
+            3187,
+            2753
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E54",
+        "a": "W59:0",
+        "b": "W62:0",
+        "points": [
+          [
+            3102,
+            2749
+          ],
+          [
+            3102,
+            2750
+          ],
+          [
+            3019,
+            2750
+          ],
+          [
+            3017,
+            2751
+          ],
+          [
+            3017,
+            2752
+          ],
+          [
+            3016,
+            2752
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E55",
+        "a": "W60:0",
+        "b": "W62:0",
+        "points": [
+          [
+            3008,
+            2751
+          ],
+          [
+            3016,
+            2752
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E56",
+        "a": "W61:0",
+        "b": "W63:0",
+        "points": [
+          [
+            3193,
+            2751
+          ],
+          [
+            3192,
+            2752
+          ],
+          [
+            3187,
+            2753
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E57",
+        "a": "W62:0",
+        "b": "W63:0",
+        "points": [
+          [
+            3016,
+            2752
+          ],
+          [
+            3016,
+            2754
+          ],
+          [
+            3017,
+            2755
+          ],
+          [
+            3017,
+            2757
+          ],
+          [
+            3018,
+            2758
+          ],
+          [
+            3018,
+            2760
+          ],
+          [
+            3019,
+            2761
+          ],
+          [
+            3021,
+            2769
+          ],
+          [
+            3023,
+            2770
+          ],
+          [
+            3023,
+            2771
+          ],
+          [
+            3024,
+            2771
+          ],
+          [
+            3024,
+            2772
+          ],
+          [
+            3025,
+            2772
+          ],
+          [
+            3025,
+            2773
+          ],
+          [
+            3026,
+            2773
+          ],
+          [
+            3026,
+            2774
+          ],
+          [
+            3027,
+            2774
+          ],
+          [
+            3027,
+            2775
+          ],
+          [
+            3028,
+            2775
+          ],
+          [
+            3028,
+            2776
+          ],
+          [
+            3030,
+            2778
+          ],
+          [
+            3031,
+            2778
+          ],
+          [
+            3031,
+            2779
+          ],
+          [
+            3032,
+            2779
+          ],
+          [
+            3032,
+            2780
+          ],
+          [
+            3033,
+            2780
+          ],
+          [
+            3033,
+            2781
+          ],
+          [
+            3034,
+            2781
+          ],
+          [
+            3034,
+            2782
+          ],
+          [
+            3035,
+            2782
+          ],
+          [
+            3035,
+            2783
+          ],
+          [
+            3036,
+            2783
+          ],
+          [
+            3036,
+            2784
+          ],
+          [
+            3038,
+            2786
+          ],
+          [
+            3039,
+            2786
+          ],
+          [
+            3039,
+            2787
+          ],
+          [
+            3040,
+            2787
+          ],
+          [
+            3040,
+            2788
+          ],
+          [
+            3041,
+            2788
+          ],
+          [
+            3041,
+            2789
+          ],
+          [
+            3042,
+            2789
+          ],
+          [
+            3042,
+            2790
+          ],
+          [
+            3043,
+            2790
+          ],
+          [
+            3043,
+            2791
+          ],
+          [
+            3044,
+            2791
+          ],
+          [
+            3044,
+            2792
+          ],
+          [
+            3046,
+            2794
+          ],
+          [
+            3047,
+            2794
+          ],
+          [
+            3047,
+            2795
+          ],
+          [
+            3048,
+            2795
+          ],
+          [
+            3048,
+            2796
+          ],
+          [
+            3049,
+            2796
+          ],
+          [
+            3049,
+            2797
+          ],
+          [
+            3050,
+            2797
+          ],
+          [
+            3050,
+            2798
+          ],
+          [
+            3051,
+            2798
+          ],
+          [
+            3051,
+            2799
+          ],
+          [
+            3052,
+            2799
+          ],
+          [
+            3052,
+            2800
+          ],
+          [
+            3054,
+            2802
+          ],
+          [
+            3055,
+            2802
+          ],
+          [
+            3055,
+            2803
+          ],
+          [
+            3056,
+            2803
+          ],
+          [
+            3056,
+            2804
+          ],
+          [
+            3057,
+            2804
+          ],
+          [
+            3057,
+            2805
+          ],
+          [
+            3058,
+            2805
+          ],
+          [
+            3058,
+            2806
+          ],
+          [
+            3059,
+            2806
+          ],
+          [
+            3059,
+            2807
+          ],
+          [
+            3060,
+            2807
+          ],
+          [
+            3060,
+            2808
+          ],
+          [
+            3062,
+            2810
+          ],
+          [
+            3063,
+            2810
+          ],
+          [
+            3063,
+            2811
+          ],
+          [
+            3064,
+            2811
+          ],
+          [
+            3064,
+            2812
+          ],
+          [
+            3065,
+            2812
+          ],
+          [
+            3065,
+            2813
+          ],
+          [
+            3066,
+            2813
+          ],
+          [
+            3066,
+            2814
+          ],
+          [
+            3067,
+            2814
+          ],
+          [
+            3067,
+            2815
+          ],
+          [
+            3068,
+            2815
+          ],
+          [
+            3068,
+            2816
+          ],
+          [
+            3070,
+            2818
+          ],
+          [
+            3071,
+            2818
+          ],
+          [
+            3071,
+            2819
+          ],
+          [
+            3072,
+            2819
+          ],
+          [
+            3072,
+            2820
+          ],
+          [
+            3073,
+            2820
+          ],
+          [
+            3073,
+            2821
+          ],
+          [
+            3074,
+            2821
+          ],
+          [
+            3074,
+            2822
+          ],
+          [
+            3075,
+            2822
+          ],
+          [
+            3075,
+            2823
+          ],
+          [
+            3076,
+            2823
+          ],
+          [
+            3076,
+            2824
+          ],
+          [
+            3078,
+            2826
+          ],
+          [
+            3079,
+            2826
+          ],
+          [
+            3079,
+            2827
+          ],
+          [
+            3080,
+            2827
+          ],
+          [
+            3080,
+            2828
+          ],
+          [
+            3081,
+            2828
+          ],
+          [
+            3081,
+            2829
+          ],
+          [
+            3082,
+            2829
+          ],
+          [
+            3082,
+            2830
+          ],
+          [
+            3083,
+            2830
+          ],
+          [
+            3083,
+            2831
+          ],
+          [
+            3084,
+            2831
+          ],
+          [
+            3084,
+            2832
+          ],
+          [
+            3086,
+            2834
+          ],
+          [
+            3087,
+            2834
+          ],
+          [
+            3087,
+            2835
+          ],
+          [
+            3088,
+            2835
+          ],
+          [
+            3088,
+            2836
+          ],
+          [
+            3089,
+            2836
+          ],
+          [
+            3089,
+            2837
+          ],
+          [
+            3090,
+            2837
+          ],
+          [
+            3090,
+            2838
+          ],
+          [
+            3091,
+            2838
+          ],
+          [
+            3091,
+            2839
+          ],
+          [
+            3092,
+            2839
+          ],
+          [
+            3092,
+            2840
+          ],
+          [
+            3094,
+            2842
+          ],
+          [
+            3097,
+            2842
+          ],
+          [
+            3101,
+            2844
+          ],
+          [
+            3104,
+            2844
+          ],
+          [
+            3105,
+            2843
+          ],
+          [
+            3110,
+            2842
+          ],
+          [
+            3182,
+            2770
+          ],
+          [
+            3182,
+            2768
+          ],
+          [
+            3183,
+            2767
+          ],
+          [
+            3183,
+            2765
+          ],
+          [
+            3184,
+            2764
+          ],
+          [
+            3184,
+            2762
+          ],
+          [
+            3185,
+            2761
+          ],
+          [
+            3187,
+            2753
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 11
+      },
+      {
+        "id": "E58",
+        "a": "W65:0",
+        "b": "W67:0",
+        "points": [
+          [
+            4395,
+            2899
+          ],
+          [
+            4395,
+            2918
+          ],
+          [
+            4394,
+            2918
+          ],
+          [
+            4394,
+            2919
+          ],
+          [
+            4392,
+            2920
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      },
+      {
+        "id": "E59",
+        "a": "W66:0",
+        "b": "W67:0",
+        "points": [
+          [
+            4371,
+            2914
+          ],
+          [
+            4373,
+            2914
+          ],
+          [
+            4373,
+            2915
+          ],
+          [
+            4379,
+            2915
+          ],
+          [
+            4380,
+            2916
+          ],
+          [
+            4384,
+            2916
+          ],
+          [
+            4392,
+            2920
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      },
+      {
+        "id": "E60",
+        "a": "W67:0",
+        "b": "W68:0",
+        "points": [
+          [
+            4392,
+            2920
+          ],
+          [
+            4392,
+            2927
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      },
+      {
+        "id": "E61",
+        "a": "W68:0",
+        "b": "W69:0",
+        "points": [
+          [
+            4392,
+            2927
+          ],
+          [
+            4391,
+            2927
+          ],
+          [
+            4391,
+            2928
+          ],
+          [
+            4390,
+            2928
+          ],
+          [
+            4390,
+            2929
+          ],
+          [
+            4389,
+            2929
+          ],
+          [
+            4389,
+            2930
+          ],
+          [
+            4387,
+            2931
+          ],
+          [
+            4386,
+            2933
+          ],
+          [
+            4386,
+            2936
+          ],
+          [
+            4385,
+            2938
+          ],
+          [
+            4384,
+            2938
+          ],
+          [
+            4384,
+            2940
+          ],
+          [
+            4383,
+            2940
+          ],
+          [
+            4380,
+            2943
+          ],
+          [
+            4380,
+            2944
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      },
+      {
+        "id": "E62",
+        "a": "W68:0",
+        "b": "W70:0",
+        "points": [
+          [
+            4392,
+            2927
+          ],
+          [
+            4401,
+            2936
+          ],
+          [
+            4402,
+            2942
+          ],
+          [
+            4404,
+            2946
+          ]
+        ],
+        "confidence": 0.95,
+        "source": "wire_trace",
+        "physical_net": 13
+      }
+    ],
+    "wire_roots": [
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      null,
+      null,
+      11,
+      11,
+      1,
+      2,
+      null,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    "pin_anchors": [
+      {
+        "ref": "R1",
+        "pin": "5",
+        "x": 3058,
+        "y": 2551,
+        "direction": [
+          1,
+          0
+        ],
+        "wire": 3,
+        "body": [
+          3100,
+          1303,
+          5804,
+          2596
+        ],
+        "confidence": 0.4,
+        "source": "wire_trace",
+        "graph_node": null,
+        "physical_net": null,
+        "net_group": 16
+      },
+      {
+        "ref": "R1",
+        "pin": "1",
+        "x": 4688,
+        "y": 1351,
+        "direction": [
+          1,
+          0
+        ],
+        "wire": 4,
+        "confidence": 0.9,
+        "source": "wire_trace",
+        "graph_node": "W9:0",
+        "physical_net": 11,
+        "net_group": 15
+      },
+      {
+        "ref": "R2",
+        "pin": "1",
+        "x": 6408,
+        "y": 2143,
+        "direction": [
+          1,
+          0
+        ],
+        "wire": 9,
+        "confidence": 0.4,
+        "source": "wire_trace",
+        "graph_node": null,
+        "physical_net": null,
+        "net_group": 17
+      }
+    ],
+    "review_hotspots": [
+      {
+        "bbox": [
+          3046,
+          2539,
+          3070,
+          2563
+        ],
+        "ref": "R1",
+        "pin": "5",
+        "reason": "Unresolved wire terminal anchor",
+        "confidence": 0.4,
+        "source": "wire_trace"
+      },
+      {
+        "bbox": [
+          6396,
+          2131,
+          6420,
+          2155
+        ],
+        "ref": "R2",
+        "pin": "1",
+        "reason": "Unresolved wire terminal anchor",
+        "confidence": 0.4,
+        "source": "wire_trace"
+      }
+    ],
+    "component_bodies": [],
+    "label_anchors": [
+      {
+        "index": 0,
+        "physical_net": null,
+        "graph_node": null,
+        "graph_edge": null
+      },
+      {
+        "index": 1,
+        "physical_net": 11,
+        "graph_node": null,
+        "graph_edge": "E7"
+      },
+      {
+        "index": 2,
+        "physical_net": null,
+        "graph_node": null,
+        "graph_edge": null
+      },
+      {
+        "index": 3,
+        "physical_net": null,
+        "graph_node": null,
+        "graph_edge": null
+      },
+      {
+        "index": 4,
+        "physical_net": null,
+        "graph_node": null,
+        "graph_edge": null
+      },
+      {
+        "index": 5,
+        "physical_net": null,
+        "graph_node": null,
+        "graph_edge": null
+      },
+      {
+        "index": 6,
+        "physical_net": null,
+        "graph_node": null,
+        "graph_edge": null
+      }
+    ],
+    "algorithm": "masked_directional_closing_zhang_suen_physical_graph",
+    "unmasked_components": [
+      "R1",
+      "R2"
+    ],
+    "mask_complete": false,
+    "unverified_body_regions": [
+      [
+        3100,
+        1303,
+        5804,
+        2596
+      ]
+    ],
+    "applied": false,
+    "connectivity_policy": "local_additive",
+    "terminal_observations": [
+      {
+        "ref": "R1",
+        "wire": 3,
+        "x": 3058,
+        "y": 2551,
+        "direction": [
+          1,
+          0
+        ],
+        "body": [
+          3100,
+          1303,
+          5804,
+          2596
+        ],
+        "pin": "5",
+        "labels": null
+      },
+      {
+        "ref": "R1",
+        "wire": 4,
+        "x": 4688,
+        "y": 1351,
+        "direction": [
+          1,
+          0
+        ],
+        "body": [
+          3100,
+          1303,
+          5804,
+          2596
+        ],
+        "pin": null,
+        "labels": null
+      },
+      {
+        "ref": "R1",
+        "wire": 12,
+        "x": 4307,
+        "y": 1256,
+        "direction": [
+          0,
+          1
+        ],
+        "body": [
+          3100,
+          1303,
+          5804,
+          2596
+        ],
+        "pin": null,
+        "labels": null
+      },
+      {
+        "ref": "R1",
+        "wire": 13,
+        "x": 4696,
+        "y": 1256,
+        "direction": [
+          0,
+          1
+        ],
+        "body": [
+          3100,
+          1303,
+          5804,
+          2596
+        ],
+        "pin": null,
+        "labels": null
+      },
+      {
+        "ref": "R1",
+        "wire": 14,
+        "x": 3103,
+        "y": 2136,
+        "direction": [
+          0,
+          1
+        ],
+        "body": [
+          3100,
+          1303,
+          5804,
+          2596
+        ],
+        "pin": null,
+        "labels": null
+      }
+    ],
+    "external_labels": [
+      {
+        "text": "SIGNAL_IN",
+        "bbox": [
+          3126,
+          1158,
+          3891,
+          1333
+        ],
+        "vertical": false,
+        "confidence": 0.998105784257253,
+        "role": "external_net_label",
+        "wire": null
+      },
+      {
+        "text": "RECT_OUT",
+        "bbox": [
+          5781,
+          1159,
+          6491,
+          1314
+        ],
+        "vertical": false,
+        "confidence": 0.999471865594387,
+        "role": "external_net_label",
+        "wire": 4
+      },
+      {
+        "text": "TRAN",
+        "bbox": [
+          4416,
+          2689,
+          4748,
+          2826
+        ],
+        "vertical": false,
+        "confidence": 0.9997519999742508,
+        "role": "external_net_label",
+        "wire": null
+      },
+      {
+        "text": "DEC",
+        "bbox": [
+          4816,
+          2889,
+          5101,
+          3026
+        ],
+        "vertical": false,
+        "confidence": 0.9993970592816671,
+        "role": "external_net_label",
+        "wire": null
+      },
+      {
+        "text": "GND",
+        "bbox": [
+          2971,
+          2934,
+          3257,
+          3051
+        ],
+        "vertical": false,
+        "confidence": 0.9985696077346802,
+        "role": "external_net_label",
+        "wire": 14
+      },
+      {
+        "text": "AC",
+        "bbox": [
+          2670,
+          2133,
+          3070,
+          2267
+        ],
+        "vertical": false,
+        "confidence": 0.8918958753347397,
+        "role": "external_net_label",
+        "wire": 19
+      },
+      {
+        "text": "AC",
+        "bbox": [
+          4406,
+          2905,
+          4696,
+          3026
+        ],
+        "vertical": false,
+        "confidence": 0.9179241210222244,
+        "role": "external_net_label",
+        "wire": null
+      }
+    ],
+    "internal_pin_labels": [],
+    "roi_audit": [],
+    "measurements": {
+      "source_character_height": 13,
+      "source_wire_width": 1
+    },
+    "wires": [
+      {
+        "id": 0,
+        "p0": [
+          2996,
+          2750
+        ],
+        "p1": [
+          3209,
+          2750
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 1,
+        "p0": [
+          2999,
+          2139
+        ],
+        "p1": [
+          3205,
+          2139
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 2,
+        "p0": [
+          3004,
+          1760
+        ],
+        "p1": [
+          3200,
+          1760
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 3,
+        "p0": [
+          3058,
+          2551
+        ],
+        "p1": [
+          6512,
+          2551
+        ],
+        "bus": false,
+        "physical_net": 16,
+        "traced_physical_net": 11,
+        "physical_roots": [
+          16
+        ],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 4,
+        "p0": [
+          4688,
+          1351
+        ],
+        "p1": [
+          6511,
+          1351
+        ],
+        "bus": false,
+        "physical_net": 15,
+        "traced_physical_net": 11,
+        "physical_roots": [
+          15
+        ],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 5,
+        "p0": [
+          4288,
+          1429
+        ],
+        "p1": [
+          4714,
+          1429
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 6,
+        "p0": [
+          5621,
+          1890
+        ],
+        "p1": [
+          5984,
+          1890
+        ],
+        "bus": true,
+        "physical_net": null,
+        "traced_physical_net": null,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 7,
+        "p0": [
+          5621,
+          2010
+        ],
+        "p1": [
+          5984,
+          2010
+        ],
+        "bus": true,
+        "physical_net": null,
+        "traced_physical_net": null,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 8,
+        "p0": [
+          6408,
+          1756
+        ],
+        "p1": [
+          6594,
+          1756
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 9,
+        "p0": [
+          6408,
+          2143
+        ],
+        "p1": [
+          6594,
+          2143
+        ],
+        "bus": false,
+        "physical_net": 17,
+        "traced_physical_net": 11,
+        "physical_roots": [
+          17
+        ],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 10,
+        "p0": [
+          5101,
+          1238
+        ],
+        "p1": [
+          5101,
+          1461
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 1,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 11,
+        "p0": [
+          5301,
+          1238
+        ],
+        "p1": [
+          5301,
+          1460
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 2,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 12,
+        "p0": [
+          4307,
+          1256
+        ],
+        "p1": [
+          4307,
+          1441
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": null,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 13,
+        "p0": [
+          4696,
+          1256
+        ],
+        "p1": [
+          4696,
+          1441
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 14,
+        "p0": [
+          3103,
+          2136
+        ],
+        "p1": [
+          3103,
+          2759
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 15,
+        "p0": [
+          6503,
+          1342
+        ],
+        "p1": [
+          6503,
+          1761
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 16,
+        "p0": [
+          6503,
+          2136
+        ],
+        "p1": [
+          6503,
+          2559
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 17,
+        "p0": [
+          6581,
+          1736
+        ],
+        "p1": [
+          6581,
+          2161
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 18,
+        "p0": [
+          3291,
+          1845
+        ],
+        "p1": [
+          3291,
+          2054
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      },
+      {
+        "id": 19,
+        "p0": [
+          2912,
+          1851
+        ],
+        "p1": [
+          2912,
+          2048
+        ],
+        "bus": false,
+        "physical_net": null,
+        "traced_physical_net": 11,
+        "physical_roots": [],
+        "confidence": 0.85,
+        "source": "wire_trace"
+      }
+    ],
+    "physical_labels": [
+      {
+        "physical_net": 15,
+        "labels": [
+          "RECT_OUT"
+        ]
+      },
+      {
+        "physical_net": 16,
+        "labels": [
+          "GND"
+        ]
+      },
+      {
+        "physical_net": 19,
+        "labels": [
+          "AC"
+        ]
+      }
+    ],
+    "local_recovery_actions": [],
+    "terminal_recovery_audit": [],
+    "terminal_recovery_reads": 0,
+    "erc_actions": [],
+    "source_frames": [
+      {
+        "page": 1,
+        "width": 1113,
+        "height": 521,
+        "coordinate_space": "source_pixels"
+      }
+    ],
+    "confidence_description": "Heuristic evidence score; not calibrated accuracy. Confirmation does not increase the score.",
+    "manual_review": {
+      "basis": "Visible raster drawing; three missing parts added, incorrect R1.5 removed, all four conductors transcribed explicitly. Passive/source physical numbering is a reviewer convention because the raster omits numbers.",
+      "automatic_prediction_preserved": "evidence/tonight-20261023/unseen-raw-prediction.json",
+      "not_automatic_accuracy": true
+    }
+  },
+  "review_hotspots": [
+    {
+      "confidence": 0.4,
+      "source": "wire_trace",
+      "id": "a04e250721741c750e93",
+      "bbox": [
+        380.75,
+        317.375,
+        383.75,
+        320.375
+      ],
+      "page": 1,
+      "source_width": 1113,
+      "source_height": 521,
+      "coordinate_space": "source_pixels",
+      "reason": "Unresolved wire terminal anchor",
+      "ref": "R1",
+      "pin": "5",
+      "reviewed": false,
+      "stale": true,
+      "net": null
+    },
+    {
+      "confidence": 0.4,
+      "source": "wire_trace",
+      "id": "107db7cd2ea670c6555b",
+      "bbox": [
+        799.5,
+        266.375,
+        802.5,
+        269.375
+      ],
+      "page": 1,
+      "source_width": 1113,
+      "source_height": 521,
+      "coordinate_space": "source_pixels",
+      "reason": "Unresolved wire terminal anchor",
+      "ref": "R2",
+      "pin": "1",
+      "reviewed": false,
+      "stale": true,
+      "net": null
+    },
+    {
+      "confidence": 0.4,
+      "source": "wire_trace",
+      "id": "4706869a7e01f5e36ef5",
+      "bbox": [
+        380.75,
+        317.375,
+        383.75,
+        320.375
+      ],
+      "page": 1,
+      "source_width": 1113,
+      "source_height": 521,
+      "coordinate_space": "source_pixels",
+      "reason": "Uncertain pin assignment; compare physical number and net with source",
+      "ref": "R1",
+      "pin": "5",
+      "reviewed": false,
+      "stale": true,
+      "net": null
+    },
+    {
+      "confidence": 0.4,
+      "source": "wire_trace",
+      "id": "af1b3df4b9f947858647",
+      "bbox": [
+        799.5,
+        266.375,
+        802.5,
+        269.375
+      ],
+      "page": 1,
+      "source_width": 1113,
+      "source_height": 521,
+      "coordinate_space": "source_pixels",
+      "reason": "Uncertain pin assignment; compare physical number and net with source",
+      "ref": "R2",
+      "pin": "1",
+      "reviewed": false,
+      "stale": true,
+      "net": null
+    }
+  ],
+  "physical_pins": [
+    {
+      "ref": "V1",
+      "pin": "1",
+      "used": true,
+      "electrical_type": "unknown",
+      "metadata": {
+        "review_basis": "Reviewer chosen terminal convention; numbers are not printed on the raster source"
+      }
+    },
+    {
+      "ref": "V1",
+      "pin": "2",
+      "used": true,
+      "electrical_type": "unknown",
+      "metadata": {
+        "review_basis": "Reviewer chosen terminal convention; numbers are not printed on the raster source"
+      }
+    },
+    {
+      "ref": "R1",
+      "pin": "1",
+      "used": true,
+      "electrical_type": "unknown",
+      "metadata": {
+        "review_basis": "Reviewer chosen terminal convention; numbers are not printed on the raster source"
+      }
+    },
+    {
+      "ref": "R1",
+      "pin": "2",
+      "used": true,
+      "electrical_type": "unknown",
+      "metadata": {
+        "review_basis": "Reviewer chosen terminal convention; numbers are not printed on the raster source"
+      }
+    },
+    {
+      "ref": "D1",
+      "pin": "1",
+      "used": true,
+      "electrical_type": "unknown",
+      "metadata": {
+        "review_basis": "Visible diode orientation; catalog D pin 1 cathode, pin 2 anode"
+      }
+    },
+    {
+      "ref": "D1",
+      "pin": "2",
+      "used": true,
+      "electrical_type": "unknown",
+      "metadata": {
+        "review_basis": "Visible diode orientation; catalog D pin 1 cathode, pin 2 anode"
+      }
+    },
+    {
+      "ref": "C1",
+      "pin": "1",
+      "used": true,
+      "electrical_type": "unknown",
+      "metadata": {
+        "review_basis": "Reviewer chosen terminal convention; numbers are not printed on the raster source"
+      }
+    },
+    {
+      "ref": "C1",
+      "pin": "2",
+      "used": true,
+      "electrical_type": "unknown",
+      "metadata": {
+        "review_basis": "Reviewer chosen terminal convention; numbers are not printed on the raster source"
+      }
+    },
+    {
+      "ref": "R2",
+      "pin": "1",
+      "used": true,
+      "electrical_type": "unknown",
+      "metadata": {
+        "review_basis": "Reviewer chosen terminal convention; numbers are not printed on the raster source"
+      }
+    },
+    {
+      "ref": "R2",
+      "pin": "2",
+      "used": true,
+      "electrical_type": "unknown",
+      "metadata": {
+        "review_basis": "Reviewer chosen terminal convention; numbers are not printed on the raster source"
+      }
+    }
+  ],
+  "faculty_xml": {}
+}

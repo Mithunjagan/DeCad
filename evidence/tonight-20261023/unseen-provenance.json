@@ -1,0 +1,30 @@
+{
+  "files": {
+    "native_source": {
+      "path": "D:\\KICAD\\share\\kicad\\demos\\simulation\\rectifier\\rectifier.kicad_sch",
+      "sha256": "56c6e324eebd02b7879f0816646eff2b7537f5b42735bd4d298ac68f38cf5ccf",
+      "modified_unix_s": 1787075508.0
+    },
+    "raster_input": {
+      "path": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\tonight-20261023\\unseen-rectifier.png",
+      "sha256": "3dda6619cb2b9f2594acb04899e30b47eb61e463d6b62c1ca3998cc9c60e1c6c",
+      "modified_unix_s": 1792754050.19031
+    },
+    "independent_native_netlist": {
+      "path": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\tonight-20261023\\unseen-rectifier-native.xml",
+      "sha256": "c8d64b7c27e1ade540dc6fe49bf5dfa41c5a74dbe14faa226699a0a72c8ed7dd",
+      "modified_unix_s": 1792753952.7515206
+    },
+    "raw_prediction": {
+      "path": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\tonight-20261023\\unseen-raw-prediction.json",
+      "sha256": "d0ca0891e55529f22ed46d7e66108994f64d30c03922fdf6a26dc384c0146dd2",
+      "modified_unix_s": 1792754555.882868
+    },
+    "reviewed_graph": {
+      "path": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\tonight-20261023\\unseen-reviewed-graph.json",
+      "sha256": "18b57e3e7451cfd40dbada20e6ce640b12c27e9fc424cc5aef78661f35aaad3f",
+      "modified_unix_s": 1792754671.9941652
+    }
+  },
+  "scope": "Recognition received only the raster, never the independent native netlist. Raw prediction was persisted before loading independent truth. Manual corrections are separate evidence."
+}

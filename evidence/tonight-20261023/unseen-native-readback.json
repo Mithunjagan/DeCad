@@ -1,0 +1,64 @@
+{
+  "kicad": {
+    "passed": true,
+    "scope": "Complete observed graph export fidelity, not recognition accuracy",
+    "components": 5,
+    "checked_pins": 10,
+    "matched_pins": 10,
+    "missing_parts": [],
+    "extra_parts": [],
+    "wrong_values": [],
+    "missing_pins": [],
+    "extra_pins": [],
+    "wrong_pins": [],
+    "native_readback": true,
+    "format": "KiCad",
+    "symbol_mode": "literal observed pin IDs",
+    "archive_sha256": "cb3654b0ec64a0303003554e30948ac477f8e6fedba1ccbe057a39a19140390e"
+  },
+  "orcad": {
+    "passed": true,
+    "scope": "Complete observed graph export fidelity, not recognition accuracy",
+    "components": 5,
+    "checked_pins": 10,
+    "matched_pins": 10,
+    "missing_parts": [],
+    "extra_parts": [],
+    "wrong_values": [],
+    "missing_pins": [],
+    "extra_pins": [],
+    "wrong_pins": [],
+    "native_readback": true,
+    "format": "OrCAD Capture",
+    "symbol_mode": "literal observed pin IDs",
+    "net_aliases": {
+      "signal_in": "SIGNAL_IN",
+      "DRIVE": "DRIVE",
+      "rect_out": "RECT_OUT",
+      "GND": "GND"
+    },
+    "generated_symbols": [
+      "OBS_C1",
+      "OBS_D1",
+      "OBS_R1",
+      "OBS_R2",
+      "OBS_V1"
+    ],
+    "corrections": [],
+    "substitutions": {},
+    "implicit_power_pins": [],
+    "netlist": {
+      "nets": 4,
+      "parts": 5,
+      "connections": 10,
+      "without_footprint": [
+        "C1",
+        "D1",
+        "R1",
+        "R2",
+        "V1"
+      ]
+    },
+    "archive_sha256": "dcc8d6e99d644f9254a4ac96ffb8a7fae17d1474bd2454afa55a68af795cb8ad"
+  }
+}

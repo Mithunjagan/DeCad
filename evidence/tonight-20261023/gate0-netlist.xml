@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FileDescription>
+  <Application ApplicationName="TD9 TestSequencer" />
+  <Board BoardName="Schematic2SDN" />
+  <Version Version="FVER00001" />
+  <Date FileModified="" />
+  <NetList>
+    <Nodes>
+      <Node NodeName="V1_1" NodeDisName="V1_1" PinNumber="1" DeviceLocation="V1" IsPinUsed="TRUE" Marking="5V" NodeNetName="VIN" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R1_1" NodeDisName="R1_1" PinNumber="1" DeviceLocation="R1" IsPinUsed="TRUE" Marking="10k" NodeNetName="VIN" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="V1_2" NodeDisName="V1_2" PinNumber="2" DeviceLocation="V1" IsPinUsed="TRUE" Marking="5V" NodeNetName="GND" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R2_2" NodeDisName="R2_2" PinNumber="2" DeviceLocation="R2" IsPinUsed="TRUE" Marking="10k" NodeNetName="GND" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R1_2" NodeDisName="R1_2" PinNumber="2" DeviceLocation="R1" IsPinUsed="TRUE" Marking="10k" NodeNetName="VOUT" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R2_1" NodeDisName="R2_1" PinNumber="1" DeviceLocation="R2" IsPinUsed="TRUE" Marking="10k" NodeNetName="VOUT" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+    </Nodes>
+    <PowerNets />
+    <UserNets>
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="VIN" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="GND" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="VOUT" />
+    </UserNets>
+  </NetList>
+</FileDescription>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>D:\KICAD\share\kicad\demos\simulation\rectifier\rectifier.kicad_sch</source>
+    <date>2026-10-23T16:42:32</date>
+    <tool>Eeschema 10.0.6</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>rectifier.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C1">
+      <value>100n</value>
+      <description>Unpolarized capacitor</description>
+      <fields>
+        <field name="Fieldname">Value</field>
+        <field name="Sim.Pins">1=1 2=2</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <libsource lib="rectifier_schlib" part="C" description="Unpolarized capacitor"/>
+      <property name="Fieldname" value="Value"/>
+      <property name="Sim.Pins" value="1=1 2=2"/>
+      <property name="Sheetname" value="rectifier"/>
+      <property name="Sheetfile" value="rectifier.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="C_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-00005733628f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="D1">
+      <value>1N4148</value>
+      <description>Diode</description>
+      <fields>
+        <field name="Fieldname">Value</field>
+        <field name="Sim.Library">diode.mod</field>
+        <field name="Sim.Name">1N4148</field>
+        <field name="Sim.Pins">1=K 2=A</field>
+        <field name="Sim.Device">D</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Diode</field>
+      </fields>
+      <libsource lib="rectifier_schlib" part="D" description="Diode"/>
+      <property name="Fieldname" value="Value"/>
+      <property name="Sim.Library" value="diode.mod"/>
+      <property name="Sim.Name" value="1N4148"/>
+      <property name="Sim.Pins" value="1=K 2=A"/>
+      <property name="Sim.Device" value="D"/>
+      <property name="Sheetname" value="rectifier"/>
+      <property name="Sheetfile" value="rectifier.kicad_sch"/>
+      <property name="ki_keywords" value="diode"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000573361b8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R1">
+      <value>1k</value>
+      <description>Resistor</description>
+      <fields>
+        <field name="Fieldname">Value</field>
+        <field name="Sim.Pins">1=1 2=2</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="rectifier_schlib" part="R" description="Resistor"/>
+      <property name="Fieldname" value="Value"/>
+      <property name="Sim.Pins" value="1=1 2=2"/>
+      <property name="Sheetname" value="rectifier"/>
+      <property name="Sheetfile" value="rectifier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000573360f5</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R2">
+      <value>100k</value>
+      <description>Resistor</description>
+      <fields>
+        <field name="Fieldname">Value</field>
+        <field name="Sim.Pins">1=1 2=2</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <libsource lib="rectifier_schlib" part="R" description="Resistor"/>
+      <property name="Fieldname" value="Value"/>
+      <property name="Sim.Pins" value="1=1 2=2"/>
+      <property name="Sheetname" value="rectifier"/>
+      <property name="Sheetfile" value="rectifier.kicad_sch"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-0000573362f7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="V1">
+      <value>dc=0 ampl=1 f=1k ac=1</value>
+      <datasheet>https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for</datasheet>
+      <description>Voltage source, sinusoidal</description>
+      <fields>
+        <field name="Fieldname">Value</field>
+        <field name="Sim.Device">V</field>
+        <field name="Sim.Params">dc=0 ampl=1 f=1k ac=1</field>
+        <field name="Sim.Pins">1=+ 2=-</field>
+        <field name="Sim.Type">SIN</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for</field>
+        <field name="Description">Voltage source, sinusoidal</field>
+      </fields>
+      <libsource lib="rectifier_schlib" part="VSIN" description="Voltage source, sinusoidal"/>
+      <property name="Fieldname" value="Value"/>
+      <property name="Sim.Device" value="V"/>
+      <property name="Sim.Params" value="dc=0 ampl=1 f=1k ac=1"/>
+      <property name="Sim.Pins" value="1=+ 2=-"/>
+      <property name="Sim.Type" value="SIN"/>
+      <property name="Sheetname" value="rectifier"/>
+      <property name="Sheetfile" value="rectifier.kicad_sch"/>
+      <property name="ki_keywords" value="simulation ac vac"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00000000-0000-0000-0000-000057336052</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="rectifier_schlib" part="C">
+      <description>Unpolarized capacitor</description>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Unpolarized capacitor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rectifier_schlib" part="D">
+      <description>Diode</description>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Diode</field>
+        <field name="Sim.Device">D</field>
+        <field name="Sim.Pins">1=K 2=A</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rectifier_schlib" part="R">
+      <description>Resistor</description>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Resistor</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="rectifier_schlib" part="VSIN">
+      <description>Voltage source, sinusoidal</description>
+      <docs>https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for</docs>
+      <fields>
+        <field name="Reference">V</field>
+        <field name="Value">VSIN</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for</field>
+        <field name="Description">Voltage source, sinusoidal</field>
+        <field name="Sim.Pins">1=+ 2=-</field>
+        <field name="Sim.Params">dc=0 ampl=1 f=1k ac=1</field>
+        <field name="Sim.Type">SIN</field>
+        <field name="Sim.Device">V</field>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="rectifier_schlib">
+      <uri>${KIPRJMOD}/rectifier_schlib.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/rect_out" class="Default">
+      <node ref="C1" pin="1" pintype="passive"/>
+      <node ref="D1" pin="1" pinfunction="K_1" pintype="passive"/>
+      <node ref="R2" pin="1" pintype="passive"/>
+    </net>
+    <net code="2" name="/signal_in" class="Default">
+      <node ref="R1" pin="1" pintype="passive"/>
+      <node ref="V1" pin="1" pintype="passive"/>
+    </net>
+    <net code="3" name="GND" class="Default">
+      <node ref="C1" pin="2" pintype="passive"/>
+      <node ref="R2" pin="2" pintype="passive"/>
+      <node ref="V1" pin="2" pintype="passive"/>
+    </net>
+    <net code="4" name="Net-(D1-A)" class="Default">
+      <node ref="D1" pin="2" pinfunction="A_2" pintype="passive"/>
+      <node ref="R1" pin="2" pintype="passive"/>
+    </net>
+  </nets>
+</export>

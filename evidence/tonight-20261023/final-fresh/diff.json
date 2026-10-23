@@ -1,0 +1,402 @@
+{
+  "passed": true,
+  "clear": {
+    "S1": {
+      "before": 54,
+      "after": 54,
+      "total": 56,
+      "delta": 0,
+      "percentage_point_delta": 0.0,
+      "gained_pins": [],
+      "lost_pins": []
+    },
+    "S3": {
+      "before": 62,
+      "after": 62,
+      "total": 69,
+      "delta": 0,
+      "percentage_point_delta": 0.0,
+      "gained_pins": [],
+      "lost_pins": []
+    },
+    "S4": {
+      "before": 69,
+      "after": 69,
+      "total": 72,
+      "delta": 0,
+      "percentage_point_delta": 0.0,
+      "gained_pins": [],
+      "lost_pins": []
+    },
+    "S5": {
+      "before": 42,
+      "after": 42,
+      "total": 48,
+      "delta": 0,
+      "percentage_point_delta": 0.0,
+      "gained_pins": [],
+      "lost_pins": []
+    }
+  },
+  "native": {
+    "native-3b2a49a524e2d50dcf26": {
+      "physical_pins_found": {
+        "before": 29,
+        "after": 29,
+        "delta": 0
+      },
+      "connected_pin_pairs_correct": {
+        "before": 5,
+        "after": 5,
+        "delta": 0
+      },
+      "connected_pin_pairs_wrong": {
+        "before": 11,
+        "after": 11,
+        "delta": 0
+      },
+      "new_correct_pairs": [],
+      "lost_correct_pairs": [],
+      "new_incorrect_pairs": [],
+      "removed_incorrect_pairs": []
+    },
+    "native-a39a7a1fc84f921b27fd": {
+      "physical_pins_found": {
+        "before": 17,
+        "after": 17,
+        "delta": 0
+      },
+      "connected_pin_pairs_correct": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "connected_pin_pairs_wrong": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "new_correct_pairs": [],
+      "lost_correct_pairs": [],
+      "new_incorrect_pairs": [],
+      "removed_incorrect_pairs": []
+    },
+    "native-fedf29b44113e135f31f": {
+      "physical_pins_found": {
+        "before": 13,
+        "after": 13,
+        "delta": 0
+      },
+      "connected_pin_pairs_correct": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "connected_pin_pairs_wrong": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "new_correct_pairs": [],
+      "lost_correct_pairs": [],
+      "new_incorrect_pairs": [],
+      "removed_incorrect_pairs": []
+    },
+    "native-c4d88e79bc63688e0e7c": {
+      "physical_pins_found": {
+        "before": 4,
+        "after": 4,
+        "delta": 0
+      },
+      "connected_pin_pairs_correct": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "connected_pin_pairs_wrong": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "new_correct_pairs": [],
+      "lost_correct_pairs": [],
+      "new_incorrect_pairs": [],
+      "removed_incorrect_pairs": []
+    },
+    "native-37735b083f0b9f56549f": {
+      "physical_pins_found": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "connected_pin_pairs_correct": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "connected_pin_pairs_wrong": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "new_correct_pairs": [],
+      "lost_correct_pairs": [],
+      "new_incorrect_pairs": [],
+      "removed_incorrect_pairs": []
+    },
+    "native-0a236a74292d04d831fa": {
+      "physical_pins_found": {
+        "before": 14,
+        "after": 14,
+        "delta": 0
+      },
+      "connected_pin_pairs_correct": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "connected_pin_pairs_wrong": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "new_correct_pairs": [],
+      "lost_correct_pairs": [],
+      "new_incorrect_pairs": [],
+      "removed_incorrect_pairs": []
+    },
+    "native-e9b7597c67252bf7707d": {
+      "physical_pins_found": {
+        "before": 3,
+        "after": 3,
+        "delta": 0
+      },
+      "connected_pin_pairs_correct": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "connected_pin_pairs_wrong": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "new_correct_pairs": [],
+      "lost_correct_pairs": [],
+      "new_incorrect_pairs": [],
+      "removed_incorrect_pairs": []
+    },
+    "native-901de51001a98cc2361a": {
+      "physical_pins_found": {
+        "before": 7,
+        "after": 7,
+        "delta": 0
+      },
+      "connected_pin_pairs_correct": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "connected_pin_pairs_wrong": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "new_correct_pairs": [],
+      "lost_correct_pairs": [],
+      "new_incorrect_pairs": [],
+      "removed_incorrect_pairs": []
+    },
+    "native-c6bcc506a3200b19e089": {
+      "physical_pins_found": {
+        "before": 12,
+        "after": 12,
+        "delta": 0
+      },
+      "connected_pin_pairs_correct": {
+        "before": 3,
+        "after": 3,
+        "delta": 0
+      },
+      "connected_pin_pairs_wrong": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "new_correct_pairs": [],
+      "lost_correct_pairs": [],
+      "new_incorrect_pairs": [],
+      "removed_incorrect_pairs": []
+    },
+    "native-c4d7791b4ebdf13c3944": {
+      "physical_pins_found": {
+        "before": 4,
+        "after": 4,
+        "delta": 0
+      },
+      "connected_pin_pairs_correct": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "connected_pin_pairs_wrong": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "new_correct_pairs": [],
+      "lost_correct_pairs": [],
+      "new_incorrect_pairs": [],
+      "removed_incorrect_pairs": []
+    }
+  },
+  "native_source_designs": {
+    "native-3b2a49a524e2d50dcf26": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch",
+    "native-a39a7a1fc84f921b27fd": "Seeed Studio Wio SX1262 for XIAO ESP32S3/Wio-SX1262 for ESP32S3.kicad_sch",
+    "native-fedf29b44113e135f31f": "Seeed Studio Wio SX1262 for XIAO nRF52840 v1.3/Wio-SX1262 for XIAO nRF52840.kicad_sch",
+    "native-c4d88e79bc63688e0e7c": "Seeed Studio XIAO ESP32S3/ESP32S3.kicad_sch",
+    "native-37735b083f0b9f56549f": "Seeed Studio XIAO nRF52840 v1.3/Seeed Studio XIAO nRF52840 v1.3.kicad_sch",
+    "native-0a236a74292d04d831fa": "XIAO Family/XIAO.kicad_sch",
+    "native-e9b7597c67252bf7707d": "12AU7-Amplifier/source.kicad_sch",
+    "native-901de51001a98cc2361a": "raccoon/source.kicad_sch",
+    "native-c6bcc506a3200b19e089": "pl_test_pcb/source.kicad_sch",
+    "native-c4d7791b4ebdf13c3944": "CM4Card.kicad_sch"
+  },
+  "native_totals": {
+    "physical_pins_found": {
+      "before": 103,
+      "after": 103,
+      "delta": 0
+    },
+    "connected_pin_pairs_correct": {
+      "before": 9,
+      "after": 9,
+      "delta": 0
+    },
+    "connected_pin_pairs_wrong": {
+      "before": 14,
+      "after": 14,
+      "delta": 0
+    }
+  },
+  "trace_coverage": {
+    "S1": {
+      "anchors": 300,
+      "mapped_anchors": 282,
+      "connectivity_rewrite_applied": true,
+      "retained_legacy_groups": 0
+    },
+    "S2": {
+      "anchors": 167,
+      "mapped_anchors": 99,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "S3": {
+      "anchors": 518,
+      "mapped_anchors": 499,
+      "connectivity_rewrite_applied": true,
+      "retained_legacy_groups": 0
+    },
+    "S4": {
+      "anchors": 292,
+      "mapped_anchors": 262,
+      "connectivity_rewrite_applied": true,
+      "retained_legacy_groups": 0
+    },
+    "S4-blur300": {
+      "anchors": 59,
+      "mapped_anchors": 40,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "S4-scan200": {
+      "anchors": 86,
+      "mapped_anchors": 65,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "S4-scan300": {
+      "anchors": 288,
+      "mapped_anchors": 190,
+      "connectivity_rewrite_applied": true,
+      "retained_legacy_groups": 0
+    },
+    "S5": {
+      "anchors": 269,
+      "mapped_anchors": 212,
+      "connectivity_rewrite_applied": true,
+      "retained_legacy_groups": 0
+    },
+    "native-0a236a74292d04d831fa": {
+      "anchors": 51,
+      "mapped_anchors": 51,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "native-37735b083f0b9f56549f": {
+      "anchors": 52,
+      "mapped_anchors": 52,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "native-3b2a49a524e2d50dcf26": {
+      "anchors": 44,
+      "mapped_anchors": 28,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "native-901de51001a98cc2361a": {
+      "anchors": 7,
+      "mapped_anchors": 1,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "native-a39a7a1fc84f921b27fd": {
+      "anchors": 19,
+      "mapped_anchors": 18,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "native-c4d7791b4ebdf13c3944": {
+      "anchors": 14,
+      "mapped_anchors": 14,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "native-c4d88e79bc63688e0e7c": {
+      "anchors": 12,
+      "mapped_anchors": 4,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "native-c6bcc506a3200b19e089": {
+      "anchors": 12,
+      "mapped_anchors": 0,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "native-e9b7597c67252bf7707d": {
+      "anchors": 3,
+      "mapped_anchors": 3,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    },
+    "native-fedf29b44113e135f31f": {
+      "anchors": 15,
+      "mapped_anchors": 15,
+      "connectivity_rewrite_applied": false,
+      "retained_legacy_groups": 0
+    }
+  },
+  "original_graphs_identical": {
+    "S1": true,
+    "S2": true,
+    "S3": true,
+    "S4": true,
+    "S4-blur300": true,
+    "S4-scan200": true,
+    "S4-scan300": true,
+    "S5": true
+  }
+}

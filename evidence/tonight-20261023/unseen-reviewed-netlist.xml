@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FileDescription>
+  <Application ApplicationName="TD9 TestSequencer" />
+  <Board BoardName="QmaxUnseenRectifier" />
+  <Version Version="FVER00001" />
+  <Date FileModified="" />
+  <NetList>
+    <Nodes>
+      <Node NodeName="V1_1" NodeDisName="V1_1" PinNumber="1" DeviceLocation="V1" IsPinUsed="TRUE" Marking="dc=0 ampl=1 f=1k ac=1" NodeNetName="signal_in" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="V1_2" NodeDisName="V1_2" PinNumber="2" DeviceLocation="V1" IsPinUsed="TRUE" Marking="dc=0 ampl=1 f=1k ac=1" NodeNetName="GND" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R1_1" NodeDisName="R1_1" PinNumber="1" DeviceLocation="R1" IsPinUsed="TRUE" Marking="1k" NodeNetName="signal_in" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R1_2" NodeDisName="R1_2" PinNumber="2" DeviceLocation="R1" IsPinUsed="TRUE" Marking="1k" NodeNetName="DRIVE" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="D1_1" NodeDisName="D1_1" PinNumber="1" DeviceLocation="D1" IsPinUsed="TRUE" Marking="1N4148" NodeNetName="rect_out" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="D1_2" NodeDisName="D1_2" PinNumber="2" DeviceLocation="D1" IsPinUsed="TRUE" Marking="1N4148" NodeNetName="DRIVE" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="C1_1" NodeDisName="C1_1" PinNumber="1" DeviceLocation="C1" IsPinUsed="TRUE" Marking="100n" NodeNetName="rect_out" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="C1_2" NodeDisName="C1_2" PinNumber="2" DeviceLocation="C1" IsPinUsed="TRUE" Marking="100n" NodeNetName="GND" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R2_1" NodeDisName="R2_1" PinNumber="1" DeviceLocation="R2" IsPinUsed="TRUE" Marking="100k" NodeNetName="rect_out" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R2_2" NodeDisName="R2_2" PinNumber="2" DeviceLocation="R2" IsPinUsed="TRUE" Marking="100k" NodeNetName="GND" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+    </Nodes>
+    <PowerNets />
+    <UserNets>
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="signal_in" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="DRIVE" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="rect_out" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="GND" />
+    </UserNets>
+  </NetList>
+</FileDescription>

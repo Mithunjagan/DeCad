@@ -1,0 +1,25 @@
+backend/app/confidence.py
+backend/app/digital_vision.py
+backend/app/erc.py
+backend/app/faculty_xml.py
+backend/app/ingestion.py
+backend/app/main.py
+backend/app/pipeline_profile.py
+backend/app/recognition.py
+backend/app/review_store.py
+backend/tests/test_erc.py
+backend/tests/test_faculty_xml.py
+backend/tests/test_review_store.py
+backend/tests/test_runtime_parity.py
+frontend/app/CircuitReviewPanel.js
+frontend/app/page.js
+frontend/app/review-model.mjs
+frontend/app/source-net.mjs
+frontend/tests/source-net.test.mjs
+start-native.ps1
+tools/eval/tonight_corpus.py
+tools/eval/tonight_metrics.py
+tools/eval/tonight_profile.py
+tools/eval/tonight_xml_gate.py
+training/TONIGHT_EXECUTION_LEDGER.md
+training/faculty/NetList (1).xml

@@ -1,0 +1,318 @@
+{
+  "S4": {
+    "components": 25,
+    "pins": 292,
+    "working_size": [
+      9917,
+      7016
+    ],
+    "source_size": [
+      9917,
+      7016
+    ],
+    "affine": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ]
+    ],
+    "pin_anchors": 292,
+    "source_sha256": "0b369f7c7e91042e89934369f2ce2a315a5654e47f93f6ca026d3af034b73ff7",
+    "cuda_providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "metadata_fields": [
+      "coordinate_space",
+      "width",
+      "height",
+      "source_size",
+      "source_affine",
+      "wire_nodes",
+      "wire_edges",
+      "wire_roots",
+      "pin_anchors",
+      "review_hotspots",
+      "component_bodies",
+      "label_anchors",
+      "algorithm",
+      "unmasked_components",
+      "mask_complete",
+      "unverified_body_regions",
+      "applied",
+      "connectivity_policy",
+      "terminal_observations",
+      "external_labels",
+      "internal_pin_labels",
+      "roi_audit",
+      "measurements",
+      "wires",
+      "physical_labels",
+      "local_recovery_actions",
+      "terminal_recovery_audit",
+      "terminal_recovery_reads",
+      "erc_disabled_edges",
+      "erc_actions",
+      "source_frames",
+      "confidence_description"
+    ],
+    "pin_exact": 69
+  },
+  "S4-scan300": {
+    "components": 29,
+    "pins": 288,
+    "working_size": [
+      12027,
+      8505
+    ],
+    "source_size": [
+      6615,
+      4678
+    ],
+    "affine": [
+      [
+        1.8181323061231471,
+        -0.013417950598694828,
+        31.546666627172183
+      ],
+      [
+        0.013417950598694828,
+        1.8181323061231471,
+        -44.26306274266418
+      ]
+    ],
+    "pin_anchors": 288,
+    "source_sha256": "9d6d57f019d1a20ea990a4feb6290d74fc2daabf0c888ec56183f37e2a93b3d0",
+    "cuda_providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "metadata_fields": [
+      "coordinate_space",
+      "width",
+      "height",
+      "source_size",
+      "source_affine",
+      "wire_nodes",
+      "wire_edges",
+      "wire_roots",
+      "pin_anchors",
+      "review_hotspots",
+      "component_bodies",
+      "label_anchors",
+      "algorithm",
+      "unmasked_components",
+      "mask_complete",
+      "unverified_body_regions",
+      "applied",
+      "connectivity_policy",
+      "terminal_observations",
+      "external_labels",
+      "internal_pin_labels",
+      "roi_audit",
+      "measurements",
+      "wires",
+      "physical_labels",
+      "local_recovery_actions",
+      "terminal_recovery_audit",
+      "terminal_recovery_reads",
+      "erc_disabled_edges",
+      "erc_actions",
+      "source_frames",
+      "confidence_description"
+    ],
+    "pin_exact": 44
+  },
+  "S4-scan200": {
+    "components": 20,
+    "pins": 86,
+    "working_size": [
+      11025,
+      7797
+    ],
+    "source_size": [
+      6615,
+      4678
+    ],
+    "affine": [
+      [
+        1.6666666666666667,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.6666666666666667,
+        0.0
+      ]
+    ],
+    "pin_anchors": 86,
+    "source_sha256": "77f35c3d7202323bb704d4369fe96262e1c58ba460735525cf62820b091c5714",
+    "cuda_providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "metadata_fields": [
+      "coordinate_space",
+      "width",
+      "height",
+      "source_size",
+      "source_affine",
+      "wire_nodes",
+      "wire_edges",
+      "wire_roots",
+      "pin_anchors",
+      "review_hotspots",
+      "component_bodies",
+      "label_anchors",
+      "algorithm",
+      "unmasked_components",
+      "mask_complete",
+      "unverified_body_regions",
+      "applied",
+      "connectivity_policy",
+      "terminal_observations",
+      "external_labels",
+      "internal_pin_labels",
+      "roi_audit",
+      "measurements",
+      "wires",
+      "physical_labels",
+      "local_recovery_actions",
+      "terminal_recovery_audit",
+      "terminal_recovery_reads",
+      "erc_disabled_edges",
+      "erc_actions",
+      "source_frames",
+      "confidence_description"
+    ],
+    "pin_exact": 0
+  },
+  "S4-blur300": {
+    "components": 15,
+    "pins": 59,
+    "working_size": [
+      11025,
+      7797
+    ],
+    "source_size": [
+      6615,
+      4678
+    ],
+    "affine": [
+      [
+        1.6661981801810541,
+        0.0395145813481673,
+        -90.87903818033485
+      ],
+      [
+        -0.0395145813481673,
+        1.6661981801810541,
+        131.7903145475595
+      ]
+    ],
+    "pin_anchors": 59,
+    "source_sha256": "3f87fd9be9f5788662daf991f6b7b0c1f451765a32ce28add6a2a4b4a9d3357b",
+    "cuda_providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "metadata_fields": [
+      "coordinate_space",
+      "width",
+      "height",
+      "source_size",
+      "source_affine",
+      "wire_nodes",
+      "wire_edges",
+      "wire_roots",
+      "pin_anchors",
+      "review_hotspots",
+      "component_bodies",
+      "label_anchors",
+      "algorithm",
+      "unmasked_components",
+      "mask_complete",
+      "unverified_body_regions",
+      "applied",
+      "connectivity_policy",
+      "terminal_observations",
+      "external_labels",
+      "internal_pin_labels",
+      "roi_audit",
+      "measurements",
+      "wires",
+      "physical_labels",
+      "local_recovery_actions",
+      "terminal_recovery_audit",
+      "terminal_recovery_reads",
+      "erc_disabled_edges",
+      "erc_actions",
+      "source_frames",
+      "confidence_description"
+    ],
+    "pin_exact": 0
+  }
+}
