@@ -40,9 +40,14 @@ Write-Host 'Workbench: http://localhost:3100 (API http://localhost:8100)'
 # Next dev serves its assets to localhost only (not 127.0.0.1).
 $url = 'http://localhost:3100'
 $deadline = (Get-Date).AddMinutes(3)
+$ready = $false
 while ((Get-Date) -lt $deadline) {
- try { if ((Invoke-WebRequest "$url/manifest.webmanifest" -UseBasicParsing -TimeoutSec 60).StatusCode -eq 200) { break } } catch { Start-Sleep -Seconds 2 }
+ try {
+  $apiReady = (Invoke-WebRequest 'http://127.0.0.1:8100/health' -UseBasicParsing -TimeoutSec 10).StatusCode -eq 200
+  if ($apiReady -and (Invoke-WebRequest "$url/manifest.webmanifest" -UseBasicParsing -TimeoutSec 60).StatusCode -eq 200) { $ready = $true; break }
+ } catch { Start-Sleep -Seconds 2 }
 }
+if (-not $ready) { throw 'Workbench startup timed out. Inspect backend/.state/backend.log and frontend.log, fix the reported error, then run start-native.ps1 again.' }
 # Open DeCad in its own app window (no tabs or address bar), like an installed web app.
 $browser = @("${env:ProgramFiles(x86)}\Microsoft\Edge\Application\msedge.exe", "$env:ProgramFiles\Microsoft\Edge\Application\msedge.exe", "$env:ProgramFiles\Google\Chrome\Application\chrome.exe", "$env:LOCALAPPDATA\Google\Chrome\Application\chrome.exe") | Where-Object { Test-Path $_ } | Select-Object -First 1
 if ($browser) { Start-Process -FilePath $browser -ArgumentList "--app=$url", '--window-size=1500,950' } else { Start-Process $url }

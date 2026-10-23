@@ -20,7 +20,8 @@ def main():
         report['peak_system_ram_used_bytes']=max(report['peak_system_ram_used_bytes'],psutil.virtual_memory().used)
         try:
             gpu=subprocess.run(['nvidia-smi','--query-gpu=memory.used','--format=csv,noheader,nounits'],capture_output=True,text=True,timeout=5)
-            report['peak_gpu_used_mib']=max(report['peak_gpu_used_mib'],*[int(x.strip()) for x in gpu.stdout.splitlines()])
+            values=[int(x.strip()) for x in gpu.stdout.splitlines()]
+            if values:report['peak_gpu_used_mib']=max(report['peak_gpu_used_mib'],*values)
         except (OSError,ValueError,subprocess.TimeoutExpired):pass
         if process.poll() is not None:break
         time.sleep(2)
