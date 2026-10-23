@@ -1,0 +1,262 @@
+{
+  "provenance": {
+    "kind": "audited real-source recognition excerpt; evaluation fixture only",
+    "baseline": "871ee61",
+    "sample": "native-a39a7a1fc84f921b27fd",
+    "source_crop": "evidence/precision-20261023/native-a39a7a1fc84f921b27fd.png",
+    "scope": "Pin 1 and 2 visibly belong to R1; extra 4/55 observations are retained outside the graph. No inferred net-label correction."
+  },
+  "graph": {
+    "components": [
+      {
+        "ref": "R1",
+        "value": "10K",
+        "library": "Device:R",
+        "footprint": null,
+        "x": 0.706,
+        "y": 0.171
+      }
+    ],
+    "nets": [
+      {
+        "name": "+3V3",
+        "nodes": [
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "R1",
+            "pin": "2"
+          }
+        ]
+      },
+      {
+        "name": "N00063",
+        "nodes": [
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "R1",
+            "pin": "1"
+          },
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "R1",
+            "pin": "4"
+          }
+        ]
+      },
+      {
+        "name": "N00134",
+        "nodes": [
+          {
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "ref": "R1",
+            "pin": "55"
+          }
+        ]
+      }
+    ],
+    "physical_pins": [
+      {
+        "confidence": null,
+        "source": null,
+        "ref": "R1",
+        "pin": "4",
+        "used": null,
+        "pin_function": null,
+        "electrical_type": "unknown",
+        "power": null,
+        "metadata": {
+          "observed_anchor": {
+            "ref": "R1",
+            "pin": "4",
+            "x": 6052,
+            "y": 1722,
+            "direction": [
+              -1.0,
+              -0.0
+            ],
+            "wire": 63,
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "graph_node": "W58:0",
+            "physical_net": 47,
+            "net_group": 63
+          }
+        }
+      },
+      {
+        "confidence": null,
+        "source": null,
+        "ref": "R1",
+        "pin": "2",
+        "used": null,
+        "pin_function": null,
+        "electrical_type": "unknown",
+        "power": null,
+        "metadata": {
+          "observed_anchor": {
+            "ref": "R1",
+            "pin": "2",
+            "x": 5974,
+            "y": 1506,
+            "direction": [
+              -0.0,
+              -1.0
+            ],
+            "wire": 117,
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "graph_node": "W17:0",
+            "physical_net": 47,
+            "net_group": 117
+          }
+        }
+      },
+      {
+        "confidence": null,
+        "source": null,
+        "ref": "R1",
+        "pin": "1",
+        "used": null,
+        "pin_function": null,
+        "electrical_type": "unknown",
+        "power": null,
+        "metadata": {
+          "observed_anchor": {
+            "ref": "R1",
+            "pin": "1",
+            "x": 5974,
+            "y": 1572,
+            "direction": [
+              -0.0,
+              1.0
+            ],
+            "wire": 118,
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "graph_node": "W35:0",
+            "physical_net": 47,
+            "net_group": 63
+          }
+        }
+      },
+      {
+        "confidence": null,
+        "source": null,
+        "ref": "R1",
+        "pin": "55",
+        "used": null,
+        "pin_function": null,
+        "electrical_type": "unknown",
+        "power": null,
+        "metadata": {
+          "observed_anchor": {
+            "ref": "R1",
+            "pin": "55",
+            "x": 6214,
+            "y": 1756,
+            "direction": [
+              -0.0,
+              1.0
+            ],
+            "wire": 134,
+            "confidence": 0.9,
+            "source": "wire_trace",
+            "graph_node": "W65:0",
+            "physical_net": 47,
+            "net_group": 134
+          }
+        }
+      }
+    ],
+    "image_metadata": {
+      "width": 8571,
+      "height": 6061,
+      "source_size": [
+        4500,
+        3182
+      ],
+      "source_affine": [
+        [
+          1.9047619047619047,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.9047619047619047,
+          0.0
+        ]
+      ],
+      "pin_anchors": [
+        {
+          "ref": "R1",
+          "pin": "4",
+          "x": 6052,
+          "y": 1722,
+          "direction": [
+            -1.0,
+            -0.0
+          ],
+          "wire": 63,
+          "confidence": 0.9,
+          "source": "wire_trace",
+          "graph_node": "W58:0",
+          "physical_net": 47,
+          "net_group": 63
+        },
+        {
+          "ref": "R1",
+          "pin": "2",
+          "x": 5974,
+          "y": 1506,
+          "direction": [
+            -0.0,
+            -1.0
+          ],
+          "wire": 117,
+          "confidence": 0.9,
+          "source": "wire_trace",
+          "graph_node": "W17:0",
+          "physical_net": 47,
+          "net_group": 117
+        },
+        {
+          "ref": "R1",
+          "pin": "1",
+          "x": 5974,
+          "y": 1572,
+          "direction": [
+            -0.0,
+            1.0
+          ],
+          "wire": 118,
+          "confidence": 0.9,
+          "source": "wire_trace",
+          "graph_node": "W35:0",
+          "physical_net": 47,
+          "net_group": 63
+        },
+        {
+          "ref": "R1",
+          "pin": "55",
+          "x": 6214,
+          "y": 1756,
+          "direction": [
+            -0.0,
+            1.0
+          ],
+          "wire": 134,
+          "confidence": 0.9,
+          "source": "wire_trace",
+          "graph_node": "W65:0",
+          "physical_net": 47,
+          "net_group": 134
+        }
+      ]
+    }
+  }
+}

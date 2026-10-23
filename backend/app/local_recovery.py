@@ -13,6 +13,51 @@ def anonymous(name):
     return bool(re.fullmatch(r'(?:N\d+(?:_[A-Za-z0-9]+)*|NET[_$]?\d+)',name,re.I))
 
 
+def quarantine_passive_pin_conflicts(graph,metadata):
+    """Keep incompatible OCR observations for review, outside the electrical graph.
+
+    Both observed terminals must corroborate an explicit two-terminal library
+    symbol: aligned anchors pointing in opposite directions. A reference prefix
+    or approximate value alone cannot establish a package pin set. No
+    replacement number or connection is inferred.
+    """
+    refs={c['ref'] for c in graph['components'] if c.get('library') in
+          {'Device:R','Device:C','Device:L','Device:D'}}
+    anchors={(a['ref'],str(a['pin'])):a for a in metadata.get('pin_anchors',[])}
+    corroborated=set()
+    for ref in refs:
+        a,b=anchors.get((ref,'1')),anchors.get((ref,'2'))
+        if not a or not b:continue
+        da,db=a.get('direction',(0,0)),b.get('direction',(0,0))
+        if len(da)!=2 or len(db)!=2 or sum(x*y for x,y in zip(da,db))>-.9:continue
+        delta=(b['x']-a['x'],b['y']-a['y'])
+        if math.hypot(*delta)<4 or abs(delta[0]*da[1]-delta[1]*da[0])>3:continue
+        if sum(x*y for x,y in zip(delta,da))>=0:continue
+        corroborated.add(ref)
+    rejected=set();actions=[]
+    for net in graph['nets']:
+        kept=[]
+        for node in net['nodes']:
+            key=node['ref'],str(node['pin'])
+            if key[0] not in corroborated or key[1] in {'1','2'} or key not in anchors:
+                kept.append(node);continue
+            anchor=anchors[key];rejected.add(key)
+            reason='Observed pin conflicts with explicit two-terminal symbol; number and owner require source review'
+            observation={'node':deepcopy(node),'net':net['name'],'anchor':deepcopy(anchor),'reason':reason}
+            metadata.setdefault('rejected_pin_observations',[]).append(observation)
+            actions.append({'kind':'quarantined_passive_pin','ref':key[0],'pin':key[1],
+                            'bbox':[anchor['x']-12,anchor['y']-12,anchor['x']+12,anchor['y']+12],
+                            'reason':reason,'confidence':.2,'source':'wire_trace'})
+        net['nodes']=kept
+    graph['nets']=[n for n in graph['nets'] if n['nodes']]
+    metadata['pin_anchors']=[a for a in metadata.get('pin_anchors',[]) if (a['ref'],str(a['pin'])) not in rejected]
+    if rejected:
+        graph['physical_pins']=[p for p in graph.get('physical_pins',[]) if (p['ref'],str(p['pin'])) not in rejected]
+        graph.setdefault('warnings',[]).append('Unresolved OCR pin observations excluded from electrical export: '+
+            ', '.join(f'{r}.{p}' for r,p in sorted(rejected))+'. Original observations and source regions retained for review.')
+    return actions
+
+
 def _side(anchor):
     dx,dy=anchor.get('direction',(0,0))
     return ('left' if dx<0 else 'right') if abs(dx)>=abs(dy) else ('top' if dy<0 else 'bottom')
@@ -105,7 +150,8 @@ def recover_locally(circuit_graph,image_metadata=None):
     graph=deepcopy(circuit_graph)
     metadata=graph.setdefault('image_metadata',deepcopy(image_metadata or {}))
     if image_metadata is not None:metadata=graph['image_metadata']=deepcopy(image_metadata)
-    actions=repair_impossible_numbers(graph,metadata)
+    actions=quarantine_passive_pin_conflicts(graph,metadata)
+    actions+=repair_impossible_numbers(graph,metadata)
     pins={(p['ref'],p['pin']):net for net in graph['nets'] for p in net['nodes']}
     wires={w['id']:w for w in metadata.get('wires',[])}
     for anchor in metadata.get('pin_anchors',[]):

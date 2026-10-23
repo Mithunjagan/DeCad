@@ -1,4 +1,5 @@
 from copy import deepcopy
+import pytest
 
 from app.local_recovery import recover_locally,repair_impossible_numbers
 
@@ -26,6 +27,55 @@ def test_an_unrelated_unresolved_terminal_does_not_disable_local_recovery():
 def test_named_baseline_assignments_are_preserved():
     graph=fixture();graph['nets'][0]['name']='CONFIDENT'
     assert recover_locally(graph)['nets']==graph['nets']
+
+
+def test_explicit_passive_rejects_impossible_observation_without_inventing_a_pin():
+    graph=fixture();graph['components'][0]['library']='Device:R'
+    graph['nets'][0]['name']='SIGNAL'
+    graph['nets'][0]['nodes'] += [{'ref':'R1','pin':'4'}]
+    graph['nets'].append({'name':'SUPPLY','nodes':[{'ref':'R1','pin':'2'}]})
+    graph['image_metadata']['pin_anchors'] += [{'ref':'R1','pin':'4','x':90,'y':20},
+        {'ref':'R1','pin':'2','x':0,'y':20,'direction':[-1,0]}]
+    result=recover_locally(graph)
+    assert result['nets']==[{'name':'SIGNAL','nodes':[{'ref':'R1','pin':'1'}]},
+                            {'name':'SUPPLY','nodes':[{'ref':'R1','pin':'2'}]}]
+    rejected=result['image_metadata']['rejected_pin_observations']
+    assert rejected[0]['node']=={'ref':'R1','pin':'4'} and rejected[0]['net']=='SIGNAL'
+    assert len(result['image_metadata']['pin_anchors'])==2
+    assert 'R1.4' in result['warnings'][0]
+    assert recover_locally(result)['image_metadata']['rejected_pin_observations']==rejected
+    assert len(graph['nets'][0]['nodes'])==2
+
+
+def test_unconfirmed_passive_identity_keeps_observations_for_review():
+    graph=fixture();graph['components'][0]['library']='Device:R'
+    graph['nets'][0]['nodes'][0]['pin']='63'
+    graph['image_metadata']['pin_anchors'][0]['pin']='63'
+    assert recover_locally(graph)['nets'][0]['nodes']==graph['nets'][0]['nodes']
+
+
+@pytest.mark.parametrize('position,direction',[
+    ((0,40),[-1,0]),  # parallel rows are not one resistor
+    ((0,20),[1,0]),   # same-side terminals do not corroborate its body
+    ((40,20),[-1,0]), # both arrows point into the supposed body
+])
+def test_passive_constraint_requires_opposed_collinear_outward_anchors(position,direction):
+    graph=fixture();graph['components'][0]['library']='Device:R'
+    graph['nets'][0]['nodes'] += [{'ref':'R1','pin':'4'},{'ref':'R1','pin':'2'}]
+    graph['image_metadata']['pin_anchors'] += [
+        {'ref':'R1','pin':'4','x':90,'y':20},
+        {'ref':'R1','pin':'2','x':position[0],'y':position[1],'direction':direction}]
+    result=recover_locally(graph)
+    assert result['nets'][0]['nodes']==graph['nets'][0]['nodes']
+    assert not result['image_metadata'].get('rejected_pin_observations')
+
+
+def test_reference_prefix_alone_cannot_reject_multiterminal_device_pins():
+    graph=fixture();graph['nets'][0]['nodes'][0]['pin']='4'
+    graph['image_metadata']['pin_anchors'][0]['pin']='4'
+    assert recover_locally(graph)['nets'][0]['nodes']==graph['nets'][0]['nodes']
+    graph['components'][0]['library']='Device:R_Pack04'
+    assert recover_locally(graph)['nets'][0]['nodes']==graph['nets'][0]['nodes']
 
 
 def test_local_path_crossing_unmasked_body_is_rejected():
