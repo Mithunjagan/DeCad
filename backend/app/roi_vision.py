@@ -114,7 +114,7 @@ class RoIReader:
                 payload['response_format']['json_schema']['schema']=generation_schema(schema.model_json_schema())
                 response=self.client.post(service['url'].rstrip('/')+'/v1/chat/completions',json=payload,headers=self.headers(service))
                 response.raise_for_status();raw=response.json();choice=raw['choices'][0]
-                served=raw.get('model',service['model']);entry['served_model']=served
+                served=raw.get('model');entry['served_model']=served
                 if served!=service['model']:raise ValueError('Unexpected model served the crop')
                 if choice.get('finish_reason') not in ('stop','eos'):raise ValueError('Incomplete interpretation response')
                 result=schema.model_validate_json(choice['message']['content'])

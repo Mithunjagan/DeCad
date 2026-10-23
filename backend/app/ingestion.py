@@ -44,6 +44,7 @@ class Circuit(BaseModel):
     components: list[Component] = Field(min_length=1,max_length=1000)
     nets: list[Net] = Field(default_factory=list,max_length=2000)
     warnings: list[str] = Field(default_factory=list)
+    image_metadata: dict = Field(default_factory=dict)
 
     @model_validator(mode='after')
     def validate_graph(self):

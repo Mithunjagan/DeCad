@@ -62,3 +62,11 @@ def test_only_collinear_touching_primitives_coalesce():
     native=VectorPage(lines=[(0,10,10,10,1),(10,10,20,10,1),(0,12,20,12,1),(25,10,30,10,1)])
     lines=segments(native)
     assert sorted((s.y0,s.x0,s.x1) for s in lines)==[(10,0,20),(10,25,30),(12,0,20)]
+
+
+def test_stroked_native_text_is_not_promoted_to_wire_segments():
+    from app.vector_pdf import VectorPage
+    native=VectorPage(lines=[(20,20,25,20,1),(20,20,20,30,1),(0,25,100,25,1)],
+                      text=[{'text':'U1','bbox':(19,19,35,32),'direction':(1,0)}])
+    result=segments(native)
+    assert len(result)==1 and result[0].x0==0 and result[0].x1==100

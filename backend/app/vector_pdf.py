@@ -91,6 +91,11 @@ def segments(vector):
     from .digital_vision import Seg
     rows = {}
     for x0,y0,x1,y1,width in vector.lines:
+        # KiCad and other plotters draw glyph strokes as paths as well as
+        # searchable text. Those strokes are not wire primitives.
+        if any(t['bbox'][0]-.5<=min(x0,x1) and max(x0,x1)<=t['bbox'][2]+.5
+               and t['bbox'][1]-.5<=min(y0,y1) and max(y0,y1)<=t['bbox'][3]+.5 for t in vector.text):
+            continue
         horizontal, vertical = abs(y1-y0) < .05, abs(x1-x0) < .05
         if not (horizontal or vertical):
             continue  # Diagonal paths are kept in VectorPage for graph tracing.

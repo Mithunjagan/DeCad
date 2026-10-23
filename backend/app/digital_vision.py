@@ -99,6 +99,8 @@ class Page:
     roi_audit: list = field(default_factory=list)
     pin_evidence: dict = field(default_factory=dict)
     internal_pin_labels: list = field(default_factory=list)
+    source_size: tuple = None
+    roi_requests: int = 0
 
 
 # ---------------------------------------------------------------- preprocessing
@@ -181,9 +183,10 @@ def soft_edge_ratio(gray):
     return float(((gray > 60) & (gray < 200)).sum()) / ink if ink else 0.0
 
 
-def prepare(path):
+def prepare(path, *, native_pdf=False):
     notes = []
     gray = load(path, notes)
+    source_size=(gray.shape[1],gray.shape[0])
     b = binarize(gray)
     ch = char_height(b)
     initial_affine=np.array([[1.,0.,0.],[0.,1.,0.]])
@@ -232,7 +235,7 @@ def prepare(path):
         notes.append(f'Input assessment: scan with small text (~{ch:.0f} px); upscaled {scale:.1f}x automatically.')
     affine = np.array([[scale, 0., 0.], [0., scale, 0.]])
     affine=(np.vstack((affine,[0,0,1])) @ np.vstack((initial_affine,[0,0,1])))[:2]
-    angle = deskew_angle(b)
+    angle = 0. if native_pdf else deskew_angle(b)
     if abs(angle) > 0.15:
         h, w = gray.shape
         m = cv2.getRotationMatrix2D((w / 2, h / 2), angle, 1.0)
@@ -253,7 +256,7 @@ def prepare(path):
                      'Check every part, pin number and net label against the source, or rescan at 300 dpi or better.')
     if not notes:
         notes.append(f'Input assessment: clear scan ({long_side} px, text ~{ch:.0f} px); no enhancement needed.')
-    return Page(gray=gray, binary=b, hlines=hl, vlines=vl, text=text, scale=scale, notes=notes, soft=soft, affine=affine, measurements=measurements)
+    return Page(gray=gray, binary=b, hlines=hl, vlines=vl, text=text, scale=scale, notes=notes, soft=soft, affine=affine, measurements=measurements,source_size=source_size)
 
 
 # ---------------------------------------------------------------- word-level OCR
@@ -578,7 +581,7 @@ REF_RE = re.compile(r'^(U|IC|R|C|L|D|Q|J|P|S|SW|Y|X|RN|TP)\d{1,3}[A-H]?$')
 PART_RE = re.compile(r'^(74[A-Z]{0,4}\d{2,4}[A-Z]?|IDT\w+|AM\d{3,5}\w*|TC\d{4,}\w*|HM\d{4,}\w*|MC\d{3,}\w*|\d+[KMR]\d+|\d+(?:\.\d+)?[KMR]?)$')
 PASSIVE = {'R': 'Device:R', 'C': 'Device:C', 'L': 'Device:L', 'D': 'Device:D'}
 # Net labels on printed schematics: letters, an optional index, an optional suffix letter or bus range.
-LABEL_RE = re.compile(r'^[-~/+]?[A-Z][A-Z_]{0,9}\d{0,3}[A-Z]?(\[\d+[:.]\d+\])?$|^[A-Z0-9]{1,4}[-_/][A-Z0-9]{1,8}$|^\+\d+V$')
+LABEL_RE = re.compile(r'^[-~/+]?[A-Z][A-Z_]{0,9}\d{0,3}[A-Z]?(\[\d+[:.]\d+\])?$|^[A-Z0-9]{1,4}[-_/][A-Z0-9]{1,8}$|^\+\d+(?:\.\d+)?V\d*$')
 PIN_DEBUG = []                              # (ref, x, y, pin, label) per IC pin read; diagnostics only
 IC_VALUE_RE = re.compile(r'^(74|54|IDT|AM|TC|HM|MC|\d{5})')
 CONN_RE = re.compile(r'(?<![A-Z0-9])([PJ]\d{1,2})[-_.=]?([A-D]\d{1,2}|\d{1,3})(?![0-9])')
@@ -1895,6 +1898,7 @@ def recognize(page, toks):
     meaningful = [t for t, _ in refs + numbers + labels] + parts + [t for t, _, _ in conns]
     numbers += _reread_numbers(page, free, numbers, meaningful, ch)
     nodes = {}                             # (ref, pin) -> wire index
+    node_locations={}
     used_ends = set()
     strip_labels = {}                      # wire index -> label read on that pin's own strip
     strip_observations = []
@@ -1938,6 +1942,7 @@ def recognize(page, toks):
         try:crop_pins=component_crop_pins(reader,page,anchors,components,edge_pins,strip_reads,ch)
         finally:
             page.roi_audit+=reader.audit
+            page.roi_requests+=reader.requests
             reader.close()
         if bounded or crop_pins:
             warnings.append('Catalog-bounded pin recovery (review required): '+
@@ -1955,7 +1960,7 @@ def recognize(page, toks):
         observation = None
         if label:
             horizontal = abs(ux) >= abs(uy)
-            observation = {'wire': i, 'ref': ref, 'labels': label, 'active': False,
+            observation = {'wire': i, 'ref': ref, 'pin':num,'labels': label, 'active': False,
                            'side': (round(ux), round(uy)), 'axis': y if horizontal else x,
                            'edge': x if horizontal else y}
             strip_observations.append(observation)
@@ -1965,6 +1970,7 @@ def recognize(page, toks):
             warnings.append(f'{ref} pin {num} was read on two different wires; kept the first. Check it.')
             continue
         nodes[(ref, num)] = i
+        node_locations[(ref,num)]={'x':x,'y':y,'direction':[-ux,-uy],'wire':i,'body':end_box.get(k)}
         used_ends.add(k)
         if observation is not None:observation['active'] = True
     vocab = label_vocabulary(toks, [s for o in strip_observations for s in o['labels']])
@@ -1994,6 +2000,7 @@ def recognize(page, toks):
             warnings.append(f'{ref} pin {num} was read on two different wires; kept the first. Check it.')
             continue
         nodes[(ref, num)] = i
+        node_locations[(ref,num)]={'x':x,'y':y,'direction':[-ux,-uy],'wire':i}
         used_ends.add(k)
 
     # Connector pins ("P2-B12"): the closest unused free wire end.
@@ -2008,12 +2015,15 @@ def recognize(page, toks):
         if best:
             components.setdefault(conn, 'CONNECTOR')
             nodes[(conn, pin)] = best[2]
+            _,x,y,(ux,uy)=free[best[1]]
+            node_locations[(conn,pin)]={'x':x,'y':y,'direction':[-ux,-uy],'wire':best[2]}
             used_ends.add(best[1])
         else:
             warnings.append(f'Connector pin {conn}-{pin} has no wire next to it.')
 
     # Net labels: text lying on/along a wire names that wire's net.
     names, seg_names, seg_readings = {}, {}, {}
+    external_labels=[]
     for t, name in labels:
         if not re.fullmatch(r'[A-Z0-9_+\-./:\[\]]{2,40}', name):
             continue
@@ -2046,19 +2056,82 @@ def recognize(page, toks):
             names.setdefault(dsu.find(best[1]), []).append(name)
             seg_names.setdefault(best[1], []).append(name)
             seg_readings.setdefault(best[1], []).append((name, t))
+        external_labels.append({'text':name,'bbox':[t.x0,t.y0,t.x1,t.y1],
+                                'vertical':t.vertical,'confidence':t.conf,'role':'external_net_label',
+                                'wire':best[1] if best else None})
+
+    geometry={};pin_roots={};raw_to_final={};blocked_groups=set();spatial_readings={};wire_pin_roots={}
+    direct_pin_labels={(o['ref'],o['pin']):o['fixed'] for o in strip_observations if o['active'] and o.get('fixed')}
+    if enabled() and nodes:
+        from .wire_graph import trace,verified_bodies,reconcile_pin_groups,unmasked_components
+        from .roi_vision import RoIReader
+        reader=RoIReader();reader.requests=page.roi_requests
+        # OCR is complete. Release full-sheet intermediate planes before the
+        # skeleton pass on this RAM-constrained host; gray/binary stay available.
+        page.hlines=page.vlines=page.text=page.soft=None
+        bodies=verified_bodies(anchors,segs,ch)
+        unmasked=unmasked_components(components,node_locations,bodies)
+        try:
+            geometry=trace(page,bodies,toks+[t for t,_ in numbers],wires,node_locations,reader,external_labels)
+        finally:
+            page.roi_audit+=reader.audit;page.roi_requests=reader.requests;reader.close()
+        pin_roots,raw_to_final,blocked_groups=reconcile_pin_groups(dsu,nodes,geometry['pin_anchors'],require_complete=True,mask_complete=not unmasked)
+        geometry['unmasked_components']=unmasked
+        geometry['mask_complete']=not unmasked
+        old_names=names
+        names={root:list(values) for root,values in old_names.items() if root in blocked_groups}
+        for anchor in geometry['label_anchors']:
+            label=external_labels[anchor['index']];wire=label['wire'];root=raw_to_final.get(anchor['physical_net'])
+            if wire is None or dsu.find(wire) in blocked_groups or root is None:continue
+            names.setdefault(root,[]).append(label['text'])
+            token=Token(label['text'],label['confidence'],*label['bbox'],label['vertical'])
+            spatial_readings.setdefault((wire,root),[]).append((label['text'],token))
+        for key,wire in nodes.items():wire_pin_roots.setdefault(wire,set()).add(pin_roots[key])
+        geometry['applied']=bool(raw_to_final)
+        geometry['retained_legacy_groups']=len(blocked_groups)
+        if blocked_groups:warnings.append(f'{len(blocked_groups)} wire groups have unresolved terminal anchors; retained their previous observations for review.')
+        geometry.update(external_labels=external_labels,internal_pin_labels=page.internal_pin_labels,roi_audit=page.roi_audit,
+                        measurements=page.measurements)
+        for pin in geometry['pin_anchors']:
+            pin['net_group']=pin_roots[(pin['ref'],pin['pin'])]
+            evidence=page.pin_evidence.get((pin['ref'],pin['pin']))
+            if evidence:
+                original_confidence=pin.get('confidence',.85)
+                pin.update(evidence)
+                pin['confidence']=min(original_confidence,evidence['confidence'])
+                if evidence.get('review'):geometry['review_hotspots'].append({'bbox':[pin['x']-10,pin['y']-10,pin['x']+10,pin['y']+10],
+                    'ref':pin['ref'],'pin':pin['pin'],'reason':'Recovered physical pin number',**evidence})
+        geometry['wires']=[{'id':i,'p0':[s.x0,s.y0],'p1':[s.x1,s.y1],'bus':s.bus,
+                            'physical_net':next(iter(wire_pin_roots[i])) if len(wire_pin_roots.get(i,set()))==1 else raw_to_final.get(geometry['wire_roots'][i]),
+                            'traced_physical_net':geometry['wire_roots'][i],
+                            'physical_roots':sorted(wire_pin_roots.get(i,set())),
+                            'confidence':.98 if page.vector is not None else .85,
+                            'source':'vector' if page.vector is not None else 'wire_trace'} for i,s in enumerate(wires)]
+        geometry['physical_labels']=[{'physical_net':root,'labels':sorted(set(words))} for root,words in names.items()]
 
     # Nets. Printed buses are often drawn with plain-weight lines: one wire group then carries many
     # different labels, one per stub. A pin takes the label on its own stub; otherwise its group's
     # label when the group has exactly one; groups sharing a label are one net.
+    # Newly supported numeric voltage labels may merge only literal pins from
+    # a known package. An UNKNOWN IC's text/guessed number is not a power port.
+    from .wire_graph import power_pin_numbers
+    power_pins=power_pin_numbers(components) if enabled() else {}
     nets = {}
     for (ref, pin), i in nodes.items():
-        root = dsu.find(i)
-        own = [strip_labels[i]] if i in strip_labels else seg_names.get(i)
+        root = pin_roots.get((ref,pin),dsu.find(i))
+        traced=bool(geometry.get('applied')) and dsu.find(i) not in blocked_groups
+        readings=spatial_readings.get((i,root),[]) if traced else seg_readings.get(i,[])
+        direct=direct_pin_labels.get((ref,pin)) if traced and len(wire_pin_roots.get(i,set()))>1 else strip_labels.get(i)
+        own = [direct] if direct else [name for name,_ in readings]
         group = set(names.get(root, []))
-        if own:name = strip_labels[i] if i in strip_labels else choose_wire_label(seg_readings[i], wires[i])
+        if own:name = direct if direct else choose_wire_label(readings, wires[i])
         elif len(group) == 1:name = next(iter(group))
         elif group:name = f'N{root:05d}_{i}'           # unlabeled stub on a multi-signal bus: its own net
         else:name = f'N{root:05d}'
+        if enabled() and re.fullmatch(r'\+\d+(?:\.\d+)?V\d*',name) and pin not in power_pins.get(ref,set()):
+            name=f'N{root:05d}_{ref}_{pin}'
+        if name.upper() in ('NC','N/C','UNKNOWN','UNCONNECTED'):
+            name=f'N{root:05d}_{ref}_{pin}'  # no-connect markers never define a shared net
         nets.setdefault(name, []).append((ref, pin))
     nets = {n: sorted(set(m)) for n, m in nets.items()}
     for ref, value, _ in recovered_captions:
@@ -2087,6 +2160,7 @@ def recognize(page, toks):
                        for r, v in sorted(components.items())],
         'nets': [{'name': n, 'nodes': [{'ref': r, 'pin': p} for r, p in m]} for n, m in sorted(nets.items())],
         'warnings': warnings,
+        'image_metadata':geometry,
         'debug': {'segments': len(segs), 'wires': len(wires), 'boxes': len(bxs), 'dots': len(dot_points), 'free_ends': len(free),
                   'tokens': len(toks), 'refs': len(refs), 'numbers': len(numbers), 'labels': len(labels), 'pins': len(nodes),
                   'roi_audit': page.roi_audit,'internal_pin_labels':page.internal_pin_labels},
@@ -2115,7 +2189,7 @@ def extract(path, cache_dir=None):
                 image = Path(td) / 'page.png'
                 doc[0].get_pixmap(dpi=400, colorspace=fitz.csGRAY).save(image)
                 extra = [f'PDF has {len(doc)} pages; page 1 was recognized.'] if len(doc) > 1 else []
-            page = prepare(image)
+            page = prepare(image,native_pdf=vector is not None)
         else:
             extra = []
             page = prepare(path)
@@ -2123,10 +2197,33 @@ def extract(path, cache_dir=None):
     if vector is not None:
         page.vector = vector.transformed(page.affine)
         page.notes.append(f'Native PDF fast path: {vector.primitive_count} vector primitives; exact text and geometry transformed into working pixels.')
-    result = recognize(page, tokens(page))
+    observed_tokens=tokens(page)
+    result = recognize(page, observed_tokens)
     graph = {'components': result['components'], 'nets': result['nets'],
-             'sheet_aspect': round(page.gray.shape[1] / page.gray.shape[0], 6)}
+             'sheet_aspect': round(page.gray.shape[1] / page.gray.shape[0], 6),
+             'image_metadata':result.get('image_metadata',{})}
     warnings = result['warnings']
+    from .pipeline_profile import enabled
+    if enabled() and (not graph['components'] or all(re.fullmatch(r'[RCV]\d+',component['ref']) for component in graph['components'])):
+        # Keep simple-device recognition available in the common pipeline.
+        # Reuse CUDA OCR observations; this is a geometry fallback, not CPU OCR.
+        try:
+            from .circuit_vision import recover as recover_discrete
+            from .recognition import compare_candidates
+            from PIL import Image
+            factor=min(3.,1400/max(page.gray.shape))
+            view=cv2.resize(page.gray,None,fx=factor,fy=factor,interpolation=cv2.INTER_AREA if factor<1 else cv2.INTER_CUBIC)
+            words=[{'text':t.text,'conf':t.conf*100,'x':round(t.x0*factor),'y':round(t.y0*factor),
+                    'w':max(1,round((t.x1-t.x0)*factor)),'h':max(1,round((t.y1-t.y0)*factor))} for t in observed_tokens]
+            simple=recover_discrete(Image.fromarray(view),words)
+            local=Circuit.model_validate(graph) if graph['components'] else None
+            if local is None or compare_candidates(local,simple)[1]:
+                simple.sheet_aspect=graph['sheet_aspect']
+                simple.image_metadata=graph['image_metadata']
+                simple.warnings.insert(0,'Hybrid geometry recovered simple R/C/V symbols using the same CUDA OCR observations.')
+                return simple
+        except (ValueError,RuntimeError):
+            pass  # Unsupported/ambiguous discrete geometry retains the local read.
     cache = Path(cache_dir or os.getenv('STATE_ROOT') or Path(__file__).resolve().parents[1] / '.state')
     try:
         from . import orcad_capture
