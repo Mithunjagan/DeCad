@@ -357,15 +357,24 @@ def trace(page,bodies,texts,segments,anchors,reader=None,labels=()):
         if len(roots)==1 and None not in roots:wire_roots[wire]=roots.pop()
     label_anchors=[]
     for index,label in enumerate(labels):
-        wire=label.get('wire');root=None
+        wire=label.get('wire');root=None;graph_node=None;graph_edge=None
         if wire is not None:
             segment=segments[wire];box=label['bbox']
             x=min(segment.x1,max(segment.x0,(box[0]+box[2])/2)) if segment.horizontal else segment.x0
             y=segment.y0 if segment.horizontal else min(segment.y1,max(segment.y0,(box[1]+box[3])/2))
             for shift in (0,-2,2,-4,4):
                 pixel=near(x+shift if segment.horizontal else x,y if segment.horizontal else y+shift,3)
-                if pixel in pixel_edge:root=edge_roots[pixel_edge[pixel]];break
-        label_anchors.append({'index':index,'physical_net':root})
+                if pixel in pixel_edge:
+                    edge=edges[pixel_edge[pixel]];root=edge['physical_net'];graph_edge=edge['id']
+                    horizontal=segment.horizontal
+                    parallel=horizontal!=bool(label.get('vertical'))
+                    cross=1 if horizontal else 0
+                    distance=min(abs((y if horizontal else x)-box[cross]),abs((y if horizontal else x)-box[cross+2]))
+                    if parallel and distance<=15 and label.get('confidence',0)>=.9:
+                        endpoints=[n for n in nodes if n['id'] in (edge['a'],edge['b'])]
+                        if endpoints:graph_node=min(endpoints,key=lambda n:math.hypot(n['x']-x,n['y']-y))['id']
+                    break
+        label_anchors.append({'index':index,'physical_net':root,'graph_node':graph_node,'graph_edge':graph_edge})
     return {'coordinate_space':'working_pixels','width':width,'height':height,
             'source_size':list(getattr(page,'source_size',None) or (width,height)),
             'source_affine':page.affine.tolist() if getattr(page,'affine',None) is not None else [[1,0,0],[0,1,0]],

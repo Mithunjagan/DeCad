@@ -1,13 +1,31 @@
 export function renameComponent(circuit, index, ref) {
   const old = circuit.components[index].ref;
-  return {...circuit, components:circuit.components.map((c,i)=>i===index?{...c,ref}:c), nets:circuit.nets.map(n=>({...n,nodes:n.nodes.map(p=>p.ref===old?{...p,ref}:p)}))};
+  return {...circuit, components:circuit.components.map((c,i)=>i===index?{...c,ref}:c),
+    ...(circuit.review_hotspots?{review_hotspots:circuit.review_hotspots.map(h=>h.ref===old?{...h,ref,stale:true,reviewed:false}:h)}:{}),
+    nets:circuit.nets.map(n=>n.nodes.some(p=>p.ref===old)?{...n,confidence:null,source:null,nodes:n.nodes.map(p=>p.ref===old?{...p,ref,confidence:null,source:null}:p)}:n)};
 }
 export function removeComponent(circuit,index) {
   const ref=circuit.components[index].ref;
-  return {...circuit,components:circuit.components.filter((_,i)=>i!==index),nets:circuit.nets.map(n=>({...n,nodes:n.nodes.filter(p=>p.ref!==ref)})).filter(n=>n.nodes.length)};
+  return {...circuit,components:circuit.components.filter((_,i)=>i!==index),
+    ...(circuit.review_hotspots?{review_hotspots:circuit.review_hotspots.filter(h=>h.ref!==ref)}:{}),
+    nets:circuit.nets.map(n=>n.nodes.some(p=>p.ref===ref)?{...n,confidence:null,source:null,nodes:n.nodes.filter(p=>p.ref!==ref)}:n).filter(n=>n.nodes.length)};
+}
+export function editNetEvidence(circuit,index,value){
+  const old=circuit.nets[index],pins=new Set(old.nodes.map(p=>JSON.stringify([p.ref,p.pin])));
+  return {...circuit,nets:circuit.nets.map((n,i)=>i===index?{...value,confidence:null,source:null,nodes:value.nodes.map(p=>({...p,confidence:null,source:null}))}:n),
+    ...(circuit.review_hotspots?{review_hotspots:circuit.review_hotspots.map(h=>h.net===old.name||pins.has(JSON.stringify([h.ref,h.pin]))?{...h,stale:true,reviewed:false}:h)}:{})};
+}
+export function confirmHotspot(circuit,id){
+  return {...circuit,review_hotspots:(circuit.review_hotspots||[]).map(h=>h.id===id?{...h,reviewed:!h.reviewed}:h)};
+}
+export function evidenceText(item){
+  if(item?.confidence==null)return 'Unscored';
+  const labels={vector:'Native PDF',wire_trace:'Traced wire',net_label:'Printed label',erc_healed:'Recovered connection',vlm_tiebreak:'Crop interpretation'};
+  return `${labels[item.source]||'Evidence'} · ${item.confidence.toFixed(2)}`;
 }
 export function circuitErrors(circuit) {
   const errors=[],refs=new Set(),names=new Set(),pins=new Set();
+  const evidence=item=>{if(item.confidence!=null&&(!Number.isFinite(item.confidence)||item.confidence<0||item.confidence>1))errors.push('Evidence scores must be between 0 and 1.');if(item.source!=null&&!['vector','wire_trace','net_label','erc_healed','vlm_tiebreak'].includes(item.source))errors.push('Unknown evidence source.');};
   if(!Array.isArray(circuit?.components)||!Array.isArray(circuit?.nets))return ['Components and nets must be lists.'];
   if(!circuit.components.length)errors.push('Add at least one component.');
   if(circuit.warnings!==undefined&&(!Array.isArray(circuit.warnings)||circuit.warnings.some(w=>typeof w!=='string')))errors.push('Warnings must be a list of text.');
@@ -21,14 +39,24 @@ export function circuitErrors(circuit) {
   }
   for(const n of circuit.nets){
     if(!n||typeof n!=='object'){errors.push('Each net must be an object.');continue;}
+    evidence(n);
     if(typeof n.name!=='string'||!n.name.trim()||n.name.length>100||/[\r\n"\\]/.test(n.name))errors.push('Enter a valid net name of 1–100 characters.');
     if(names.has(n.name))errors.push(`Duplicate net: ${n.name}.`);names.add(n.name);
     if(!Array.isArray(n.nodes)||!n.nodes.length){errors.push(`${n.name}: add at least one pin.`);continue;}
     for(const p of n.nodes){
       if(!p||typeof p!=='object'){errors.push(`${n.name}: each pin connection must be an object.`);continue;}
+      evidence(p);
       if(!refs.has(p.ref))errors.push(`${n.name}: unknown component ${p.ref}.`);
       if(typeof p.pin!=='string'||!p.pin.trim())errors.push(`${n.name}: enter a physical pin number as text.`);
       const key=JSON.stringify([p.ref,p.pin]);if(pins.has(key))errors.push(`${p.ref} pin ${p.pin} is assigned more than once.`);pins.add(key);
+    }
+  }
+  if(circuit.review_hotspots!==undefined){
+    if(!Array.isArray(circuit.review_hotspots))errors.push('Source review regions must be a list.');
+    else for(const h of circuit.review_hotspots){
+      if(!h||typeof h!=='object'){errors.push('Invalid source review region.');continue;}
+      evidence(h);
+      if(!Array.isArray(h.bbox)||h.bbox.length!==4||!h.bbox.every(Number.isFinite)||!Number.isFinite(h.source_width)||!Number.isFinite(h.source_height)||h.source_width<=0||h.source_height<=0||h.bbox[0]<0||h.bbox[1]<0||h.bbox[2]<=h.bbox[0]||h.bbox[3]<=h.bbox[1]||h.bbox[2]>h.source_width||h.bbox[3]>h.source_height)errors.push('Source review regions must lie inside their image.');
     }
   }
   return [...new Set(errors)];

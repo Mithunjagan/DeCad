@@ -8,6 +8,7 @@ import tempfile
 import json
 import os
 import re
+from typing import Literal
 from pathlib import Path
 import httpx
 from pydantic import BaseModel, Field, model_validator
@@ -25,7 +26,38 @@ class Component(BaseModel):
     x: float | None = Field(None, ge=0, le=10)   # position on the source sheet, as a fraction of its width
     y: float | None = Field(None, ge=0, le=10)
 
-class Node(BaseModel):
+EvidenceSource=Literal['vector','wire_trace','net_label','erc_healed','vlm_tiebreak']
+
+
+class Evidence(BaseModel):
+    confidence: float | None = Field(None,ge=0,le=1,allow_inf_nan=False)
+    source: EvidenceSource | None = None
+
+
+class ReviewHotspot(Evidence):
+    id: str = Field(min_length=1,max_length=100)
+    bbox: tuple[float,float,float,float]
+    page: int = Field(1,ge=1,le=10)
+    source_width: float = Field(gt=0,allow_inf_nan=False)
+    source_height: float = Field(gt=0,allow_inf_nan=False)
+    coordinate_space: Literal['source_pixels']='source_pixels'
+    reason: str = Field(min_length=1,max_length=500)
+    ref: str | None = None
+    pin: str | None = None
+    reviewed: bool = False
+    stale: bool = False
+    net: str | None = None
+
+    @model_validator(mode='after')
+    def validate_region(self):
+        import math
+        x0,y0,x1,y1=self.bbox
+        if not all(map(math.isfinite,self.bbox)) or not (0<=x0<x1<=self.source_width and 0<=y0<y1<=self.source_height):
+            raise ValueError('Review region must lie inside its source image.')
+        return self
+
+
+class Node(Evidence):
     ref: str
     pin: str = Field(min_length=1, max_length=100)
 
@@ -35,7 +67,7 @@ class Node(BaseModel):
             raise ValueError('A physical pin identifier is required.')
         return self
 
-class Net(BaseModel):
+class Net(Evidence):
     name: str = Field(min_length=1,max_length=100)
     nodes: list[Node] = Field(min_length=1)
 
@@ -45,12 +77,14 @@ class Circuit(BaseModel):
     nets: list[Net] = Field(default_factory=list,max_length=2000)
     warnings: list[str] = Field(default_factory=list)
     image_metadata: dict = Field(default_factory=dict)
+    review_hotspots: list[ReviewHotspot] = Field(default_factory=list,max_length=5000)
 
     @classmethod
     def from_image_graph(cls,graph):
         """Repair image observations only; JSON/manual imports remain strict."""
         from .erc import erc_self_heal
-        return cls.model_validate(erc_self_heal(graph))
+        from .confidence import annotate_image_graph
+        return cls.model_validate(annotate_image_graph(erc_self_heal(graph)))
 
     @model_validator(mode='after')
     def validate_graph(self):

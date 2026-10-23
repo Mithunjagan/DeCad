@@ -88,12 +88,16 @@ two pages share a global net. Original names remain visible in the scoped names.
     from .ingestion import Circuit, Net
 
     if len(pages) == 1:
-        return finish(pages[0][1])
+        page,circuit=pages[0]
+        circuit=circuit.model_copy(deep=True)
+        for hotspot in circuit.review_hotspots:hotspot.page=page
+        for frame in circuit.image_metadata.get('source_frames',[]):frame['page']=page
+        return finish(circuit)
     if not pages:
         raise OperationError('The document has no nonblank schematic pages.')
     counts = Counter(c.ref for _, circuit in pages for c in circuit.components)
     occupied = set(counts)
-    components, nets, warnings = [], [], []
+    components, nets, warnings, hotspots, frames, geometry = [], [], [], [], [], []
     for page, circuit in pages:
         mapping = {}
         for component in circuit.components:
@@ -113,7 +117,11 @@ two pages share a global net. Original names remain visible in the scoped names.
             name = f'PAGE{page}_{net.name}'
             if len(name) > 100:
                 name = name[:83] + '_' + hashlib.sha256(name.encode()).hexdigest()[:16]
-            nets.append(Net(name=name, nodes=[node.model_copy(update={'ref': mapping[node.ref]}) for node in net.nodes]))
+            nets.append(net.model_copy(update={'name':name, 'nodes':[node.model_copy(update={'ref': mapping[node.ref]}) for node in net.nodes]}))
+        hotspots.extend(h.model_copy(update={'page':page,'ref':mapping.get(h.ref,h.ref),'id':f'p{page}-{h.id}'}) for h in circuit.review_hotspots)
+        frames.extend({**frame,'page':page} for frame in circuit.image_metadata.get('source_frames',[]))
+        geometry.append({'page':page,'references':mapping,'metadata':circuit.image_metadata})
         warnings.extend(f'Page {page}: {message}' for message in circuit.warnings)
     warnings.insert(0, f'Recognized {len(pages)} document pages. Page nets remain separate; review off-page/global connections and repeated device sections before combining them.')
-    return finish(Circuit(components=components, nets=nets, warnings=warnings))
+    return finish(Circuit(components=components, nets=nets, warnings=warnings,review_hotspots=hotspots,
+                          image_metadata={'source_frames':frames,'pages':geometry}))

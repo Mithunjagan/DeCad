@@ -23,7 +23,7 @@ from typing import Literal
 from urllib.parse import urlencode
 import httpx
 from dotenv import load_dotenv
-from fastapi import Depends, FastAPI, HTTPException, Request
+from fastapi import Depends, FastAPI, HTTPException, Request, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse, Response, StreamingResponse
 from pydantic import BaseModel, Field
@@ -289,8 +289,25 @@ def files(pid:str,u:dict=Depends(user)):
     return sorted(str(f.relative_to(p)) for f in p.rglob('*') if f.is_file() and not any(part.startswith(('.', '~')) for part in f.relative_to(p).parts) and not f.is_symlink() and f.suffix!='.kicad_prl')
 
 @app.get('/projects/{pid}/file')
-def file(pid:str,name:str,u:dict=Depends(user)):
+def file(pid:str,name:str,preview:bool=False,page:int=Query(1,ge=1,le=10),u:dict=Depends(user)):
     p=pdir(u,pid);path=public_file(p,name)
+    if preview:
+        if path.suffix.lower()=='.pdf':
+            import fitz
+            with fitz.open(path) as document:
+                if document.needs_pass:raise HTTPException(409,'Unlock the PDF before previewing.')
+                if page>len(document):raise HTTPException(404,'Source page does not exist.')
+                sheet=document[page-1];factor=1800/max(sheet.rect.width,sheet.rect.height,1)
+                pix=sheet.get_pixmap(matrix=fitz.Matrix(factor,factor),colorspace=fitz.csRGB,alpha=False)
+                data=pix.tobytes('png')
+        elif path.suffix.lower() in ('.png','.jpg','.jpeg','.webp','.bmp','.tif','.tiff'):
+            from PIL import Image,ImageOps
+            with Image.open(path) as image:
+                if page>getattr(image,'n_frames',1):raise HTTPException(404,'Source page does not exist.')
+                image.seek(page-1);view=ImageOps.exif_transpose(image).convert('RGB');view.thumbnail((1800,1800))
+                output=io.BytesIO();view.save(output,format='PNG');data=output.getvalue()
+        else:raise HTTPException(415,'This source has no raster preview.')
+        return Response(data,media_type='image/png',headers={'Cache-Control':'no-store','X-Content-SHA256':hashlib.sha256(data).hexdigest()})
     data=path.read_bytes()
     media={'.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.gif':'image/gif','.pdf':'application/pdf','.docx':'application/octet-stream'}.get(path.suffix.lower(),'text/plain')
     disposition="attachment; filename*=UTF-8''"+urllib.parse.quote(path.name,safe='')

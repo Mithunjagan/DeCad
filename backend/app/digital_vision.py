@@ -2155,6 +2155,9 @@ def recognize(page, toks):
             where[r] = ((box[0] + box[2]) / 2, (box[1] + box[3]) / 2, True)
         elif r not in where:
             where[r] = (x, y, False)
+    geometry.setdefault('width',page.gray.shape[1]);geometry.setdefault('height',page.gray.shape[0])
+    geometry.setdefault('source_size',list(page.source_size or (page.gray.shape[1],page.gray.shape[0])))
+    geometry.setdefault('source_affine',page.affine.tolist() if page.affine is not None else [[1,0,0],[0,1,0]])
     graph = {
         'components': [{'ref': r, 'value': v or 'UNKNOWN', 'library': PASSIVE.get(re.sub(r'\d.*', '', r)),
                         **({'x': round(where[r][0] / width, 4), 'y': round(where[r][1] / width, 4)} if r in where else {})}
