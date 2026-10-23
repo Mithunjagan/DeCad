@@ -9,6 +9,7 @@ test('net overlay inverts source transform, scopes pages and excludes buses',()=
  const net={nodes:[{ref:'U_P2_1',pin:'1'}]};
  assert.deepEqual(netGeometry(graph,net,2),{pins:[{ref:'U_P2_1',pin:'1',at:[20,30]}],segments:[{id:1,a:[20,30],b:[40,30]}]});
  assert.deepEqual(netGeometry(graph,net,1),{pins:[],segments:[]});
+ assert.deepEqual(netGeometry(graph,{...net,metadata:{evidence_stale:true}},2),{pins:[],segments:[]});
 });
 
 test('split and merge update physical membership and invalidate old confidence',()=>{

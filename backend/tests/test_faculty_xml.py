@@ -35,6 +35,15 @@ def test_unknown_attributes_elements_empty_and_absent_survive():
     assert semantic_diff(original,parse(serialize(from_circuit(to_circuit(original)))))['equal']
 
 
+def test_aliases_and_scope_metadata_do_not_short_different_declared_nets():
+    text=FIXTURE.read_text().replace('AliaseNetName=""','AliaseNetName="SAME_ALIAS" Scope="sheet-A"',1)
+    text=text.replace('AliaseNetName=""','AliaseNetName="SAME_ALIAS" Scope="sheet-B"',1)
+    original=parse(text);graph=to_circuit(original)
+    assignments={(p.ref,p.pin):n.name for n in graph.nets for p in n.nodes}
+    assert assignments['U1','1']=='OE' and assignments['U1','2']=='BD1'
+    assert semantic_diff(original,parse(serialize(from_circuit(graph))))['equal']
+
+
 def test_edits_are_exported_instead_of_replaying_original():
     original=parse(FIXTURE.read_bytes());graph=to_circuit(original)
     net=next(n for n in graph.nets if n.name=='QD0');net.name='REVIEWED_QD0'
