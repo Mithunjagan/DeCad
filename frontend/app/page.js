@@ -135,15 +135,20 @@ export default function Page() {
     try { await f(`/projects/${pid}/file?name=${encodeURIComponent(name)}`, {method: 'PUT', body: JSON.stringify({content: sourceCode,expected_sha256:sourceHash})}); setSourceDirty(false); await refresh(); setStatus('Source saved and parsed by KiCad'); }
     catch (e) { setStatus(e.message); }
   };
-  const applyProposal = async (circuit) => {
+  const applyProposal = async (circuit,options={}) => {
+    if(options.preserveConnections){
+      try{setActivity('export');setBusy(true);const response=await f(`/projects/${pid}/export/observed-kicad`,{method:'POST',body:JSON.stringify({circuit})});
+        triggerDownload(await response.blob(),`${pid}-observed-kicad.zip`,'application/zip');setProposal(null);setStatus('KiCad archive downloaded; observed pin IDs and connections verified by native readback.');
+      }catch(e){setStatus(e.message);throw e;}finally{setBusy(false);}return;
+    }
     try { setActivity('apply');setBusy(true); const result=await (await f(`/projects/${pid}/import`, {method:'POST',body:JSON.stringify({circuit,output_tool:outputTool})})).json(); setProposal(null); setEditorMode('kicad'); await refresh(); setStatus('Reviewed import applied'); if(result.output?.ready)await downloadServer(result.output.url,result.output.filename); else if(result.output?.error)setStatus(result.output.error); }
     catch (e) { setStatus(e.message); throw e; } finally {setBusy(false);}
   };
   // Reviewed recognition -> native OrCAD design, verified by reopening it in Capture's database.
-  const generateOrcad = async (circuit) => {
+  const generateOrcad = async (circuit,options={}) => {
     try {
       setActivity('export');setBusy(true); setStatus('Generating the OrCAD design and verifying it in Capture…');
-      const r=await f(`/projects/${pid}/export/orcad-dsn`,{method:'POST',body:JSON.stringify({circuit})});
+      const r=await f(`/projects/${pid}/export/orcad-dsn`,{method:'POST',body:JSON.stringify({circuit,preserve_connections:!!options.preserveConnections})});
       triggerDownload(await r.blob(),`${pid}-orcad-dsn.zip`,'application/zip');
       setStatus(`OrCAD .DSN verified (${r.headers.get('x-verification')||'connectivity checked'}) and saved in the project's orcad folder.`);
       setProposal(null); setOrcadResult(true);

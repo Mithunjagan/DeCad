@@ -530,11 +530,11 @@ def orcad_module():
     if not orcad_capture.available():raise HTTPException(409,'OrCAD Capture is not installed on this computer. Set ORCAD_ROOT to the OrCAD X folder.')
     return orcad_capture
 
-def orcad_build(p,pid,graph,source=None):
+def orcad_build(p,pid,graph,source=None,*,preserve_connections=False):
     oc=orcad_module()
     from . import orcad_library
     orcad_library.activate(p.parent)
-    with ORCAD_LOCK:data,status=oc.save_to_project(p,pid,graph,STATE,source)
+    with ORCAD_LOCK:data,status=oc.save_to_project(p,pid,graph,STATE,source,**({'preserve_connections':True} if preserve_connections else {}))
     return data,status
 
 def orcad_zip_response(pid,data,status):
@@ -551,14 +551,31 @@ def export_orcad_dsn(pid:str,u:dict=Depends(user)):
 class OrcadRequest(BaseModel):
     circuit:Circuit
     source:str | None=None
+    preserve_connections:bool=False
 
 @app.post('/projects/{pid}/export/orcad-dsn')
 def export_reviewed_orcad_dsn(pid:str,body:OrcadRequest,u:dict=Depends(user)):
     """Reviewed recognition result -> verified OrCAD design, without a KiCad round trip (digital
     parts and board connectors often have no KiCad symbol)."""
     p=pdir(u,pid)
-    data,status=orcad_build(p,pid,body.circuit.model_dump(exclude={'warnings'}),body.source)
+    data,status=orcad_build(p,pid,body.circuit.model_dump(exclude={'warnings'}),body.source,preserve_connections=body.preserve_connections)
     return orcad_zip_response(pid,data,status)
+
+@app.post('/projects/{pid}/export/observed-kicad')
+def export_observed_kicad(pid:str,body:OrcadRequest,u:dict=Depends(user)):
+    """Download an exact-pin native graph without changing the current project."""
+    pdir(u,pid)
+    from .observed_export import write_kicad
+    with tempfile.TemporaryDirectory() as temporary:
+        folder=Path(temporary)/'observed'
+        report=write_kicad(body.circuit.model_dump(),folder,pid)
+        output=io.BytesIO()
+        with zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED) as archive:
+            for path in folder.iterdir():
+                if path.is_file():archive.write(path,arcname=path.name)
+    return Response(output.getvalue(),media_type='application/zip',headers={
+        'Content-Disposition':f'attachment; filename="{pid}-observed-kicad.zip"',
+        'X-Verification':f'{report["components"]} parts, {report["checked_pins"]} pins verified'})
 
 @app.get('/projects/{pid}/orcad')
 def orcad_status(pid:str,u:dict=Depends(user)):

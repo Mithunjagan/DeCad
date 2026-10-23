@@ -20,6 +20,10 @@ def report(phase, original_baseline, native_baseline):
         delta=after-before
         result['clear'][name]={'before':before,'after':after,'total':total,'delta':delta,
                                'percentage_point_delta':100*delta/total}
+        failed_before={p[0]:p[2] for p in old[name]['wrong_pins']}
+        failed_after={p[0]:p[2] for p in new[name]['wrong_pins']}
+        result['clear'][name]['gained_pins']=[{'pin':pin,'net':failed_before[pin]} for pin in sorted(failed_before.keys()-failed_after.keys())]
+        result['clear'][name]['lost_pins']=sorted(failed_after.keys()-failed_before.keys())
         lines.append(f'| {name} | {before}/{total} | {after}/{total} | {delta:+d} | {100*delta/total:+.2f} |')
     before=sum(r['before'] for r in result['clear'].values())
     after=sum(r['after'] for r in result['clear'].values())
@@ -40,6 +44,8 @@ def report(phase, original_baseline, native_baseline):
         for line in (Path(source)/'candidates.jsonl').read_text().splitlines():
             record=json.loads(line)
             design_names[record['sample_id']]=record.get('source_file',record['sample_id'])
+            if design_names[record['sample_id']]=='source.kicad_sch':
+                design_names[record['sample_id']]=record.get('source','').rstrip('/').rsplit('/',1)[-1]+'/source.kicad_sch'
             if record['sample_id'] in old_native:truths[record['sample_id']]=record['circuit']
     result['native_source_designs']={identity:design_names.get(identity,identity) for identity in old_native}
     keys=('physical_pins_found','connected_pin_pairs_correct','connected_pin_pairs_wrong')
@@ -63,7 +69,7 @@ def report(phase, original_baseline, native_baseline):
         result['native'][identity]['lost_correct_pairs']=sorted((before_pairs-after_pairs)&truth_pairs)
         result['native'][identity]['new_incorrect_pairs']=sorted(after_pairs-before_pairs-truth_pairs)
         result['native'][identity]['removed_incorrect_pairs']=sorted(before_pairs-after_pairs-truth_pairs)
-        lines.append('| '+identity+' | '+' | '.join(cells)+' |')
+        lines.append('| '+design_names.get(identity,identity)+' | '+' | '.join(cells)+' |')
     lines.append('| **Total** | '+' | '.join(f'**{a} -> {b} ({b-a:+d})**' for a,b in totals.values())+' |')
     result['native_totals']={key:{'before':a,'after':b,'delta':b-a} for key,(a,b) in totals.items()}
     result['trace_coverage']={}

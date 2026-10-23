@@ -47,7 +47,7 @@ export default function CircuitReviewPanel({initial,source,request,onApply,onOrc
  const addComponent=()=>{selectTab('components');update({...circuit,components:[...circuit.components,{ref:'',value:'',library:''}]});};
  const addNet=()=>{let index=circuit.nets.length+1;while(circuit.nets.some(n=>n.name===`NET_${index}`))index++;selectTab('connections');setActiveNet(circuit.nets.length);update({...circuit,nets:[...circuit.nets,{name:`NET_${index}`,nodes:[]}]});};
  const applyRaw=()=>{try{const value=JSON.parse(raw),problems=circuitErrors(value);if(problems.length)throw Error(problems.join(' '));update({...value,nets:value.nets.map(n=>({...n,confidence:null,source:null,nodes:n.nodes.map(p=>({...p,confidence:null,source:null}))})),review_hotspots:(value.review_hotspots||[]).map(h=>({...h,stale:true,reviewed:false}))});setRawDirty(false);setTab('components');setQuery('');}catch(e){setError(e.message);}};
- const submit=async()=>{if(busy||!reviewed||errors.length||rawDirty)return;try{setError('');await (target==='orcad'?onOrcad:onApply)(circuit);}catch(e){setError(e.message);}};
+ const submit=async()=>{if(busy||!reviewed||errors.length||rawDirty)return;try{setError('');await (target.startsWith('orcad')?onOrcad:onApply)(circuit,{preserveConnections:target.endsWith('-observed')});}catch(e){setError(e.message);}};
  const ready=reviewed&&!errors.length&&!rawDirty;
  const tabs=[['components','Components',circuit.components.length],['connections','Connections',circuit.nets.length],['checks','Review notes',errors.length+warnings.length],['json','JSON',null]];
  const sourceUrl=['application/pdf','image/tiff'].includes(preview?.type)?rasterPreview:preview?.type?.startsWith('image/')?preview.url:null;
@@ -124,11 +124,12 @@ export default function CircuitReviewPanel({initial,source,request,onApply,onOrc
   </div>
   <footer className={styles.footer}>
    {error&&<p className={styles.error} role="alert">{error}</p>}
+   {target.endsWith('-observed')&&<p className={styles.hint}>Observed-pin exports use generated symbols to preserve the reviewed pin IDs and connections.</p>}
    <label className={styles.confirm}><input type="checkbox" disabled={busy||rawDirty||!!errors.length} checked={reviewed} onChange={e=>setReviewed(e.target.checked)}/><span>I checked the component values, symbols and pin connections against the source.</span></label>
    <div className={styles.actions}><div className={styles.gate} aria-live="polite">{busy?'Writing and validating your design…':rawDirty?'Apply or discard your JSON changes.':errors.length?<button onClick={()=>selectTab('checks')}>Resolve {errors.length} issues to continue</button>:reviewed?'Ready to apply your review.':'Confirm your review to continue.'}</div>
     <button disabled={busy} onClick={onClose}>Cancel</button>
-    {onOrcad&&<select aria-label="Review export target" disabled={busy} value={target} onChange={e=>setTarget(e.target.value)}><option value="kicad">KiCad project</option><option value="orcad">OrCAD Capture</option></select>}
-    <button className={styles.primary} disabled={busy||!ready} onClick={submit}>{busy?'Working…':target==='orcad'?'Generate & verify OrCAD .DSN':onOrcad?'Import into KiCad project':'Apply reviewed circuit'}</button>
+    {onOrcad&&<select aria-label="Review export target" disabled={busy} value={target} onChange={e=>setTarget(e.target.value)}><option value="kicad">KiCad project</option><option value="orcad">OrCAD Capture</option><option value="kicad-observed">KiCad archive · observed pins</option><option value="orcad-observed">OrCAD · observed pins</option></select>}
+    <button className={styles.primary} disabled={busy||!ready} onClick={submit}>{busy?'Working…':target.startsWith('orcad')?'Generate & verify OrCAD .DSN':target==='kicad-observed'?'Download verified KiCad archive':onOrcad?'Import into KiCad project':'Apply reviewed circuit'}</button>
    </div>
   </footer>
  </WorkbenchDialog>;

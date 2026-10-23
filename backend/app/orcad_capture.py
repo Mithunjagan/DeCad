@@ -392,7 +392,10 @@ def tcl_word(text):
     return '"' + re.sub(r'([\\$\[\]"{}])', r'\\\1', text) + '"'
 
 
-def export(name, graph, cache_dir):
+def export(name, graph, cache_dir, *, preserve_connections=False):
+    if preserve_connections:
+        from .observed_export import orcad_bundle
+        return orcad_bundle(name,graph,cache_dir)
     root = orcad_root()
     if root is None:
         raise OperationError('OrCAD Capture is not installed. Set ORCAD_ROOT to the OrCAD X installation folder.')
@@ -530,7 +533,7 @@ def _wire(root, td, dsn, pin_net):
     return summary
 
 
-def _write(root, td, dsn, genlib, graph, resolved, generate, pin_net, footprints=None, wiring=False):
+def _write(root, td, dsn, genlib, graph, resolved, generate, pin_net, footprints=None, wiring=False,literal_pins=False):
     lines = []
     where = placement(graph['components'])
     order = sorted(graph['components'], key=lambda c: (c['ref'] not in where,
@@ -544,7 +547,7 @@ def _write(root, td, dsn, genlib, graph, resolved, generate, pin_net, footprints
         lines.append('{' + ' '.join([tcl_word(c['ref']), tcl_word(c.get('value', '')), tcl_word(lib), tcl_word(pkg), '{' + pins + '}', tcl_word(fp),
                                      tcl_word(tx), tcl_word(ty)]) + '}')
     gens = ['{' + ' '.join([tcl_word(str(genlib)), tcl_word(pkg), tcl_word(prefix),
-                            '{' + ' '.join(tcl_word(p) for p in generated_pins(pins)) + '}']) + '}'
+                            '{' + ' '.join(tcl_word(p) for p in (sorted(pins) if literal_pins else generated_pins(pins))) + '}']) + '}'
             for pkg, (prefix, pins) in sorted(generate.items())]
     aspect = graph.get('sheet_aspect')
     if where and not aspect:
@@ -868,9 +871,9 @@ def launch(dsn):
     return str(target)
 
 
-def save_to_project(project_dir, name, graph, cache_dir, source=None):
+def save_to_project(project_dir, name, graph, cache_dir, source=None,*,preserve_connections=False):
     """Export, verify and keep the design in <project>/orcad with a rendered preview and a status record."""
-    data, report = export(name, graph, cache_dir)
+    data, report = export(name, graph, cache_dir,**({'preserve_connections':True} if preserve_connections else {}))
     out = Path(project_dir) / 'orcad'
     out.mkdir(exist_ok=True)
     for old in out.iterdir():

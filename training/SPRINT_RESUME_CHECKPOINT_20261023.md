@@ -1,4 +1,15 @@
-# Schematic2SDN sprint: paused at the user's request
+# Schematic2SDN sprint: completed 23 October 2026
+
+The user resumed this sprint with "continueee". All six phases and required final
+gates are complete. The pause and remaining-work sections below are historical.
+Final results: fresh 18-case gate passed; clear 227/245 (92.65%, +10 pins),
+S4-scan300 44/72 (+6), native 103 valid pins / 9 correct pairs / 14 wrong pairs.
+All previously correct observations were retained and no new incorrect native
+pairs were added. Final backend suite: 361 passed, six skipped. Frontend:
+14 tests and production build passed. Actual native KiCad and Capture readback:
+18/18 graphs each, 2208/2208 observed assignments preserved in each format.
+Protected OCR weights are unchanged. See PIPELINE_SPRINT_FINAL_20261023.md for
+the exact per-sample and ten-design diffs, remaining errors and evidence.
 
 Saved on 23 October 2026, approximately 12:59 IST. Resume in
 `D:\DeCad-main\Jrk_DeCad\Schematic2SDN`.

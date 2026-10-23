@@ -74,3 +74,33 @@ def test_pdf_preview_uses_authenticated_project_path_and_actual_page(client):
     assert client.get('/projects/Circuit/file?name=../source.pdf&preview=true').status_code==400
     assert client.get('/projects/Circuit/file?name=source.pdf').content.startswith(b'%PDF')
     assert TestClient(main.app).get('/projects/Circuit/file?name=source.pdf&preview=true').status_code==401
+
+
+def test_attachment_review_preserves_source_frames_hotspots_and_evidence(tmp_path,monkeypatch):
+    import asyncio
+    from app import assistant
+    expected=Circuit.from_image_graph(graph())
+    expected.warnings=['Compare with the actual source']
+    async def ingest(*args,**kwargs):return expected,[]
+    monkeypatch.setattr(assistant,'ingest',ingest)
+    response=asyncio.run(assistant.execute('Analyze attached schematic',tmp_path,[tmp_path/'source.png']))
+    assert response['route']=='import_review' and response['edits']==[]
+    assert response['proposal']==expected.model_dump()
+
+
+def test_other_attachment_boxes_cannot_overlay_the_first_source(tmp_path,monkeypatch):
+    import asyncio
+    from app import assistant
+    first=Circuit.from_image_graph(graph());first.warnings=['Review source']
+    other=deepcopy(graph())
+    other['components'][0]['ref']='R2';other['nets'][0]['nodes'][0]['ref']='R2'
+    other['nets'][0]['name']='OTHER'
+    other['image_metadata']['pin_anchors'][0]['ref']='R2'
+    other['image_metadata']['review_hotspots'][0]['ref']='R2'
+    second=Circuit.from_image_graph(other)
+    async def ingest(path,**kwargs):return (first if path.name=='one.png' else second),[]
+    monkeypatch.setattr(assistant,'ingest',ingest)
+    proposal=asyncio.run(assistant.execute('Analyze attached sources',tmp_path,[tmp_path/'one.png',tmp_path/'two.png']))['proposal']
+    assert {h['ref'] for h in proposal['review_hotspots']}=={'R1'}
+    assert proposal['image_metadata']['attachments'][1]['review_hotspots'][0]['ref']=='R2'
+    assert 'separately' in proposal['warnings'][-1]

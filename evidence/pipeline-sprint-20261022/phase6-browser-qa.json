@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "scope": "Live local workbench; UI fixtures excluded from recognition accuracy",
+  "sample": "Sample 4.jpg.jpeg",
+  "sourceDimensions": [
+    9917,
+    7016
+  ],
+  "regions": 271,
+  "confirmationChangedOnlyReviewFlag": true,
+  "confirmedRegions": 1,
+  "zoomPassed": true,
+  "manualEditClearsAffectedEvidence": true,
+  "manualEditStaleRegions": 2,
+  "nativeKicadDownload": "HTTP 200 with native readback",
+  "pdfPreviewPages": [
+    1,
+    2
+  ],
+  "pdfPreviewDimensions": [
+    1800,
+    1440
+  ],
+  "pdfPageChanged": true,
+  "limitations": [
+    "Two-page synthetic UI fixture recovered two components and zero connections; excluded from all accuracy metrics",
+    "Tool click deadlines occurred on the large raw JSON editor; resulting tab changes were verified before continuing",
+    "Expected unsupported filename-only command returned 422; recognition used actual attachments"
+  ]
+}

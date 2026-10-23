@@ -177,7 +177,20 @@ async def execute(message,project,attachment_paths=None,before_mutation=None,rec
         circuits=[]
         for path in attachment_paths:
             c,d=await ingest(path,recognition_mode=recognition_mode) if recognition_mode else await ingest(path);circuits.append(c);directives.extend(d)
-        circuit=Circuit(components=[c for g in circuits for c in g.components],nets=[n for g in circuits for n in g.nets],warnings=[w for g in circuits for w in g.warnings])
+        if len(circuits)==1:
+            circuit=circuits[0].model_copy(deep=True)
+        else:
+            # The workbench compares the first attachment. Keep other source
+            # frames separately so their coordinates cannot overlay that image.
+            metadata={**circuits[0].image_metadata,'attachments':[
+                {'name':Path(path).name,'metadata':g.image_metadata,
+                 'review_hotspots':[h.model_dump() for h in g.review_hotspots]}
+                for path,g in zip(attachment_paths,circuits)]}
+            notes=[w for g in circuits for w in g.warnings]
+            if any(g.review_hotspots for g in circuits[1:]):
+                notes.append('Source overlays show the first attachment. Import other files separately to inspect their source regions.')
+            circuit=Circuit(components=[c for g in circuits for c in g.components],nets=[n for g in circuits for n in g.nets],
+                            warnings=notes,image_metadata=metadata,review_hotspots=circuits[0].review_hotspots)
         # Vision imports produce a reviewable proposal, not an unreviewed mutation.
         if circuit.warnings:
             return {'reply':'Review the extracted component/pin/net graph before applying it. '+ ' '.join(circuit.warnings),'route':'import_review','proposal':circuit.model_dump(),'edits':[]}

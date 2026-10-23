@@ -135,7 +135,10 @@ def main(args):
             sys.setprofile(None)
         (folder / 'recognized.json').write_text(json.dumps(graph, indent=2))
         result = measure(row['circuit'], graph)
+        from app.ocr_worker import session_providers
+        providers=session_providers(dv)
         result.update(source_image_sha256=row['image_sha256'], native_netlist_sha256=row['native_netlist_sha256'],
+                      providers=providers,
                       source=str(source), seconds=round(time.monotonic()-started, 2), failure=failure,
                       original_native_source_hash_verified=True,
                       recognizer_sha256=source_snapshot[str(Path(dv.__file__).resolve())],

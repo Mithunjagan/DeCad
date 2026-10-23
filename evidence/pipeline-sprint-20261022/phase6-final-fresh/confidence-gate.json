@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "scope": "Schema and source-coordinate evidence validation, not recognition accuracy",
+  "cases": {
+    "S1": {
+      "pins_checked": 300,
+      "nets_checked": 193,
+      "regions_checked": 293,
+      "errors": []
+    },
+    "S3": {
+      "pins_checked": 518,
+      "nets_checked": 309,
+      "regions_checked": 385,
+      "errors": []
+    },
+    "S4": {
+      "pins_checked": 292,
+      "nets_checked": 188,
+      "regions_checked": 274,
+      "errors": []
+    },
+    "S5": {
+      "pins_checked": 269,
+      "nets_checked": 174,
+      "regions_checked": 255,
+      "errors": []
+    },
+    "S2": {
+      "pins_checked": 167,
+      "nets_checked": 163,
+      "regions_checked": 595,
+      "errors": []
+    },
+    "S4-scan300": {
+      "pins_checked": 288,
+      "nets_checked": 202,
+      "regions_checked": 501,
+      "errors": []
+    },
+    "S4-scan200": {
+      "pins_checked": 86,
+      "nets_checked": 78,
+      "regions_checked": 546,
+      "errors": []
+    },
+    "S4-blur300": {
+      "pins_checked": 59,
+      "nets_checked": 59,
+      "regions_checked": 566,
+      "errors": []
+    },
+    "native-3b2a49a524e2d50dcf26": {
+      "pins_checked": 44,
+      "nets_checked": 38,
+      "regions_checked": 51,
+      "errors": []
+    },
+    "native-a39a7a1fc84f921b27fd": {
+      "pins_checked": 19,
+      "nets_checked": 17,
+      "regions_checked": 4,
+      "errors": []
+    },
+    "native-fedf29b44113e135f31f": {
+      "pins_checked": 15,
+      "nets_checked": 15,
+      "regions_checked": 1,
+      "errors": []
+    },
+    "native-c4d88e79bc63688e0e7c": {
+      "pins_checked": 12,
+      "nets_checked": 12,
+      "regions_checked": 42,
+      "errors": []
+    },
+    "native-37735b083f0b9f56549f": {
+      "pins_checked": 52,
+      "nets_checked": 51,
+      "regions_checked": 184,
+      "errors": []
+    },
+    "native-0a236a74292d04d831fa": {
+      "pins_checked": 51,
+      "nets_checked": 51,
+      "regions_checked": 31,
+      "errors": []
+    },
+    "native-e9b7597c67252bf7707d": {
+      "pins_checked": 3,
+      "nets_checked": 3,
+      "regions_checked": 6,
+      "errors": []
+    },
+    "native-901de51001a98cc2361a": {
+      "pins_checked": 7,
+      "nets_checked": 7,
+      "regions_checked": 31,
+      "errors": []
+    },
+    "native-c6bcc506a3200b19e089": {
+      "pins_checked": 12,
+      "nets_checked": 10,
+      "regions_checked": 30,
+      "errors": []
+    },
+    "native-c4d7791b4ebdf13c3944": {
+      "pins_checked": 14,
+      "nets_checked": 13,
+      "regions_checked": 20,
+      "errors": []
+    }
+  },
+  "errors": []
+}
