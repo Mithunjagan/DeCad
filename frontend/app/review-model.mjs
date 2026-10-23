@@ -27,10 +27,16 @@ export function mergeNets(circuit,index,target){
 }
 export function electricalWarnings(circuit){
  const types=new Map((circuit.physical_pins||[]).map(p=>[JSON.stringify([p.ref,p.pin]),p.electrical_type]));
- return circuit.nets.flatMap(n=>{
+ const components=new Map(circuit.components.map(c=>[c.ref,c]));
+ const constraints=circuit.nets.flatMap(n=>n.nodes.flatMap(p=>{
+  const c=components.get(p.ref);
+  return ['Device:R','Device:C','Device:L','Device:D'].includes(c?.library)&&!['1','2'].includes(p.pin)?[`${p.ref}.${p.pin}: physical pin is absent from ${c.library}. Review the source number or symbol assignment; connection retained.`]:[];
+ }));
+ const unlocated=circuit.components.filter(c=>c.value==='CONNECTOR'&&c.x==null&&c.y==null).map(c=>`${c.ref}: connector has no located source body. Verify this is a physical reference rather than an internal pin-function label.`);
+ return [...new Set([...constraints,...unlocated,...circuit.nets.flatMap(n=>{
   const outputs=n.nodes.filter(p=>['Output','PowerOut','power_out','output'].includes(types.get(JSON.stringify([p.ref,p.pin]))));
   return outputs.length>1?[`${n.name}: ${outputs.length} explicit output drivers share a net. Review required; connections retained.`]:[];
- });
+ })])];
 }
 export function splitPin(circuit,index,pinIndex){
  const old=circuit.nets[index];if(old.nodes.length<2)return circuit;

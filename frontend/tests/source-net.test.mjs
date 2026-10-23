@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {netGeometry} from '../app/source-net.mjs';
-import {mergeNets,splitPin,renameComponent,removeComponent} from '../app/review-model.mjs';
+import {mergeNets,splitPin,renameComponent,removeComponent,electricalWarnings} from '../app/review-model.mjs';
 
 test('net overlay inverts source transform, scopes pages and excludes buses',()=>{
  const graph={image_metadata:{pages:[{page:2,references:{U1:'U_P2_1'},metadata:{source_size:[100,50],source_affine:[[2,0,0],[0,2,0]],
@@ -23,4 +23,10 @@ test('reference edits preserve unassigned inventory and remove deleted physical 
  const graph={components:[{ref:'U1',value:'X'}],nets:[],physical_pins:[{ref:'U1',pin:'15',used:true,metadata:{td9_attributes:{NodeName:'U1_15'}}}]};
  const renamed=renameComponent(graph,0,'U2');assert.equal(renamed.physical_pins[0].ref,'U2');assert.equal(renamed.physical_pins[0].metadata.td9_attributes.NodeName,'U2_15');
  assert.equal(removeComponent(renamed,0).physical_pins.length,0);
+});
+
+test('explicit passive package conflicts and unlocated connector labels require review without removing observations',()=>{
+ const graph={components:[{ref:'R1',value:'10K',library:'Device:R'},{ref:'U1',value:'UNKNOWN'},{ref:'P0',value:'CONNECTOR'}],nets:[{name:'A',nodes:[{ref:'R1',pin:'4'},{ref:'U1',pin:'4'}]}]};
+ const before=structuredClone(graph),warnings=electricalWarnings(graph);
+ assert.equal(warnings.length,2);assert.match(warnings[0],/R1\.4/);assert.match(warnings[1],/P0/);assert.deepEqual(graph,before);
 });

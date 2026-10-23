@@ -1,4 +1,5 @@
 import asyncio
+import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
 
@@ -15,6 +16,12 @@ def test_exact_faculty_roundtrip_through_canonical_graph():
     graph=to_circuit(original)
     exported=from_circuit(Circuit.model_validate_json(graph.model_dump_json()))
     reread=parse(serialize(exported))
+    # Independent XML reader compares every source attribute, outside the codec's
+    # own semantic-diff implementation, including all unused and empty records.
+    source_tree=ET.fromstring(FIXTURE.read_bytes());output_tree=ET.fromstring(serialize(exported))
+    for path,key in [('./NetList/Nodes/Node','NodeName'),('./NetList/PowerNets/Net','NetName'),('./NetList/UserNets/Net','NetName')]:
+        assert {e.get(key):e.attrib for e in source_tree.findall(path)}=={e.get(key):e.attrib for e in output_tree.findall(path)}
+    for tag in ('Application','Board','Version','Date'):assert source_tree.find(tag).attrib==output_tree.find(tag).attrib
     assert semantic_diff(original,reread)=={
         'equal':True,'nodes_before':129,'nodes_after':129,'nets_before':41,'nets_after':41,
         'nodes_missing':[],'nodes_extra':[],'nodes_changed':[],
