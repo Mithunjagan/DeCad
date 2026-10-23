@@ -14,7 +14,7 @@ test('net overlay inverts source transform, scopes pages and excludes buses',()=
 
 test('split and merge update physical membership and invalidate old confidence',()=>{
  const graph={components:[{ref:'U1',value:'X'}],nets:[{name:'A',confidence:.9,nodes:[{ref:'U1',pin:'1'},{ref:'U1',pin:'2'}]},{name:'B',nodes:[{ref:'U1',pin:'3'}]}]};
- const split=splitPin(graph,0,1);assert.equal(split.nets.length,3);assert.equal(split.nets[2].nodes[0].pin,'2');
+ const split=splitPin(graph,0,1);assert.equal(split.nets.length,3);assert.equal(split.nets[2].nodes[0].pin,'2');assert.equal(split.nets[2].metadata.evidence_stale,true);
  const merged=mergeNets(split,2,1);assert.equal(merged.nets.length,2);assert.deepEqual(merged.nets[1].nodes.map(p=>p.pin),['3','2']);
  assert.equal(merged.nets[1].confidence,null);assert.equal(graph.nets[0].nodes.length,2);
 });

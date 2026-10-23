@@ -3,14 +3,14 @@ export function renameComponent(circuit, index, ref) {
   return {...circuit, components:circuit.components.map((c,i)=>i===index?{...c,ref}:c),
     ...(circuit.physical_pins?{physical_pins:circuit.physical_pins.map(p=>p.ref===old?{...p,ref,confidence:null,source:null,metadata:{...p.metadata,td9_attributes:p.metadata?.td9_attributes?{...p.metadata.td9_attributes,DeviceLocation:ref,NodeName:`${ref}_${p.pin}`,NodeDisName:`${ref}_${p.pin}`}:undefined}}:p)}:{}),
     ...(circuit.review_hotspots?{review_hotspots:circuit.review_hotspots.map(h=>h.ref===old?{...h,ref,stale:true,reviewed:false}:h)}:{}),
-    nets:circuit.nets.map(n=>n.nodes.some(p=>p.ref===old)?{...n,confidence:null,source:null,nodes:n.nodes.map(p=>p.ref===old?{...p,ref,confidence:null,source:null}:p)}:n)};
+    nets:circuit.nets.map(n=>n.nodes.some(p=>p.ref===old)?{...n,metadata:{...n.metadata,evidence_stale:true},confidence:null,source:null,nodes:n.nodes.map(p=>p.ref===old?{...p,ref,confidence:null,source:null}:p)}:n)};
 }
 export function removeComponent(circuit,index) {
   const ref=circuit.components[index].ref;
   return {...circuit,components:circuit.components.filter((_,i)=>i!==index),
     ...(circuit.physical_pins?{physical_pins:circuit.physical_pins.filter(p=>p.ref!==ref)}:{}),
     ...(circuit.review_hotspots?{review_hotspots:circuit.review_hotspots.filter(h=>h.ref!==ref)}:{}),
-    nets:circuit.nets.map(n=>n.nodes.some(p=>p.ref===ref)?{...n,confidence:null,source:null,nodes:n.nodes.filter(p=>p.ref!==ref)}:n).filter(n=>n.nodes.length)};
+    nets:circuit.nets.map(n=>n.nodes.some(p=>p.ref===ref)?{...n,metadata:{...n.metadata,evidence_stale:true},confidence:null,source:null,nodes:n.nodes.filter(p=>p.ref!==ref)}:n).filter(n=>n.nodes.length)};
 }
 export function editNetEvidence(circuit,index,value){
   const old=circuit.nets[index],pins=new Set(old.nodes.map(p=>JSON.stringify([p.ref,p.pin])));
@@ -36,7 +36,7 @@ export function splitPin(circuit,index,pinIndex){
  const old=circuit.nets[index];if(old.nodes.length<2)return circuit;
  let suffix=1,name;do{name=`SPLIT_${suffix++}`;}while(circuit.nets.some(n=>n.name===name));
  const pin=old.nodes[pinIndex],next=editNetEvidence(circuit,index,{...old,nodes:old.nodes.filter((_,j)=>j!==pinIndex)});
- return {...next,nets:[...next.nets,{name,nodes:[{...pin,confidence:null,source:null}],confidence:null,source:null}]};
+ return {...next,nets:[...next.nets,{name,metadata:{evidence_stale:true},nodes:[{...pin,confidence:null,source:null}],confidence:null,source:null}]};
 }
 export function evidenceText(item){
   if(item?.confidence==null)return 'Unscored';

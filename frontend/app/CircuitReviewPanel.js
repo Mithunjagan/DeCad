@@ -45,7 +45,7 @@ export default function CircuitReviewPanel({initial,source,request,onApply,onOrc
  const assigned=new Set(circuit.nets.flatMap(n=>n.nodes.map(p=>JSON.stringify([p.ref,p.pin]))));
  const unresolved=(circuit.physical_pins||[]).filter(p=>!assigned.has(JSON.stringify([p.ref,p.pin])));
  const editComponent=(i,key,value)=>{const ref=circuit.components[i].ref;update({...circuit,components:circuit.components.map((c,j)=>j===i?{...c,[key]:value}:c),
-  nets:circuit.nets.map(n=>n.nodes.some(p=>p.ref===ref)?{...n,confidence:null,source:null,nodes:n.nodes.map(p=>p.ref===ref?{...p,confidence:null,source:null}:p)}:n),
+  nets:circuit.nets.map(n=>n.nodes.some(p=>p.ref===ref)?{...n,metadata:{...n.metadata,evidence_stale:true},confidence:null,source:null,nodes:n.nodes.map(p=>p.ref===ref?{...p,confidence:null,source:null}:p)}:n),
   review_hotspots:hotspots.map(h=>h.ref===ref?{...h,stale:true,reviewed:false}:h)});};
  const editNet=(i,value)=>update(editNetEvidence(circuit,i,value));
  const removeNet=i=>{const next=editNetEvidence(circuit,i,{...circuit.nets[i],nodes:[]});update({...next,nets:next.nets.filter((_,j)=>j!==i)});setActiveNet(Math.max(0,i-1));};
