@@ -97,7 +97,7 @@ two pages share a global net. Original names remain visible in the scoped names.
         raise OperationError('The document has no nonblank schematic pages.')
     counts = Counter(c.ref for _, circuit in pages for c in circuit.components)
     occupied = set(counts)
-    components, nets, warnings, hotspots, frames, geometry = [], [], [], [], [], []
+    components, nets, warnings, hotspots, frames, geometry, inventory = [], [], [], [], [], [], []
     for page, circuit in pages:
         mapping = {}
         for component in circuit.components:
@@ -119,9 +119,10 @@ two pages share a global net. Original names remain visible in the scoped names.
                 name = name[:83] + '_' + hashlib.sha256(name.encode()).hexdigest()[:16]
             nets.append(net.model_copy(update={'name':name, 'nodes':[node.model_copy(update={'ref': mapping[node.ref]}) for node in net.nodes]}))
         hotspots.extend(h.model_copy(update={'page':page,'ref':mapping.get(h.ref,h.ref),'id':f'p{page}-{h.id}'}) for h in circuit.review_hotspots)
+        inventory.extend(p.model_copy(update={'ref':mapping[p.ref]}) for p in circuit.physical_pins)
         frames.extend({**frame,'page':page} for frame in circuit.image_metadata.get('source_frames',[]))
         geometry.append({'page':page,'references':mapping,'metadata':circuit.image_metadata})
         warnings.extend(f'Page {page}: {message}' for message in circuit.warnings)
     warnings.insert(0, f'Recognized {len(pages)} document pages. Page nets remain separate; review off-page/global connections and repeated device sections before combining them.')
-    return finish(Circuit(components=components, nets=nets, warnings=warnings,review_hotspots=hotspots,
+    return finish(Circuit(components=components, nets=nets, warnings=warnings,review_hotspots=hotspots,physical_pins=inventory,
                           image_metadata={'source_frames':frames,'pages':geometry}))

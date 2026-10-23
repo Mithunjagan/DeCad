@@ -74,6 +74,13 @@ def annotate_image_graph(graph):
                         'confidence':max(0,min(1,certainty)),'source':source if source in SOURCES else 'wire_trace',
                         'reviewed':bool(old.get(identity,{}).get('reviewed',False))})
     graph['review_hotspots']=exposed
+    # Inventory only observed physical IDs; never fill a package from a catalog.
+    refs={c['ref'] for c in graph.get('components',[])}
+    inventory={(p['ref'],str(p['pin'])):p for p in graph.get('physical_pins',[])}
+    for key,anchor in anchors.items():
+        if key[0] in refs and key[1].strip() and '\n' not in key[1] and '\r' not in key[1]:
+            inventory.setdefault(key,{'ref':key[0],'pin':key[1],'metadata':{'observed_anchor':anchor}})
+    graph['physical_pins']=list(inventory.values())
     if len(size)==2 and all(_finite(v) and v>0 for v in size):
         metadata['source_frames']=[{'page':1,'width':size[0],'height':size[1],'coordinate_space':'source_pixels'}]
     metadata['confidence_description']='Heuristic evidence score; not calibrated accuracy. Confirmation does not increase the score.'

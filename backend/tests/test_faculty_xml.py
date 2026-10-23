@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 from app.engine import OperationError
-from app.faculty_xml import parse,serialize,to_circuit,from_circuit,semantic_diff,validate
+from app.faculty_xml import parse,serialize,to_circuit,from_circuit,semantic_diff,validate,graph_fidelity
 from app.ingestion import Circuit,ingest
 
 FIXTURE=Path(__file__).resolve().parents[2]/'training/faculty/NetList (1).xml'
@@ -79,3 +79,20 @@ def test_diff_includes_extra_records_and_metadata_changes():
 def test_actual_ingestion_uses_xml_parser():
     graph,_=asyncio.run(ingest(FIXTURE))
     assert len(graph.physical_pins)==129
+
+
+def test_pin_metadata_value_edits_and_zero_pin_component_are_reported():
+    graph=to_circuit(parse(FIXTURE.read_bytes()))
+    graph.components[0].value='REVIEWED PART'
+    graph.physical_pins[0].pin_function='ENABLE'
+    graph.physical_pins[0].electrical_type='Output'
+    graph.physical_pins[0].power=True
+    result=parse(serialize(from_circuit(graph)))
+    assert result.nodes[0].attributes['Marking']=='REVIEWED PART'
+    assert result.nodes[0].attributes['LabelName']=='ENABLE'
+    assert result.nodes[0].attributes['NodeType']=='Output'
+    assert result.nodes[0].attributes['IsPowerPin']=='TRUE'
+    assert graph_fidelity(graph,result)['passed']
+    graph.components.append({'ref':'U999','value':'NO OBSERVED PINS'})
+    graph=Circuit.model_validate(graph.model_dump())
+    assert graph_fidelity(graph,from_circuit(graph))['missing_components']==['U999']

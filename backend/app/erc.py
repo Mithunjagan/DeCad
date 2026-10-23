@@ -111,14 +111,14 @@ def erc_self_heal(circuit_graph,image_metadata=None):
         label['wire']=wire['id']
         note(f'Orphan label {name} attached to a unique parallel wire within 15px.','orphan_label_attachment',
              bbox=list(box),net=name,wire=wire['id'],confidence=.8)
-    _split_uncertain_power_paths(graph,metadata,anchors,note)
+    _review_power_paths(graph,metadata,anchors,note)
     metadata.setdefault('erc_actions',[]).extend(actions)
     metadata.setdefault('review_hotspots',[]).extend(actions)
     return graph
 
 
-def _split_uncertain_power_paths(graph,metadata,anchors,note):
-    """Cut only a measured uncertain edge on a specific power-ground path."""
+def _review_power_paths(graph,metadata,anchors,note):
+    """Report suspected shorts without choosing an edge to delete or a new net."""
     labels=metadata.get('external_labels',[])
     named=[(a,labels[a['index']]['text']) for a in metadata.get('label_anchors',[])
            if isinstance(a.get('index'),int) and 0<=a['index']<len(labels) and a.get('graph_node')]
@@ -142,33 +142,8 @@ def _split_uncertain_power_paths(graph,metadata,anchors,note):
             while previous[node] is not None:
                 node,identity=previous[node];path.append(identity)
             if not path:continue
-            weakest=min(path,key=lambda identity:edges[identity].get('confidence',1))
-            edge=edges[weakest]
-            if edge.get('confidence',1)>.7 or edge.get('source')=='vector':
-                note(f'{pname}/{gname} share a drawn path with no uncertain edge; source review required.','power_ground_review',confidence=.4,review=True)
-                continue
-            disabled.add(weakest)
-            reachable={start};queue=deque([start])
-            while queue:
-                for target,identity in adjacency[queue.popleft()]:
-                    if identity not in disabled and target not in reachable:reachable.add(target);queue.append(target)
-            if end in reachable:
-                disabled.remove(weakest);continue  # An alternate path makes this cut insufficient.
-            changed=False
-            for net in list(graph['nets']):
-                if not anonymous(net['name']):continue
-                groups=defaultdict(list)
-                for pin in net['nodes']:
-                    anchor=anchors.get((pin['ref'],pin['pin']));node=anchor.get('graph_node') if anchor else None
-                    groups[pname if node in reachable else gname if node in previous else net['name']].append(pin)
-                if len(groups)<2:continue
-                graph['nets'].remove(net)
-                for name,pins in groups.items():
-                    target=next((n for n in graph['nets'] if n['name']==name),None)
-                    if target:target['nodes'].extend(pins)
-                    else:graph['nets'].append({'name':name,'nodes':pins})
-                changed=True
-            points=edge.get('points',[]);bbox=([min(p[0] for p in points),min(p[1] for p in points),max(p[0] for p in points),max(p[1] for p in points)] if points else None)
-            note(f'Uncertain edge {weakest} removed on the shortest {pname}/{gname} path'+(' and anonymous assignments split.' if changed else '; named assignments retained for review.'),
-                 'power_ground_short_split',edge=weakest,bbox=bbox,confidence=edge.get('confidence',.5),review=not changed)
-    metadata['erc_disabled_edges']=sorted(disabled)
+            points=[p for identity in path for p in edges[identity].get('points',[])]
+            bbox=([min(p[0] for p in points)-2,min(p[1] for p in points)-2,
+                   max(p[0] for p in points)+2,max(p[1] for p in points)+2] if points else None)
+            note(f'{pname}/{gname} share an observed path; suspected short, source review required. Connections retained.',
+                 'power_ground_review',path=path,bbox=bbox,confidence=.4,review=True)

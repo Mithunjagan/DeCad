@@ -373,7 +373,8 @@ async def ingest(path,recognition_mode=None):
     if suffix=='.json':return parse_json(extract_text(path)),[]
     if suffix=='.xml':
         from .faculty_xml import parse,to_circuit
-        return to_circuit(parse(path.read_bytes())),[]
+        try:return to_circuit(parse(path.read_bytes())),[]
+        except ValueError as exc:raise OperationError(f'Faculty XML cannot map to the circuit schema: {exc}') from exc
     if suffix=='.csv':
         try:
             rows=list(csv.DictReader(io.StringIO(extract_text(path))))

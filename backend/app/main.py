@@ -1060,10 +1060,12 @@ def undo_review(pid:str,body:ReviewUndo,u:dict=Depends(user)):
 
 
 def faculty_output(circuit,pid):
-    from .faculty_xml import from_circuit,serialize,parse,semantic_diff
+    from .faculty_xml import from_circuit,serialize,parse,semantic_diff,graph_fidelity
     document=from_circuit(circuit,board=pid);data=serialize(document)
     report=semantic_diff(document,parse(data))
     if not report['equal']:raise OperationError('Faculty XML semantic readback failed.')
+    fidelity=graph_fidelity(circuit,parse(data))
+    if not fidelity['passed']:raise OperationError('Faculty XML cannot represent every graph fact: '+json.dumps(fidelity))
     return Response(data,media_type='application/xml',headers={
         'Content-Disposition':f'attachment; filename="{pid}-netlist.xml"',
         'X-XML-Fidelity':'semantic-equal','X-TD9-Import':'NOT VERIFIED',

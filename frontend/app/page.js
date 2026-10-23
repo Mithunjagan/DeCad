@@ -144,6 +144,10 @@ export default function Page() {
     try { setActivity('apply');setBusy(true); const result=await (await f(`/projects/${pid}/import`, {method:'POST',body:JSON.stringify({circuit,output_tool:outputTool})})).json(); setProposal(null); setEditorMode('kicad'); await refresh(); setStatus('Reviewed import applied'); if(result.output?.ready)await downloadServer(result.output.url,result.output.filename); else if(result.output?.error)setStatus(result.output.error); }
     catch (e) { setStatus(e.message); throw e; } finally {setBusy(false);}
   };
+  const reopenReview=async()=>{
+    try{const result=await (await f(`/projects/${pid}/review`)).json();setProposal({...result.circuit,_reviewRevision:result.revision});setProposalSource(result.circuit.image_metadata?.review_source||null);setStatus('Saved canonical review reopened');}
+    catch(e){setStatus(e.message);}
+  };
   // Reviewed recognition -> native OrCAD design, verified by reopening it in Capture's database.
   const generateOrcad = async (circuit,options={}) => {
     try {
@@ -951,7 +955,7 @@ export default function Page() {
             ref={fileInputRef}
             type="file"
             multiple
-            accept=".txt,.pdf,.docx,.png,.jpg,.jpeg,.webp,.bmp,.tif,.tiff,.json,.csv,.cir,.spice,.net"
+            accept=".txt,.pdf,.docx,.png,.jpg,.jpeg,.webp,.bmp,.tif,.tiff,.json,.csv,.cir,.spice,.net,.xml"
             style={{ display: 'none' }}
             onChange={handleFileUpload}
           />
@@ -1116,6 +1120,7 @@ export default function Page() {
 
           {/* Secondary schematic controls toolbar with SVG icons */}
           <div className={`schematic-secondary-toolbar ${editorMode==='native'?'has-native-editor':''}`} style={tab!=='schematic'?{display:'none'}:undefined}>
+            <button disabled={!pid||busy} onClick={reopenReview}>Saved review</button>
             <div className="toolbar-button-group">
               <button className="tool-btn" title="New file" onClick={openNewProjectDialog}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6"/></svg>
@@ -1576,7 +1581,7 @@ export default function Page() {
 
       {commandOpen && <CommandPalette actions={commands} onClose={()=>setCommandOpen(false)}/>}
       {orcadResult && pid && <OrcadResult pid={pid} api={API} request={f} onDownload={()=>downloadServer(`/projects/${pid}/orcad/download`,`${pid}-orcad-dsn.zip`)} onClose={()=>setOrcadResult(false)}/>}
-      {proposal && <CircuitReview initial={proposal} source={proposalSource} request={f} onApply={applyProposal} onOrcad={generateOrcad} onClose={()=>setProposal(null)} busy={busy}/>}
+      {proposal && <CircuitReview initial={proposal} source={proposalSource} request={f} onApply={applyProposal} onOrcad={generateOrcad} onClose={()=>setProposal(null)} busy={busy} projectId={pid} initialRevision={proposal._reviewRevision}/>}
       {boardGraph && <BoardExport graph={boardGraph} request={f} onClose={()=>setBoardGraph(null)} onExport={async plan=>{
         const r=await f(`/projects/${pid}/export/specctra`,{method:'POST',body:JSON.stringify(plan)});
         triggerDownload(await r.blob(),`${pid}-specctra.zip`,'application/zip');setStatus('Downloaded Specctra DSN and editable PCB. Open the PCB to review placement and DRC.');

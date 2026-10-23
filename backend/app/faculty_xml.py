@@ -63,6 +63,11 @@ def parse(data: bytes | str) -> Document:
         raise OperationError('DTD/entity declarations are not supported in faculty XML.')
     try:root=ET.fromstring(data)
     except (ET.ParseError,ValueError) as exc:raise OperationError(f'Invalid faculty XML: {exc}') from exc
+    stack=[(root,0)];count=0
+    while stack:
+        element,depth=stack.pop();count+=1
+        if depth>64 or count>200000:raise OperationError('Faculty XML nesting or record limit exceeded.')
+        stack.extend((child,depth+1) for child in element)
     document=Document(root=Element.read(root))
     errors=validate(document)
     if errors:raise OperationError('Invalid faculty XML: '+'; '.join(errors))
@@ -78,6 +83,7 @@ def validate(document: Document) -> list[str]:
     if any(not name for name in names):errors.append('NetName required')
     if len(names)!=len(set(names)):errors.append('Duplicate net definitions')
     identities=[];node_names=[]
+    if not document.nodes:errors.append('At least one physical pin record required')
     for node in document.nodes:
         a=node.attributes;identities.append(node.identity);node_names.append(a.get('NodeName'))
         if not all(node.identity) or not a.get('NodeName'):errors.append('Node identity required')
@@ -130,6 +136,8 @@ def from_circuit(circuit, board='Schematic2SDN') -> Document:
         for tag in ('Nodes','PowerNets','UserNets'):ET.SubElement(netlist,tag)
     nodes=root.find('./NetList/Nodes');power=root.find('./NetList/PowerNets');user=root.find('./NetList/UserNets')
     originals={(e.get('DeviceLocation'),e.get('PinNumber')):e for e in nodes.findall('Node')}
+    original_values={}
+    for e in nodes.findall('Node'):original_values.setdefault(e.get('DeviceLocation'),e.get('Marking') or 'Unknown')
     old_members=Counter(e.get('NodeNetName') for e in nodes.findall('Node') if e.get('NodeNetName'))
     # Retain unknown children and section attributes, replacing records only.
     for e in list(nodes):
@@ -153,6 +161,16 @@ def from_circuit(circuit, board='Schematic2SDN') -> Document:
                    'IsPowerPin':'TRUE' if p and p.power is True else 'FALSE'}
             element=ET.Element('Node',a);a=element.attrib
         if key in assignments or 'NodeNetName' in a:a['NodeNetName']=assignments.get(key,'')
+        if ref not in original_values or refs[ref].value!=original_values[ref]:a['Marking']=refs[ref].value
+        if p and old is not None:
+            if p.pin_function!=old.get('LabelName'):
+                if p.pin_function is None:a.pop('LabelName',None)
+                else:a['LabelName']=p.pin_function
+            if p.electrical_type!=(old.get('NodeType') or 'unknown'):
+                a['NodeType']='Unknown' if p.electrical_type=='unknown' else p.electrical_type
+            if p.power!={'TRUE':True,'FALSE':False}.get(old.get('IsPowerPin')):
+                if p.power is None:a.pop('IsPowerPin',None)
+                else:a['IsPowerPin']='TRUE' if p.power else 'FALSE'
         if key in assignments and (old is None or old.get('NodeNetName')!=assignments[key]):a['IsPinUsed']='TRUE'
         if p and p.used is not None and key not in assignments:a['IsPinUsed']='TRUE' if p.used else 'FALSE'
         nodes.append(element)
@@ -170,11 +188,30 @@ def from_circuit(circuit, board='Schematic2SDN') -> Document:
         elif name in definitions:section,element=definitions[name]
         else:
             attrs=deepcopy(net.metadata.get('td9_attributes',{}))
-            if not attrs:attrs={'NodeTypeLevel':'Unknown','PowerLevel':'','IsReadOnly':'FALSE','IsPowerNet':'FALSE'}
+            if not attrs:attrs={'NodeTypeLevel':'Unknown','PowerLevel':'','IsReadOnly':'FALSE','IsPowerNet':'0'}
             attrs['NetName']=name;element=ET.Element('Net',attrs)
             section=power if net.metadata.get('td9_section')=='PowerNets' else user
         section.append(element)
     return Document(root=Element.read(root))
+
+
+def graph_fidelity(circuit,document):
+    """Compare graph facts against parsed XML, including extras and unresolved pins."""
+    from .ingestion import Circuit
+    circuit=Circuit.model_validate(circuit) if isinstance(circuit,dict) else circuit
+    expected={(p.ref,p.pin):n.name for n in circuit.nets for p in n.nodes}
+    inventory={(p.ref,p.pin) for p in circuit.physical_pins}|set(expected)
+    actual={n.identity:n.attributes.get('NodeNetName','') for n in document.nodes}
+    actual_assigned={key:name for key,name in actual.items() if name}
+    refs={c.ref for c in circuit.components};output_refs={key[0] for key in actual}
+    wrong=[str(key) for key in expected.keys()&actual_assigned.keys() if expected[key]!=actual_assigned[key]]
+    missing=sorted(map(str,inventory-actual.keys()));extra=sorted(map(str,actual.keys()-inventory))
+    missing_assignments=sorted(map(str,expected.keys()-actual_assigned.keys()))
+    extra_assignments=sorted(map(str,actual_assigned.keys()-expected.keys()))
+    return {'passed':not any((wrong,missing,extra,missing_assignments,extra_assignments,refs-output_refs,output_refs-refs)),
+            'physical_pins':len(inventory),'assigned_pins':len(expected),'wrong_assignments':wrong,
+            'missing_pins':missing,'extra_pins':extra,'missing_assignments':missing_assignments,
+            'extra_assignments':extra_assignments,'missing_components':sorted(refs-output_refs),'extra_components':sorted(output_refs-refs)}
 
 
 def semantic_diff(before: Document, after: Document) -> dict:

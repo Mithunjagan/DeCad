@@ -55,10 +55,12 @@ def power_graph(confidence=.4):
                 'label_anchors':[{'index':0,'graph_node':'A'},{'index':1,'graph_node':'B'}]}}
 
 
-def test_power_ground_split_cuts_only_uncertain_measured_path_and_is_idempotent():
-    result=erc_self_heal(power_graph())
-    assert {n['name'] for n in result['nets']}=={'VCC','GND'}
-    assert result['image_metadata']['erc_disabled_edges']==['E0']
+def test_power_ground_short_is_reviewed_without_guessing_a_split_and_is_idempotent():
+    graph=power_graph();result=erc_self_heal(graph)
+    assert result['nets']==graph['nets']
+    assert not result['image_metadata'].get('erc_disabled_edges')
+    assert result['image_metadata']['erc_actions'][0]['review'] is True
+    assert result['image_metadata']['erc_actions'][0]['bbox']==[8,18,92,22]
     again=erc_self_heal(result)
     assert again==result
 
