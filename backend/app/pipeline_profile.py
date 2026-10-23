@@ -33,6 +33,7 @@ def configure(*, verify_checkpoint=True):
     if not os.getenv('S2SDN_OCR_PYTHON') and worker.is_file():
         os.environ['S2SDN_OCR_PYTHON'] = str(worker)
     return {**config, 'profile': 'hybrid_max_accuracy',
+            'recognition_native_cleanup':False,
             'profile_sha256': hashlib.sha256(PROFILE_PATH.read_bytes()).hexdigest()}
 
 

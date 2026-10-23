@@ -2237,7 +2237,10 @@ def extract(path, cache_dir=None):
     cache = Path(cache_dir or os.getenv('STATE_ROOT') or Path(__file__).resolve().parents[1] / '.state')
     try:
         from . import orcad_capture
-        if orcad_capture.available():
+        # The shared profile exposes the observed graph unchanged, exactly as
+        # evaluated. Library substitutions/pin dropping belong to explicit native
+        # export, never to source recognition or the canonical review inventory.
+        if not enabled() and orcad_capture.available():
             graph, notes = orcad_capture.check(graph, cache)
             warnings = notes + warnings
     except Exception as e:                 # library check is an aid; recognition stands without it

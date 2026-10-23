@@ -9,7 +9,7 @@ export default function CircuitReviewPanel({initial,source,request,onApply,onOrc
  const [circuit,setCircuit]=useState(()=>structuredClone({...initial,nets:initial.nets||[]}));
  const [error,setError]=useState(''),[reviewed,setReviewed]=useState(false),[preview,setPreview]=useState(null),[sourceError,setSourceError]=useState('');
  const [tab,setTab]=useState('components'),[query,setQuery]=useState(''),[activeNet,setActiveNet]=useState(0);
- const [showSource,setShowSource]=useState(false),[zoom,setZoom]=useState(1),[target,setTarget]=useState('kicad');
+ const [showSource,setShowSource]=useState(false),[zoom,setZoom]=useState(1),[target,setTarget]=useState(projectId?'faculty-xml':'kicad');
  const [raw,setRaw]=useState(''),[rawDirty,setRawDirty]=useState(false),[previous,setPrevious]=useState(null);
  const [sourcePage,setSourcePage]=useState(1),[rasterPreview,setRasterPreview]=useState(null),[hotspotLimit,setHotspotLimit]=useState(50);
  const [revision,setRevision]=useState(initialRevision||null),[saving,setSaving]=useState(false),[savedMessage,setSavedMessage]=useState('');
