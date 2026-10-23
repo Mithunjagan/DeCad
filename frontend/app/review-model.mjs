@@ -14,7 +14,7 @@ export function removeComponent(circuit,index) {
 }
 export function editNetEvidence(circuit,index,value){
   const old=circuit.nets[index],pins=new Set(old.nodes.map(p=>JSON.stringify([p.ref,p.pin])));
-  return {...circuit,nets:circuit.nets.map((n,i)=>i===index?{...value,confidence:null,source:null,nodes:value.nodes.map(p=>({...p,confidence:null,source:null}))}:n),
+  return {...circuit,nets:circuit.nets.map((n,i)=>i===index?{...value,metadata:{...value.metadata,evidence_stale:true},confidence:null,source:null,nodes:value.nodes.map(p=>({...p,confidence:null,source:null}))}:n),
     ...(circuit.review_hotspots?{review_hotspots:circuit.review_hotspots.map(h=>h.net===old.name||pins.has(JSON.stringify([h.ref,h.pin]))?{...h,stale:true,reviewed:false}:h)}:{})};
 }
 export function confirmHotspot(circuit,id){

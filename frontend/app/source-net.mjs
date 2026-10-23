@@ -1,6 +1,6 @@
 // Convert working geometry to the original page without assuming image scale.
 export function netGeometry(circuit,net,page=1){
- if(!net)return {pins:[],segments:[]};
+ if(!net||net.metadata?.evidence_stale)return {pins:[],segments:[]};
  const root=circuit.image_metadata||{},entry=root.pages?.find(p=>p.page===page),meta=entry?.metadata||root;
  if(root.pages&&!entry)return {pins:[],segments:[]};
  const size=meta.source_size||[meta.width,meta.height];
