@@ -70,6 +70,16 @@ class Node(Evidence):
 class Net(Evidence):
     name: str = Field(min_length=1,max_length=100)
     nodes: list[Node] = Field(min_length=1)
+    metadata: dict = Field(default_factory=dict)
+
+
+class PhysicalPin(Node):
+    """Observed pin inventory, including pins with no resolved net."""
+    used: bool | None = None
+    pin_function: str | None = None
+    electrical_type: str = 'unknown'
+    power: bool | None = None
+    metadata: dict = Field(default_factory=dict)
 
 class Circuit(BaseModel):
     sheet_aspect: float | None = Field(None, ge=0.1, le=10)  # source width / height
@@ -78,6 +88,8 @@ class Circuit(BaseModel):
     warnings: list[str] = Field(default_factory=list)
     image_metadata: dict = Field(default_factory=dict)
     review_hotspots: list[ReviewHotspot] = Field(default_factory=list,max_length=5000)
+    physical_pins: list[PhysicalPin] = Field(default_factory=list,max_length=50000)
+    faculty_xml: dict = Field(default_factory=dict)
 
     @classmethod
     def from_image_graph(cls,graph):
@@ -92,6 +104,12 @@ class Circuit(BaseModel):
         if len(refs)!=len(set(refs)):raise ValueError('Duplicate component references.')
         if len({n.name for n in self.nets})!=len(self.nets):raise ValueError('Duplicate net names.')
         assigned={}
+        inventory=set()
+        for pin in self.physical_pins:
+            key=(pin.ref,pin.pin)
+            if pin.ref not in refs:raise ValueError(f'Unknown physical pin ref {pin.ref}')
+            if key in inventory:raise ValueError(f'Duplicate physical pin {key}')
+            inventory.add(key)
         for n in self.nets:
             if re.search(r'[\r\n"\\]',n.name):raise ValueError('Invalid net name.')
             for node in n.nodes:
@@ -353,6 +371,9 @@ async def ingest(path,recognition_mode=None):
         return await extract_image(path,mode=recognition_mode) if recognition_mode else await extract_image(path)
     suffix=path.suffix.lower()
     if suffix=='.json':return parse_json(extract_text(path)),[]
+    if suffix=='.xml':
+        from .faculty_xml import parse,to_circuit
+        return to_circuit(parse(path.read_bytes())),[]
     if suffix=='.csv':
         try:
             rows=list(csv.DictReader(io.StringIO(extract_text(path))))

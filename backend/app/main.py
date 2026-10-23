@@ -1031,6 +1031,56 @@ class Proposal(BaseModel):
     circuit:Circuit
     output_tool:Literal['kicad','ngspice','ltspice','qucs-s'] | None=None
 
+
+class ReviewDraft(BaseModel):
+    circuit:Circuit
+    expected_revision:str | None=None
+
+
+@app.get('/projects/{pid}/review')
+def get_review(pid:str,u:dict=Depends(user)):
+    from .review_store import load
+    return load(pdir(u,pid))
+
+
+@app.put('/projects/{pid}/review')
+def save_review(pid:str,body:ReviewDraft,u:dict=Depends(user)):
+    from .review_store import save
+    return save(pdir(u,pid),body.circuit,body.expected_revision)
+
+
+class ReviewUndo(BaseModel):
+    expected_revision:str
+
+
+@app.post('/projects/{pid}/review/undo')
+def undo_review(pid:str,body:ReviewUndo,u:dict=Depends(user)):
+    from .review_store import undo
+    return undo(pdir(u,pid),body.expected_revision)
+
+
+def faculty_output(circuit,pid):
+    from .faculty_xml import from_circuit,serialize,parse,semantic_diff
+    document=from_circuit(circuit,board=pid);data=serialize(document)
+    report=semantic_diff(document,parse(data))
+    if not report['equal']:raise OperationError('Faculty XML semantic readback failed.')
+    return Response(data,media_type='application/xml',headers={
+        'Content-Disposition':f'attachment; filename="{pid}-netlist.xml"',
+        'X-XML-Fidelity':'semantic-equal','X-TD9-Import':'NOT VERIFIED',
+        'X-XML-Nodes':str(report['nodes_after']),'X-XML-Nets':str(report['nets_after'])})
+
+
+@app.get('/projects/{pid}/export/faculty-xml')
+def export_saved_faculty_xml(pid:str,u:dict=Depends(user)):
+    from .review_store import load
+    return faculty_output(Circuit.model_validate(load(pdir(u,pid))['circuit']),pid)
+
+
+@app.post('/projects/{pid}/export/faculty-xml')
+def export_faculty_xml(pid:str,body:ReviewDraft,u:dict=Depends(user)):
+    pdir(u,pid)
+    return faculty_output(body.circuit,pid)
+
 @app.post('/projects/{pid}/import')
 def apply_import(pid:str,body:Proposal,u:dict=Depends(user)):
     p=pdir(u,pid)
