@@ -1,0 +1,294 @@
+{
+  "sheet_aspect": null,
+  "components": [
+    {
+      "ref": "R1",
+      "value": "1k",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "R2",
+      "value": "1k",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "C1",
+      "value": "100n",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "C2",
+      "value": "100n",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "V1",
+      "value": "ac=1",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "V2",
+      "value": "10",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "V3",
+      "value": "10",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    },
+    {
+      "ref": "U1",
+      "value": "AD8051",
+      "library": null,
+      "footprint": null,
+      "x": null,
+      "y": null
+    }
+  ],
+  "nets": [
+    {
+      "confidence": null,
+      "source": null,
+      "name": "INPUT",
+      "nodes": [
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "V1",
+          "pin": "1"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "R1",
+          "pin": "2"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "confidence": null,
+      "source": null,
+      "name": "MID",
+      "nodes": [
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "R1",
+          "pin": "1"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "R2",
+          "pin": "2"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "C1",
+          "pin": "2"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "confidence": null,
+      "source": null,
+      "name": "PLUS",
+      "nodes": [
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "R2",
+          "pin": "1"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "C2",
+          "pin": "1"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "U1",
+          "pin": "1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "confidence": null,
+      "source": null,
+      "name": "lowpass",
+      "nodes": [
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "C1",
+          "pin": "1"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "U1",
+          "pin": "2"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "U1",
+          "pin": "5"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "confidence": null,
+      "source": null,
+      "name": "GND",
+      "nodes": [
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "V1",
+          "pin": "2"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "C2",
+          "pin": "2"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "V2",
+          "pin": "2"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "V3",
+          "pin": "1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "confidence": null,
+      "source": null,
+      "name": "VDD",
+      "nodes": [
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "V2",
+          "pin": "1"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "U1",
+          "pin": "3"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "confidence": null,
+      "source": null,
+      "name": "VSS",
+      "nodes": [
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "V3",
+          "pin": "2"
+        },
+        {
+          "confidence": null,
+          "source": null,
+          "ref": "U1",
+          "pin": "4"
+        }
+      ],
+      "metadata": {}
+    }
+  ],
+  "warnings": [
+    "Manual source review with native pin-number lookup. U1 numbers are printed; unprinted R/C IDs were verified against embedded symbol pins and rotations after the initial convention failed readback. No automatic accuracy claim."
+  ],
+  "image_metadata": {
+    "width": 3224,
+    "height": 3005,
+    "source_size": [
+      1773,
+      1653
+    ],
+    "source_affine": [
+      [
+        1.8181818181818181,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.8181818181818181,
+        0.0
+      ]
+    ],
+    "pin_anchors": [],
+    "connectivity_policy": "local_additive",
+    "local_recovery_actions": [],
+    "review_hotspots": [],
+    "applied": false,
+    "terminal_recovery_audit": [],
+    "terminal_recovery_reads": 0,
+    "erc_actions": [],
+    "source_frames": [
+      {
+        "page": 1,
+        "width": 1773,
+        "height": 1653,
+        "coordinate_space": "source_pixels"
+      }
+    ],
+    "confidence_description": "Heuristic evidence score; not calibrated accuracy. Confirmation does not increase the score.",
+    "evidence_stale": true,
+    "wire_edges": [],
+    "wire_nodes": [],
+    "wires": [],
+    "label_anchors": [],
+    "source_attachment": "references/unseen-sallen-key.png",
+    "review_source": {
+      "name": "unseen-sallen-key.png",
+      "path": "/projects/PrecisionUnseenFilter/file?name=references%2Funseen-sallen-key.png"
+    }
+  },
+  "review_hotspots": [],
+  "physical_pins": [],
+  "faculty_xml": {}
+}

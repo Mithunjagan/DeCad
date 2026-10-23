@@ -1,0 +1,7 @@
+{
+  "source": "unseen-sallen-key.png",
+  "native_reference_read": false,
+  "manual": true,
+  "pin_number_convention": "U1 literal printed numbers. Unprinted R/C/V terminals explicitly use library convention 1 left/top, 2 right/bottom. Confirm independently after raw recognition.",
+  "sha256": "5461c846976a02d528e7d80ed04d8eeb65c43a0135569c465e4aaa183cf1984d"
+}

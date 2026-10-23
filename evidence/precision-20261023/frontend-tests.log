@@ -1,0 +1,30 @@
+
+> test
+> node --test tests/*.test.mjs
+
+✔ copied attachment labels resolve only existing project files (4.0194ms)
+✔ attachment retry retains canonical filename and avoids duplicate attachments (0.3672ms)
+✔ GPU configuration never claims verified or active CUDA (1.5152ms)
+✔ live execution labels distinguish CUDA OCR, CPU tracing and runtime errors (0.3406ms)
+✔ renaming carries every pin connection without mutating original (3.4464ms)
+✔ removing a component removes its pins and empty nets (0.5441ms)
+✔ duplicate refs and duplicate pin membership block apply (0.3409ms)
+✔ unknown references and missing pin numbers block apply (0.207ms)
+✔ board bounds, missing footprints and nonnumeric placement block export (0.4804ms)
+✔ malformed JSON structures and invalid source positions produce validation errors (0.2206ms)
+✔ one click confirms a source region without changing scores or connections (0.2955ms)
+✔ manual net edits clear automatic evidence and mark only affected regions stale (0.3318ms)
+✔ renaming scopes source region references and deletion removes obsolete regions (0.2745ms)
+✔ invalid confidence and region coordinates block applying raw JSON (0.483ms)
+✔ net overlay inverts source transform, scopes pages and excludes buses (2.1858ms)
+✔ split and merge update physical membership and invalidate old confidence (0.7443ms)
+✔ reference edits preserve unassigned inventory and remove deleted physical pins (1.866ms)
+✔ explicit passive package conflicts and unlocated connector labels require review without removing observations (1.1084ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 172.3457

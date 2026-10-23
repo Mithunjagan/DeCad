@@ -1,0 +1,68 @@
+{
+  "sheet_aspect": 1.072879,
+  "components": [
+    {
+      "ref": "R1",
+      "value": "1K",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.181,
+      "y": 0.6428
+    },
+    {
+      "ref": "R2",
+      "value": "1K",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.3052,
+      "y": 0.6427
+    }
+  ],
+  "nets": [],
+  "warnings": [
+    "Recognized 2 parts and 0 pin connections in 0 nets. Check them against the source before generating the design.",
+    "Input assessment: blurred or greyscale scan (49% soft stroke edges, text ~22 px); enhanced automatically (1.8x resampling, stroke-preserving binarization, grayscale OCR).",
+    "Review required: detail lost to blur or a scan below 300 dpi cannot be recovered by any reader. Check every part, pin number and net label against the source, or rescan at 300 dpi or better.",
+    "No recovered pin connections for: R1, R2."
+  ],
+  "image_metadata": {
+    "width": 3224,
+    "height": 3005,
+    "source_size": [
+      1773,
+      1653
+    ],
+    "source_affine": [
+      [
+        1.8181818181818181,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.8181818181818181,
+        0.0
+      ]
+    ],
+    "pin_anchors": [],
+    "connectivity_policy": "local_additive",
+    "local_recovery_actions": [],
+    "review_hotspots": [],
+    "applied": false,
+    "terminal_recovery_audit": [],
+    "terminal_recovery_reads": 0,
+    "erc_actions": [],
+    "source_frames": [
+      {
+        "page": 1,
+        "width": 1773,
+        "height": 1653,
+        "coordinate_space": "source_pixels"
+      }
+    ],
+    "confidence_description": "Heuristic evidence score; not calibrated accuracy. Confirmation does not increase the score."
+  },
+  "review_hotspots": [],
+  "physical_pins": [],
+  "faculty_xml": {}
+}

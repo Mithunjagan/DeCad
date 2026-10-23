@@ -1,0 +1,15 @@
+{
+  "manual": true,
+  "automatic_accuracy_gain": false,
+  "initial_transcription": "unseen-image-only-transcription.json",
+  "initial_sha256": "5461c846976a02d528e7d80ed04d8eeb65c43a0135569c465e4aaa183cf1984d",
+  "initial_independent_result": {
+    "tp": 6,
+    "fp": 12,
+    "fn": 12
+  },
+  "reviewed_sha256": "2d16ceb9eef4ebdf8522e0d4a9c0ad4d0c6cb8fda0e26d431ddedd3df31d0bd0",
+  "reason": "Image omits R/C terminal IDs. Native embedded pin definitions plus instance rotations show R1/R2/C1 pin 1 at right, C2 pin 1 below; swap initial 1/2 convention for these four parts. Printed U1 and V source terminal mapping unchanged.",
+  "source_geometry_evidence": "unseen-native-pin-geometry.json",
+  "source_conductor_partition_changed": false
+}

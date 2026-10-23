@@ -1,0 +1,29 @@
+{
+  "S1": [],
+  "S2": [],
+  "S3": [],
+  "S4": [],
+  "S5": [],
+  "S4-scan300": [],
+  "S4-scan200": [],
+  "S4-blur300": [],
+  "native-3b2a49a524e2d50dcf26": [],
+  "native-a39a7a1fc84f921b27fd": [
+    [
+      "R1",
+      "4"
+    ],
+    [
+      "R1",
+      "55"
+    ]
+  ],
+  "native-fedf29b44113e135f31f": [],
+  "native-c4d88e79bc63688e0e7c": [],
+  "native-37735b083f0b9f56549f": [],
+  "native-0a236a74292d04d831fa": [],
+  "native-e9b7597c67252bf7707d": [],
+  "native-901de51001a98cc2361a": [],
+  "native-c6bcc506a3200b19e089": [],
+  "native-c4d7791b4ebdf13c3944": []
+}

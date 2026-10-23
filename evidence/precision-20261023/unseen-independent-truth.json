@@ -1,0 +1,149 @@
+{
+  "components": [
+    {
+      "ref": "C1",
+      "value": "100n"
+    },
+    {
+      "ref": "C2",
+      "value": "100n"
+    },
+    {
+      "ref": "R1",
+      "value": "1k"
+    },
+    {
+      "ref": "R2",
+      "value": "1k"
+    },
+    {
+      "ref": "U1",
+      "value": "AD8051"
+    },
+    {
+      "ref": "V1",
+      "value": "ac=1"
+    },
+    {
+      "ref": "V2",
+      "value": "10"
+    },
+    {
+      "ref": "V3",
+      "value": "10"
+    }
+  ],
+  "nets": [
+    {
+      "name": "/lowpass",
+      "nodes": [
+        {
+          "ref": "C1",
+          "pin": "1"
+        },
+        {
+          "ref": "U1",
+          "pin": "2"
+        },
+        {
+          "ref": "U1",
+          "pin": "5"
+        }
+      ]
+    },
+    {
+      "name": "GND",
+      "nodes": [
+        {
+          "ref": "C2",
+          "pin": "2"
+        },
+        {
+          "ref": "V1",
+          "pin": "2"
+        },
+        {
+          "ref": "V2",
+          "pin": "2"
+        },
+        {
+          "ref": "V3",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "Net-(C1-Pad2)",
+      "nodes": [
+        {
+          "ref": "C1",
+          "pin": "2"
+        },
+        {
+          "ref": "R1",
+          "pin": "1"
+        },
+        {
+          "ref": "R2",
+          "pin": "2"
+        }
+      ]
+    },
+    {
+      "name": "Net-(R1-Pad2)",
+      "nodes": [
+        {
+          "ref": "R1",
+          "pin": "2"
+        },
+        {
+          "ref": "V1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "Net-(U1-+)",
+      "nodes": [
+        {
+          "ref": "C2",
+          "pin": "1"
+        },
+        {
+          "ref": "R2",
+          "pin": "1"
+        },
+        {
+          "ref": "U1",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "VDD",
+      "nodes": [
+        {
+          "ref": "U1",
+          "pin": "3"
+        },
+        {
+          "ref": "V2",
+          "pin": "1"
+        }
+      ]
+    },
+    {
+      "name": "VSS",
+      "nodes": [
+        {
+          "ref": "U1",
+          "pin": "4"
+        },
+        {
+          "ref": "V3",
+          "pin": "2"
+        }
+      ]
+    }
+  ]
+}

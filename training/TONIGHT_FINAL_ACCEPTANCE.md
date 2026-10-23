@@ -1,5 +1,49 @@
 # DeCad tonight acceptance — 23 October 2026, Asia/Kolkata
 
+## Precision continuation from 871ee61 - final accepted result
+
+Application commit: **b0d6c9b**. Recovery branch: `recovery/precision-871ee61`. The prior report below is a historical baseline; this section supersedes its current accuracy/status figures.
+
+**Review-assisted application verified. Automatic schematic recovery remains incomplete.** Only the corroborated two-terminal passive guard was accepted. It requires the explicit R/C/L/D library type and observed terminals 1 and 2 with collinear, opposed outward anchors before quarantining extra pin IDs. Original nodes, prior nets, source anchors, warnings and review regions survive in `rejected_pin_observations`. No replacement pin number or net is inferred. Existing XML imports and manual review graphs use their existing paths.
+
+| Measurement | At 871ee61 | Accepted result |
+|---|---:|---:|
+| Clear exact assignments | 227/245 (92.65%) | 227/245 (92.65%) |
+| Valid native assigned pins | 103 | 103 |
+| Correct native connected-pin pairs | 9 | 9 |
+| Incorrect native connected-pin pairs | 14 | 13 |
+| Native pair precision | 39.13% | 40.91% (+1.78 percentage points) |
+| Raw corpus faculty XML | 7/18 complete | 7/18 complete; same 11 blocks |
+| KiCad and Capture native readback | 18/18 each | 18/18 each, 2,206/2,206 assignments each |
+
+The removed false pair is Wio **R1.1--R1.4**. Invalid observations R1.4 and R1.55 move out of the electrical graph into explicit review evidence. R1.1 remains anonymously labeled; LORA_RST was not invented. No known correct pin, source label or connected pair was lost. The other **13 false pairs** remain: 11 Grove U2 ground-related pairs, one nRF phantom P0 pair, and CM4 U504.4--U504.9 (a misidentified U6, whose real junction must remain connected). All 18 clear errors remain: 11 missing anchors and 7 incorrect assignments. [Individual source audit](PRECISION_ELECTRICAL_AUDIT_2026-10-23.md).
+
+The broader connector-boundary experiment was **rejected**. It removed a phantom pair but introduced a new spurious P3.2 through regex reference backtracking on another native design. Execution stopped and `digital_vision.py` was restored byte-for-byte to the accepted parser. Its S3 removals and apparent nRF improvement are not shipped or included in accepted gains.
+
+**Evidence boundary:** after rollback, fresh current-code Wio and ESP32 workers passed. An exact guard-only replay over all 18 baseline graphs proves the guard inert on the other 17. Sixteen final cohort outputs therefore reuse accepted recognition, and two are current fresh targets. This is not claimed as a new full 18-case fresh recognition run. Candidate fresh results remain archived separately. The accepted gate verifies that only `local_recovery.py` differs from baseline source, preserves every previously correct native source label/pin/pair, and records unchanged model hashes.
+
+Tests on the final code: **384 backend passed / 6 environment-dependent skipped**, **65 focused passed**, and **18 frontend passed**. Independent ElementTree checks retain all **129 faculty nodes, 41 nets and every meaningful attribute**, including unused pins and used-but-unassigned J2.15. The 11 blocked exports contain 37 components with zero observed pins; source inspection distinguishes visible missed terminals, unprinted numbering, reference aliases and prose/USB false detections. No exporter defect was found. Real TD9 vendor import remains **NOT VERIFIED**.
+
+### Independently checked unseen Sallen-Key demonstration
+
+Source: installed, unchanged KiCad `simulation/sallen_key/sallen_key.kicad_sch`, raster only supplied to recognition. Raw output was fixed before native reference readback: **2/8 components, 0/19 assigned pins, 0/18 correct pairs**, no false pairs. This is an automatic-recognition failure, not an automatic accuracy gain.
+
+The initial manual image transcription guessed R/C pin numbering and failed independent readback (6 correct / 12 wrong pairs). The image omits these IDs. Embedded symbol pin positions and instance rotations established that R1/R2/C1 pin 1 is at the right and C2 pin 1 is below. The original transcription and failed comparison are retained. After explicit native pin-number lookup, manual review has **8/8 components and values, 19/19 pins, 18/18 positive pairs and 153/153 negative pairs**. XML and both native readbacks pass with 19 assignments and zero extras. All 11 named-label assignments match after root-sheet slash normalization; only 8/19 literal full names match because unprinted intermediate nets use different generated names.
+
+Live HTTP upload, recognition proposal, review save/reopen, faculty download and native downloads were exercised. Visual browser interaction was disabled by Work settings, so the visual UI test was not repeated. Existing frontend tests pass; the earlier browser evidence below remains historical. No UI redesign, model training, model download, dependency installation or connection fabrication occurred.
+
+### Launch and reproduce
+
+1. `Set-Location D:\DeCad-main\Jrk_DeCad\Schematic2SDN`; run `& .\start-native.ps1`.
+2. Open `http://localhost:3100`, Open local workspace, choose **PrecisionUnseenFilter**, then **Saved review**. Its actual raster source is attached. Existing QmaxTonight and QmaxUnseenRectifier projects remain available.
+3. Compare all reviewed source conductors and native pin-number evidence; download Faculty XML or observed-pins KiCad/OrCAD files. The reviewed demo uses manual correction and native pin lookup.
+4. Recheck the existing demonstration without repeating OCR: `backend/.venv/Scripts/python.exe tools/eval/precision_demo.py --verify`.
+5. Reproduce corpus analysis: `backend/.venv/Scripts/python.exe tools/eval/precision_acceptance.py --baseline evidence/tonight-20261023/final-fresh --wio evidence/precision-20261023/accepted-wio-fresh --esp32 evidence/precision-20261023/accepted-esp32-fresh --out evidence/precision-20261023/reproduced-acceptance` (choose a new output folder).
+
+Evidence: [summary](../evidence/precision-20261023/final-summary.json), [exact changes](../evidence/precision-20261023/accepted-fresh/precision-changes.json), [accepted gate](../evidence/precision-20261023/accepted-fresh/gate.json), [native readbacks](../evidence/precision-20261023/native-exports/report.json), [unseen workflow](../evidence/precision-20261023/unseen-workflow.json), [backend tests](../evidence/precision-20261023/backend-tests-accepted.log). Full raw/candidate workers and source crops remain in `evidence/precision-20261023`; unrelated pre-existing workspace changes remain outside these commits.
+
+## Historical acceptance at 871ee61
+
 **DEMO-READY for the tested review-assisted workflow. Automatic recognition remains incomplete.**
 
 Final automated verification and live restart checks passed on 23 October 2026. The automatic error-reduction objective remains open; the 18 clear misses and 14 native wrong pairs were not solved. Current handoff Git HEAD and the remaining pre-existing dirty state are recorded after the handoff commit in `evidence/tonight-20261023/final-git-state.json`.

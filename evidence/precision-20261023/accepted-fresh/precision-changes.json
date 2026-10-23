@@ -1,0 +1,232 @@
+{
+  "native": {
+    "native-3b2a49a524e2d50dcf26": {
+      "removed_incorrect_pairs": [],
+      "remaining_wrong_pairs": [
+        [
+          [
+            "R34",
+            "1"
+          ],
+          [
+            "U2",
+            "3"
+          ]
+        ],
+        [
+          [
+            "R34",
+            "1"
+          ],
+          [
+            "U2",
+            "6"
+          ]
+        ],
+        [
+          [
+            "R34",
+            "1"
+          ],
+          [
+            "U2",
+            "9"
+          ]
+        ],
+        [
+          [
+            "U2",
+            "17"
+          ],
+          [
+            "U2",
+            "3"
+          ]
+        ],
+        [
+          [
+            "U2",
+            "17"
+          ],
+          [
+            "U2",
+            "6"
+          ]
+        ],
+        [
+          [
+            "U2",
+            "17"
+          ],
+          [
+            "U2",
+            "9"
+          ]
+        ],
+        [
+          [
+            "U2",
+            "2"
+          ],
+          [
+            "U2",
+            "3"
+          ]
+        ],
+        [
+          [
+            "U2",
+            "2"
+          ],
+          [
+            "U2",
+            "6"
+          ]
+        ],
+        [
+          [
+            "U2",
+            "2"
+          ],
+          [
+            "U2",
+            "9"
+          ]
+        ],
+        [
+          [
+            "U2",
+            "3"
+          ],
+          [
+            "U2",
+            "6"
+          ]
+        ],
+        [
+          [
+            "U2",
+            "6"
+          ],
+          [
+            "U2",
+            "9"
+          ]
+        ]
+      ],
+      "lost_correct_pairs": [],
+      "removed_invalid_assigned_pins": []
+    },
+    "native-a39a7a1fc84f921b27fd": {
+      "removed_incorrect_pairs": [
+        [
+          [
+            "R1",
+            "1"
+          ],
+          [
+            "R1",
+            "4"
+          ]
+        ]
+      ],
+      "remaining_wrong_pairs": [],
+      "lost_correct_pairs": [],
+      "removed_invalid_assigned_pins": [
+        [
+          "R1",
+          "4"
+        ],
+        [
+          "R1",
+          "55"
+        ]
+      ]
+    },
+    "native-fedf29b44113e135f31f": {
+      "removed_incorrect_pairs": [],
+      "remaining_wrong_pairs": [],
+      "lost_correct_pairs": [],
+      "removed_invalid_assigned_pins": []
+    },
+    "native-c4d88e79bc63688e0e7c": {
+      "removed_incorrect_pairs": [],
+      "remaining_wrong_pairs": [],
+      "lost_correct_pairs": [],
+      "removed_invalid_assigned_pins": []
+    },
+    "native-37735b083f0b9f56549f": {
+      "removed_incorrect_pairs": [],
+      "remaining_wrong_pairs": [
+        [
+          [
+            "P0",
+            "00"
+          ],
+          [
+            "P0",
+            "31"
+          ]
+        ]
+      ],
+      "lost_correct_pairs": [],
+      "removed_invalid_assigned_pins": []
+    },
+    "native-0a236a74292d04d831fa": {
+      "removed_incorrect_pairs": [],
+      "remaining_wrong_pairs": [],
+      "lost_correct_pairs": [],
+      "removed_invalid_assigned_pins": []
+    },
+    "native-e9b7597c67252bf7707d": {
+      "removed_incorrect_pairs": [],
+      "remaining_wrong_pairs": [],
+      "lost_correct_pairs": [],
+      "removed_invalid_assigned_pins": []
+    },
+    "native-901de51001a98cc2361a": {
+      "removed_incorrect_pairs": [],
+      "remaining_wrong_pairs": [],
+      "lost_correct_pairs": [],
+      "removed_invalid_assigned_pins": []
+    },
+    "native-c6bcc506a3200b19e089": {
+      "removed_incorrect_pairs": [],
+      "remaining_wrong_pairs": [],
+      "lost_correct_pairs": [],
+      "removed_invalid_assigned_pins": []
+    },
+    "native-c4d7791b4ebdf13c3944": {
+      "removed_incorrect_pairs": [],
+      "remaining_wrong_pairs": [
+        [
+          [
+            "U504",
+            "4"
+          ],
+          [
+            "U504",
+            "9"
+          ]
+        ]
+      ],
+      "lost_correct_pairs": [],
+      "removed_invalid_assigned_pins": []
+    }
+  },
+  "before": {
+    "valid_native_pins": 103,
+    "correct_native_pairs": 9,
+    "wrong_native_pairs": 14
+  },
+  "after": {
+    "components_found": 60,
+    "physical_pins_found": 103,
+    "connected_pin_pairs_correct": 9,
+    "connected_pin_pairs_wrong": 13
+  },
+  "clear_before": 227,
+  "clear_after": 227,
+  "no_correct_connections_lost": true,
+  "evidence_mode": "all-18 cached guard delta plus two fresh current-code targets"
+}

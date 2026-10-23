@@ -1,0 +1,1290 @@
+{
+  "scope": "source inspection, independent positive and negative reference connectivity; no recognition runs",
+  "clear_errors": {
+    "S1.U64.4": {
+      "read": "WZPLJ6",
+      "expected": "DD6",
+      "anchor_observed": true,
+      "crop": "S1-U64.png",
+      "working_bounds": [
+        6262,
+        2801,
+        6931,
+        3603
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 1.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "DD6",
+          "conf": 0.9967629114786783,
+          "x0": 4213,
+          "y0": 5369,
+          "x1": 4244,
+          "y1": 5442,
+          "vertical": true
+        },
+        {
+          "text": "DD6",
+          "conf": 0.9925602674484253,
+          "x0": 6308,
+          "y0": 3226,
+          "x1": 6382,
+          "y1": 3262,
+          "vertical": false
+        }
+      ]
+    },
+    "S1.U64.13": {
+      "read": null,
+      "expected": "CC7",
+      "anchor_observed": false,
+      "crop": "S1-U64.png",
+      "working_bounds": [
+        6262,
+        2801,
+        6931,
+        3603
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 1.jpg.jpeg",
+      "expected_text_observations": []
+    },
+    "S3.U6.14": {
+      "read": "KAAI",
+      "expected": "AAA1",
+      "anchor_observed": true,
+      "crop": "S3-U6.png",
+      "working_bounds": [
+        1747,
+        1209,
+        2452,
+        1839
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 3.jpg.jpeg",
+      "expected_text_observations": []
+    },
+    "S3.U6.11": {
+      "read": null,
+      "expected": "AAA4",
+      "anchor_observed": false,
+      "crop": "S3-U6.png",
+      "working_bounds": [
+        1747,
+        1209,
+        2452,
+        1839
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 3.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "AAA4",
+          "conf": 0.9840805530548096,
+          "x0": 4999,
+          "y0": 1629,
+          "x1": 5085,
+          "y1": 1659,
+          "vertical": false
+        },
+        {
+          "text": "AAA4",
+          "conf": 0.962891697883606,
+          "x0": 2062,
+          "y0": 3399,
+          "x1": 2146,
+          "y1": 3422,
+          "vertical": false
+        },
+        {
+          "text": "AAA4",
+          "conf": 0.9588444828987122,
+          "x0": 2220,
+          "y0": 1707,
+          "x1": 2245,
+          "y1": 1789,
+          "vertical": true
+        }
+      ]
+    },
+    "S3.U8.14": {
+      "read": "AAA6",
+      "expected": "AAA9",
+      "anchor_observed": true,
+      "crop": "S3-U8.png",
+      "working_bounds": [
+        3193,
+        1204,
+        3898,
+        1834
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 3.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "AAA9",
+          "conf": 0.9124609082937241,
+          "x0": 2062,
+          "y0": 3208,
+          "x1": 2146,
+          "y1": 3238,
+          "vertical": false
+        }
+      ]
+    },
+    "S3.U8.11": {
+      "read": null,
+      "expected": "AAA12",
+      "anchor_observed": false,
+      "crop": "S3-U8.png",
+      "working_bounds": [
+        3193,
+        1204,
+        3898,
+        1834
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 3.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "AAA12",
+          "conf": 0.9652923941612244,
+          "x0": 2038,
+          "y0": 2731,
+          "x1": 2143,
+          "y1": 2758,
+          "vertical": false
+        },
+        {
+          "text": "AAA12",
+          "conf": 0.938160220781962,
+          "x0": 3660,
+          "y0": 1701,
+          "x1": 3694,
+          "y1": 1808,
+          "vertical": true
+        }
+      ]
+    },
+    "S3.U27.17": {
+      "read": null,
+      "expected": "AR12",
+      "anchor_observed": false,
+      "crop": "S3-U27.png",
+      "working_bounds": [
+        2819,
+        2018,
+        3450,
+        2907
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 3.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "AR12",
+          "conf": 0.9982291460037231,
+          "x0": 2502,
+          "y0": 2656,
+          "x1": 2587,
+          "y1": 2682,
+          "vertical": false
+        },
+        {
+          "text": "AR12",
+          "conf": 0.9837967038154602,
+          "x0": 2862,
+          "y0": 3765,
+          "x1": 2957,
+          "y1": 3795,
+          "vertical": false
+        },
+        {
+          "text": "AR12",
+          "conf": 0.9072495102882385,
+          "x0": 2868,
+          "y0": 2231,
+          "x1": 2952,
+          "y1": 2270,
+          "vertical": false
+        }
+      ]
+    },
+    "S3.U27.7": {
+      "read": "RG9",
+      "expected": "AR3",
+      "anchor_observed": true,
+      "crop": "S3-U27.png",
+      "working_bounds": [
+        2819,
+        2018,
+        3450,
+        2907
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 3.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "AR3",
+          "conf": 0.9952868421872457,
+          "x0": 2505,
+          "y0": 3358,
+          "x1": 2564,
+          "y1": 3384,
+          "vertical": false
+        },
+        {
+          "text": "AR3",
+          "conf": 0.987947960694631,
+          "x0": 2891,
+          "y0": 2561,
+          "x1": 2952,
+          "y1": 2589,
+          "vertical": false
+        },
+        {
+          "text": "AR3",
+          "conf": 0.9866097172101339,
+          "x0": 4399,
+          "y0": 3757,
+          "x1": 4462,
+          "y1": 3784,
+          "vertical": false
+        },
+        {
+          "text": "AR3",
+          "conf": 0.9657993316650391,
+          "x0": 2895,
+          "y0": 4099,
+          "x1": 2961,
+          "y1": 4130,
+          "vertical": false
+        },
+        {
+          "text": "AR3",
+          "conf": 0.9601764480272929,
+          "x0": 2893,
+          "y0": 3303,
+          "x1": 2954,
+          "y1": 3327,
+          "vertical": false
+        },
+        {
+          "text": "AR3",
+          "conf": 0.942669411500295,
+          "x0": 6100,
+          "y0": 3994,
+          "x1": 6160,
+          "y1": 4020,
+          "vertical": false
+        }
+      ]
+    },
+    "S3.U28.19": {
+      "read": null,
+      "expected": "AR10",
+      "anchor_observed": false,
+      "crop": "S3-U28.png",
+      "working_bounds": [
+        2821,
+        2757,
+        3451,
+        3647
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 3.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "AR10",
+          "conf": 0.9970856606960297,
+          "x0": 2502,
+          "y0": 2729,
+          "x1": 2588,
+          "y1": 2757,
+          "vertical": false
+        },
+        {
+          "text": "AR10",
+          "conf": 0.9953138530254364,
+          "x0": 2868,
+          "y0": 2305,
+          "x1": 2952,
+          "y1": 2329,
+          "vertical": false
+        },
+        {
+          "text": "AR10",
+          "conf": 0.9934553354978561,
+          "x0": 2871,
+          "y0": 3042,
+          "x1": 2954,
+          "y1": 3068,
+          "vertical": false
+        },
+        {
+          "text": "AR10",
+          "conf": 0.9463276118040085,
+          "x0": 2873,
+          "y0": 3841,
+          "x1": 2957,
+          "y1": 3865,
+          "vertical": false
+        }
+      ]
+    },
+    "S4.U31.27": {
+      "read": null,
+      "expected": "ADDA11",
+      "anchor_observed": false,
+      "crop": "S4-U31.png",
+      "working_bounds": [
+        2303,
+        1318,
+        3430,
+        2220
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 4.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "ADDA11",
+          "conf": 0.9403618574142456,
+          "x0": 453,
+          "y0": 741,
+          "x1": 606,
+          "y1": 775,
+          "vertical": false
+        },
+        {
+          "text": "ADDA11",
+          "conf": 0.8538285791873932,
+          "x0": 5125,
+          "y0": 1294,
+          "x1": 5163,
+          "y1": 1448,
+          "vertical": true
+        }
+      ]
+    },
+    "S4.U33.14": {
+      "read": null,
+      "expected": "ADDA9",
+      "anchor_observed": false,
+      "crop": "S4-U33.png",
+      "working_bounds": [
+        4239,
+        1326,
+        4913,
+        2003
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 4.jpg.jpeg",
+      "expected_text_observations": []
+    },
+    "S4.U34.9": {
+      "read": null,
+      "expected": "ADDA7",
+      "anchor_observed": false,
+      "crop": "S4-U34.png",
+      "working_bounds": [
+        5500,
+        1332,
+        6173,
+        2008
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 4.jpg.jpeg",
+      "expected_text_observations": []
+    },
+    "S5.U36.21": {
+      "read": null,
+      "expected": "INDA14",
+      "anchor_observed": false,
+      "crop": "S5-U36.png",
+      "working_bounds": [
+        3122,
+        5158,
+        4345,
+        6271
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 5.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "INDA14",
+          "conf": 0.9624937872091929,
+          "x0": 8737,
+          "y0": 3013,
+          "x1": 8800,
+          "y1": 3223,
+          "vertical": true
+        }
+      ]
+    },
+    "S5.U36.2": {
+      "read": "N00549",
+      "expected": "INDA12",
+      "anchor_observed": true,
+      "crop": "S5-U36.png",
+      "working_bounds": [
+        3122,
+        5158,
+        4345,
+        6271
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 5.jpg.jpeg",
+      "expected_text_observations": []
+    },
+    "S5.U49.2": {
+      "read": "~TT2",
+      "expected": "INDA8",
+      "anchor_observed": true,
+      "crop": "S5-U49.png",
+      "working_bounds": [
+        5757,
+        5160,
+        6978,
+        6277
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 5.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "INDA8",
+          "conf": 0.8567269384860993,
+          "x0": 9087,
+          "y0": 2997,
+          "x1": 9152,
+          "y1": 3187,
+          "vertical": true
+        },
+        {
+          "text": "INDA8",
+          "conf": 0.7099813421567281,
+          "x0": 5230,
+          "y0": 3011,
+          "x1": 5293,
+          "y1": 3210,
+          "vertical": true
+        }
+      ]
+    },
+    "S5.U49.9": {
+      "read": "N00619",
+      "expected": "INBU8",
+      "anchor_observed": true,
+      "crop": "S5-U49.png",
+      "working_bounds": [
+        5757,
+        5160,
+        6978,
+        6277
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 5.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "INBU8",
+          "conf": 0.8819109082221985,
+          "x0": 6718,
+          "y0": 5693,
+          "x1": 6889,
+          "y1": 5740,
+          "vertical": false
+        }
+      ]
+    },
+    "S5.U37.9": {
+      "read": null,
+      "expected": "INBU4",
+      "anchor_observed": false,
+      "crop": "S5-U37.png",
+      "working_bounds": [
+        8353,
+        5166,
+        9572,
+        6283
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 5.jpg.jpeg",
+      "expected_text_observations": [
+        {
+          "text": "INBU4",
+          "conf": 0.8411429107189179,
+          "x0": 7342,
+          "y0": 5754,
+          "x1": 7516,
+          "y1": 5815,
+          "vertical": false
+        }
+      ]
+    },
+    "S5.U50.9": {
+      "read": null,
+      "expected": "INBU0",
+      "anchor_observed": false,
+      "crop": "S5-U50.png",
+      "working_bounds": [
+        11006,
+        5166,
+        12225,
+        6285
+      ],
+      "source": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\samples\\orcad\\Sample 5.jpg.jpeg",
+      "expected_text_observations": []
+    }
+  },
+  "native_false_pairs": {
+    "native-3b2a49a524e2d50dcf26": [
+      {
+        "a": [
+          "R34",
+          "1"
+        ],
+        "b": [
+          "U2",
+          "3"
+        ],
+        "reference_a": "GND",
+        "reference_b": "VBUS",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      },
+      {
+        "a": [
+          "R34",
+          "1"
+        ],
+        "b": [
+          "U2",
+          "6"
+        ],
+        "reference_a": "GND",
+        "reference_b": "V33IO",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      },
+      {
+        "a": [
+          "R34",
+          "1"
+        ],
+        "b": [
+          "U2",
+          "9"
+        ],
+        "reference_a": "GND",
+        "reference_b": "VBUS",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      },
+      {
+        "a": [
+          "U2",
+          "17"
+        ],
+        "b": [
+          "U2",
+          "3"
+        ],
+        "reference_a": "GND",
+        "reference_b": "VBUS",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      },
+      {
+        "a": [
+          "U2",
+          "17"
+        ],
+        "b": [
+          "U2",
+          "6"
+        ],
+        "reference_a": "GND",
+        "reference_b": "V33IO",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      },
+      {
+        "a": [
+          "U2",
+          "17"
+        ],
+        "b": [
+          "U2",
+          "9"
+        ],
+        "reference_a": "GND",
+        "reference_b": "VBUS",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      },
+      {
+        "a": [
+          "U2",
+          "2"
+        ],
+        "b": [
+          "U2",
+          "3"
+        ],
+        "reference_a": "GND",
+        "reference_b": "VBUS",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      },
+      {
+        "a": [
+          "U2",
+          "2"
+        ],
+        "b": [
+          "U2",
+          "6"
+        ],
+        "reference_a": "GND",
+        "reference_b": "V33IO",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      },
+      {
+        "a": [
+          "U2",
+          "2"
+        ],
+        "b": [
+          "U2",
+          "9"
+        ],
+        "reference_a": "GND",
+        "reference_b": "VBUS",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      },
+      {
+        "a": [
+          "U2",
+          "3"
+        ],
+        "b": [
+          "U2",
+          "6"
+        ],
+        "reference_a": "VBUS",
+        "reference_b": "V33IO",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      },
+      {
+        "a": [
+          "U2",
+          "6"
+        ],
+        "b": [
+          "U2",
+          "9"
+        ],
+        "reference_a": "V33IO",
+        "reference_b": "VBUS",
+        "source": "Grove Vision AI V2 Library/Grove - Vision AI Module V2.kicad_sch"
+      }
+    ],
+    "native-a39a7a1fc84f921b27fd": [
+      {
+        "a": [
+          "R1",
+          "1"
+        ],
+        "b": [
+          "R1",
+          "4"
+        ],
+        "reference_a": "LORA_RST",
+        "reference_b": "NONEXISTENT PHYSICAL PIN OR COMPONENT",
+        "source": "Seeed Studio Wio SX1262 for XIAO ESP32S3/Wio-SX1262 for ESP32S3.kicad_sch"
+      }
+    ],
+    "native-37735b083f0b9f56549f": [
+      {
+        "a": [
+          "P0",
+          "00"
+        ],
+        "b": [
+          "P0",
+          "31"
+        ],
+        "reference_a": "NONEXISTENT PHYSICAL PIN OR COMPONENT",
+        "reference_b": "NONEXISTENT PHYSICAL PIN OR COMPONENT",
+        "source": "Seeed Studio XIAO nRF52840 v1.3/Seeed Studio XIAO nRF52840 v1.3.kicad_sch"
+      }
+    ],
+    "native-c4d7791b4ebdf13c3944": [
+      {
+        "a": [
+          "U504",
+          "4"
+        ],
+        "b": [
+          "U504",
+          "9"
+        ],
+        "reference_a": "NONEXISTENT PHYSICAL PIN OR COMPONENT",
+        "reference_b": "NONEXISTENT PHYSICAL PIN OR COMPONENT",
+        "source": "CM4Card.kicad_sch"
+      }
+    ]
+  },
+  "xml_blockers": {
+    "S3": {
+      "components": [
+        {
+          "ref": "R1",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S3-R1-0.png"
+          ]
+        },
+        {
+          "ref": "R6",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 2,
+          "source_crops": [
+            "xml-S3-R6-0.png",
+            "xml-S3-R6-1.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 518,
+        "assigned_pins": 518,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R1",
+          "R6"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    },
+    "S4": {
+      "components": [
+        {
+          "ref": "R11",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S4-R11-0.png"
+          ]
+        },
+        {
+          "ref": "R13",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S4-R13-0.png"
+          ]
+        },
+        {
+          "ref": "R20",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S4-R20-0.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 292,
+        "assigned_pins": 292,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R11",
+          "R13",
+          "R20"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    },
+    "S5": {
+      "components": [
+        {
+          "ref": "R12",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S5-R12-0.png"
+          ]
+        },
+        {
+          "ref": "R19",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S5-R19-0.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 269,
+        "assigned_pins": 269,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R12",
+          "R19"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    },
+    "S4-scan300": {
+      "components": [
+        {
+          "ref": "R1",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S4-scan300-R1-0.png"
+          ]
+        },
+        {
+          "ref": "R11",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S4-scan300-R11-0.png"
+          ]
+        },
+        {
+          "ref": "R14",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S4-scan300-R14-0.png"
+          ]
+        },
+        {
+          "ref": "R15",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S4-scan300-R15-0.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 288,
+        "assigned_pins": 288,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R1",
+          "R11",
+          "R14",
+          "R15"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    },
+    "S4-scan200": {
+      "components": [
+        {
+          "ref": "R11",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-S4-scan200-R11-0.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 86,
+        "assigned_pins": 86,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R11"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    },
+    "native-3b2a49a524e2d50dcf26": {
+      "components": [
+        {
+          "ref": "C36",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-3b2a49a524e2d50dcf26-C36-0.png"
+          ]
+        },
+        {
+          "ref": "R24",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-3b2a49a524e2d50dcf26-R24-0.png"
+          ]
+        },
+        {
+          "ref": "R32",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-3b2a49a524e2d50dcf26-R32-0.png"
+          ]
+        },
+        {
+          "ref": "R40",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-3b2a49a524e2d50dcf26-R40-0.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 44,
+        "assigned_pins": 44,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "C36",
+          "R24",
+          "R32",
+          "R40"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    },
+    "native-c4d88e79bc63688e0e7c": {
+      "components": [
+        {
+          "ref": "R11",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-c4d88e79bc63688e0e7c-R11-0.png"
+          ]
+        },
+        {
+          "ref": "R15",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-c4d88e79bc63688e0e7c-R15-0.png"
+          ]
+        },
+        {
+          "ref": "R2",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-c4d88e79bc63688e0e7c-R2-0.png"
+          ]
+        },
+        {
+          "ref": "U4",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-c4d88e79bc63688e0e7c-U4-0.png"
+          ]
+        },
+        {
+          "ref": "U58",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-c4d88e79bc63688e0e7c-U58-0.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 12,
+        "assigned_pins": 12,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R11",
+          "R15",
+          "R2",
+          "U4",
+          "U58"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    },
+    "native-e9b7597c67252bf7707d": {
+      "components": [
+        {
+          "ref": "R1",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-e9b7597c67252bf7707d-R1-0.png"
+          ]
+        },
+        {
+          "ref": "R2",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-e9b7597c67252bf7707d-R2-0.png"
+          ]
+        },
+        {
+          "ref": "R8",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-e9b7597c67252bf7707d-R8-0.png"
+          ]
+        },
+        {
+          "ref": "R9",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-e9b7597c67252bf7707d-R9-0.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 3,
+        "assigned_pins": 3,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R1",
+          "R2",
+          "R8",
+          "R9"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    },
+    "native-901de51001a98cc2361a": {
+      "components": [
+        {
+          "ref": "R3",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-901de51001a98cc2361a-R3-0.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 7,
+        "assigned_pins": 7,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R3"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    },
+    "native-c6bcc506a3200b19e089": {
+      "components": [
+        {
+          "ref": "R1",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 2,
+          "source_crops": [
+            "xml-native-c6bcc506a3200b19e089-R1-0.png",
+            "xml-native-c6bcc506a3200b19e089-R1-1.png"
+          ]
+        },
+        {
+          "ref": "R2",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 2,
+          "source_crops": [
+            "xml-native-c6bcc506a3200b19e089-R2-0.png",
+            "xml-native-c6bcc506a3200b19e089-R2-1.png"
+          ]
+        },
+        {
+          "ref": "R4",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 2,
+          "source_crops": [
+            "xml-native-c6bcc506a3200b19e089-R4-0.png",
+            "xml-native-c6bcc506a3200b19e089-R4-1.png"
+          ]
+        },
+        {
+          "ref": "R5",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 2,
+          "source_crops": [
+            "xml-native-c6bcc506a3200b19e089-R5-0.png",
+            "xml-native-c6bcc506a3200b19e089-R5-1.png"
+          ]
+        },
+        {
+          "ref": "R7",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 2,
+          "source_crops": [
+            "xml-native-c6bcc506a3200b19e089-R7-0.png",
+            "xml-native-c6bcc506a3200b19e089-R7-1.png"
+          ]
+        },
+        {
+          "ref": "R8",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 2,
+          "source_crops": [
+            "xml-native-c6bcc506a3200b19e089-R8-0.png",
+            "xml-native-c6bcc506a3200b19e089-R8-1.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 12,
+        "assigned_pins": 12,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R1",
+          "R2",
+          "R4",
+          "R5",
+          "R7",
+          "R8"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    },
+    "native-c4d7791b4ebdf13c3944": {
+      "components": [
+        {
+          "ref": "R5",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-c4d7791b4ebdf13c3944-R5-0.png"
+          ]
+        },
+        {
+          "ref": "R6",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-c4d7791b4ebdf13c3944-R6-0.png"
+          ]
+        },
+        {
+          "ref": "R8",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-c4d7791b4ebdf13c3944-R8-0.png"
+          ]
+        },
+        {
+          "ref": "R9",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-c4d7791b4ebdf13c3944-R9-0.png"
+          ]
+        },
+        {
+          "ref": "U4",
+          "observed_inventory": 0,
+          "assigned": 0,
+          "reference_text_observations": 1,
+          "source_crops": [
+            "xml-native-c4d7791b4ebdf13c3944-U4-0.png"
+          ]
+        }
+      ],
+      "readback": {
+        "passed": false,
+        "physical_pins": 14,
+        "assigned_pins": 14,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R5",
+          "R6",
+          "R8",
+          "R9",
+          "U4"
+        ],
+        "extra_components": []
+      },
+      "diagnosis": "Component identity has no observed physical pins. All observed assignments round-trip; encoding a component-only record would require an invented faculty node."
+    }
+  }
+}

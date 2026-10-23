@@ -1,0 +1,253 @@
+{
+  "V1": {
+    "lib_id": "sallen_key_schlib:VDC",
+    "instance_at": [
+      "152.4",
+      "119.38",
+      "0"
+    ],
+    "pins": [
+      {
+        "number": "1",
+        "name": "~",
+        "local_at": [
+          "0",
+          "5.08",
+          "270"
+        ]
+      },
+      {
+        "number": "2",
+        "name": "~",
+        "local_at": [
+          "0",
+          "-5.08",
+          "90"
+        ]
+      }
+    ]
+  },
+  "U1": {
+    "lib_id": "sallen_key_schlib:Generic_Opamp",
+    "instance_at": [
+      "199.39",
+      "111.76",
+      "0"
+    ],
+    "pins": [
+      {
+        "number": "1",
+        "name": "+",
+        "local_at": [
+          "-7.62",
+          "2.54",
+          "0"
+        ]
+      },
+      {
+        "number": "2",
+        "name": "-",
+        "local_at": [
+          "-7.62",
+          "-2.54",
+          "0"
+        ]
+      },
+      {
+        "number": "3",
+        "name": "V+",
+        "local_at": [
+          "-2.54",
+          "7.62",
+          "270"
+        ]
+      },
+      {
+        "number": "4",
+        "name": "V-",
+        "local_at": [
+          "-2.54",
+          "-7.62",
+          "90"
+        ]
+      },
+      {
+        "number": "5",
+        "name": "~",
+        "local_at": [
+          "7.62",
+          "0",
+          "180"
+        ]
+      }
+    ]
+  },
+  "V2": {
+    "lib_id": "sallen_key_schlib:VDC",
+    "instance_at": [
+      "245.11",
+      "46.99",
+      "0"
+    ],
+    "pins": [
+      {
+        "number": "1",
+        "name": "~",
+        "local_at": [
+          "0",
+          "5.08",
+          "270"
+        ]
+      },
+      {
+        "number": "2",
+        "name": "~",
+        "local_at": [
+          "0",
+          "-5.08",
+          "90"
+        ]
+      }
+    ]
+  },
+  "V3": {
+    "lib_id": "sallen_key_schlib:VDC",
+    "instance_at": [
+      "245.11",
+      "59.69",
+      "0"
+    ],
+    "pins": [
+      {
+        "number": "1",
+        "name": "~",
+        "local_at": [
+          "0",
+          "5.08",
+          "270"
+        ]
+      },
+      {
+        "number": "2",
+        "name": "~",
+        "local_at": [
+          "0",
+          "-5.08",
+          "90"
+        ]
+      }
+    ]
+  },
+  "R2": {
+    "lib_id": "sallen_key_schlib:R",
+    "instance_at": [
+      "176.53",
+      "109.22",
+      "270"
+    ],
+    "pins": [
+      {
+        "number": "1",
+        "name": "~",
+        "local_at": [
+          "0",
+          "3.81",
+          "270"
+        ]
+      },
+      {
+        "number": "2",
+        "name": "~",
+        "local_at": [
+          "0",
+          "-3.81",
+          "90"
+        ]
+      }
+    ]
+  },
+  "R1": {
+    "lib_id": "sallen_key_schlib:R",
+    "instance_at": [
+      "162.56",
+      "109.22",
+      "270"
+    ],
+    "pins": [
+      {
+        "number": "1",
+        "name": "~",
+        "local_at": [
+          "0",
+          "3.81",
+          "270"
+        ]
+      },
+      {
+        "number": "2",
+        "name": "~",
+        "local_at": [
+          "0",
+          "-3.81",
+          "90"
+        ]
+      }
+    ]
+  },
+  "C1": {
+    "lib_id": "sallen_key_schlib:C",
+    "instance_at": [
+      "177.8",
+      "125.73",
+      "270"
+    ],
+    "pins": [
+      {
+        "number": "1",
+        "name": "~",
+        "local_at": [
+          "0",
+          "3.81",
+          "270"
+        ]
+      },
+      {
+        "number": "2",
+        "name": "~",
+        "local_at": [
+          "0",
+          "-3.81",
+          "90"
+        ]
+      }
+    ]
+  },
+  "C2": {
+    "lib_id": "sallen_key_schlib:C",
+    "instance_at": [
+      "186.69",
+      "101.6",
+      "180"
+    ],
+    "pins": [
+      {
+        "number": "1",
+        "name": "~",
+        "local_at": [
+          "0",
+          "3.81",
+          "270"
+        ]
+      },
+      {
+        "number": "2",
+        "name": "~",
+        "local_at": [
+          "0",
+          "-3.81",
+          "90"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "S1": {
+    "passed_before": true,
+    "passed_after": true,
+    "missing_components_before": [],
+    "missing_components_after": [],
+    "wrong_assignments": []
+  },
+  "S2": {
+    "passed_before": true,
+    "passed_after": true,
+    "missing_components_before": [],
+    "missing_components_after": [],
+    "wrong_assignments": []
+  },
+  "S3": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "R1",
+      "R6"
+    ],
+    "missing_components_after": [
+      "R1",
+      "R6"
+    ],
+    "wrong_assignments": []
+  },
+  "S4": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "R11",
+      "R13",
+      "R20"
+    ],
+    "missing_components_after": [
+      "R11",
+      "R13",
+      "R20"
+    ],
+    "wrong_assignments": []
+  },
+  "S5": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "R12",
+      "R19"
+    ],
+    "missing_components_after": [
+      "R12",
+      "R19"
+    ],
+    "wrong_assignments": []
+  },
+  "S4-scan300": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "R1",
+      "R11",
+      "R14",
+      "R15"
+    ],
+    "missing_components_after": [
+      "R1",
+      "R11",
+      "R14",
+      "R15"
+    ],
+    "wrong_assignments": []
+  },
+  "S4-scan200": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "R11"
+    ],
+    "missing_components_after": [
+      "R11"
+    ],
+    "wrong_assignments": []
+  },
+  "S4-blur300": {
+    "passed_before": true,
+    "passed_after": true,
+    "missing_components_before": [],
+    "missing_components_after": [],
+    "wrong_assignments": []
+  },
+  "native-3b2a49a524e2d50dcf26": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "C36",
+      "R24",
+      "R32",
+      "R40"
+    ],
+    "missing_components_after": [
+      "C36",
+      "R24",
+      "R32",
+      "R40"
+    ],
+    "wrong_assignments": []
+  },
+  "native-a39a7a1fc84f921b27fd": {
+    "passed_before": true,
+    "passed_after": true,
+    "missing_components_before": [],
+    "missing_components_after": [],
+    "wrong_assignments": []
+  },
+  "native-fedf29b44113e135f31f": {
+    "passed_before": true,
+    "passed_after": true,
+    "missing_components_before": [],
+    "missing_components_after": [],
+    "wrong_assignments": []
+  },
+  "native-c4d88e79bc63688e0e7c": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "R11",
+      "R15",
+      "R2",
+      "U4",
+      "U58"
+    ],
+    "missing_components_after": [
+      "R11",
+      "R15",
+      "R2",
+      "U4",
+      "U58"
+    ],
+    "wrong_assignments": []
+  },
+  "native-37735b083f0b9f56549f": {
+    "passed_before": true,
+    "passed_after": true,
+    "missing_components_before": [],
+    "missing_components_after": [],
+    "wrong_assignments": []
+  },
+  "native-0a236a74292d04d831fa": {
+    "passed_before": true,
+    "passed_after": true,
+    "missing_components_before": [],
+    "missing_components_after": [],
+    "wrong_assignments": []
+  },
+  "native-e9b7597c67252bf7707d": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "R1",
+      "R2",
+      "R8",
+      "R9"
+    ],
+    "missing_components_after": [
+      "R1",
+      "R2",
+      "R8",
+      "R9"
+    ],
+    "wrong_assignments": []
+  },
+  "native-901de51001a98cc2361a": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "R3"
+    ],
+    "missing_components_after": [
+      "R3"
+    ],
+    "wrong_assignments": []
+  },
+  "native-c6bcc506a3200b19e089": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "R1",
+      "R2",
+      "R4",
+      "R5",
+      "R7",
+      "R8"
+    ],
+    "missing_components_after": [
+      "R1",
+      "R2",
+      "R4",
+      "R5",
+      "R7",
+      "R8"
+    ],
+    "wrong_assignments": []
+  },
+  "native-c4d7791b4ebdf13c3944": {
+    "passed_before": false,
+    "passed_after": false,
+    "missing_components_before": [
+      "R5",
+      "R6",
+      "R8",
+      "R9",
+      "U4"
+    ],
+    "missing_components_after": [
+      "R5",
+      "R6",
+      "R8",
+      "R9",
+      "U4"
+    ],
+    "wrong_assignments": []
+  }
+}

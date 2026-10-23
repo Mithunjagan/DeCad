@@ -1,0 +1,16 @@
+{
+  "source": "D:\\KICAD\\share\\kicad\\demos\\simulation\\sallen_key\\sallen_key.kicad_sch",
+  "source_sha256": "0f3a00bb0f5fdb0f52e535e077d63813678d22c54b28c4d0803b5f141bdf5078",
+  "image_sha256": "7c13ff962f0299a8811c5607768ef9121538bdbbc1a31f848b52ccd6a9201eb5",
+  "native_truth_read": false,
+  "crop_bounds_400dpi": [
+    2240,
+    480,
+    4013,
+    2133
+  ],
+  "synthetic": false,
+  "source_changed": false,
+  "recognizer_input": "raster only; no native graph or source supplied",
+  "recognizer_frozen_before_selection": true
+}
