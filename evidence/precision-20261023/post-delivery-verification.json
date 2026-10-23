@@ -1,0 +1,15 @@
+{
+  "bundle_manifest_files": 106,
+  "bundle_crc_passed": true,
+  "receipts_zip_crc_passed": true,
+  "application_source_still_frozen": true,
+  "model_unchanged": true,
+  "live_api_frontend_200": true,
+  "saved_review_pins": 19,
+  "attached_source_sha256_verified": true,
+  "pdf_pages": 11,
+  "pdf_render_review": "All 11 pages inspected; changed pages 7-10 rechecked; 1-6/11 raster-identical after spacing repair",
+  "pdf_sha256": "a2d37d633d96c4ffb6f302971eadb27512a9f4226dd5faeb9db662b17b922439",
+  "pdf_bytes": 2280718,
+  "pdf_base64_characters": 3040960
+}

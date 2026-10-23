@@ -1,0 +1,30 @@
+{
+  "source": "training\\native_candidates_20261021\\3b2a49a524e2d50dcf26\\image.png",
+  "source_sha256": "e31f2c383a20a0aebddb2e9f75ab7ff4cbb737caf6765828abda613f207b2e82",
+  "source_affine": [
+    [
+      2.2222222222222223,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      2.2222222222222223,
+      0.0
+    ]
+  ],
+  "working_bounds": {
+    "Grove-U2-complete.png": [
+      6000,
+      700,
+      8200,
+      2250
+    ],
+    "Grove-R34-ground-wide.png": [
+      6900,
+      2900,
+      9050,
+      4050
+    ]
+  }
+}

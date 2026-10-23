@@ -42,6 +42,8 @@ Live HTTP upload, recognition proposal, review save/reopen, faculty download and
 
 Evidence: [summary](../evidence/precision-20261023/final-summary.json), [exact changes](../evidence/precision-20261023/accepted-fresh/precision-changes.json), [accepted gate](../evidence/precision-20261023/accepted-fresh/gate.json), [native readbacks](../evidence/precision-20261023/native-exports/report.json), [unseen workflow](../evidence/precision-20261023/unseen-workflow.json), [backend tests](../evidence/precision-20261023/backend-tests-accepted.log). Full raw/candidate workers and source crops remain in `evidence/precision-20261023`; unrelated pre-existing workspace changes remain outside these commits.
 
+Printable companion: [11-page engineering and source-evidence report](../output/pdf/DeCad_Verified_Engineering_Report_2026-10-23.pdf). All pages were rendered and checked. The portable bundle with this supplement has a complete SHA-256 manifest; these artifacts do not change the accepted application.
+
 ## Historical acceptance at 871ee61
 
 **DEMO-READY for the tested review-assisted workflow. Automatic recognition remains incomplete.**
