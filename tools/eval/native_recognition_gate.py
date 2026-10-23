@@ -143,7 +143,8 @@ def main(args):
                       protected_model_sha256=hashlib.sha256((ROOT/'checkpoints/schematic-ocr/model.onnx').read_bytes()).hexdigest())
         report['cases'][identity] = result
         if args.baseline:
-            old = json.loads((args.baseline / identity / 'recognized.json').read_text())
+            from benchmark_paths import prediction_path
+            old = json.loads(prediction_path(args.baseline,identity).read_text())
             errors = retained(row['circuit'], old, graph)
             report['regressions'].extend(identity + ': ' + error for error in errors)
         (args.out / 'report.json').write_text(json.dumps(report, indent=2))

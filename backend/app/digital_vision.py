@@ -1023,6 +1023,7 @@ def _read_strip(page, x, y, ux, uy, ch, side, *, audit=None):
     num = _ocr_box(page, *box(*words[0]), rotate)
     if audit is not None:
         audit['primary'] = (num.text, float(num.conf)) if num else None
+        audit['pin_bbox']=[num.x0,num.y0,num.x1,num.y1] if num else None
         audit['secondary'] = read_text_model(page, *box(*words[0]), rotate)
     num = as_number(num.text) if num else None
     if not num:                                    # second opinion from the fine-tuned reader
@@ -1044,6 +1045,10 @@ def _read_strip(page, x, y, ux, uy, ch, side, *, audit=None):
         text = t.text.upper().strip('<>[]()=_.') if t else ''
         cands = [text] if t and t.conf >= 0.3 and len(text) >= 2 and not text.isdigit() else []
         alt = read_text_model(page, *box(lo, hi), rotate)
+        if audit is not None:
+            audit['label_bbox']=[t.x0,t.y0,t.x1,t.y1] if t else list(box(lo,hi))
+            audit['label_primary']=(t.text,float(t.conf)) if t else None
+            audit['label_secondary']=alt
         if alt and alt[1] >= 0.5 and len(alt[0]) >= 2 and not alt[0].isdigit():
             cands.append(alt[0])
         label = cands or None                      # validated against the sheet vocabulary by the caller
@@ -2063,7 +2068,7 @@ def recognize(page, toks):
     geometry={};pin_roots={};raw_to_final={};blocked_groups=set();spatial_readings={};wire_pin_roots={}
     direct_pin_labels={(o['ref'],o['pin']):o['fixed'] for o in strip_observations if o['active'] and o.get('fixed')}
     if enabled() and nodes:
-        from .wire_graph import trace,verified_bodies,reconcile_pin_groups,unmasked_components
+        from .wire_graph import trace,verified_bodies,unmasked_components
         from .roi_vision import RoIReader
         reader=RoIReader();reader.requests=page.roi_requests
         # OCR is complete. Release full-sheet intermediate planes before the
@@ -2075,21 +2080,18 @@ def recognize(page, toks):
             geometry=trace(page,bodies,toks+[t for t,_ in numbers],wires,node_locations,reader,external_labels)
         finally:
             page.roi_audit+=reader.audit;page.roi_requests=reader.requests;reader.close()
-        pin_roots,raw_to_final,blocked_groups=reconcile_pin_groups(dsu,nodes,geometry['pin_anchors'],require_complete=True,mask_complete=not unmasked)
+        # Preserve the recognizer's existing observations. Recovery below uses
+        # each pin's local masked path; unrelated missing anchors cannot veto it.
+        pin_roots={key:dsu.find(wire) for key,wire in nodes.items()}
         geometry['unmasked_components']=unmasked
         geometry['mask_complete']=not unmasked
-        old_names=names
-        names={root:list(values) for root,values in old_names.items() if root in blocked_groups}
-        for anchor in geometry['label_anchors']:
-            label=external_labels[anchor['index']];wire=label['wire'];root=raw_to_final.get(anchor['physical_net'])
-            if wire is None or dsu.find(wire) in blocked_groups or root is None:continue
-            names.setdefault(root,[]).append(label['text'])
-            token=Token(label['text'],label['confidence'],*label['bbox'],label['vertical'])
-            spatial_readings.setdefault((wire,root),[]).append((label['text'],token))
+        geometry['unverified_body_regions']=[list(box) for _,_,_,box in anchors if box is not None and box not in bodies]
         for key,wire in nodes.items():wire_pin_roots.setdefault(wire,set()).add(pin_roots[key])
-        geometry['applied']=bool(raw_to_final)
-        geometry['retained_legacy_groups']=len(blocked_groups)
-        if blocked_groups:warnings.append(f'{len(blocked_groups)} wire groups have unresolved terminal anchors; retained their previous observations for review.')
+        geometry['applied']=False
+        geometry['connectivity_policy']='local_additive'
+        geometry['terminal_observations']=[{'ref':ref,'wire':i,'x':x,'y':y,'direction':[-ux,-uy],
+            'body':end_box.get(k),'pin':strip_reads[k][0],'labels':strip_reads[k][1]}
+            for k,i,x,y,ux,uy,ref in edge_pins]
         geometry.update(external_labels=external_labels,internal_pin_labels=page.internal_pin_labels,roi_audit=page.roi_audit,
                         measurements=page.measurements)
         for pin in geometry['pin_anchors']:
@@ -2119,9 +2121,8 @@ def recognize(page, toks):
     nets = {}
     for (ref, pin), i in nodes.items():
         root = pin_roots.get((ref,pin),dsu.find(i))
-        traced=bool(geometry.get('applied')) and dsu.find(i) not in blocked_groups
-        readings=spatial_readings.get((i,root),[]) if traced else seg_readings.get(i,[])
-        direct=direct_pin_labels.get((ref,pin)) if traced and len(wire_pin_roots.get(i,set()))>1 else strip_labels.get(i)
+        readings=seg_readings.get(i,[])
+        direct=strip_labels.get(i)
         own = [direct] if direct else [name for name,_ in readings]
         group = set(names.get(root, []))
         if own:name = direct if direct else choose_wire_label(readings, wires[i])
@@ -2154,7 +2155,7 @@ def recognize(page, toks):
             where[r] = ((box[0] + box[2]) / 2, (box[1] + box[3]) / 2, True)
         elif r not in where:
             where[r] = (x, y, False)
-    return {
+    graph = {
         'components': [{'ref': r, 'value': v or 'UNKNOWN', 'library': PASSIVE.get(re.sub(r'\d.*', '', r)),
                         **({'x': round(where[r][0] / width, 4), 'y': round(where[r][1] / width, 4)} if r in where else {})}
                        for r, v in sorted(components.items())],
@@ -2165,6 +2166,12 @@ def recognize(page, toks):
                   'tokens': len(toks), 'refs': len(refs), 'numbers': len(numbers), 'labels': len(labels), 'pins': len(nodes),
                   'roi_audit': page.roi_audit,'internal_pin_labels':page.internal_pin_labels},
     }
+    if enabled():
+        from .local_recovery import recover_locally
+        from .terminal_recovery import recover_terminals
+        graph=recover_locally(graph)
+        recover_terminals(graph,lambda box:page.gray[box[1]:box[3],box[0]:box[2]],max_reads=160)
+    return graph
 
 
 # ---------------------------------------------------------------- entry point
@@ -2221,7 +2228,7 @@ def extract(path, cache_dir=None):
                 simple.sheet_aspect=graph['sheet_aspect']
                 simple.image_metadata=graph['image_metadata']
                 simple.warnings.insert(0,'Hybrid geometry recovered simple R/C/V symbols using the same CUDA OCR observations.')
-                return simple
+                return Circuit.from_image_graph(simple.model_dump())
         except (ValueError,RuntimeError):
             pass  # Unsupported/ambiguous discrete geometry retains the local read.
     cache = Path(cache_dir or os.getenv('STATE_ROOT') or Path(__file__).resolve().parents[1] / '.state')
@@ -2237,4 +2244,4 @@ def extract(path, cache_dir=None):
         raise ValueError('no part references with part numbers were readable. ' + ' '.join(page.notes))
     warnings.insert(0, f"Recognized {len(graph['components'])} parts and {sum(len(n['nodes']) for n in nets)} pin connections "
                        f"in {len(nets)} nets. Check them against the source before generating the design.")
-    return Circuit.model_validate({**graph, 'nets': nets, 'warnings': warnings})
+    return Circuit.from_image_graph({**graph, 'nets': nets, 'warnings': warnings})

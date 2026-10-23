@@ -46,6 +46,12 @@ class Circuit(BaseModel):
     warnings: list[str] = Field(default_factory=list)
     image_metadata: dict = Field(default_factory=dict)
 
+    @classmethod
+    def from_image_graph(cls,graph):
+        """Repair image observations only; JSON/manual imports remain strict."""
+        from .erc import erc_self_heal
+        return cls.model_validate(erc_self_heal(graph))
+
     @model_validator(mode='after')
     def validate_graph(self):
         refs=[c.ref for c in self.components]

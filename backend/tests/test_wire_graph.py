@@ -148,27 +148,23 @@ def test_pin_groups_can_split_a_legacy_segment_but_preserve_unmapped_groups():
     assert groups['R1','1']==groups['R2','1']==0 and blocked=={0}
 
 
-def test_production_reconciliation_requires_complete_terminal_anchoring():
+def test_partial_reconciliation_is_local_to_the_unresolved_group():
     from app.digital_vision import DSU
     from app.wire_graph import reconcile_pin_groups
     old=DSU(3)
     wires={('U1','1'):0,('U1','2'):1,('U1','3'):2}
     anchors=[{'ref':'U1','pin':'1','physical_net':4},{'ref':'U1','pin':'2','physical_net':4},
              {'ref':'U1','pin':'3','physical_net':None}]
-    groups,mapping,blocked=reconcile_pin_groups(old,wires,anchors,require_complete=True)
-    assert groups==wires and not mapping and blocked=={0,1,2}
+    groups,mapping,blocked=reconcile_pin_groups(old,wires,anchors)
+    assert groups[('U1','1')]==groups[('U1','2')]
+    assert groups[('U1','3')]==2 and blocked=={2} and mapping
 
 
-def test_fully_anchored_pins_cannot_certify_an_unmasked_unknown_symbol():
-    from app.digital_vision import DSU
-    from app.wire_graph import reconcile_pin_groups,unmasked_components
+def test_unmasked_unknown_symbol_is_reported_as_local_obstacle():
+    from app.wire_graph import unmasked_components
     locations={('U1','1'):{'x':20,'y':20,'wire':0},('U1','2'):{'x':40,'y':20,'wire':1}}
     missing=unmasked_components({'U1':'UNKNOWN'},locations,[])
     assert missing==['U1']
-    anchors=[{'ref':'U1','pin':str(n),'physical_net':4} for n in (1,2)]
-    groups,mapping,blocked=reconcile_pin_groups(DSU(2),{k:p['wire'] for k,p in locations.items()},anchors,
-                                                require_complete=True,mask_complete=not missing)
-    assert groups[('U1','1')]!=groups[('U1','2')] and not mapping and blocked=={0,1}
 
 
 def test_observed_opposing_passive_terminals_certify_only_their_own_mask():

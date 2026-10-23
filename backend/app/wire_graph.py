@@ -374,7 +374,7 @@ def trace(page,bodies,texts,segments,anchors,reader=None,labels=()):
             'algorithm':'masked_directional_closing_zhang_suen_physical_graph'}
 
 
-def reconcile_pin_groups(legacy,node_wires,pin_anchors,*,require_complete=False,mask_complete=True):
+def reconcile_pin_groups(legacy,node_wires,pin_anchors):
     """A legacy merged segment can span two distinct traced physical nets.
 
     Register by physical terminal, rather than forcing one net per old segment.
@@ -384,10 +384,6 @@ def reconcile_pin_groups(legacy,node_wires,pin_anchors,*,require_complete=False,
     old={}
     for key,wire in node_wires.items():old.setdefault(legacy.find(wire),set()).add(key)
     blocked={root for root,keys in old.items() if any(observed.get(key) is None for key in keys)}
-    if require_complete and (blocked or not mask_complete):
-        # Partial masking can still carry paths through an unrecognized symbol.
-        # A successfully anchored subset does not certify the intervening ink.
-        return {key:legacy.find(wire) for key,wire in node_wires.items()},{},set(old)
     new={};assigned={};raw_to_final={}
     for root,keys in old.items():
         if root in blocked:

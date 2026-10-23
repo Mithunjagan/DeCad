@@ -58,15 +58,16 @@ def main(args):
     env={**os.environ,'PYTHONIOENCODING':'utf-8','PYTHONPATH':str(ROOT/'backend'),
          'KICAD_CLI':'D:/KICAD/bin/kicad-cli.exe','KICAD_SYMBOL_DIR':'D:/KICAD/share/kicad/symbols',
          'KICAD_FOOTPRINT_DIR':'D:/KICAD/share/kicad/footprints','KICAD_PYTHON':'D:/KICAD/bin/python.exe'}
-    summary={'passed':False,'fresh_ocr':True,'process_isolated':True,'errors':[],'worker_attempts':{}}
+    summary={'passed':False,'fresh_ocr':True,'process_isolated':True,'errors':[],'worker_attempts':{},'sample_scope':list(args.samples)}
     try:
         if args.tests:
             run([ROOT/'backend/.venv/Scripts/python.exe','-m','pytest','backend/tests','-q','--disable-warnings'],args.out/'tests.log',env)
         original=args.out/'original'
         before=json.loads((args.original_baseline/'report.json').read_text())
+        before={name:before[name] for name in args.samples}
         sys.path.insert(0,str(ROOT/'tools/eval'))
         from recognition_gate import regressions
-        for name in SAMPLES:
+        for name in args.samples:
             command=[sys.executable,'tools/eval/profile_eval.py','recognition_gate',name,'--out',original]
             attempts=[]
             for attempt in (1,2):
@@ -131,6 +132,7 @@ if __name__=='__main__':
     p.add_argument('--original-baseline',type=Path,default=ROOT/'evidence/fullgraph-20261022/early-caption-v2-original')
     p.add_argument('--native-baseline',type=Path,default=ROOT/'evidence/fullgraph-20261022/early-caption-v2-native')
     p.add_argument('--original-only',action='store_true')
+    p.add_argument('--samples',nargs='+',choices=SAMPLES,default=SAMPLES,help='Use the four clear cases for a quick fresh iteration before the full gate')
     p.add_argument('--tests',action='store_true')
     from runtime_power import system_awake
     with system_awake():

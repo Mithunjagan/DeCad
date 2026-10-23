@@ -3,6 +3,7 @@ import argparse
 import itertools
 import json
 from pathlib import Path
+from benchmark_paths import prediction_path
 
 
 def report(phase, original_baseline, native_baseline):
@@ -27,6 +28,11 @@ def report(phase, original_baseline, native_baseline):
     lines+=['','Native-design metrics are valid physical-pin coverage and connected-pin pairs against the native reference. These are separate from the manually annotated clear-sample pin-to-net label score; native targets may include hidden pins.',
             '', '| Native design | Valid pins before -> after (delta) | Correct pairs before -> after (delta) | Incorrect pairs before -> after (delta) |',
             '|---|---:|---:|---:|']
+    if not (phase/'native/report.json').is_file():
+        result['native_gate_run']=False
+        lines=lines[:-4]+['','Native designs were not run in this four-clear-case gate; final full-corpus acceptance is separate.',
+            '', 'Gate errors: '+('; '.join(gate['errors']) if gate['errors'] else 'none')]
+        return result,'\n'.join(lines)+'\n'
     old_native=json.loads((native_baseline/'report.json').read_text())['cases']
     new_native=json.loads((phase/'native/report.json').read_text())['cases']
     design_names={};truths={}
@@ -51,7 +57,7 @@ def report(phase, original_baseline, native_baseline):
             return {tuple(sorted(pair)) for net in g['nets'] for pair in itertools.combinations(
                 sorted({(p['ref'].upper(),str(p['pin'])) for p in net['nodes']}),2)}
         truth_pairs=pairs(truths[identity])
-        before_pairs=pairs(json.loads((native_baseline/identity/'recognized.json').read_text()))
+        before_pairs=pairs(json.loads(prediction_path(native_baseline,identity).read_text()))
         after_pairs=pairs(json.loads((phase/'native'/identity/identity/'recognized.json').read_text()))
         result['native'][identity]['new_correct_pairs']=sorted((after_pairs-before_pairs)&truth_pairs)
         result['native'][identity]['lost_correct_pairs']=sorted((before_pairs-after_pairs)&truth_pairs)
