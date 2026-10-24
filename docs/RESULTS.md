@@ -65,7 +65,9 @@ python tools\update_readme_stats.py --check
 
 The generator verifies the clear-sheet sums, denominators, fresh-OCR flags, and
 successful export cases, then updates the marked README section, JSON metrics,
-and `docs/media/accuracy-20261024.svg`. `--check` exits nonzero if any output is stale.
+and `docs/media/accuracy-clear-20261024.svg`. The chart presents the four clear sheets;
+degraded-input measurements remain in the README table and source data.
+`--check` exits nonzero if any output is stale.
 The metrics file also records SHA-256 hashes of its published source receipts.
 New measurements should be published as new dated evidence rather than silently
 rewriting an older run. Keep raw measurements and evaluation truth separate from

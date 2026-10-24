@@ -59,7 +59,7 @@ def measurements():
 
 def section(data):
     text = [BEGIN, '## 📊 Measured, not promised', '',
-        '<img src="docs/media/accuracy-20261024.svg" alt="Recorded 24 October results: 228 of 245 labelled pins exact across four clear sheets; degraded scans scored separately" width="100%"/>', '',
+        '<img src="docs/media/accuracy-clear-20261024.svg" alt="Recorded 24 October clear-sheet results: 228 of 245 labelled pins exact across four clear sheets" width="100%"/>', '',
         f'**Recorded clear-sheet result: {data["clear_exact"]}/{data["clear_labelled_pins"]} labelled pin → net assignments exact ({data["clear_exact_percent"]:.1f}%).**', '',
         'Measured on **24 October 2026**, with a fresh, process-isolated CUDA OCR gate. These scores',
         'measure recognized graphs **before CAD library substitution**. They cover four clear sheets and',
@@ -88,24 +88,24 @@ def section(data):
 
 def chart(data):
     rows = []
-    for i,c in enumerate(data['cases']):
+    for i,c in enumerate(c for c in data['cases'] if c['id'] in CLEAR):
         y = 174 + i*54
         ratio = c['pins_exact']/c['pins_gt']
-        color = '#a4b89a' if c['id'] in CLEAR else '#deb18b'
+        color = '#a4b89a'
         rows += [f'<text x="38" y="{y+5}" fill="#e9e7de" font-size="16">{c["label"]}</text>',
                  f'<rect x="300" y="{y-12}" width="650" height="20" rx="5" fill="#2b302b"/>',
                  f'<rect x="300" y="{y-12}" width="{650*ratio:.2f}" height="20" rx="5" fill="{color}"/>',
                  f'<text x="980" y="{y+4}" fill="#e9e7de" font-size="16">{c["pins_exact"]}/{c["pins_gt"]} · {ratio*100:.1f}%</text>']
-    return ('<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="610" viewBox="0 0 1200 610" role="img" aria-labelledby="title desc">\n'
-            '<title id="title">Recorded recognition results, 24 October 2026</title>\n'
-            '<desc id="desc">228 of 245 labelled pins exact across four clear sheets. 300 dpi: 44 of 72. 200 dpi and blurred: zero of 72.</desc>\n'
-            '<rect width="1200" height="610" rx="20" fill="#151917"/>\n'
+    return ('<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" role="img" aria-labelledby="title desc">\n'
+            '<title id="title">Recorded clear-sheet recognition results, 24 October 2026</title>\n'
+            '<desc id="desc">228 of 245 labelled pins exact across four clear sheets. Selected checkpoints, not complete-sheet accuracy.</desc>\n'
+            '<rect width="1200" height="440" rx="20" fill="#151917"/>\n'
             '<g font-family="Segoe UI,Helvetica,Arial,sans-serif">\n'
             '<text x="38" y="47" font-size="13" letter-spacing="2" fill="#deb18b">RECORDED RESULTS / 24 OCT 2026</text>\n'
             f'<text x="38" y="100" font-size="38" font-weight="600" fill="#eeeae2">{data["clear_exact_percent"]:.1f}% <tspan font-size="22" font-weight="400">exact labelled pins on four clear sheets</tspan></text>\n'
             '<text x="38" y="130" font-size="14" fill="#a6afa0">Fresh OCR · recognition graph before library substitution · 228 / 245 checkpoints</text>\n'
             +'\n'.join(rows)+'\n'
-            '<text x="38" y="572" font-size="14" fill="#a6afa0">Selected checkpoints, not complete-sheet accuracy. Degraded scans remain an open problem.</text>\n'
+            '<text x="38" y="405" font-size="14" fill="#a6afa0">Selected checkpoints, not complete-sheet accuracy.</text>\n'
             '</g>\n</svg>\n')
 
 def main():
@@ -121,7 +121,7 @@ def main():
         updated=re.sub(r'## 📊 Measured, not promised.*?(?=## 🧠 How it works)',lambda _:block+'\n\n',readme,flags=re.S)
     assert updated != readme or BEGIN in readme, 'Measurement section not found'
     outputs={ROOT/'README.md':updated,ROOT/'docs/data/metrics.json':json.dumps(data,indent=2)+'\n',
-             ROOT/'docs/media/accuracy-20261024.svg':chart(data)}
+             ROOT/'docs/media/accuracy-clear-20261024.svg':chart(data)}
     changed=[]
     for path,content in outputs.items():
         if not path.exists() or path.read_text(encoding='utf-8-sig') != content:

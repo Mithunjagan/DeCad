@@ -98,7 +98,7 @@ libraries · command palette · history · applications · hardware monitor · f
 <!-- BEGIN GENERATED MEASUREMENTS -->
 ## 📊 Measured, not promised
 
-<img src="docs/media/accuracy-20261024.svg" alt="Recorded 24 October results: 228 of 245 labelled pins exact across four clear sheets; degraded scans scored separately" width="100%"/>
+<img src="docs/media/accuracy-clear-20261024.svg" alt="Recorded 24 October clear-sheet results: 228 of 245 labelled pins exact across four clear sheets" width="100%"/>
 
 **Recorded clear-sheet result: 228/245 labelled pin → net assignments exact (93.1%).**
 
