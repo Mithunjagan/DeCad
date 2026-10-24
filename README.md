@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="docs/media/studio-hero.svg" alt="DeCad — From paper to possibility. The circuit design studio." width="100%"/>
+<picture>
+<source media="(prefers-reduced-motion: reduce)" srcset="docs/media/studio-hero.svg"/>
+<img src="docs/media/studio-hero-animated.svg" alt="DeCad — From paper to possibility. An animated signal travels through the illustrative circuit." width="100%"/>
+</picture>
 
 <br/>
 
@@ -16,9 +19,14 @@ A local workspace for the whole journey: source images, component review, native
 
 <br/>
 
-<a href="docs/screenshots/welcome.jpg"><img src="docs/screenshots/welcome.jpg" alt="The current DeCad welcome screen: copper accents, circuit illustration, and a local workspace entry point" width="100%"/></a>
+<a href="docs/SCREENSHOTS.md"><picture>
+<source media="(prefers-reduced-motion: reduce)" srcset="docs/screenshots/welcome.jpg"/>
+<img src="docs/media/studio-tour.gif" alt="Animated tour of seven real DeCad UI captures: welcome, workbench, source comparison, connection review, bill of materials, Paper and Nebula themes" width="100%"/>
+</picture></a>
 
-<sub>A little less friction. A lot more room for your next circuit.</sub>
+<sub>A little less friction. A lot more room for your next circuit. An 18-second tour of actual UI captures.</sub>
+
+<sub><a href="docs/SCREENSHOTS.md">Explore every screen</a> · <a href="docs/screenshots/welcome.jpg">View the static welcome screen</a></sub>
 
 </div>
 

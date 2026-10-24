@@ -1,0 +1,21 @@
+{
+  "source": "Actual UI screenshots composed in tools/readme_tour.html and captured in the browser",
+  "format": "GIF",
+  "width": 1280,
+  "height": 720,
+  "frames": 28,
+  "duration_ms": 18410,
+  "loop": "infinite",
+  "palette_colors": 96,
+  "source_screenshots": {
+    "docs/screenshots/welcome.jpg": "e3142ddfb2724e0926b4260f4a351c18fc8c75344ea21bbd75f7965c875a9cad",
+    "docs/screenshots/workspace.jpg": "895a59e0c067f3448b9c6f8c96c6d25664faac1d9132fb7f37b36b8b45b882d2",
+    "docs/screenshots/source-comparison.jpg": "2b0dc2fa9af4d585a8e56bccb72e218327c29f83acd5e1bc92d4093d6f050473",
+    "docs/screenshots/review-connections.jpg": "f321286dcbe790d7272d4d773dcb550683789adad45065941dd971af9ec97ced",
+    "docs/screenshots/bom.jpg": "54f893282084d472aaf938f7e1b700ac36e8dd135100b576267d53cb4e02c117",
+    "docs/screenshots/workspace-light.jpg": "87711828f446795eb85b4014311cf9516598617b0d8ded256a6d83c168ecf518",
+    "docs/screenshots/workspace-nebula.jpg": "de05e513f966f4ede7d9498e8c7240cc4e4bca7a4b49e4650ed404beb811a0a7"
+  },
+  "gif_sha256": "372cce34c04a36fa4ebc2abc83daca3662c06c813b6c9b4dd55e4f77ad696322",
+  "bytes": 5045707
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeCad · Animated studio tour</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101312;color:#eeeae3;font-family:"Segoe UI",Arial,sans-serif}
+.stage{position:relative;width:100vw;height:100vh;background:radial-gradient(ellipse at 80% 0,#25302755,transparent 65%),#101312}
+.masthead{position:absolute;top:23px;left:36px;right:36px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:23px;font-weight:700;letter-spacing:-1px}.brand span{color:#e7b58b}
+.eyebrow{font:10px Consolas,monospace;letter-spacing:2.5px;color:#b0b8a8;margin-left:24px}.left{display:flex;align-items:center}
+.counter{font:12px Consolas,monospace;letter-spacing:2px;color:#e7b58b}.counter small{color:#8d9889;margin-right:24px;letter-spacing:1px}
+.screen{position:absolute;top:70px;left:36px;right:36px;bottom:124px;border:1px solid #3b433b;border-radius:12px;background:#171b18;overflow:hidden;box-shadow:0 14px 35px #0004}
+.screen img{position:absolute;width:100%;height:100%;object-fit:contain;inset:0}
+.caption{position:absolute;left:36px;right:36px;bottom:24px;display:flex;justify-content:space-between;align-items:flex-end}
+.kicker{font:10px Consolas,monospace;letter-spacing:2px;color:#b7c0ad;margin-bottom:9px}h1{font-size:27px;line-height:1.2;letter-spacing:-.6px;font-weight:500;margin:0 0 8px}p{margin:0;color:#aeb7a6;font-size:12px}
+.right{text-align:right;max-width:270px}.right a{color:#dfb48c;text-decoration:none;font-size:13px}.progress{display:flex;gap:6px;margin-top:15px}.progress span{display:block;width:27px;height:3px;border-radius:4px;background:#353e34}.progress span.active{background:#dfb48c}.progress span.done{background:#81977b}
+@media(max-width:760px){.eyebrow{display:none}.screen{left:18px;right:18px}.masthead,.caption{left:18px;right:18px}.right{display:none}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<main class="stage" aria-label="Tour of actual DeCad interface captures">
+  <header class="masthead"><div class="left"><div class="brand">DeCad<span>.</span></div><span class="eyebrow">THE CIRCUIT DESIGN STUDIO</span></div><div class="counter"><small>ACTUAL UI CAPTURES</small><span id="counter">01 / 07</span></div></header>
+  <div class="screen"><img id="current" alt="Current interface capture"><img id="next" alt="Next interface capture"></div>
+  <footer class="caption"><div><div class="kicker" id="kicker"></div><h1 id="headline"></h1><p id="description"></p></div><div class="right"><a href="https://github.com/Mithunjagan/DeCad">Explore the studio ↗</a><div class="progress" id="progress"></div></div></footer>
+</main>
+<script>
+const scenes=[
+  ['welcome','01 / BEGIN WITH AN IDEA','Great circuits start here.','Open a local workspace and make room for your next design.'],
+  ['workspace','02 / YOUR WORKBENCH','Everything in its place.','Projects, schematic views, commands, and live machine resources.'],
+  ['source-comparison','03 / KEEP THE SOURCE IN SIGHT','Read. Compare. Refine.','Compare a saved reconstruction with the original drawing; review findings stay visible.'],
+  ['review-connections','04 / REVIEW THE DETAILS','Follow the connections.','Search the recognized graph and inspect each physical pin before applying changes.'],
+  ['bom','05 / KNOW YOUR PARTS','The details make the design.','Inspect the bill of materials, values, footprints, and supplier search links.'],
+  ['workspace-light','06 / FIND YOUR LIGHT','A studio that feels like yours.','Paper surfaces for a quieter daylight workspace.'],
+  ['workspace-nebula','07 / CHANGE THE ATMOSPHERE','Your circuit. Your atmosphere.','Switch to Nebula, or explore the complete gallery for more views.']
+];
+const images=scenes.map(([stem])=>{const im=new Image();im.src='../docs/screenshots/'+stem+'.jpg';return im});
+let frame=0;
+function render(){
+  const index=Math.floor(frame/4),blend=(frame%4)/4,next=(index+1)%scenes.length;
+  const [stem,kicker,headline,description]=scenes[index];
+  document.getElementById('current').src=images[index].src;
+  const overlay=document.getElementById('next');overlay.src=images[next].src;overlay.style.opacity=blend;
+  document.getElementById('kicker').textContent=kicker;document.getElementById('headline').textContent=headline;document.getElementById('description').textContent=description;
+  document.getElementById('counter').textContent=String(index+1).padStart(2,'0')+' / 07';
+  document.getElementById('progress').innerHTML=scenes.map((_,i)=>'<span class="'+(i===index?'active':i<index?'done':'')+'"></span>').join('');
+  document.body.dataset.frame=frame;document.body.dataset.scene=stem;document.body.dataset.ready=images.every(i=>i.complete&&i.naturalWidth>0);
+}
+Promise.all(images.map(im=>im.decode())).then(render).catch(()=>{document.body.dataset.ready='false'});
+document.addEventListener('keydown',event=>{if(event.key==='ArrowRight'){frame=(frame+1)%(scenes.length*4);render()}if(event.key==='Home'){frame=0;render()}});
+</script>
+</body>
+</html>

@@ -2,6 +2,19 @@
 
 [← Back to the project](../README.md)
 
+## Take the animated tour
+
+Seven real UI captures, with crossfades and chapter captions. This is a presentation of the interface,
+not a continuous recording of recognition or an inference-speed demonstration.
+
+<picture>
+<source media="(prefers-reduced-motion: reduce)" srcset="screenshots/welcome.jpg"/>
+<img src="media/studio-tour.gif" alt="Animated DeCad interface tour" width="100%"/>
+</picture>
+
+The static, full-size captures follow below. The README also uses a signal animation in its circuit
+banner, with the original static banner as its reduced-motion fallback.
+
 Captured from the running app on **24 October 2026**. Click any image to open it at full size.
 
 The logic-sheet screens show a copy of the saved Sample 1 project, including its real open findings. Review graph counts and native KiCad netlist counts can differ. Screenshots document the current interface; they are not a new recognition benchmark or a claim that the sample is ready for manufacture. Hardware readings reflect the capture machine. The welcome and empty-state circuits are interface illustrations.
