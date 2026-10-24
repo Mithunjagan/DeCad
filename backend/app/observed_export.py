@@ -4,7 +4,6 @@ Generated symbols preserve graph data; they do not certify recognition accuracy
 or reproduce the source drawing's functional symbol appearance.
 """
 from collections import defaultdict
-from copy import deepcopy
 import hashlib
 import io
 import json
@@ -94,11 +93,16 @@ def orcad_bundle(name,graph,cache_dir):
                       'footprint':component.get('footprint') or ''}
     expected={key:aliases[net] for key,net in observed.items()}
     safe=re.sub(r'[^A-Za-z0-9_-]','_',name)[:60] or 'observed'
-    drawing=deepcopy(graph)
-    for component in drawing['components']:component.pop('x',None);component.pop('y',None)
+    from .orcad_source_layout import prepare,verify_positions
+    drawing,source_symbols,source_layout=prepare(graph,margin=oc.SOURCE_MARGIN)
     with tempfile.TemporaryDirectory() as temporary:
         folder=Path(temporary);dsn=folder/(safe+'.DSN');library=folder/oc.GENERATED_LIB
-        oc._write(root,temporary,dsn,library,drawing,resolved,generate,expected,literal_pins=True)
+        oc._write(root,temporary,dsn,library,drawing,resolved,generate,expected,literal_pins=True,wiring=True,source_symbols=source_symbols,source_scale=source_layout['source_scale'])
+        routing=oc._wire(root,temporary,dsn,expected,require_wires=True)
+        pages=oc.drawing(dsn)
+        source_layout['position_verification']=verify_positions(source_symbols,pages[0])
+        if not source_layout['position_verification']['passed']:
+            raise OperationError('Saved OrCAD pin positions changed the measured source layout: '+json.dumps(source_layout['position_verification']))
         dump=oc._run(root,'orcad_dump.tcl',dsn)
         parts={};pins={}
         for line in dump.splitlines():
@@ -108,7 +112,7 @@ def orcad_bundle(name,graph,cache_dir):
             elif words[0]=='PIN' and len(words)>=4 and words[3]:
                 pins[words[1],words[2]]=inverse.get(words[3].upper(),words[3])
         report=compare(graph,parts,pins)
-        report.update(native_readback=True,format='OrCAD Capture',symbol_mode='literal observed pin IDs',
+        report.update(native_readback=True,format='OrCAD Capture',symbol_mode='literal observed pin IDs',routing=routing,source_layout=source_layout,
                       net_aliases=aliases,generated_symbols=sorted(generate),corrections=[],substitutions={},implicit_power_pins=[])
         if not report['passed']:raise OperationError('Observed DSN export did not preserve the complete graph: '+json.dumps(report))
         netlist=oc.physical_netlist(dump,mapping)
@@ -120,6 +124,7 @@ def orcad_bundle(name,graph,cache_dir):
                'circuit.json':json.dumps(graph,indent=2).encode(),'netlist.json':json.dumps(netlist,indent=2).encode(),
                'orcad-mapping.json':json.dumps(mapping,indent=2).encode(),
                'net-aliases.json':json.dumps(aliases,indent=2).encode(),
+               'preview.svg':oc.svg(pages,name,preserve_page=bool(source_symbols)).encode(),
                'verification.json':json.dumps(report,indent=2).encode(),'readback.txt':dump.encode()}
     files['manifest.json']=json.dumps({'mode':'preserve_connections','files':{n:hashlib.sha256(v).hexdigest() for n,v in files.items()}},indent=2).encode()
     output=io.BytesIO()

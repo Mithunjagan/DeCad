@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "cases": 19,
+  "pin_assignments": 2229,
+  "physically_wired_nets": 332,
+  "exact_source_reproduction": false,
+  "source_snapshot": {
+    "backend/app/observed_export.py": "dcbb74b4bade54c1aedc5bc5d41a2bfae3eb16b29dcf8f6d5cb274c48f9b1cf8",
+    "backend/app/orcad_capture.py": "aac040fea7c33e22771f16696967cbd612f2ecb5c269404304752e06d7131bfa",
+    "backend/app/orcad_route.py": "7da3aebf5a5ddb93bc6e703627d039e39d336074737e921d31fd306423abc71c",
+    "backend/app/orcad_source_layout.py": "19e1abd194908691e01955d3143cc0e88eaf958c0ef97c61034a010f57796d0f",
+    "backend/app/orcad_writer.tcl": "e37a2544de4a64a043d89cd01a0a1bd419362e7659ccb9a839d9eaccb837b68d",
+    "frontend/app/CircuitReviewPanel.js": "ae76c2c93a503e16fd6fc238a85cc9090d937d5691d080c9cd9667644644693f",
+    "frontend/app/OrcadResult.js": "a0d8b7ac70d4ef0be29838479d7c2d6ef68a0522bf99b1a6c38e05c41ec2ee4c"
+  },
+  "live_project": "demosample1-wired",
+  "backend_full_passed": 428,
+  "backend_full_skipped": 6,
+  "final_targeted_tests_passed": 12,
+  "frontend_tests_passed": 19
+}

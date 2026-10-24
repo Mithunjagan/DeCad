@@ -62,26 +62,63 @@ proc make_symbol {libpath pkgname prefix pins} {
  set n [llength $pins]
  set left [expr {($n + 1) / 2}]; set right [expr {$n - $left}]
  set rows [expr {max($left, $right, 1)}]
+ set pitch [expr {[info exists ::generated_pin_pitch] ? $::generated_pin_pitch : 10}]
  set longest 1; foreach p $pins {set longest [expr {max($longest, [string length $p])}]}
  set w [expr {max(60, int(ceil((40 + 12 * $longest) / 10.0)) * 10)}]
- set h [expr {($rows + 1) * 10}]
+ set h [expr {($rows + 1) * $pitch}]
  $part SetBoundingBox [DboTclHelper_sMakeCRect -30 0 [expr {$w + 30}] $h]
  $part SetReference [C $prefix]
  $part SetPartValue [C $pkgname]
  $part SetCellPtr $cell
  $part SetPackagePtr $pkg
- $part NewBox $st [P 0 0] [P $w $h]
+ set custom [expr {[info exists ::source_symbols] && [dict exists $::source_symbols $pkgname]}]
+ if {$custom} {
+  lassign [dict get $::source_symbols $pkgname] vectors sourcepins
+  foreach vector $vectors {
+   lassign $vector kind x0 y0 x1 y1
+   if {$kind eq "LINE"} {$part NewLine $st [P $x0 $y0] [P $x1 $y1]}
+   if {$kind eq "BOX"} {$part NewBox $st [P $x0 $y0] [P $x1 $y1]}
+   if {$kind eq "ELLIPSE"} {
+    # Use line vectors so every installed Capture API version supports the circle.
+    set cx [expr {($x0+$x1)/2.0}]; set cy [expr {($y0+$y1)/2.0}]
+    set rx [expr {($x1-$x0)/2.0}]; set ry [expr {($y1-$y0)/2.0}]
+    for {set j 0} {$j < 32} {incr j} {
+     set a [expr {$j*acos(-1)/16.0}]; set b [expr {($j+1)*acos(-1)/16.0}]
+     $part NewLine $st [P [expr {$cx+$rx*cos($a)}] [expr {$cy+$ry*sin($a)}]] [P [expr {$cx+$rx*cos($b)}] [expr {$cy+$ry*sin($b)}]]
+    }
+   }
+  }
+  set minx 1e9; set miny 1e9; set maxx -1e9; set maxy -1e9
+  foreach vector $vectors {
+   foreach {vx vy} [lrange $vector 1 end] {
+    set minx [expr {min($minx,$vx)}]; set maxx [expr {max($maxx,$vx)}]
+    set miny [expr {min($miny,$vy)}]; set maxy [expr {max($maxy,$vy)}]
+   }
+  }
+  foreach pin $sourcepins {
+   foreach {vx vy} [lrange $pin 1 4] {
+    set minx [expr {min($minx,$vx)}]; set maxx [expr {max($maxx,$vx)}]
+    set miny [expr {min($miny,$vy)}]; set maxy [expr {max($maxy,$vy)}]
+   }
+  }
+  $part SetBoundingBox [DboTclHelper_sMakeCRect [expr {int($minx-10)}] [expr {int($miny-10)}] [expr {int($maxx+10)}] [expr {int($maxy+10)}]]
+ } else {$part NewBox $st [P 0 0] [P $w $h]}
  set dev [$pkg NewDevice [C ""] 0 $cell $st]
  if {$dev == "NULL" || [$st Failed]} {fail "cannot create device for $pkgname"}
  for {set i 0} {$i < $n} {incr i} {
   set num [lindex $pins $i]
-  if {$i < $left} {
-   set yy [expr {($i + 1) * 10}]; set p0 [P 0 $yy]; set hp [P -30 $yy]
+  if {$custom} {
+   lassign [lindex $sourcepins $i] num sx sy hx hy
+   set p0 [P $sx $sy]; set hp [P $hx $hy]
+  } elseif {$i < $left} {
+   set yy [expr {($i + 1) * $pitch}]; set p0 [P 0 $yy]; set hp [P -30 $yy]
   } else {
    # right side counts upward from the bottom, as on a DIP package
-   set yy [expr {($right - ($i - $left)) * 10}]; set p0 [P $w $yy]; set hp [P [expr {$w + 30}] $yy]
+   set yy [expr {($right - ($i - $left)) * $pitch}]; set p0 [P $w $yy]; set hp [P [expr {$w + 30}] $yy]
   }
-  set pin [$part NewSymbolPinScalar $st [C $num] $::DboValue_IO $p0 $hp 1 $i]
+  set pname $num
+  if {$custom && [llength [lindex $sourcepins $i]] > 5} {set pname [lindex [lindex $sourcepins $i] 5]}
+  set pin [$part NewSymbolPinScalar $st [C $pname] $::DboValue_IO $p0 $hp 1 $i]
   if {$pin == "NULL" || [$st Failed]} {fail "cannot create pin $num on $pkgname"}
   $pin SetIsLong 1
   $dev NewPinNumber [C $num] [DboTclHelper_sMakeInt $i]
@@ -214,7 +251,8 @@ foreach comp $components {
   if {$footprint ne ""} {$inst SetPCBFootprint [C $footprint]}
   # Keep-out box: pins plus room for the 30-unit stubs and their net labels.
   lassign [pin_extent $inst] minx miny maxx maxy
-  if {$positioned} {
+  set exact [expr {[info exists source_symbols] && [dict exists $source_symbols $pkgname]}]
+  if {$positioned && !$exact} {
    # Source positions describe the body's centre, not the library's instance origin.
    set dx [expr {int(round(($tx - ($minx + $maxx) / 2.0) / 10.0)) * 10}]
    set dy [expr {int(round(($ty - ($miny + $maxy) / 2.0) / 10.0)) * 10}]
@@ -232,7 +270,7 @@ foreach comp $components {
    }
    set cx [expr {[lindex $box 2] + $gapx}]; set rowbottom [expr {max($rowbottom, [lindex $box 3])}]
   }
-  if {$positioned} {
+  if {$positioned && !$exact} {
    set found 0
    foreach o $offsets {
     lassign $o _ dx dy

@@ -40,17 +40,24 @@ def _body_box(part, place):
 
 
 class Router:
-    def __init__(self, page, pin_net, place):
-        self.W, self.H = page['width'] // G, page['height'] // G
+    def __init__(self, page, pin_net, place, *, stub_cells=STUB, grid=G):
+        self.stub = stub_cells
+        self.last_failure = None
+        self.grid = grid
+        self.W, self.H = page['width'] // grid, page['height'] // grid
         self.blocked = set()        # bodies and pin lines: nothing may enter
         self.owner = {}             # hotspot / private stretch cell -> net (None = unconnected pin)
         self.occ = {}               # wire cell -> (net, 'H' | 'V' | 'N' | 'C')
         self.pins = {}              # net -> [(hotspot cell, out dir, on grid, (hx, hy))]
         self.labelled = {}          # net -> pins that get a stub + label
         for part in page['parts']:
-            box = _body_box(part, place)
-            if box:
-                x0, y0, x1, y1 = (int(box[0] // G), int(box[1] // G), -(-int(box[2]) // G), -(-int(box[3]) // G))
+            vectors = part['vectors']
+            # A split IC may have separate source bodies. The gap between its
+            # sections remains a routing channel rather than one solid obstacle.
+            ports = part['base'].startswith(('P','J')) and vectors and all(v[0]=='LINE' for v in vectors)
+            boxes = [] if ports else [_body_box({**part,'vectors':[v],'pins':[]},place) for v in vectors] if len(vectors)>1 and all(v[0]=='BOX' for v in vectors) else [_body_box(part, place)]
+            for box in filter(None,boxes):
+                x0, y0, x1, y1 = (int(box[0] // grid), int(box[1] // grid), -(-int(box[2]) // grid), -(-int(box[3]) // grid))
                 for x in range(x0, x1 + 1):
                     for y in range(y0, y1 + 1):
                         self.blocked.add((x, y))
@@ -63,21 +70,21 @@ class Router:
                     d = (d[0], 0) if abs(hx - sx) >= abs(hy - sy) else (0, d[1])
                 if d == (0, 0):
                     d = (-1, 0)
-                grid = hx % G == 0 and hy % G == 0
-                h = (hx // G, hy // G)
+                on_grid = hx % grid == 0 and hy % grid == 0
+                h = (hx // grid, hy // grid)
                 # the pin line belongs to the symbol
-                c = (sx // G, sy // G)
-                while grid and c != h and abs(c[0] - h[0]) + abs(c[1] - h[1]) < 200:
+                c = (sx // grid, sy // grid)
+                while on_grid and c != h and abs(c[0] - h[0]) + abs(c[1] - h[1]) < 400:
                     self.blocked.add(c)
                     c = (c[0] + _sign(h[0] - c[0]), c[1] + _sign(h[1] - c[1]))
                 self.blocked.discard(h)
                 self.owner[h] = net
-                for k in range(1, STUB + 1):
+                for k in range(1, self.stub + 1):
                     cell = (h[0] + d[0] * k, h[1] + d[1] * k)
                     self.blocked.discard(cell)
                     self.owner.setdefault(cell, net)
                 if net is not None:
-                    self.pins.setdefault(net, []).append((h, d, grid, (hx, hy)))
+                    self.pins.setdefault(net, []).append((h, d, on_grid, (hx, hy)))
         self.edges = {}             # net -> set of frozenset({a, b}) unit edges
 
     # ------------------------------------------------------------------ search
@@ -101,12 +108,14 @@ class Router:
             return True, CROSS, True, False
         return False, 0, False, False
 
-    def _search(self, net, src, d0, targets, goal_hint):
+    def _search(self, net, src, d0, targets, goal_hint, *, weight=2, budget=MAX_EXPAND):
+        self.last_failure = None
         sx, sy = src
         first = (sx + d0[0], sy + d0[1])
         start = {src}
         ok, extra, straight, goal = self._enter(first, net, 'H' if d0[0] else 'V', targets, start)
         if not ok:
+            self.last_failure = 'pin escape blocked'
             return None
         if goal:
             return [src, first]
@@ -116,14 +125,20 @@ class Router:
         g = {startstate: 1 + extra}
         parent = {startstate: None}
         straight_at = {first: straight}
-        heap = [(1 + extra + hint(first), 1 + extra, first, di)]
+        # Prefer deeper paths when estimated costs tie. Preferring shallow paths
+        # floods a large empty source sheet before reaching a distant supply rail.
+        heap = [(1 + extra + weight*hint(first), -(1 + extra), first, di)]
         n = 0
         while heap:
-            f, cost, cell, di = heapq.heappop(heap)
+            f, negative_cost, cell, di = heapq.heappop(heap)
+            cost = -negative_cost
             if cost > g.get((cell, di), 1e18):
                 continue
             n += 1
-            if n > MAX_EXPAND:
+            if n > budget:
+                if weight == 2:
+                    return self._search(net, src, d0, targets, goal_hint, weight=4, budget=4*MAX_EXPAND)
+                self.last_failure = 'search budget'
                 return None
             for ndi, (dx, dy) in enumerate(DIRS):
                 if ndi != di and (straight_at.get(cell) or (dx, dy) == (-DIRS[di][0], -DIRS[di][1])):
@@ -147,7 +162,8 @@ class Router:
                     path.append(src)
                     return path[::-1]
                 straight_at[nxt] = straight
-                heapq.heappush(heap, (nc + hint(nxt), nc, nxt, ndi))
+                heapq.heappush(heap, (nc + weight*hint(nxt), -nc, nxt, ndi))
+        self.last_failure = 'no path'
         return None
 
     # ------------------------------------------------------------------ commit
@@ -168,6 +184,7 @@ class Router:
 
     def route(self, max_pins=MAX_PINS):
         nets = sorted(self.pins, key=lambda n: (len(self.pins[n]), self._span(n)))
+        self.failures = {}
         self.hotspots = {h for pins in self.pins.values() for h, _, _, _ in pins} | {h for h, n in self.owner.items() if n is None}
         wired = []
         for net in nets:
@@ -175,7 +192,7 @@ class Router:
             if len(pins) < 2 or len(pins) > max_pins or not all(p[2] for p in pins):
                 self.labelled[net] = pins
                 continue
-            self.own_lane = {(h[0] + d[0] * k, h[1] + d[1] * k) for h, d, _, _ in pins for k in range(1, STUB + 1)}
+            self.own_lane = {(h[0] + d[0] * k, h[1] + d[1] * k) for h, d, _, _ in pins for k in range(1, self.stub + 1)}
             done = [pins[0]]
             todo = pins[1:]
             failed = []
@@ -185,6 +202,7 @@ class Router:
                 p = todo.pop(0)
                 path = self._search(net, p[0], p[1], tree, [q[0] for q in done])
                 if path is None:
+                    self.failures.setdefault(net, []).append(self.last_failure)
                     failed.append(p); continue
                 self._commit(net, path)
                 done.append(p)
@@ -229,10 +247,10 @@ class Router:
         return segs
 
 
-def route(page, pin_net, place, max_pins=MAX_PINS):
+def route(page, pin_net, place, max_pins=MAX_PINS, *, require_wires=False):
     """Wires for one page: [(x1, y1, x2, y2, alias, ax, ay)] and a summary."""
     r = Router(page, pin_net, place)
-    wired = r.route(max_pins)
+    wired = r.route(max(len(pins) for pins in r.pins.values()) if require_wires and r.pins else max_pins)
     out = []
     for net in wired:
         segs = r.segments(net)
@@ -244,14 +262,72 @@ def route(page, pin_net, place, max_pins=MAX_PINS):
             ax = ay = 0
             if (a, b) == longest:
                 alias = net
-                ax, ay = (a[0] + b[0]) // 2 * G, (a[1] + b[1]) // 2 * G
-            out.append((a[0] * G, a[1] * G, b[0] * G, b[1] * G, alias, ax, ay))
+                ax, ay = (a[0] + b[0]) // 2 * r.grid, (a[1] + b[1]) // 2 * r.grid
+            out.append((a[0] * r.grid, a[1] * r.grid, b[0] * r.grid, b[1] * r.grid, alias, ax, ay))
     stubs = 0
     for net, pins in r.labelled.items():
         for h, d, grid, (hx, hy) in pins:
-            ex, ey = hx + d[0] * STUB * G, hy + d[1] * STUB * G
+            ex, ey = hx + d[0] * r.stub * r.grid, hy + d[1] * r.stub * r.grid
             out.append((hx, hy, ex, ey, net, ex, ey))
             stubs += 1
     crossings = sum(1 for o in r.occ.values() if o[1] == 'C')
-    return out, {'wired_nets': len(wired), 'labelled_pins': stubs, 'crossings': crossings,
-                 'labelled_nets': len([n for n in r.labelled if n not in wired])}
+    unrouted = {net: len(pins) for net, pins in r.labelled.items() if len(r.pins[net]) > 1}
+    summary = {'wired_nets': len(wired), 'labelled_pins': stubs, 'crossings': crossings,
+               'labelled_nets': len([n for n in r.labelled if n not in wired]),
+               'unrouted_nets': unrouted,
+               'singleton_pins': sum(len(pins) for net, pins in r.labelled.items() if len(r.pins[net]) == 1),
+               'all_connections_wired': not unrouted}
+    if require_wires and unrouted:
+        from .engine import OperationError
+        raise OperationError('Visible wire routing incomplete for: ' + ', '.join(sorted(unrouted)) + '. Review the pin positions; no label-only fallback was exported.')
+    return out, summary
+
+
+def verify_visible_wires(page, pin_net):
+    """Check physical wire continuity without using aliases to join disconnected stubs.
+
+    Endpoints and T junctions connect; an interior crossing of two wires does not.
+    This is independent of the router and operates on the reopened Capture drawing.
+    """
+    wires = page['wires']
+    parent = list(range(len(wires)))
+
+    def root(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    def on(point, wire):
+        x, y = point
+        x1, y1, x2, y2 = wire
+        return (x1 == x2 == x and min(y1, y2) <= y <= max(y1, y2) or
+                y1 == y2 == y and min(x1, x2) <= x <= max(x1, x2))
+
+    for i, a in enumerate(wires):
+        for j in range(i):
+            b = wires[j]
+            if any(on(p, b) for p in (a[:2], a[2:])) or any(on(p, a) for p in (b[:2], b[2:])):
+                parent[root(i)] = root(j)
+    locations = {}
+    for part in page['parts']:
+        for pin in part['pins']:
+            key = (part['base'], str(pin['number']))
+            locations.setdefault(key, []).append((pin['hx'], pin['hy']))
+    groups = {}
+    missing = []
+    by_net = {}
+    for key, net in pin_net.items():
+        hits = {root(i) for point in locations.get(key, ()) for i, wire in enumerate(wires) if on(point, wire)}
+        if not hits:
+            missing.append(key)
+        by_net.setdefault(net, []).append((key, hits))
+        for hit in hits:
+            groups.setdefault(hit, set()).add(net)
+    disconnected = [net for net, pins in by_net.items()
+                    if len(pins) > 1 and not set.intersection(*(hits for _, hits in pins))]
+    shorts = [sorted(nets) for nets in groups.values() if len(nets) > 1]
+    return {'passed': not (missing or disconnected or shorts),
+            'multi_pin_nets': sum(len(pins) > 1 for pins in by_net.values()),
+            'wire_segments': len(wires), 'missing_wire_pins': sorted(missing),
+            'disconnected_nets': sorted(disconnected), 'shorted_nets': shorts}

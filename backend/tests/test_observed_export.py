@@ -36,6 +36,10 @@ def test_actual_dsn_preserves_literal_pins_and_reversible_case_aliases(tmp_path)
     data,report=oc.export('observed-edge-cases',graph(),tmp_path,preserve_connections=True)
     assert report['passed'] and report['matched_pins']==4 and not report['extra_pins']
     assert report['net_aliases']['a']!=report['net_aliases']['A']
+    assert report['routing']['all_connections_wired']
+    assert report['routing']['visible_wire_verification']['passed']
+    assert report['routing']['wired_nets']==1
+    assert report['routing']['singleton_pins']==2
     with zipfile.ZipFile(io.BytesIO(data)) as archive:
         assert archive.read('observed-edge-cases.DSN')
         saved=json.loads(archive.read('verification.json'))

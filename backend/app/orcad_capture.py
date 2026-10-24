@@ -1,8 +1,8 @@
 """Native OrCAD Capture .DSN export through Capture's own database API (orDb_Dll_Tcl64).
 
-The writer places each reviewed component from an installed Capture library, attaches every
-connected pin to a wire stub carrying its net alias, saves the design, then reopens it with a
-separate reader. Export succeeds only when the reopened pin/net map equals the source graph.
+The writer places reviewed components, routes visible wires, saves the design, then reopens it
+with a separate reader. Export checks both the pin/net map and physical wire continuity;
+net aliases cannot substitute for a missing wire between reviewed pins.
 """
 import hashlib, io, json, os, re, shutil, subprocess, tempfile, time, zipfile
 from pathlib import Path
@@ -393,7 +393,7 @@ def tcl_word(text):
 
 
 def export(name, graph, cache_dir, *, preserve_connections=False):
-    if preserve_connections:
+    if preserve_connections or graph.get('image_metadata', {}).get('pin_anchors'):
         from .observed_export import orcad_bundle
         return orcad_bundle(name,graph,cache_dir)
     root = orcad_root()
@@ -450,26 +450,15 @@ def export(name, graph, cache_dir, *, preserve_connections=False):
                 corrections.append(f"{key[0]} pin {key[1]} removed from {pin_net[key]}: " +
                                    ('the part has no such pin.' if key in report.get('missing_pins', []) else 'it is a fixed power/ground pin of the part.'))
                 pin_net.pop(key, None)
-        # 2) Draw real wires between the pins of each net. The wired design must verify exactly like
-        #    the labelled one; otherwise the labelled design is kept.
+        # 2) Require real wires between every reviewed group of pins. A label-only fallback would
+        #    pass the electrical netlist check while failing the user's visible-wiring requirement.
         routing = None
         if report['passed']:
-            labelled = {f.name: f.read_bytes() for f in Path(td).iterdir() if f.is_file()}
-            labelled_dump, labelled_report = dump, report
-            try:
-                for f in Path(td).iterdir():f.unlink()
-                _write(root, td, dsn, genlib, graph, resolved, generate, pin_net, footprints, wiring=True)
-                routing = _wire(root, td, dsn, pin_net)
-                dump = _run(root, 'orcad_dump.tcl', dsn)
-                report = verify(dump, pin_net, mapping)
-                if not report['passed']:
-                    routing = {'error': 'routed wiring did not verify; net labels used instead: ' + '; '.join(report['errors'][:3])}
-            except (OperationError, ValueError, KeyError) as e:
-                routing = {'error': f'wiring skipped: {e}'}
-            if routing.get('error'):
-                for f in Path(td).iterdir():f.unlink()
-                for n, v in labelled.items():(Path(td) / n).write_bytes(v)
-                dump, report = labelled_dump, labelled_report
+            for f in Path(td).iterdir():f.unlink()
+            _write(root, td, dsn, genlib, graph, resolved, generate, pin_net, footprints, wiring=True)
+            routing = _wire(root, td, dsn, pin_net, require_wires=True)
+            dump = _run(root, 'orcad_dump.tcl', dsn)
+            report = verify(dump, pin_net, mapping)
         report['routing'] = routing
         if not report['passed']:
             raise OperationError('OrCAD design failed reopen verification: ' + '; '.join(report['errors'][:10]))
@@ -507,37 +496,46 @@ SOURCE_SCALE = 6000   # Capture units per source-sheet width; positions already 
 SOURCE_MARGIN = 300
 
 
-def placement(components):
+def placement(components, *, scale=SOURCE_SCALE):
     """Source body centres on Capture's 10-unit grid; missing positions are handled by the writer.
 
     Keep both distances, including when only one part has a position. Both source coordinates
     are fractions of sheet width (not independent x/y normalization).
     """
-    return {c['ref']: (round((SOURCE_MARGIN + c['x'] * SOURCE_SCALE) / 10) * 10,
-                       round((SOURCE_MARGIN + c['y'] * SOURCE_SCALE) / 10) * 10)
+    return {c['ref']: (round((SOURCE_MARGIN + c['x'] * scale) / 10) * 10,
+                       round((SOURCE_MARGIN + c['y'] * scale) / 10) * 10)
             for c in components if c.get('x') is not None and c.get('y') is not None}
 
 
-def _wire(root, td, dsn, pin_net):
+def _wire(root, td, dsn, pin_net, *, require_wires=False):
     """Route the saved page and add its wires and labels (orcad_wire.tcl). Returns the routing summary."""
     from . import orcad_route
     for lock in Path(td).glob('*lck'):lock.unlink(missing_ok=True)
     pages = drawing(dsn)
     if not pages:raise OperationError('the design has no page to wire')
-    wires, summary = orcad_route.route(pages[0], pin_net, _place)
+    wires, summary = orcad_route.route(pages[0], pin_net, _place, require_wires=require_wires)
     data = Path(td) / 'wires.tcl'
     data.write_text(f'set design_path {tcl_word(str(dsn))}\nset wires {{\n' +
                     '\n'.join('{' + ' '.join(tcl_word(v) for v in w) + '}' for w in wires) + '\n}\n', encoding='utf-8')
     _run(root, 'orcad_wire.tcl', data)
     for lock in Path(td).glob('*lck'):lock.unlink(missing_ok=True)
+    if require_wires:
+        check = orcad_route.verify_visible_wires(drawing(dsn)[0], pin_net)
+        summary['visible_wire_verification'] = check
+        if not check['passed']:
+            raise OperationError('Saved OrCAD wires failed physical continuity checks: ' + json.dumps(check))
     return summary
 
 
-def _write(root, td, dsn, genlib, graph, resolved, generate, pin_net, footprints=None, wiring=False,literal_pins=False):
+def _write(root, td, dsn, genlib, graph, resolved, generate, pin_net, footprints=None, wiring=False,literal_pins=False,source_symbols=None,source_scale=SOURCE_SCALE):
     lines = []
-    where = placement(graph['components'])
+    where = placement(graph['components'],scale=source_scale)
     order = sorted(graph['components'], key=lambda c: (c['ref'] not in where,
                    where.get(c['ref'], (0, 0))[1], where.get(c['ref'], (0, 0))[0], c['ref'])) if where else graph['components']
+    if source_symbols:
+        # Place fixed measured bodies first. Ambiguous fallback symbols must avoid
+        # them; otherwise a later fixed body can cover a fallback's terminal.
+        order = sorted(order, key=lambda c: c['ref'] not in source_symbols)
     for c in order:
         lib, pkg, how = resolved[c['ref']]
         lib = str(genlib) if how == 'generated symbol' else lib
@@ -553,16 +551,26 @@ def _write(root, td, dsn, genlib, graph, resolved, generate, pin_net, footprints
     if where and not aspect:
         # Legacy reviewed circuits lack source dimensions; estimate from their width-based y values.
         aspect = 1 / max(0.7, max(c['y'] for c in graph['components'] if c['ref'] in where) + 0.1)
-    sheet = (f'set source_width {SOURCE_SCALE + 2 * SOURCE_MARGIN}\n'
-             f'set source_height {round((SOURCE_SCALE / aspect + 2 * SOURCE_MARGIN) / 10) * 10}\n'
+    sheet = (f'set source_width {source_scale + 2 * SOURCE_MARGIN}\n'
+             f'set source_height {round((source_scale / aspect + 2 * SOURCE_MARGIN) / 10) * 10}\n'
              f'set source_aspect {aspect}\n') if where else ''
     # Source arrangement, compacted: Capture symbols are far smaller than scanned bodies, so true source
     # distances leave the page mostly empty. DSN_LAYOUT=source keeps the exact source positions.
-    if where and os.getenv('DSN_LAYOUT', 'compact').lower() != 'source':
+    if where and not source_symbols and os.getenv('DSN_LAYOUT', 'compact').lower() != 'source':
         sheet += 'set compact 1\n'
+    if source_symbols:
+        sheet += 'set source_exact 1\n'
+        sheet += 'set source_symbols {\n'
+        for ref, definition in source_symbols.items():
+            vectors = ' '.join('{' + ' '.join(tcl_word(v) for v in vector) + '}' for vector in definition['vectors'])
+            pins = ' '.join('{' + ' '.join(tcl_word(v) for v in pin) + '}' for pin in definition['pins'])
+            sheet += tcl_word(resolved[ref][1]) + ' {{' + vectors + '} {' + pins + '}}\n'
+        sheet += '}\n'
     data = Path(td) / 'data.tcl'
-    data.write_text(f'set design_path {tcl_word(str(dsn))}\nset generate {{\n' + '\n'.join(gens) +
-                    '\n}\nset components {\n' + '\n'.join(lines) + '\n}\n' + sheet +
+    if literal_pins:
+        sheet += 'set generated_pin_pitch 30\n'
+    data.write_text(sheet + f'set design_path {tcl_word(str(dsn))}\nset generate {{\n' + '\n'.join(gens) +
+                    '\n}\nset components {\n' + '\n'.join(lines) + '\n}\n' +
                     ('set nostubs 1\n' if wiring else ''), encoding='utf-8')
     _run(root, 'orcad_writer.tcl', data)
     if not dsn.is_file():raise OperationError('OrCAD Capture did not write the design file.')
@@ -896,6 +904,7 @@ def save_to_project(project_dir, name, graph, cache_dir, source=None,*,preserve_
               'implicit_power_pins': len(report.get('implicit_power_pins', [])), 'substitutions': report.get('substitutions', {}),
               'footprints': report.get('footprints'), 'user_libraries': report.get('user_libraries', {}), 'netlist': report.get('netlist'),
               'routing': report.get('routing'),
+              'source_layout': report.get('source_layout'),
               'source': source, 'sha256': hashlib.sha256(dsn.read_bytes()).hexdigest()}
     (out / 'status.json').write_text(json.dumps(status, indent=2), encoding='utf-8')
     return data, status

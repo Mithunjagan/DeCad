@@ -55,3 +55,41 @@ def test_source_placement_preserves_distances_and_missing_coordinates():
     assert positions['U3'][1] - positions['U1'][1] == 2400
     assert 'P1' not in positions
     assert oc.placement([{'ref': 'U1'}, {'ref': 'U2'}, comps[0]]) == {'U1': positions['U1']}
+
+
+def test_wire_check_rejects_disconnected_stubs_with_the_same_label():
+    pg = page()
+    pins = {('U1', '1'): 'A', ('U2', '1'): 'A'}
+    pg['wires'] = [[270, 310, 300, 310], [640, 310, 670, 310]]
+    pg['aliases'] = [{'name': 'A', 'x': 300, 'y': 310}, {'name': 'A', 'x': 640, 'y': 310}]
+    check = rt.verify_visible_wires(pg, pins)
+    assert not check['passed'] and check['disconnected_nets'] == ['A']
+    pg['wires'].append([300, 310, 640, 310])
+    assert rt.verify_visible_wires(pg, pins)['passed']
+
+
+def test_wire_check_distinguishes_crossings_from_shorted_t_junctions():
+    pg = {'parts': [box_part('A', 0, 0, [('1', 'R', 10)]),
+                    box_part('B', 0, 60, [('1', 'R', 10)])],
+          'wires': [[70, 10, 200, 10], [70, 70, 140, 70], [140, 70, 140, 0]]}
+    pins = {('A', '1'): 'A', ('B', '1'): 'B'}
+    assert rt.verify_visible_wires(pg, pins)['passed']  # interior crossing, no junction
+    pg['wires'][-1] = [140, 70, 140, 10]
+    assert rt.verify_visible_wires(pg, pins)['shorted_nets'] == [['A', 'B']]
+
+
+def test_required_wires_routes_large_nets_instead_of_using_the_label_cap():
+    parts = [box_part(f'J{i}', 200 + i * 150, 200, [('1', 'L', 20)]) for i in range(13)]
+    pg = {'parts': parts, 'width': 2600, 'height': 1000}
+    pins = {(p['ref'], '1'): 'BUS' for p in parts}
+    wires, summary = rt.route(pg, pins, oc._place, require_wires=True)
+    assert summary['wired_nets'] == 1 and summary['labelled_pins'] == 0
+    pg['wires'] = [w[:4] for w in wires]
+    assert rt.verify_visible_wires(pg, pins)['passed']
+
+
+def test_required_wires_rejects_an_unroutable_net(monkeypatch):
+    import pytest
+    monkeypatch.setattr(rt.Router, '_search', lambda *args: None)
+    with pytest.raises(oc.OperationError, match='Visible wire routing incomplete'):
+        rt.route(page(), {('U1', '1'): 'A', ('U2', '1'): 'A'}, oc._place, require_wires=True)
