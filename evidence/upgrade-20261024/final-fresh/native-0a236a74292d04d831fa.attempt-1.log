@@ -1,0 +1,3 @@
+Pipeline: hybrid_max_accuracy 4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6
+Recognizing native-0a236a74292d04d831fa image.png
+native-0a236a74292d04d831fa {'components_found': 1, 'components_gt': 21, 'physical_pins_found': 14, 'physical_pins_gt': 479, 'whole_graph_exact': False, 'seconds': 62.84}

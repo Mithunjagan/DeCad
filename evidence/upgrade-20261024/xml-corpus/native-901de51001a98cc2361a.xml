@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FileDescription>
+  <Application ApplicationName="TD9 TestSequencer" />
+  <Board BoardName="native-901de51001a98cc2361a" />
+  <Version Version="FVER00001" />
+  <Date FileModified="" />
+  <NetList>
+    <Nodes>
+      <Node NodeName="U1_1" NodeDisName="U1_1" PinNumber="1" DeviceLocation="U1" IsPinUsed="TRUE" Marking="UNKNOWN" NodeNetName="N00025" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_4" NodeDisName="U1_4" PinNumber="4" DeviceLocation="U1" IsPinUsed="TRUE" Marking="UNKNOWN" NodeNetName="N00029" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_2" NodeDisName="U1_2" PinNumber="2" DeviceLocation="U1" IsPinUsed="TRUE" Marking="UNKNOWN" NodeNetName="N00032" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U4_3" NodeDisName="U4_3" PinNumber="3" DeviceLocation="U4" IsPinUsed="TRUE" Marking="UNKNOWN" NodeNetName="N00311" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U4_2" NodeDisName="U4_2" PinNumber="2" DeviceLocation="U4" IsPinUsed="TRUE" Marking="UNKNOWN" NodeNetName="N00173" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U4_1" NodeDisName="U4_1" PinNumber="1" DeviceLocation="U4" IsPinUsed="TRUE" Marking="UNKNOWN" NodeNetName="N00339" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R9_1" NodeDisName="R9_1" PinNumber="1" DeviceLocation="R9" IsPinUsed="TRUE" Marking="4.7K" NodeNetName="N00386" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R3_1" NodeDisName="R3_1" PinNumber="1" DeviceLocation="R3" IsPinUsed="TRUE" Marking="6.2K" NodeNetName="N_IMPLICIT_R3_1" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R3_2" NodeDisName="R3_2" PinNumber="2" DeviceLocation="R3" IsPinUsed="TRUE" Marking="6.2K" NodeNetName="N_IMPLICIT_R3_2" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+    </Nodes>
+    <PowerNets />
+    <UserNets>
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00025" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00029" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00032" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00173" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00311" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00339" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00386" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N_IMPLICIT_R3_1" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N_IMPLICIT_R3_2" />
+    </UserNets>
+  </NetList>
+</FileDescription>

@@ -7,7 +7,7 @@ from copy import deepcopy
 import hashlib
 import math
 
-SOURCES={'vector','wire_trace','net_label','erc_healed','vlm_tiebreak'}
+SOURCES={'vector','wire_trace','net_label','erc_healed','vlm_tiebreak','implicit_passive_terminal'}
 
 
 def _finite(value):

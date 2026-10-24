@@ -19,6 +19,7 @@ if __name__=='__main__':
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--pixels',action='store_true')
     parser.add_argument('--include',nargs='+')
+    parser.add_argument('--pairs',action='store_true')
     args=parser.parse_args()
     from app.pipeline_profile import configure
     configure()
@@ -34,7 +35,7 @@ if __name__=='__main__':
         record=next(r for r in records if r['sample_id']==identity)
         before=json.loads(prediction_path(args.baseline,identity).read_text())
         graph=recover_locally(before)
-        if args.pixels:
+        if args.pixels or args.pairs:
             from PIL import Image
             import numpy as np
             from app.terminal_recovery import recover_terminals
@@ -45,7 +46,13 @@ if __name__=='__main__':
                     x,y,xx,yy=bounds;mapping=inverse.copy();mapping[:2,2]+=inverse[:2,:2]@np.array([x,y])
                     return np.asarray(image.transform((xx-x,yy-y),Image.Transform.AFFINE,tuple(mapping[:2].reshape(-1)),
                         resample=Image.Resampling.BICUBIC,fillcolor=255))
-                recover_terminals(graph,crop,max_reads=160)
+                if args.pixels:recover_terminals(graph,crop,max_reads=160)
+                if args.pairs:
+                    from app.observed_terminal_pairs import recover_observed_pairs
+                    from app.digital_vision import Token
+                    diagnostic=ROOT/'evidence/kaggle-20261022/native-caption-candidate'/identity/'diagnostics.json'
+                    tokens=json.loads(diagnostic.read_text()).get('tokens',[]) if diagnostic.exists() else []
+                    recover_observed_pairs(graph,[Token(**t) for t in tokens],crop)
         graph=erc_self_heal(graph)
         metrics=measure(record['circuit'],graph)
         errors=retained(record['circuit'],before,graph)

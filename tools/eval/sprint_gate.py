@@ -59,6 +59,8 @@ def main(args):
          'KICAD_CLI':'D:/KICAD/bin/kicad-cli.exe','KICAD_SYMBOL_DIR':'D:/KICAD/share/kicad/symbols',
          'KICAD_FOOTPRINT_DIR':'D:/KICAD/share/kicad/footprints','KICAD_PYTHON':'D:/KICAD/bin/python.exe'}
     summary={'passed':False,'fresh_ocr':True,'process_isolated':True,'errors':[],'worker_attempts':{},'sample_scope':list(args.samples)}
+    summary['acceptance_thresholds']={'minimum_clear_pins':args.minimum_clear_pins,
+                                      'maximum_native_wrong_pairs':args.maximum_native_wrong_pairs}
     try:
         from recognition_provenance import snapshot
         frozen=snapshot()
@@ -104,7 +106,8 @@ def main(args):
         lib=json.loads((args.out/'library/report.json').read_text())
         summary['clear_pins']={n:[lib[n]['pins_exact'],lib[n]['pins_gt']] for n in ('S1','S3','S4','S5')}
         summary['clear_pin_total']=sum(v[0] for v in summary['clear_pins'].values())
-        if summary['clear_pin_total']<217:summary['errors'].append('Clear pin score below 217/245')
+        if summary['clear_pin_total']<args.minimum_clear_pins:
+            summary['errors'].append(f'Clear pin score below {args.minimum_clear_pins}/245')
         if not args.original_only:
             baseline=json.loads((args.native_baseline/'report.json').read_text())
             combined={'cases':{},'regressions':[]}
@@ -128,6 +131,9 @@ def main(args):
             summary['native_totals']={k:sum(r[k] for r in combined['cases'].values()) for k in
                                       ('components_found','physical_pins_found','connected_pin_pairs_correct','connected_pin_pairs_wrong')}
             if summary['native_totals']['physical_pins_found']<103:summary['errors'].append('Physical pin coverage below 103')
+            if summary['native_totals']['connected_pin_pairs_correct']<9:summary['errors'].append('Correct native pairs below 9')
+            if summary['native_totals']['connected_pin_pairs_wrong']>args.maximum_native_wrong_pairs:
+                summary['errors'].append(f'Wrong native pairs exceed {args.maximum_native_wrong_pairs}')
         model=ROOT/'checkpoints/schematic-ocr/model.onnx'
         if snapshot()!=frozen:summary['errors'].append('Recognizer source changed during the complete gate')
         summary['protected_model_sha256']=hashlib.sha256(model.read_bytes()).hexdigest()
@@ -148,6 +154,8 @@ if __name__=='__main__':
     p.add_argument('--original-only',action='store_true')
     p.add_argument('--samples',nargs='+',choices=SAMPLES,default=SAMPLES,help='Use the four clear cases for a quick fresh iteration before the full gate')
     p.add_argument('--tests',action='store_true')
+    p.add_argument('--minimum-clear-pins',type=int,default=227)
+    p.add_argument('--maximum-native-wrong-pairs',type=int,default=13)
     from runtime_power import system_awake
     with system_awake():
         raise SystemExit(main(p.parse_args()))

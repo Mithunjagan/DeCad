@@ -1,0 +1,5 @@
+Pipeline: hybrid_max_accuracy 4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+S4-blur300: OCR ((7797, 11025), scale=1.667)
+S4-blur300: wiring (369 tokens)
+S4-blur300 {'parts_gt': 30, 'parts_found': 12, 'parts_spurious': 3, 'values_ok': 12, 'pins_gt': 72, 'pins_exact': 0, 'pins_present': 5, 'seconds': 188.32, 'components': 15, 'connections': 59, 'scope': 'recognition_without_CAD_library_check', 'fresh_ocr': True, 'text_model_sha256': 'c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf', 'fallback_model_sha256': None, 'fallback_routing': None, 'source_sha256': '3f87fd9be9f5788662daf991f6b7b0c1f451765a32ce28add6a2a4b4a9d3357b', 'recognizer_sha256': '6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc', 'fallback_source_sha256': '05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe'}

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FileDescription>
+  <Application ApplicationName="TD9 TestSequencer" />
+  <Board BoardName="native-37735b083f0b9f56549f" />
+  <Version Version="FVER00001" />
+  <Date FileModified="" />
+  <NetList>
+    <Nodes>
+      <Node NodeName="P0_28" NodeDisName="P0_28" PinNumber="28" DeviceLocation="P0" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00456" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P0_29" NodeDisName="P0_29" PinNumber="29" DeviceLocation="P0" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="AIN5LOW-ALD3" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P1_15" NodeDisName="P1_15" PinNumber="15" DeviceLocation="P1" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00460" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P0_D3" NodeDisName="P0_D3" PinNumber="D3" DeviceLocation="P0" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="AIN4I0WALD1" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P0_220" NodeDisName="P0_220" PinNumber="220" DeviceLocation="P0" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="OSPISIO.2" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P11_3" NodeDisName="P11_3" PinNumber="3" DeviceLocation="P11" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00084" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P0_02" NodeDisName="P0_02" PinNumber="02" DeviceLocation="P0" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="ANO-LOVDA" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P0_260" NodeDisName="P0_260" PinNumber="260" DeviceLocation="P0" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="CI_CSN" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P1_10" NodeDisName="P1_10" PinNumber="10" DeviceLocation="P1" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00110" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+    </Nodes>
+    <PowerNets />
+    <UserNets>
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="AIN4I0WALD1" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="AIN5LOW-ALD3" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="ANO-LOVDA" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="CI_CSN" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00084" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00110" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00456" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00460" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="OSPISIO.2" />
+    </UserNets>
+  </NetList>
+</FileDescription>

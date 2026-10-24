@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "pages_rendered": 7,
+  "pages_visually_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "pdf_sha256": "9cd22a5820a2ab436ed75a7f988bfd36d7f3080fc2bb60771144dc5e8edd9bbd",
+  "source_snapshot_unchanged_after_live": true
+}

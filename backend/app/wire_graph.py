@@ -201,6 +201,12 @@ def trace(page,bodies,texts,segments,anchors,reader=None,labels=()):
             y=round((a['y']+b['y'])/2)
             canvas[max(0,y-margin):y+margin+1,max(0,round(min(a['x'],b['x']))+3):round(max(a['x'],b['x']))-2]=0
     canvas,healed=heal_gaps(canvas)
+    # A scan-gap repair may never reconnect the two capacitor plates. Reapply
+    # their observed body extents after closing and before skeleton tracing.
+    for box in getattr(page,'dc_barriers',[]):
+        x0,y0,x1,y1=map(round,box)
+        canvas[max(0,y0):y1+1,max(0,x0):x1+1]=0
+        healed[max(0,y0):y1+1,max(0,x0):x1+1]=0
     thin=skeletonize(canvas)
     del canvas
     height,width=thin.shape
@@ -380,6 +386,7 @@ def trace(page,bodies,texts,segments,anchors,reader=None,labels=()):
             'source_affine':page.affine.tolist() if getattr(page,'affine',None) is not None else [[1,0,0],[0,1,0]],
             'wire_nodes':nodes,'wire_edges':edges,'wire_roots':wire_roots,'pin_anchors':pin_anchors,
             'review_hotspots':hotspots,'component_bodies':[list(box) for box in bodies],'label_anchors':label_anchors,
+            'dc_open_circuit_barriers':getattr(page,'dc_barriers',[]),
             'algorithm':'masked_directional_closing_zhang_suen_physical_graph'}
 
 

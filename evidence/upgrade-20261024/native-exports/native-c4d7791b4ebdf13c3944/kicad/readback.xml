@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>D:\DeCad-main\Jrk_DeCad\Schematic2SDN\evidence\upgrade-20261024\native-exports\native-c4d7791b4ebdf13c3944\kicad\native-c4d7791b4ebdf13c3944.kicad_sch</source>
+    <date>2026-10-24T03:11:42</date>
+    <tool>Eeschema 10.0.6</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>native-c4d7791b4ebdf13c3944.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="R4">
+      <value>10K</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="10K_R4" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>e1e76033-711a-4957-aff6-6f9c6efc9221</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="8"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>220R</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="220R_R5" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>00c68a85-ddca-47e5-9ff4-41ac0ddbc596</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R6">
+      <value>220R</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="220R_R6" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>b73a5953-3082-43a4-bc9d-284ebb740022</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R7">
+      <value>52K</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="52K_R7" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>73daad6e-993d-4ba3-8fc0-3149851e1ce1</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R8">
+      <value>220R</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="220R_R8" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7e6465e4-cb3b-400d-a7f2-ad4cb293028a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R9">
+      <value>220R</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="220R_R9" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6461b1bc-0ee3-40b9-a4b0-057ee9ea6316</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R11">
+      <value>10K</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="10K_R11" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fff22c16-0d4c-400f-8b48-5e35f87002c0</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="11"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R16">
+      <value>220R</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="220R_R16" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7e92d30f-b345-4607-a810-518be5c6acec</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="18"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R17">
+      <value>10K</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="10K_R17" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>cfdea40e-2b1f-431c-b3d8-7855afb94e38</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R18">
+      <value>10K</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="10K_R18" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>23244fa6-2340-474a-a15d-5dbe15a7060a</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="18"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U4">
+      <value>SN74AUP1G125DRLR</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="SN74AUP1G125DRLR_U4" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ee2f78a7-4ee1-4743-a452-a5309311eb25</tstamps>
+      <units>
+        <unit name="A">
+          <pins/>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U6">
+      <value>ATECC608A-MAHDA</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="ATECC608A-MAHDA_U6" description=""/>
+      <property name="Sheetname" value="native-c4d7791b4ebdf13c3944"/>
+      <property name="Sheetfile" value="native-c4d7791b4ebdf13c3944.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>10fc64a1-d51e-4bb4-a1aa-0fd3808de466</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="8"/>
+            <pin num="9"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="DeCad" part="10K_R11">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">10K</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="11" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="10K_R17">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">10K</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="10K_R18">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">10K</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="18" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="10K_R4">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">10K</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="2" name="" type="passive"/>
+        <pin num="8" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="220R_R16">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">220R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="18" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="220R_R5">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">220R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="220R_R6">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">220R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DeCad" part="220R_R8">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">220R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="220R_R9">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">220R</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+    <libpart lib="DeCad" part="52K_R7">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">52K</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="ATECC608A-MAHDA_U6">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ATECC608A-MAHDA</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="8" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="SN74AUP1G125DRLR_U4">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">SN74AUP1G125DRLR</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+    </libpart>
+  </libparts>
+  <libraries/>
+  <nets>
+    <net code="1" name="/+3V3" class="Default">
+      <node ref="R17" pin="1" pintype="passive"/>
+    </net>
+    <net code="2" name="/N00012" class="Default">
+      <node ref="R18" pin="18" pintype="passive"/>
+    </net>
+    <net code="3" name="/N00192" class="Default">
+      <node ref="R7" pin="2" pintype="passive"/>
+    </net>
+    <net code="4" name="/N00290" class="Default">
+      <node ref="U6" pin="5" pintype="passive"/>
+    </net>
+    <net code="5" name="/N00291" class="Default">
+      <node ref="U6" pin="6" pintype="passive"/>
+    </net>
+    <net code="6" name="/N00306" class="Default">
+      <node ref="R11" pin="11" pintype="passive"/>
+    </net>
+    <net code="7" name="/N00312" class="Default">
+      <node ref="R4" pin="8" pintype="passive"/>
+    </net>
+    <net code="8" name="/N00313" class="Default">
+      <node ref="R4" pin="2" pintype="passive"/>
+    </net>
+    <net code="9" name="/N00660" class="Default">
+      <node ref="U6" pin="4" pintype="passive"/>
+      <node ref="U6" pin="9" pintype="passive"/>
+    </net>
+    <net code="10" name="/N00693" class="Default">
+      <node ref="R7" pin="1" pintype="passive"/>
+    </net>
+    <net code="11" name="/N00804" class="Default">
+      <node ref="R16" pin="18" pintype="passive"/>
+    </net>
+    <net code="12" name="/N_CAPTION_U6_8" class="Default">
+      <node ref="U6" pin="8" pintype="passive"/>
+    </net>
+    <net code="13" name="/N_IMPLICIT_R5_1" class="Default">
+      <node ref="R5" pin="1" pintype="passive"/>
+    </net>
+    <net code="14" name="/N_IMPLICIT_R5_2" class="Default">
+      <node ref="R5" pin="2" pintype="passive"/>
+    </net>
+    <net code="15" name="/N_IMPLICIT_R8_1" class="Default">
+      <node ref="R8" pin="1" pintype="passive"/>
+    </net>
+    <net code="16" name="/N_IMPLICIT_R8_2" class="Default">
+      <node ref="R8" pin="2" pintype="passive"/>
+    </net>
+  </nets>
+</export>

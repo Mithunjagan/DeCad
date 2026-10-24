@@ -1,0 +1,850 @@
+{
+  "fresh_ocr": false,
+  "scope": "cached trace plus fresh bounded source crops; full OCR gate still required",
+  "limitation": "Legacy native caches omit duplicate terminal observations; fresh full gate must validate those paths.",
+  "cases": {
+    "native-3b2a49a524e2d50dcf26": {
+      "components_gt": 112,
+      "components_found": 14,
+      "components_spurious": [
+        "U58"
+      ],
+      "component_values_exact": [
+        "R16",
+        "R26",
+        "R31",
+        "R32",
+        "R33",
+        "R34",
+        "R38",
+        "R6",
+        "R8"
+      ],
+      "component_values_case_insensitive": [
+        "R16",
+        "R24",
+        "R26",
+        "R31",
+        "R32",
+        "R33",
+        "R34",
+        "R38",
+        "R6",
+        "R8"
+      ],
+      "physical_pins_gt": 376,
+      "physical_pins_found": 36,
+      "physical_pins_spurious": [
+        [
+          "R16",
+          "4"
+        ],
+        [
+          "U58",
+          "1"
+        ],
+        [
+          "U58",
+          "10"
+        ],
+        [
+          "U58",
+          "11"
+        ],
+        [
+          "U58",
+          "12"
+        ],
+        [
+          "U58",
+          "13"
+        ],
+        [
+          "U58",
+          "14"
+        ],
+        [
+          "U58",
+          "2"
+        ],
+        [
+          "U58",
+          "3"
+        ],
+        [
+          "U58",
+          "4"
+        ],
+        [
+          "U58",
+          "5"
+        ],
+        [
+          "U58",
+          "6"
+        ],
+        [
+          "U58",
+          "7"
+        ],
+        [
+          "U58",
+          "8"
+        ],
+        [
+          "U58",
+          "9"
+        ]
+      ],
+      "connected_pin_pairs_gt": 4708,
+      "connected_pin_pairs_found": 5,
+      "connected_pin_pairs_correct": 5,
+      "connected_pin_pairs_wrong": 0,
+      "pair_precision": 1.0,
+      "pair_recall": 0.0010620220900594733,
+      "complete_nets_gt": 98,
+      "complete_nets_matched": 6,
+      "whole_graph_exact": false,
+      "before": {
+        "physical_pins_found": 36,
+        "connected_pin_pairs_correct": 5,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": []
+    },
+    "native-a39a7a1fc84f921b27fd": {
+      "components_gt": 15,
+      "components_found": 4,
+      "components_spurious": [],
+      "component_values_exact": [
+        "R1",
+        "R2",
+        "R3",
+        "U1"
+      ],
+      "component_values_case_insensitive": [
+        "R1",
+        "R2",
+        "R3",
+        "U1"
+      ],
+      "physical_pins_gt": 77,
+      "physical_pins_found": 17,
+      "physical_pins_spurious": [],
+      "connected_pin_pairs_gt": 105,
+      "connected_pin_pairs_found": 1,
+      "connected_pin_pairs_correct": 1,
+      "connected_pin_pairs_wrong": 0,
+      "pair_precision": 1.0,
+      "pair_recall": 0.009523809523809525,
+      "complete_nets_gt": 35,
+      "complete_nets_matched": 1,
+      "whole_graph_exact": false,
+      "before": {
+        "physical_pins_found": 17,
+        "connected_pin_pairs_correct": 1,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": []
+    },
+    "native-fedf29b44113e135f31f": {
+      "components_gt": 11,
+      "components_found": 2,
+      "components_spurious": [
+        "R31"
+      ],
+      "component_values_exact": [
+        "R1",
+        "U1"
+      ],
+      "component_values_case_insensitive": [
+        "R1",
+        "U1"
+      ],
+      "physical_pins_gt": 44,
+      "physical_pins_found": 13,
+      "physical_pins_spurious": [
+        [
+          "R1",
+          "5"
+        ],
+        [
+          "R31",
+          "1"
+        ]
+      ],
+      "connected_pin_pairs_gt": 48,
+      "connected_pin_pairs_found": 0,
+      "connected_pin_pairs_correct": 0,
+      "connected_pin_pairs_wrong": 0,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "complete_nets_gt": 19,
+      "complete_nets_matched": 1,
+      "whole_graph_exact": false,
+      "before": {
+        "physical_pins_found": 13,
+        "connected_pin_pairs_correct": 0,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": []
+    },
+    "native-c4d88e79bc63688e0e7c": {
+      "components_gt": 71,
+      "components_found": 10,
+      "components_spurious": [
+        "P32",
+        "U580"
+      ],
+      "component_values_exact": [
+        "R11",
+        "R15",
+        "R2",
+        "R3",
+        "R5",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "component_values_case_insensitive": [
+        "R11",
+        "R15",
+        "R2",
+        "R3",
+        "R5",
+        "R7",
+        "R8",
+        "R9"
+      ],
+      "physical_pins_gt": 281,
+      "physical_pins_found": 8,
+      "physical_pins_spurious": [
+        [
+          "P32",
+          "53"
+        ],
+        [
+          "R3",
+          "11"
+        ],
+        [
+          "R4",
+          "7"
+        ],
+        [
+          "R5",
+          "25"
+        ],
+        [
+          "R5",
+          "5"
+        ],
+        [
+          "R7",
+          "7"
+        ],
+        [
+          "R9",
+          "8"
+        ],
+        [
+          "U580",
+          "5"
+        ]
+      ],
+      "connected_pin_pairs_gt": 2633,
+      "connected_pin_pairs_found": 0,
+      "connected_pin_pairs_correct": 0,
+      "connected_pin_pairs_wrong": 0,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "complete_nets_gt": 74,
+      "complete_nets_matched": 0,
+      "whole_graph_exact": false,
+      "before": {
+        "physical_pins_found": 8,
+        "connected_pin_pairs_correct": 0,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": []
+    },
+    "native-37735b083f0b9f56549f": {
+      "components_gt": 71,
+      "components_found": 0,
+      "components_spurious": [
+        "P0",
+        "P1",
+        "P11"
+      ],
+      "component_values_exact": [],
+      "component_values_case_insensitive": [],
+      "physical_pins_gt": 284,
+      "physical_pins_found": 0,
+      "physical_pins_spurious": [
+        [
+          "P0",
+          "00"
+        ],
+        [
+          "P0",
+          "01"
+        ],
+        [
+          "P0",
+          "02"
+        ],
+        [
+          "P0",
+          "03"
+        ],
+        [
+          "P0",
+          "04"
+        ],
+        [
+          "P0",
+          "05"
+        ],
+        [
+          "P0",
+          "06"
+        ],
+        [
+          "P0",
+          "07"
+        ],
+        [
+          "P0",
+          "09"
+        ],
+        [
+          "P0",
+          "10"
+        ],
+        [
+          "P0",
+          "11"
+        ],
+        [
+          "P0",
+          "12"
+        ],
+        [
+          "P0",
+          "13"
+        ],
+        [
+          "P0",
+          "14"
+        ],
+        [
+          "P0",
+          "15"
+        ],
+        [
+          "P0",
+          "16"
+        ],
+        [
+          "P0",
+          "17"
+        ],
+        [
+          "P0",
+          "18"
+        ],
+        [
+          "P0",
+          "19"
+        ],
+        [
+          "P0",
+          "2"
+        ],
+        [
+          "P0",
+          "20"
+        ],
+        [
+          "P0",
+          "21"
+        ],
+        [
+          "P0",
+          "22"
+        ],
+        [
+          "P0",
+          "220"
+        ],
+        [
+          "P0",
+          "23"
+        ],
+        [
+          "P0",
+          "24"
+        ],
+        [
+          "P0",
+          "25"
+        ],
+        [
+          "P0",
+          "26"
+        ],
+        [
+          "P0",
+          "260"
+        ],
+        [
+          "P0",
+          "27"
+        ],
+        [
+          "P0",
+          "28"
+        ],
+        [
+          "P0",
+          "29"
+        ],
+        [
+          "P0",
+          "30"
+        ],
+        [
+          "P0",
+          "31"
+        ],
+        [
+          "P0",
+          "D3"
+        ],
+        [
+          "P1",
+          "00"
+        ],
+        [
+          "P1",
+          "01"
+        ],
+        [
+          "P1",
+          "02"
+        ],
+        [
+          "P1",
+          "03"
+        ],
+        [
+          "P1",
+          "04"
+        ],
+        [
+          "P1",
+          "05"
+        ],
+        [
+          "P1",
+          "06"
+        ],
+        [
+          "P1",
+          "07"
+        ],
+        [
+          "P1",
+          "08"
+        ],
+        [
+          "P1",
+          "09"
+        ],
+        [
+          "P1",
+          "10"
+        ],
+        [
+          "P1",
+          "11"
+        ],
+        [
+          "P1",
+          "12"
+        ],
+        [
+          "P1",
+          "13"
+        ],
+        [
+          "P1",
+          "14"
+        ],
+        [
+          "P1",
+          "15"
+        ],
+        [
+          "P11",
+          "3"
+        ]
+      ],
+      "connected_pin_pairs_gt": 2465,
+      "connected_pin_pairs_found": 0,
+      "connected_pin_pairs_correct": 0,
+      "connected_pin_pairs_wrong": 0,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "complete_nets_gt": 85,
+      "complete_nets_matched": 0,
+      "whole_graph_exact": false,
+      "before": {
+        "physical_pins_found": 0,
+        "connected_pin_pairs_correct": 0,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": []
+    },
+    "native-0a236a74292d04d831fa": {
+      "components_gt": 21,
+      "components_found": 1,
+      "components_spurious": [
+        "P0",
+        "P1",
+        "P2",
+        "P26",
+        "P27",
+        "P28",
+        "P29",
+        "P3",
+        "P4"
+      ],
+      "component_values_exact": [],
+      "component_values_case_insensitive": [],
+      "physical_pins_gt": 479,
+      "physical_pins_found": 14,
+      "physical_pins_spurious": [
+        [
+          "P0",
+          "02"
+        ],
+        [
+          "P0",
+          "03"
+        ],
+        [
+          "P0",
+          "04"
+        ],
+        [
+          "P0",
+          "05"
+        ],
+        [
+          "P0",
+          "09"
+        ],
+        [
+          "P0",
+          "10"
+        ],
+        [
+          "P0",
+          "28"
+        ],
+        [
+          "P0",
+          "29"
+        ],
+        [
+          "P0",
+          "31"
+        ],
+        [
+          "P1",
+          "01"
+        ],
+        [
+          "P1",
+          "04"
+        ],
+        [
+          "P1",
+          "05"
+        ],
+        [
+          "P1",
+          "06"
+        ],
+        [
+          "P1",
+          "07"
+        ],
+        [
+          "P1",
+          "09"
+        ],
+        [
+          "P1",
+          "10"
+        ],
+        [
+          "P1",
+          "11"
+        ],
+        [
+          "P1",
+          "12"
+        ],
+        [
+          "P1",
+          "13"
+        ],
+        [
+          "P1",
+          "14"
+        ],
+        [
+          "P1",
+          "15"
+        ],
+        [
+          "P1",
+          "D7"
+        ],
+        [
+          "P2",
+          "01"
+        ],
+        [
+          "P2",
+          "04"
+        ],
+        [
+          "P2",
+          "06"
+        ],
+        [
+          "P2",
+          "07"
+        ],
+        [
+          "P2",
+          "08"
+        ],
+        [
+          "P2",
+          "09"
+        ],
+        [
+          "P2",
+          "10"
+        ],
+        [
+          "P2",
+          "6"
+        ],
+        [
+          "P2",
+          "D8"
+        ],
+        [
+          "P26",
+          "A0"
+        ],
+        [
+          "P27",
+          "A1"
+        ],
+        [
+          "P28",
+          "A2"
+        ],
+        [
+          "P29",
+          "A3"
+        ],
+        [
+          "P3",
+          "D10"
+        ],
+        [
+          "P4",
+          "D9"
+        ]
+      ],
+      "connected_pin_pairs_gt": 0,
+      "connected_pin_pairs_found": 0,
+      "connected_pin_pairs_correct": 0,
+      "connected_pin_pairs_wrong": 0,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "complete_nets_gt": 479,
+      "complete_nets_matched": 14,
+      "whole_graph_exact": false,
+      "before": {
+        "physical_pins_found": 14,
+        "connected_pin_pairs_correct": 0,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": []
+    },
+    "native-e9b7597c67252bf7707d": {
+      "components_gt": 39,
+      "components_found": 5,
+      "components_spurious": [],
+      "component_values_exact": [
+        "U3"
+      ],
+      "component_values_case_insensitive": [
+        "R1",
+        "R2",
+        "R8",
+        "R9",
+        "U3"
+      ],
+      "physical_pins_gt": 93,
+      "physical_pins_found": 11,
+      "physical_pins_spurious": [],
+      "connected_pin_pairs_gt": 440,
+      "connected_pin_pairs_found": 0,
+      "connected_pin_pairs_correct": 0,
+      "connected_pin_pairs_wrong": 0,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "complete_nets_gt": 21,
+      "complete_nets_matched": 0,
+      "whole_graph_exact": false,
+      "before": {
+        "physical_pins_found": 11,
+        "connected_pin_pairs_correct": 0,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": []
+    },
+    "native-901de51001a98cc2361a": {
+      "components_gt": 57,
+      "components_found": 4,
+      "components_spurious": [],
+      "component_values_exact": [],
+      "component_values_case_insensitive": [
+        "R3",
+        "R9"
+      ],
+      "physical_pins_gt": 245,
+      "physical_pins_found": 9,
+      "physical_pins_spurious": [],
+      "connected_pin_pairs_gt": 1792,
+      "connected_pin_pairs_found": 0,
+      "connected_pin_pairs_correct": 0,
+      "connected_pin_pairs_wrong": 0,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "complete_nets_gt": 84,
+      "complete_nets_matched": 0,
+      "whole_graph_exact": false,
+      "before": {
+        "physical_pins_found": 9,
+        "connected_pin_pairs_correct": 0,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": []
+    },
+    "native-c6bcc506a3200b19e089": {
+      "components_gt": 25,
+      "components_found": 9,
+      "components_spurious": [],
+      "component_values_exact": [],
+      "component_values_case_insensitive": [],
+      "physical_pins_gt": 67,
+      "physical_pins_found": 14,
+      "physical_pins_spurious": [],
+      "connected_pin_pairs_gt": 229,
+      "connected_pin_pairs_found": 3,
+      "connected_pin_pairs_correct": 3,
+      "connected_pin_pairs_wrong": 0,
+      "pair_precision": 1.0,
+      "pair_recall": 0.013100436681222707,
+      "complete_nets_gt": 19,
+      "complete_nets_matched": 3,
+      "whole_graph_exact": false,
+      "before": {
+        "physical_pins_found": 14,
+        "connected_pin_pairs_correct": 3,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": []
+    },
+    "native-c4d7791b4ebdf13c3944": {
+      "components_gt": 58,
+      "components_found": 12,
+      "components_spurious": [],
+      "component_values_exact": [
+        "R11",
+        "R16",
+        "R17",
+        "R18",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9",
+        "U4",
+        "U6"
+      ],
+      "component_values_case_insensitive": [
+        "R11",
+        "R16",
+        "R17",
+        "R18",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8",
+        "R9",
+        "U4",
+        "U6"
+      ],
+      "physical_pins_gt": 511,
+      "physical_pins_found": 13,
+      "physical_pins_spurious": [
+        [
+          "R11",
+          "11"
+        ],
+        [
+          "R16",
+          "18"
+        ],
+        [
+          "R18",
+          "18"
+        ],
+        [
+          "R4",
+          "8"
+        ]
+      ],
+      "connected_pin_pairs_gt": 8605,
+      "connected_pin_pairs_found": 1,
+      "connected_pin_pairs_correct": 1,
+      "connected_pin_pairs_wrong": 0,
+      "pair_precision": 1.0,
+      "pair_recall": 0.00011621150493898897,
+      "complete_nets_gt": 236,
+      "complete_nets_matched": 0,
+      "whole_graph_exact": false,
+      "before": {
+        "physical_pins_found": 13,
+        "connected_pin_pairs_correct": 1,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": []
+    }
+  },
+  "regressions": [],
+  "seconds": 2.125
+}

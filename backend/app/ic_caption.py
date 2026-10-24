@@ -93,3 +93,23 @@ def recover(tokens, boxes, segments, char_height, components, anchors):
             results.setdefault(ref, []).append((value, box))
     return [(ref, options[0][0], options[0][1]) for ref, options in sorted(results.items())
             if len({value for value, _ in options}) == 1]
+
+
+def side_captions(tokens,boxes,segments,ch):
+    """Recognize a unique literal caption left of a verified IC outline.
+
+    Some ICs print their reference and marking at the left, rather than above.
+    An internal OCR alias cannot own that same body or an imaginary sub-body.
+    """
+    result=[]
+    for box in boxes:
+        if len(visible_pin_ends(box,segments,.55*ch))<4:continue
+        refs=[t for t in tokens if t.conf>=.95 and re.fullmatch(r'(?:U|IC)\d{1,3}[A-H]?',t.text.upper())
+              and 0<box[0]-t.x1<2*ch and box[1]+ch<t.cy<box[3]-ch]
+        choices=[]
+        for ref in refs:
+            values=[t for t in tokens if t.conf>=.95 and literal_marking(t.text) and not t.vertical
+                    and abs(t.x1-ref.x1)<ch and .4*ch<t.cy-ref.cy<2.2*ch and t.x1<box[0]]
+            if len(values)==1:choices.append((ref.text.upper(),values[0].text.upper(),box))
+        if len(choices)==1:result.append(choices[0])
+    return result

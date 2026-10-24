@@ -1,0 +1,343 @@
+{
+  "fresh_ocr": false,
+  "scope": "cached graphs plus bounded raster geometry; no OCR",
+  "cases": {
+    "native-3b2a49a524e2d50dcf26": {
+      "metrics": {
+        "physical_pins_found": 36,
+        "connected_pin_pairs_correct": 5,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": [],
+      "xml_before": {
+        "passed": false,
+        "physical_pins": 51,
+        "assigned_pins": 51,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R32"
+        ],
+        "extra_components": []
+      },
+      "xml_after": {
+        "passed": false,
+        "physical_pins": 51,
+        "assigned_pins": 51,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R32"
+        ],
+        "extra_components": []
+      },
+      "actions": [
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R24",
+          "pin": "1",
+          "bbox": [
+            9286.71875,
+            923.4375,
+            9314.46875,
+            1000.90625
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R24",
+          "pin": "2",
+          "bbox": [
+            9286.71875,
+            923.4375,
+            9314.46875,
+            1000.90625
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R40",
+          "pin": "1",
+          "bbox": [
+            8341.375,
+            1483.8125,
+            8420.0,
+            1509.25
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R40",
+          "pin": "2",
+          "bbox": [
+            8341.375,
+            1483.8125,
+            8420.0,
+            1509.25
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "C36",
+          "pin": "1",
+          "bbox": [
+            7069.9375,
+            3215.03125,
+            7130.0625,
+            3241.625
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "C36",
+          "pin": "2",
+          "bbox": [
+            7069.9375,
+            3215.03125,
+            7130.0625,
+            3241.625
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R33",
+          "pin": "2",
+          "bbox": [
+            7341.0,
+            3189.0,
+            7367.59375,
+            3267.625
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        }
+      ],
+      "tokens_available": true
+    },
+    "native-c4d88e79bc63688e0e7c": {
+      "metrics": {
+        "physical_pins_found": 8,
+        "connected_pin_pairs_correct": 0,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": [],
+      "xml_before": {
+        "passed": false,
+        "physical_pins": 12,
+        "assigned_pins": 12,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R11",
+          "R15",
+          "R2",
+          "U4",
+          "U58"
+        ],
+        "extra_components": []
+      },
+      "xml_after": {
+        "passed": false,
+        "physical_pins": 16,
+        "assigned_pins": 16,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R2",
+          "U4"
+        ],
+        "extra_components": []
+      },
+      "actions": [
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R11",
+          "pin": "1",
+          "bbox": [
+            1550.3125,
+            4051.09375,
+            1592.0,
+            4065.59375
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R11",
+          "pin": "2",
+          "bbox": [
+            1550.3125,
+            4051.09375,
+            1592.0,
+            4065.59375
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R15",
+          "pin": "1",
+          "bbox": [
+            2841.1875,
+            6106.1875,
+            2855.6875,
+            6147.875
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R15",
+          "pin": "2",
+          "bbox": [
+            2841.1875,
+            6106.1875,
+            2855.6875,
+            6147.875
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        }
+      ],
+      "tokens_available": true
+    },
+    "native-c4d7791b4ebdf13c3944": {
+      "metrics": {
+        "physical_pins_found": 13,
+        "connected_pin_pairs_correct": 1,
+        "connected_pin_pairs_wrong": 0
+      },
+      "errors": [],
+      "xml_before": {
+        "passed": false,
+        "physical_pins": 17,
+        "assigned_pins": 17,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R6",
+          "R9",
+          "U4"
+        ],
+        "extra_components": []
+      },
+      "xml_after": {
+        "passed": false,
+        "physical_pins": 17,
+        "assigned_pins": 17,
+        "wrong_assignments": [],
+        "missing_pins": [],
+        "extra_pins": [],
+        "missing_assignments": [],
+        "extra_assignments": [],
+        "missing_components": [
+          "R6",
+          "R9",
+          "U4"
+        ],
+        "extra_components": []
+      },
+      "actions": [
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R5",
+          "pin": "1",
+          "bbox": [
+            3123.6875,
+            2250.875,
+            3204.9375,
+            2281.75
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R5",
+          "pin": "2",
+          "bbox": [
+            3123.6875,
+            2250.875,
+            3204.9375,
+            2281.75
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R8",
+          "pin": "1",
+          "bbox": [
+            3101.75,
+            2763.75,
+            3183.8125,
+            2794.625
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        },
+        {
+          "kind": "implicit_passive_terminal",
+          "ref": "R8",
+          "pin": "2",
+          "bbox": [
+            3101.75,
+            2763.75,
+            3183.8125,
+            2794.625
+          ],
+          "reason": "Two opposing raster leads at a verified passive body; deterministic terminal convention",
+          "source": "implicit_passive_terminal",
+          "confidence": 0.75
+        }
+      ],
+      "tokens_available": true
+    }
+  },
+  "regressions": []
+}

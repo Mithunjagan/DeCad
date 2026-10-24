@@ -585,6 +585,7 @@ LABEL_RE = re.compile(r'^[-~/+]?[A-Z][A-Z_]{0,9}\d{0,3}[A-Z]?(\[\d+[:.]\d+\])?$|
 PIN_DEBUG = []                              # (ref, x, y, pin, label) per IC pin read; diagnostics only
 IC_VALUE_RE = re.compile(r'^(74|54|IDT|AM|TC|HM|MC|\d{5})')
 CONN_RE = re.compile(r'(?<![A-Z0-9])([PJ]\d{1,2})[-_.=]?([A-D]\d{1,2}|\d{1,3})(?![0-9])')
+GPIO_PORT_RE = re.compile(r'P\d+\.\d{1,2}(?:[A-Z_/][A-Z0-9_/.]*)?')
 
 
 @dataclass
@@ -618,6 +619,8 @@ def segments(page):
                 segs.append(Seg(int(x), int(y + h // 2), int(x + w - 1), int(y + h // 2), area / max(w, 1), True))
             else:
                 segs.append(Seg(int(x + w // 2), int(y), int(x + w // 2), int(y + h - 1), area / max(h, 1), False))
+    page.dc_barriers=[]
+    page.dc_segments = _bridge(segs,page,respect_capacitors=True)
     segs = _bridge(segs, page)
     if segs:
         median = float(np.median([s.thick for s in segs]))
@@ -626,9 +629,10 @@ def segments(page):
     return segs
 
 
-def _bridge(segs, page):
+def _bridge(segs, page, *, respect_capacitors=False):
     """Join collinear pieces of one wire split by scan dropouts (gap < ~1 character)."""
     ch = char_height(page.text) or 40.0
+    from .symbol_barriers import capacitor_gap
     drift = max(3, int(0.18 * ch))         # parallel wires are >= half a character apart
     out = []
     for horizontal in (True, False):
@@ -643,6 +647,12 @@ def _bridge(segs, page):
                     m_across, _, m_end = key(m)
                     # a long edge drifts a few pixels across a scan (U43 in sample 1: x 4470 -> 4466 -> 4461)
                     if abs(m_across - across) <= drift and -3 <= start - m_end <= ch * 0.9:
+                        if respect_capacitors:
+                            barrier=capacitor_gap(page.binary,horizontal,across,m_end,start,ch,return_box=True)
+                            if barrier:
+                                if not hasattr(page,'dc_barriers'):page.dc_barriers=[]
+                                page.dc_barriers.append(barrier)
+                                continue
                         target = m; break
                 if target:
                     break
@@ -1744,6 +1754,11 @@ def recognize(page, toks):
             if r2 and re.fullmatch(r'U\d{1,3}', r2) and r2 != r:
                 warnings.append(f'Reference {t.text} (confidence {t.conf:.2f}) read again as {r2}. Check it.')
                 t.text, t.conf, r = r2, again[1], r2
+        # MCU functions or adjacent grid coordinates can share the OCR token.
+        # A literal dotted port followed by that annotation is still a label.
+        if GPIO_PORT_RE.fullmatch(t.text.upper()):
+            labels.append((t,t.text.upper()))
+            continue
         c = CONN_RE.search(t.text.upper())
         if c and not r:
             conns.append((t, c.group(1), c.group(2)))
@@ -1771,7 +1786,17 @@ def recognize(page, toks):
     def body_at(x, y):
         return max((b for b in bxs if _inside(b, x, y)), key=lambda b: pin_ends[b], default=None)
 
+    from .ic_caption import side_captions,recover as independently_captioned
+    side_owned=side_captions(caption_tokens,caption_boxes,segs,ch)
+    independent_refs={r for r,_,_ in independently_captioned(caption_tokens,caption_boxes,segs,ch,{},[])}
+    # Strict containment and an independently corroborated external caption
+    # distinguish internal pin text from another physical IC symbol.
+    refs=[(t,r) for t,r in refs if r in independent_refs or not any(r!=owner and re.fullmatch(r'(U|IC)\d+[A-H]?',r)
+          and box[0]<t.x0<t.x1<box[2] and box[1]<t.y0<t.y1<box[3]
+          for owner,_,box in side_owned)]
     components, anchors, taken = {}, [], set()
+    for ref,value,box in side_owned:
+        components[ref]=value;anchors.append((ref,(box[0]+box[2])/2,(box[1]+box[3])/2,box))
     for t, r in refs:
         box = body_at(t.cx, t.cy)
         ic_ref = re.fullmatch(r'(U|IC)\d{1,3}[A-H]?', r) is not None
@@ -1995,6 +2020,8 @@ def recognize(page, toks):
             continue
         t, num = min(cand, key=lambda tn: _box_dist(tn[0], x, y))
         owners = [a for a in anchors if math.hypot(a[1] - x, a[2] - y) < 9 * ch and (a[1] - x) * ux + (a[2] - y) * uy > -ch]
+        owners=[a for a in owners if a[0] not in {r for r,_,_ in side_owned}
+                or any(_on_edge(box,x,y,tol*2) for r,_,box in side_owned if r==a[0])]
         edge = [b for b in bxs if _on_edge(b, x, y, tol * 2)]
         inbox = [a for a in owners if any(_inside(b, a[1], a[2]) for b in edge)]
         owners = inbox or owners
@@ -2065,6 +2092,8 @@ def recognize(page, toks):
                                 'vertical':t.vertical,'confidence':t.conf,'role':'external_net_label',
                                 'wire':best[1] if best else None})
 
+    from .symbol_barriers import capacitor_pin_labels
+    dc_names,dc_audit=capacitor_pin_labels(page,wires,dsu,node_locations,external_labels,caption_tokens,bxs,dot_points,ch)
     geometry={};pin_roots={};raw_to_final={};blocked_groups=set();spatial_readings={};wire_pin_roots={}
     direct_pin_labels={(o['ref'],o['pin']):o['fixed'] for o in strip_observations if o['active'] and o.get('fixed')}
     if enabled() and nodes:
@@ -2129,6 +2158,7 @@ def recognize(page, toks):
         elif len(group) == 1:name = next(iter(group))
         elif group:name = f'N{root:05d}_{i}'           # unlabeled stub on a multi-signal bus: its own net
         else:name = f'N{root:05d}'
+        if name in ('GND','AGND','DGND') and (ref,pin) in dc_names:name=dc_names[ref,pin]
         if enabled() and re.fullmatch(r'\+\d+(?:\.\d+)?V\d*',name) and pin not in power_pins.get(ref,set()):
             name=f'N{root:05d}_{ref}_{pin}'
         if name.upper() in ('NC','N/C','UNKNOWN','UNCONNECTED'):
@@ -2158,6 +2188,10 @@ def recognize(page, toks):
     geometry.setdefault('width',page.gray.shape[1]);geometry.setdefault('height',page.gray.shape[0])
     geometry.setdefault('source_size',list(page.source_size or (page.gray.shape[1],page.gray.shape[0])))
     geometry.setdefault('source_affine',page.affine.tolist() if page.affine is not None else [[1,0,0],[0,1,0]])
+    geometry['character_height']=ch
+    from .ic_caption import visible_pin_ends
+    geometry['verified_component_refs']=sorted({ref for ref,_,_,box in anchors if box is not None
+        and ref.startswith(('U','IC')) and len(visible_pin_ends(box,segs,.55*ch))>=3})
     graph = {
         'components': [{'ref': r, 'value': v or 'UNKNOWN', 'library': PASSIVE.get(re.sub(r'\d.*', '', r)),
                         **({'x': round(where[r][0] / width, 4), 'y': round(where[r][1] / width, 4)} if r in where else {})}
@@ -2169,11 +2203,30 @@ def recognize(page, toks):
                   'tokens': len(toks), 'refs': len(refs), 'numbers': len(numbers), 'labels': len(labels), 'pins': len(nodes),
                   'roi_audit': page.roi_audit,'internal_pin_labels':page.internal_pin_labels},
     }
+    geometry['capacitor_barrier_actions']=dc_audit
+    # New side-caption terminals must not create a merge with a passive whose
+    # physical terminal numbering has no corroborating symbol/second anchor.
+    side_refs={r for r,_,_ in side_owned}
+    for net in list(graph['nets']):
+        uncertain=[p for p in net['nodes'] if p['ref'][:1] in PASSIVE and
+                   len({a['pin'] for a in geometry.get('pin_anchors',[]) if a['ref']==p['ref'] and a.get('body')})<2]
+        if not uncertain:continue
+        new=[p for p in net['nodes'] if p['ref'] in side_refs]
+        for pin in new:
+            net['nodes'].remove(pin)
+            graph['nets'].append({'name':f'N_CAPTION_{pin["ref"]}_{pin["pin"]}','nodes':[pin]})
+            geometry.setdefault('review_hotspots',[]).append({'ref':pin['ref'],'pin':pin['pin'],
+                'bbox':next(box for r,_,box in side_owned if r==pin['ref']),
+                'reason':f'Observed label {net["name"]}; passive terminal ownership on that label remains unverified',
+                'source':'wire_trace','confidence':.5})
+    graph['nets']=[n for n in graph['nets'] if n['nodes']]
     if enabled():
         from .local_recovery import recover_locally
         from .terminal_recovery import recover_terminals
         graph=recover_locally(graph)
         recover_terminals(graph,lambda box:page.gray[box[1]:box[3],box[0]:box[2]],max_reads=160)
+        from .observed_terminal_pairs import recover_observed_pairs
+        recover_observed_pairs(graph,caption_tokens,lambda box:page.gray[box[1]:box[3],box[0]:box[2]])
     return graph
 
 
@@ -2208,12 +2261,21 @@ def extract(path, cache_dir=None):
         page.vector = vector.transformed(page.affine)
         page.notes.append(f'Native PDF fast path: {vector.primitive_count} vector primitives; exact text and geometry transformed into working pixels.')
     observed_tokens=tokens(page)
+    analog_tokens=[Token(t.text,t.conf,t.x0,t.y0,t.x1,t.y1,t.vertical) for t in observed_tokens]
     result = recognize(page, observed_tokens)
     graph = {'components': result['components'], 'nets': result['nets'],
              'sheet_aspect': round(page.gray.shape[1] / page.gray.shape[0], 6),
              'image_metadata':result.get('image_metadata',{})}
     warnings = result['warnings']
     from .pipeline_profile import enabled
+    if enabled():
+        from .implicit_terminals import analog_graph,attach_passives,quarantine_unverified,reread_reference
+        analog=analog_graph(page.gray,analog_tokens,graph)
+        if analog is not None:
+            return Circuit.from_image_graph({**analog,'sheet_aspect':graph['sheet_aspect']})
+        graph=quarantine_unverified(graph,analog_tokens,lambda t:reread_reference(page.gray,t))
+        warnings.extend(graph.pop('warnings',[]))
+        graph=attach_passives(graph,page.gray,analog_tokens,graph['image_metadata'].get('character_height',40.))
     if enabled() and (not graph['components'] or all(re.fullmatch(r'[RCV]\d+',component['ref']) for component in graph['components'])):
         # Keep simple-device recognition available in the common pipeline.
         # Reuse CUDA OCR observations; this is a geometry fallback, not CPU OCR.

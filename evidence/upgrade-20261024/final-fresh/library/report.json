@@ -1,0 +1,1240 @@
+{
+ "S1": {
+  "parts_gt": 28,
+  "parts_found": 24,
+  "parts_spurious": 0,
+  "values_ok": 24,
+  "pins_gt": 56,
+  "pins_exact": 54,
+  "pins_present": 55,
+  "missed_parts": [
+   "U1",
+   "R1",
+   "R3",
+   "S1"
+  ],
+  "spurious_parts": [],
+  "wrong_values": [],
+  "wrong_pins": [
+   [
+    "U64.4",
+    "WZPLJ6",
+    "DD6"
+   ],
+   [
+    "U64.13",
+    null,
+    "CC7"
+   ]
+  ],
+  "scope": "recognition_with_cached_library_check",
+  "components": 24,
+  "connections": 287,
+  "cache_hashes": {
+   "orcad-pins.json": "5631d0812ec782dee2e9106a8d50aff9e2b9ff1a2ecfa5e39dd42b89d34f85b6",
+   "orcad-lib-index-v2.tsv": "00b7aa80e77adda55ba459aa393a75c04826c772c5626a2051bfbf3215829be7"
+  },
+  "native_export_verified": false
+ },
+ "S2": {
+  "parts_gt": 0,
+  "parts_found": 0,
+  "parts_spurious": 14,
+  "values_ok": 0,
+  "pins_gt": 0,
+  "pins_exact": 0,
+  "pins_present": 0,
+  "missed_parts": [],
+  "spurious_parts": [
+   "P1",
+   "P2",
+   "U_1",
+   "U_10",
+   "U_11",
+   "U_12",
+   "U_2",
+   "U_3",
+   "U_4",
+   "U_5",
+   "U_6",
+   "U_7",
+   "U_8",
+   "U_9"
+  ],
+  "wrong_values": [],
+  "wrong_pins": [],
+  "value_counts": {
+   "TC514100": [
+    9,
+    16
+   ],
+   "74F374": [
+    5,
+    8
+   ],
+   "74F244": [
+    2,
+    4
+   ]
+  },
+  "scope": "recognition_with_cached_library_check",
+  "components": 24,
+  "connections": 128,
+  "cache_hashes": {
+   "orcad-pins.json": "5631d0812ec782dee2e9106a8d50aff9e2b9ff1a2ecfa5e39dd42b89d34f85b6",
+   "orcad-lib-index-v2.tsv": "00b7aa80e77adda55ba459aa393a75c04826c772c5626a2051bfbf3215829be7"
+  },
+  "native_export_verified": false
+ },
+ "S3": {
+  "parts_gt": 34,
+  "parts_found": 30,
+  "parts_spurious": 1,
+  "values_ok": 28,
+  "pins_gt": 69,
+  "pins_exact": 63,
+  "pins_present": 66,
+  "missed_parts": [
+   "U66",
+   "R8",
+   "R11",
+   "S2"
+  ],
+  "spurious_parts": [
+   "R1"
+  ],
+  "wrong_values": [
+   [
+    "U36",
+    "74S163",
+    "74F163"
+   ],
+   [
+    "U83",
+    "74BCI2244",
+    "74BCT2244"
+   ]
+  ],
+  "wrong_pins": [
+   [
+    "U6.14",
+    "KAAI",
+    "AAA1"
+   ],
+   [
+    "U8.14",
+    "AAA6",
+    "AAA9"
+   ],
+   [
+    "U8.11",
+    null,
+    "AAA12"
+   ],
+   [
+    "U27.17",
+    null,
+    "AR12"
+   ],
+   [
+    "U27.7",
+    "RG9",
+    "AR3"
+   ],
+   [
+    "U28.19",
+    null,
+    "AR10"
+   ]
+  ],
+  "scope": "recognition_with_cached_library_check",
+  "components": 43,
+  "connections": 511,
+  "cache_hashes": {
+   "orcad-pins.json": "5631d0812ec782dee2e9106a8d50aff9e2b9ff1a2ecfa5e39dd42b89d34f85b6",
+   "orcad-lib-index-v2.tsv": "00b7aa80e77adda55ba459aa393a75c04826c772c5626a2051bfbf3215829be7"
+  },
+  "native_export_verified": false
+ },
+ "S4": {
+  "parts_gt": 30,
+  "parts_found": 25,
+  "parts_spurious": 0,
+  "values_ok": 25,
+  "pins_gt": 72,
+  "pins_exact": 69,
+  "pins_present": 69,
+  "missed_parts": [
+   "U14",
+   "R14",
+   "R15",
+   "R17",
+   "S3"
+  ],
+  "spurious_parts": [],
+  "wrong_values": [],
+  "wrong_pins": [
+   [
+    "U31.27",
+    null,
+    "ADDA11"
+   ],
+   [
+    "U33.14",
+    null,
+    "ADDA9"
+   ],
+   [
+    "U34.9",
+    null,
+    "ADDA7"
+   ]
+  ],
+  "scope": "recognition_with_cached_library_check",
+  "components": 25,
+  "connections": 290,
+  "cache_hashes": {
+   "orcad-pins.json": "5631d0812ec782dee2e9106a8d50aff9e2b9ff1a2ecfa5e39dd42b89d34f85b6",
+   "orcad-lib-index-v2.tsv": "00b7aa80e77adda55ba459aa393a75c04826c772c5626a2051bfbf3215829be7"
+  },
+  "native_export_verified": false
+ },
+ "S4-blur300": {
+  "parts_gt": 30,
+  "parts_found": 12,
+  "parts_spurious": 3,
+  "values_ok": 12,
+  "pins_gt": 72,
+  "pins_exact": 0,
+  "pins_present": 5,
+  "missed_parts": [
+   "U31",
+   "U1",
+   "U13",
+   "U3",
+   "U2",
+   "U14",
+   "U15",
+   "U16",
+   "U38",
+   "U17",
+   "R11",
+   "R13",
+   "R14",
+   "R15",
+   "R17",
+   "R18",
+   "S3",
+   "J1"
+  ],
+  "spurious_parts": [
+   "U_1",
+   "U_2",
+   "U_3"
+  ],
+  "wrong_values": [],
+  "wrong_pins": [
+   [
+    "U31.34",
+    null,
+    "ADDA0"
+   ],
+   [
+    "U31.36",
+    null,
+    "ADDA1"
+   ],
+   [
+    "U31.38",
+    null,
+    "ADDA2"
+   ],
+   [
+    "U31.40",
+    null,
+    "ADDA3"
+   ],
+   [
+    "U31.2",
+    null,
+    "ADDA4"
+   ],
+   [
+    "U31.4",
+    null,
+    "ADDA5"
+   ],
+   [
+    "U31.17",
+    null,
+    "ADDA6"
+   ],
+   [
+    "U31.19",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U31.21",
+    null,
+    "ADDA8"
+   ],
+   [
+    "U31.23",
+    null,
+    "ADDA9"
+   ],
+   [
+    "U31.25",
+    null,
+    "ADDA10"
+   ],
+   [
+    "U31.27",
+    null,
+    "ADDA11"
+   ],
+   [
+    "U31.33",
+    null,
+    "PRAD0"
+   ],
+   [
+    "U31.35",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U31.37",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U31.39",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U31.1",
+    null,
+    "PRAD4"
+   ],
+   [
+    "U31.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U31.18",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U31.20",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U31.22",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U31.24",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U33.9",
+    null,
+    "ADDA15"
+   ],
+   [
+    "U33.7",
+    "N01064",
+    "ADDA14"
+   ],
+   [
+    "U33.5",
+    null,
+    "ADDA13"
+   ],
+   [
+    "U33.3",
+    null,
+    "ADDA12"
+   ],
+   [
+    "U33.18",
+    null,
+    "ADDA11"
+   ],
+   [
+    "U33.16",
+    null,
+    "ADDA10"
+   ],
+   [
+    "U33.14",
+    null,
+    "ADDA9"
+   ],
+   [
+    "U33.12",
+    null,
+    "ADDA8"
+   ],
+   [
+    "U33.2",
+    null,
+    "INADD11"
+   ],
+   [
+    "U33.4",
+    null,
+    "INADD10"
+   ],
+   [
+    "U33.6",
+    null,
+    "INADD9"
+   ],
+   [
+    "U33.8",
+    null,
+    "INADD8"
+   ],
+   [
+    "U34.9",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U34.7",
+    "N01049",
+    "ADDA6"
+   ],
+   [
+    "U34.5",
+    "N00656",
+    "ADDA5"
+   ],
+   [
+    "U34.3",
+    null,
+    "ADDA4"
+   ],
+   [
+    "U34.18",
+    null,
+    "ADDA3"
+   ],
+   [
+    "U34.16",
+    null,
+    "ADDA2"
+   ],
+   [
+    "U34.14",
+    null,
+    "ADDA1"
+   ],
+   [
+    "U34.12",
+    null,
+    "ADDA0"
+   ],
+   [
+    "U34.11",
+    "N00697",
+    "INADD7"
+   ],
+   [
+    "U34.13",
+    null,
+    "INADD6"
+   ],
+   [
+    "U34.15",
+    null,
+    "INADD5"
+   ],
+   [
+    "U34.17",
+    null,
+    "INADD4"
+   ],
+   [
+    "U34.2",
+    null,
+    "INADD3"
+   ],
+   [
+    "U34.4",
+    null,
+    "INADD2"
+   ],
+   [
+    "U34.6",
+    "N00929",
+    "INADD1"
+   ],
+   [
+    "U34.8",
+    null,
+    "INADD0"
+   ],
+   [
+    "U1.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U1.22",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U1.23",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U1.1",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U1.2",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U1.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U1.4",
+    null,
+    "PRAD4"
+   ],
+   [
+    "U1.5",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U1.6",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U1.7",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U1.8",
+    null,
+    "PRAD0"
+   ],
+   [
+    "U13.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U13.22",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U13.23",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U13.1",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U13.2",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U13.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U13.4",
+    null,
+    "PRAD4"
+   ],
+   [
+    "U13.5",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U13.6",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U13.7",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U13.8",
+    null,
+    "PRAD0"
+   ]
+  ],
+  "scope": "recognition_with_cached_library_check",
+  "components": 15,
+  "connections": 46,
+  "cache_hashes": {
+   "orcad-pins.json": "5631d0812ec782dee2e9106a8d50aff9e2b9ff1a2ecfa5e39dd42b89d34f85b6",
+   "orcad-lib-index-v2.tsv": "00b7aa80e77adda55ba459aa393a75c04826c772c5626a2051bfbf3215829be7"
+  },
+  "native_export_verified": false
+ },
+ "S4-scan200": {
+  "parts_gt": 30,
+  "parts_found": 18,
+  "parts_spurious": 2,
+  "values_ok": 18,
+  "pins_gt": 72,
+  "pins_exact": 0,
+  "pins_present": 11,
+  "missed_parts": [
+   "U1",
+   "U13",
+   "U3",
+   "U2",
+   "U14",
+   "U15",
+   "U17",
+   "R13",
+   "R15",
+   "R17",
+   "R18",
+   "S3"
+  ],
+  "spurious_parts": [
+   "U_1",
+   "U_2"
+  ],
+  "wrong_values": [],
+  "wrong_pins": [
+   [
+    "U31.34",
+    "NO",
+    "ADDA0"
+   ],
+   [
+    "U31.36",
+    null,
+    "ADDA1"
+   ],
+   [
+    "U31.38",
+    null,
+    "ADDA2"
+   ],
+   [
+    "U31.40",
+    null,
+    "ADDA3"
+   ],
+   [
+    "U31.2",
+    "N00861",
+    "ADDA4"
+   ],
+   [
+    "U31.4",
+    "WDWS",
+    "ADDA5"
+   ],
+   [
+    "U31.17",
+    null,
+    "ADDA6"
+   ],
+   [
+    "U31.19",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U31.21",
+    null,
+    "ADDA8"
+   ],
+   [
+    "U31.23",
+    "WO",
+    "ADDA9"
+   ],
+   [
+    "U31.25",
+    null,
+    "ADDA10"
+   ],
+   [
+    "U31.27",
+    null,
+    "ADDA11"
+   ],
+   [
+    "U31.33",
+    null,
+    "PRAD0"
+   ],
+   [
+    "U31.35",
+    "AEIA1",
+    "PRAD1"
+   ],
+   [
+    "U31.37",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U31.39",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U31.1",
+    "N00462",
+    "PRAD4"
+   ],
+   [
+    "U31.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U31.18",
+    "N00330",
+    "PRAD6"
+   ],
+   [
+    "U31.20",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U31.22",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U31.24",
+    "N00336",
+    "PRAD9"
+   ],
+   [
+    "U33.9",
+    null,
+    "ADDA15"
+   ],
+   [
+    "U33.7",
+    null,
+    "ADDA14"
+   ],
+   [
+    "U33.5",
+    null,
+    "ADDA13"
+   ],
+   [
+    "U33.3",
+    null,
+    "ADDA12"
+   ],
+   [
+    "U33.18",
+    null,
+    "ADDA11"
+   ],
+   [
+    "U33.16",
+    null,
+    "ADDA10"
+   ],
+   [
+    "U33.14",
+    null,
+    "ADDA9"
+   ],
+   [
+    "U33.12",
+    null,
+    "ADDA8"
+   ],
+   [
+    "U33.2",
+    null,
+    "INADD11"
+   ],
+   [
+    "U33.4",
+    null,
+    "INADD10"
+   ],
+   [
+    "U33.6",
+    null,
+    "INADD9"
+   ],
+   [
+    "U33.8",
+    null,
+    "INADD8"
+   ],
+   [
+    "U34.9",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U34.7",
+    null,
+    "ADDA6"
+   ],
+   [
+    "U34.5",
+    null,
+    "ADDA5"
+   ],
+   [
+    "U34.3",
+    null,
+    "ADDA4"
+   ],
+   [
+    "U34.18",
+    null,
+    "ADDA3"
+   ],
+   [
+    "U34.16",
+    null,
+    "ADDA2"
+   ],
+   [
+    "U34.14",
+    null,
+    "ADDA1"
+   ],
+   [
+    "U34.12",
+    null,
+    "ADDA0"
+   ],
+   [
+    "U34.11",
+    "N00082",
+    "INADD7"
+   ],
+   [
+    "U34.13",
+    null,
+    "INADD6"
+   ],
+   [
+    "U34.15",
+    null,
+    "INADD5"
+   ],
+   [
+    "U34.17",
+    null,
+    "INADD4"
+   ],
+   [
+    "U34.2",
+    "N00888",
+    "INADD3"
+   ],
+   [
+    "U34.4",
+    "TMA1",
+    "INADD2"
+   ],
+   [
+    "U34.6",
+    null,
+    "INADD1"
+   ],
+   [
+    "U34.8",
+    null,
+    "INADD0"
+   ],
+   [
+    "U1.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U1.22",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U1.23",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U1.1",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U1.2",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U1.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U1.4",
+    null,
+    "PRAD4"
+   ],
+   [
+    "U1.5",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U1.6",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U1.7",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U1.8",
+    null,
+    "PRAD0"
+   ],
+   [
+    "U13.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U13.22",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U13.23",
+    null,
+    "PRAD8"
+   ],
+   [
+    "U13.1",
+    null,
+    "PRAD7"
+   ],
+   [
+    "U13.2",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U13.3",
+    null,
+    "PRAD5"
+   ],
+   [
+    "U13.4",
+    null,
+    "PRAD4"
+   ],
+   [
+    "U13.5",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U13.6",
+    null,
+    "PRAD2"
+   ],
+   [
+    "U13.7",
+    null,
+    "PRAD1"
+   ],
+   [
+    "U13.8",
+    null,
+    "PRAD0"
+   ]
+  ],
+  "scope": "recognition_with_cached_library_check",
+  "components": 20,
+  "connections": 65,
+  "cache_hashes": {
+   "orcad-pins.json": "5631d0812ec782dee2e9106a8d50aff9e2b9ff1a2ecfa5e39dd42b89d34f85b6",
+   "orcad-lib-index-v2.tsv": "00b7aa80e77adda55ba459aa393a75c04826c772c5626a2051bfbf3215829be7"
+  },
+  "native_export_verified": false
+ },
+ "S4-scan300": {
+  "parts_gt": 30,
+  "parts_found": 25,
+  "parts_spurious": 4,
+  "values_ok": 25,
+  "pins_gt": 72,
+  "pins_exact": 44,
+  "pins_present": 58,
+  "missed_parts": [
+   "U16",
+   "U17",
+   "R13",
+   "R17",
+   "S3"
+  ],
+  "spurious_parts": [
+   "P3",
+   "R1",
+   "U_1",
+   "U_2"
+  ],
+  "wrong_values": [],
+  "wrong_pins": [
+   [
+    "U31.38",
+    null,
+    "ADDA2"
+   ],
+   [
+    "U31.2",
+    "PS3",
+    "ADDA4"
+   ],
+   [
+    "U31.4",
+    "ADDA4",
+    "ADDA5"
+   ],
+   [
+    "U31.19",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U31.35",
+    "PRA",
+    "PRAD1"
+   ],
+   [
+    "U31.1",
+    "N00500",
+    "PRAD4"
+   ],
+   [
+    "U31.3",
+    "PRA5",
+    "PRAD5"
+   ],
+   [
+    "U31.18",
+    null,
+    "PRAD6"
+   ],
+   [
+    "U31.24",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U33.3",
+    null,
+    "ADDA12"
+   ],
+   [
+    "U33.14",
+    null,
+    "ADDA9"
+   ],
+   [
+    "U33.12",
+    null,
+    "ADDA8"
+   ],
+   [
+    "U33.2",
+    "ADDA8",
+    "INADD11"
+   ],
+   [
+    "U33.6",
+    "INADD5",
+    "INADD9"
+   ],
+   [
+    "U34.9",
+    null,
+    "ADDA7"
+   ],
+   [
+    "U34.18",
+    null,
+    "ADDA3"
+   ],
+   [
+    "U34.12",
+    "ADAO",
+    "ADDA0"
+   ],
+   [
+    "U34.13",
+    null,
+    "INADD6"
+   ],
+   [
+    "U34.15",
+    "N3",
+    "INADD5"
+   ],
+   [
+    "U1.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U1.22",
+    "PRAD6",
+    "PRAD9"
+   ],
+   [
+    "U1.23",
+    "PRADE",
+    "PRAD8"
+   ],
+   [
+    "U1.4",
+    "S20",
+    "PRAD4"
+   ],
+   [
+    "U1.5",
+    null,
+    "PRAD3"
+   ],
+   [
+    "U13.21",
+    null,
+    "PRAD10"
+   ],
+   [
+    "U13.22",
+    null,
+    "PRAD9"
+   ],
+   [
+    "U13.23",
+    "PRANR",
+    "PRAD8"
+   ],
+   [
+    "U13.1",
+    "INST12",
+    "PRAD7"
+   ]
+  ],
+  "scope": "recognition_with_cached_library_check",
+  "components": 29,
+  "connections": 275,
+  "cache_hashes": {
+   "orcad-pins.json": "5631d0812ec782dee2e9106a8d50aff9e2b9ff1a2ecfa5e39dd42b89d34f85b6",
+   "orcad-lib-index-v2.tsv": "00b7aa80e77adda55ba459aa393a75c04826c772c5626a2051bfbf3215829be7"
+  },
+  "native_export_verified": false
+ },
+ "S5": {
+  "parts_gt": 25,
+  "parts_found": 22,
+  "parts_spurious": 0,
+  "values_ok": 21,
+  "pins_gt": 48,
+  "pins_exact": 42,
+  "pins_present": 45,
+  "missed_parts": [
+   "U7",
+   "U18",
+   "R9"
+  ],
+  "spurious_parts": [],
+  "wrong_values": [
+   [
+    "R19",
+    "1K05",
+    "1K00"
+   ]
+  ],
+  "wrong_pins": [
+   [
+    "U36.21",
+    null,
+    "INDA14"
+   ],
+   [
+    "U36.2",
+    "N00549",
+    "INDA12"
+   ],
+   [
+    "U49.2",
+    "~TT2",
+    "INDA8"
+   ],
+   [
+    "U49.9",
+    "N00619",
+    "INBU8"
+   ],
+   [
+    "U37.9",
+    null,
+    "INBU4"
+   ],
+   [
+    "U50.9",
+    null,
+    "INBU0"
+   ]
+  ],
+  "scope": "recognition_with_cached_library_check",
+  "components": 27,
+  "connections": 268,
+  "cache_hashes": {
+   "orcad-pins.json": "5631d0812ec782dee2e9106a8d50aff9e2b9ff1a2ecfa5e39dd42b89d34f85b6",
+   "orcad-lib-index-v2.tsv": "00b7aa80e77adda55ba459aa393a75c04826c772c5626a2051bfbf3215829be7"
+  },
+  "native_export_verified": false
+ }
+}

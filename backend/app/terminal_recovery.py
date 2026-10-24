@@ -30,7 +30,7 @@ def local_package_numbers(value):
     return alternatives.pop() if len(alternatives)==1 else None
 
 
-def perimeter_stubs(binary,box,ch):
+def perimeter_stubs(binary,box,ch,*,corner_inset=.5):
     """Find observed straight ink approaching each side, including non-free ends."""
     x0,y0,x1,y1=map(round,box);height,width=binary.shape
     length=max(12,round(1.5*ch));near=4
@@ -51,7 +51,7 @@ def perimeter_stubs(binary,box,ch):
         for run in runs:
             if len(run)>max(8,.4*ch):continue
             along=start+float(np.mean(run))
-            if along<start+.5*ch or along>start+strip.shape[1-axis]-.5*ch:continue
+            if along<start+corner_inset*ch or along>start+strip.shape[1-axis]-corner_inset*ch:continue
             x,y=(edge,along) if side in ('left','right') else (along,edge)
             result.append({'x':x,'y':y,'direction':list(direction),'side':side})
     return result

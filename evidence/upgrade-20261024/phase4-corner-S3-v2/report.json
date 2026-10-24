@@ -1,0 +1,51 @@
+{
+  "fresh_ocr": false,
+  "scope": "cached local recovery diagnostic",
+  "cases": {
+    "S3": {
+      "before": 62,
+      "after": 62,
+      "lost_correct": [],
+      "wrong_pins": [
+        [
+          "U6.14",
+          "KAAI",
+          "AAA1"
+        ],
+        [
+          "U6.11",
+          null,
+          "AAA4"
+        ],
+        [
+          "U8.14",
+          "AAA6",
+          "AAA9"
+        ],
+        [
+          "U8.11",
+          null,
+          "AAA12"
+        ],
+        [
+          "U27.17",
+          null,
+          "AR12"
+        ],
+        [
+          "U27.7",
+          "RG9",
+          "AR3"
+        ],
+        [
+          "U28.19",
+          null,
+          "AR10"
+        ]
+      ],
+      "actions": []
+    }
+  },
+  "seconds": 26.827999999994063,
+  "clear_total": 62
+}

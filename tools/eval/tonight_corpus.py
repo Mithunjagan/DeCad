@@ -39,6 +39,7 @@ def main():
     for metric in ('component_detection','physical_pin_coverage','topology_pairwise'):
         totals[metric]=counts(*(sum(row[metric][key] for row in metrics.values()) for key in ('tp','fp','fn')))
     result={'scope':'XML fidelity independent of image accuracy; native metrics use independent original graphs and count extras.',
+            'recognition_fresh_ocr':gate.get('fresh_ocr',False),
             'xml_cases':xml,'xml_passed':sum(r['passed'] for r in xml.values()),'xml_total':len(xml),
             'native_cases':metrics,'native_totals':totals,
             'note':'Physical pin coverage includes explicit observed unassigned inventory; sprint_gate reports assigned pins separately.'}

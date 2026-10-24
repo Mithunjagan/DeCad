@@ -20,7 +20,7 @@ import httpx
 
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'backend'))
-from app.faculty_xml import parse,graph_fidelity
+from app.faculty_xml import parse,graph_fidelity,from_circuit,serialize
 from tonight_metrics import measure
 
 
@@ -42,7 +42,31 @@ def main():
     p.add_argument('--recognize',action='store_true');p.add_argument('--verify',action='store_true')
     p.add_argument('--out',type=Path,default=ROOT/'evidence/precision-20261023')
     p.add_argument('--project',default='PrecisionUnseenFilter')
+    p.add_argument('--automatic',action='store_true',help='Fresh raster-only OCR and separate literal/symmetric metrics; no saved review edits')
+    p.add_argument('--image',type=Path,default=ROOT/'evidence/precision-20261023/unseen-sallen-key.png')
     args=p.parse_args();out=args.out;pid=args.project
+    if args.automatic:
+        from app.pipeline_profile import configure
+        from app.digital_vision import extract
+        from app.terminal_equivalence import symmetric_mapping
+        from app.ocr_worker import session_providers
+        from app import digital_vision as dv
+        from recognition_provenance import snapshot
+        configure();frozen=snapshot();out.mkdir(parents=True,exist_ok=False)
+        started=time.monotonic();graph=extract(args.image).model_dump()
+        raw=out/'unseen-raw-prediction.json';raw.write_text(json.dumps(graph,indent=2))
+        # Only read independent evaluation truth after the raster prediction is
+        # frozen. It is never passed into the recognizer or used for export IDs.
+        truth=json.loads((ROOT/'evidence/precision-20261023/unseen-independent-truth.json').read_text())
+        equivalent,receipt=symmetric_mapping(truth,graph)
+        result={'fresh_ocr':True,'native_truth_read_after_prediction':True,'seconds':time.monotonic()-started,
+                'literal':measure(truth,graph),'symmetric_terminal_equivalence':measure(truth,equivalent),
+                'equivalence_receipt':receipt,'providers':session_providers(dv),'source_snapshot':frozen,
+                'source_unchanged':snapshot()==frozen,'raw_sha256':hashlib.sha256(raw.read_bytes()).hexdigest()}
+        result['faculty']=graph_fidelity(graph,parse(serialize(from_circuit(graph,board='UnseenAutomatic'))))
+        (out/'report.json').write_text(json.dumps(result,indent=2))
+        print(json.dumps({k:result[k] for k in ('seconds','literal','symmetric_terminal_equivalence','faculty')},indent=2))
+        return
     image=out/'unseen-sallen-key.png';native=Path('D:/KICAD/share/kicad/demos/simulation/sallen_key/sallen_key.kicad_sch')
     with httpx.Client(base_url='http://127.0.0.1:8100',timeout=1800) as api:
         check(api.get('/auth/dev'))

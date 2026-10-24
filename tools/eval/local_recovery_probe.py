@@ -20,6 +20,7 @@ if __name__=='__main__':
     parser.add_argument('--samples',nargs='+',default=['S1','S3','S4','S5'])
     parser.add_argument('--pixels',action='store_true',help='also read uncovered local body-edge crops with CUDA OCR')
     parser.add_argument('--max-reads',type=int,default=64)
+    parser.add_argument('--pairs',action='store_true',help='Pair already observed pin/net tokens on continuous outside leads')
     args=parser.parse_args()
     args.out.mkdir(parents=True,exist_ok=False)
     def unavailable(*args,**kwargs):raise RuntimeError('Frozen library cache miss')
@@ -33,12 +34,13 @@ if __name__=='__main__':
     for name in args.samples:
         source=json.loads((args.phase/'original'/name/'recognized.json').read_text())
         graph=recover_locally(source)
-        if args.pixels:
+        if args.pixels or args.pairs:
             import numpy as np
             from PIL import Image
             from app.terminal_recovery import recover_terminals
-            reads=json.loads((args.phase/'original'/name/'pin-debug.json').read_text())
-            graph['image_metadata']['terminal_observations']=[{'ref':r[0],'pin':r[3]} for r in reads]
+            if args.pixels:
+                reads=json.loads((args.phase/'original'/name/'pin-debug.json').read_text())
+                graph['image_metadata']['terminal_observations']=[{'ref':r[0],'pin':r[3]} for r in reads]
             affine=np.vstack((graph['image_metadata']['source_affine'],[0,0,1]))
             inverse=np.linalg.inv(affine)
             if '-' in name:
@@ -55,8 +57,15 @@ if __name__=='__main__':
                     mapping=inverse.copy();mapping[:2,2]+=inverse[:2,:2]@np.array([x,y])
                     return np.asarray(image.transform((xx-x,yy-y),Image.Transform.AFFINE,
                         tuple(mapping[:2].reshape(-1)),resample=Image.Resampling.BICUBIC,fillcolor=255))
-                actions=recover_terminals(graph,crop,max_reads=args.max_reads)
-                graph['image_metadata']['local_recovery_actions'].extend(actions)
+                if args.pixels:
+                    actions=recover_terminals(graph,crop,max_reads=args.max_reads)
+                    graph['image_metadata']['local_recovery_actions'].extend(actions)
+                if args.pairs:
+                    from app.observed_terminal_pairs import recover_observed_pairs
+                    from app.digital_vision import Token
+                    token_file=args.phase/'original'/name/'ocr-tokens.json'
+                    if not token_file.exists():token_file=ROOT/'evidence/tonight-20261023/final-fresh/original'/name/'ocr-tokens.json'
+                    recover_observed_pairs(graph,[Token(**t) for t in json.loads(token_file.read_text())],crop)
         graph=erc_self_heal(graph)
         checked,_=oc.check(graph,ROOT/'backend/.state')
         values={norm_ref(c['ref']):c['value'] for c in checked['components']}
