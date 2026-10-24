@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="470" viewBox="0 0 1600 470" role="img" aria-labelledby="title desc">
+  <title id="title">DeCad — From paper to possibility.</title>
+  <desc id="desc">A copper and charcoal circuit studio banner. Scan, review, refine, and export.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101213"/><stop offset="1" stop-color="#1d2120"/></linearGradient>
+    <linearGradient id="copper"><stop stop-color="#f1d0ae"/><stop offset="1" stop-color="#bc855e"/></linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#727c71" opacity=".2"/></pattern>
+  </defs>
+  <rect width="1600" height="470" rx="24" fill="url(#bg)"/>
+  <rect x="850" width="750" height="470" rx="24" fill="url(#dots)"/>
+  <rect x="1" y="1" width="1598" height="468" rx="23" fill="none" stroke="#3b403b"/>
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <path d="M65 62h22l19 17v23l-19 17H65v-17h20l10-12-10-11H65m0 11h15l8 1-8 11H65" fill="none" stroke="url(#copper)" stroke-width="4" stroke-linejoin="round"/>
+    <text x="125" y="104" font-size="49" font-weight="750" letter-spacing="-2" fill="#f2eee6">DeCad<tspan fill="#deb18b">.</tspan></text>
+    <path d="M310 71v35" stroke="#454941"/>
+    <text x="336" y="94" font-size="13" letter-spacing="3.2" fill="#adae9f">THE CIRCUIT DESIGN STUDIO</text>
+    <text x="65" y="213" font-size="76" font-weight="600" letter-spacing="-3" fill="#f3efe7">From paper.</text>
+    <text x="65" y="301" font-size="76" font-weight="400" letter-spacing="-3" fill="url(#copper)">To possibility.</text>
+    <text x="68" y="350" font-size="21" fill="#b7b9ad">Read the schematic. Review the details. Make it yours.</text>
+    <path d="M68 398h52" stroke="#dfb28c" stroke-width="2"/>
+    <text x="138" y="403" font-size="13" letter-spacing="2.2" fill="#c7c9bc">LOCAL WORKSPACE</text>
+    <circle cx="339" cy="398" r="3" fill="#849783"/>
+    <text x="358" y="403" font-size="13" letter-spacing="2.2" fill="#c7c9bc">NATIVE CAD</text>
+    <circle cx="501" cy="398" r="3" fill="#849783"/>
+    <text x="520" y="403" font-size="13" letter-spacing="2.2" fill="#c7c9bc">YOUR WORKFLOW</text>
+    <rect x="941" y="65" width="589" height="339" rx="16" fill="#191d1c" stroke="#434b40"/>
+    <text x="968" y="100" font-size="12" letter-spacing="2" fill="#afbba8">CIRCUIT STUDY / 001</text>
+    <circle cx="1496" cy="95" r="4" fill="#99b89c"/>
+    <path d="M942 119h587" stroke="#343b34"/>
+    <g stroke="#a9b69d" stroke-width="2.5" fill="none" stroke-linejoin="round">
+      <path d="M1005 265v-51h100l8-10 12 20 12-20 12 20 12-20 12 20 8-10h222"/>
+      <circle cx="1005" cy="284" r="19"/>
+      <path d="M1005 303v38h398M1243 214v54m-18 0h36m-36 11h36m-18 0v62m-12 8h24m-19 7h14m-10 7h6"/>
+      <path d="M998 280h14m-7-7v14m-7 5h14" stroke-width="1.5"/>
+      <path d="M1403 214v45m0 25v57M1385 259l35 13-35 12z"/>
+    </g>
+    <g fill="#dfb28c"><circle cx="1071" cy="214" r="4"/><circle cx="1243" cy="214" r="4"/><circle cx="1243" cy="341" r="4"/></g>
+    <g font-family="Consolas, monospace" font-size="12" fill="#a8ad9c">
+      <text x="1023" y="197">VIN</text><text x="1120" y="185">R1 · 10kΩ</text><text x="1311" y="197">VOUT</text><text x="1275" y="279">C1</text><text x="1275" y="295">100nF</text><text x="974" y="381" font-size="10" letter-spacing="1.4">SCAN → REVIEW → REFINE → EXPORT</text>
+    </g>
+  </g>
+</svg>

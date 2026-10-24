@@ -1,37 +1,34 @@
 <div align="center">
 
-<img src="docs/media/hero.svg" alt="DeCad: scanned schematic in, verified native OrCAD design out" width="100%"/>
+<img src="docs/media/studio-hero.svg" alt="DeCad — From paper to possibility. The circuit design studio." width="100%"/>
 
 <br/>
 
+**Turn scanned schematics into circuits you can inspect, refine, and export.**
+
+A local workspace for the whole journey: source images, component review, native CAD, and the details in between.
+
 [![Stars](https://img.shields.io/github/stars/Mithunjagan/DeCad?style=for-the-badge&logo=github&labelColor=171819&color=e7b58b)](https://github.com/Mithunjagan/DeCad/stargazers)
-[![Accuracy](https://img.shields.io/badge/exact%20pins-87%25-81b89b?style=for-the-badge&labelColor=171819)](#-measured-not-promised)
-[![OrCAD](https://img.shields.io/badge/OrCAD%20X-native%20.DSN-e7b58b?style=for-the-badge&labelColor=171819)](#-how-it-works)
-[![CUDA](https://img.shields.io/badge/OCR-CUDA-eac37c?style=for-the-badge&logo=nvidia&logoColor=eac37c&labelColor=171819)](#-gpu-accelerated-ocr)
-[![Netlist](https://img.shields.io/badge/PCB%20netlist-0%20errors-81b89b?style=for-the-badge&labelColor=171819)](#-measured-not-promised)
+[![Workspace](https://img.shields.io/badge/workspace-local-9eae94?style=for-the-badge&labelColor=171819)](#-quick-start)
+[![Native CAD](https://img.shields.io/badge/native%20CAD-KiCad%20%2B%20OrCAD-e7b58b?style=for-the-badge&labelColor=171819)](#-how-it-works)
 
-![Windows](https://img.shields.io/badge/Windows%2010%2F11-0078D6?logo=windows&logoColor=white)
-![Python](https://img.shields.io/badge/Python%203.11%20%7C%203.12-3776AB?logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js%2016-000000?logo=nextdotjs&logoColor=white)
-![KiCad](https://img.shields.io/badge/KiCad%2010-314CB0?logo=kicad&logoColor=white)
-![ONNX](https://img.shields.io/badge/ONNX%20Runtime-005CED?logo=onnx&logoColor=white)
+**[Get started](#-quick-start)** · **[Explore the studio](#-product-tour)** · **[Full screenshot gallery](docs/SCREENSHOTS.md)** · **[Measured results](#-measured-not-promised)** · **[How it works](#-how-it-works)**
 
-**[Quick start](#-quick-start)** · **[See it work](#-see-it-work)** · **[Product tour](#-product-tour)** · **[Accuracy](#-measured-not-promised)** · **[How it works](#-how-it-works)** · **[GPU OCR](#-gpu-accelerated-ocr)** · **[Roadmap](#-roadmap)**
+<br/>
+
+<a href="docs/screenshots/welcome.jpg"><img src="docs/screenshots/welcome.jpg" alt="The current DeCad welcome screen: copper accents, circuit illustration, and a local workspace entry point" width="100%"/></a>
+
+<sub>A little less friction. A lot more room for your next circuit.</sub>
 
 </div>
 
 ---
 
-## The problem
+## From a drawing to a design
 
-Decades of electronics live on paper: plotter printouts, scanned PDFs, photocopies of photocopies.
-Bringing one sheet back into a CAD tool means **redrawing it by hand**: every part, every pin, every
-net. That takes hours per sheet and invites mistakes.
-
-**DeCad reads the drawing and writes the design for you.** It writes a **native OrCAD Capture `.DSN`**
-through Capture's own database, then **reopens it and checks every pin** before giving it back.
-
+Paper schematics hold years of engineering work. DeCad brings those drawings into a workspace where
+you can inspect the recognized components, check physical pin connections, compare the source,
+and generate a native design. Review stays part of the process, with uncertainties visible before export.
 
 ## ✨ Why DeCad
 
@@ -86,49 +83,47 @@ design places parts from them first and ships the footprints it used.
 
 ## 📸 Product tour
 
-<sub>Real screenshots of the running app, in its default <b>Copper · Dark</b> theme. The project shown is a recognized scan of Sample 1.</sub>
+Fresh captures of the running app · **24 October 2026** · Copper, Paper, Nebula, and Blueprint themes.
+The logic-sheet views use a saved Sample 1 project; the screenshots show its actual review findings.
 
-<div align="center">
-<img src="docs/screenshots/workspace.png" alt="DeCad workspace: projects, project files, KiCad schematic, BOM/Nets/Checks tabs, live system resources and the design assistant" width="100%"/>
-<br/><sub><b>The workbench.</b> Projects and files on the left, the schematic with every design view in the middle, and live machine stats plus the design assistant on the right.</sub>
-</div>
+### Your circuit, with room to think
 
-<br/>
+<a href="docs/screenshots/workspace.jpg"><img src="docs/screenshots/workspace.jpg" alt="Current Copper workbench with the saved logic schematic, project files, design views, assistant, and live resources" width="100%"/></a>
+
+Projects on the left. Your design in the center. Commands and live resources on the right.
+Switch into focus mode when the circuit needs the whole canvas.
+
+### Keep the source in sight
+
+<a href="docs/screenshots/source-comparison.jpg"><img src="docs/screenshots/source-comparison.jpg" alt="Current review dialog comparing the original Sample 1 scan with its saved OrCAD reconstruction and visible verification findings" width="100%"/></a>
+
+Compare the original drawing with the saved reconstruction. Inspect the component list,
+physical pin assignments, and review notes before applying changes.
 
 <table>
 <tr>
-<td width="50%" align="center"><img src="docs/screenshots/welcome.png" alt="Welcome screen"/><br/><sub><b>Welcome.</b> Open a local workspace or continue with GitHub.</sub></td>
-<td width="50%" align="center"><img src="docs/screenshots/blueprint-to-orcad.png" alt="Blueprint to OrCAD Capture drop zone"/><br/><sub><b>One drop.</b> Drop a scan or PDF on <i>Blueprint → OrCAD Capture</i>, or add your own libraries next to it.</sub></td>
+<td width="50%" valign="top"><a href="docs/screenshots/review-components.jpg"><img src="docs/screenshots/review-components.jpg" alt="Current component review with editable references, values, symbols, and an explicit review gate" width="100%"/></a><br/><b>01 / Review the parts</b><br/><sub>References, values, and symbols remain editable.</sub></td>
+<td width="50%" valign="top"><a href="docs/screenshots/review-connections.jpg"><img src="docs/screenshots/review-connections.jpg" alt="Current connection review with searchable nets and physical pins" width="100%"/></a><br/><b>02 / Follow the connections</b><br/><sub>Search nets and inspect each physical pin.</sub></td>
 </tr>
 <tr>
-<td align="center"><img src="docs/screenshots/review-components.png" alt="Review circuit: components"/><br/><sub><b>Review the read.</b> Every recognized part, value and symbol, editable before anything is written.</sub></td>
-<td align="center"><img src="docs/screenshots/review-connections.png" alt="Review circuit: connections"/><br/><sub><b>Net-by-net editing.</b> Search 185 nets and fix any physical pin in place.</sub></td>
-</tr>
-<tr>
-<td align="center"><img src="docs/screenshots/review-notes.png" alt="Review notes with input assessment"/><br/><sub><b>Honest notes.</b> The input assessment, removed misreads and every pin worth a second look.</sub></td>
-<td align="center"><img src="docs/screenshots/orcad-verified.png" alt="OrCAD Capture design verified dialog"/><br/><sub><b>Verified in Capture.</b> 24 parts, 277 pins checked, 185 nets, 24/24 footprints, and the design rendered from the saved file.</sub></td>
-</tr>
-<tr>
-<td align="center"><img src="docs/screenshots/orcad-netlist.png" alt="Physical netlist read back from the DSN"/><br/><sub><b>Physical netlist.</b> Read back from the <code>.DSN</code>. Filter by net or <code>part.pin</code>, and export to PCB Editor or CSV.</sub></td>
-<td align="center"><img src="docs/screenshots/system-monitor.png" alt="Live system monitor showing the RTX 3050" width="70%"/><br/><sub><b>Live resources.</b> CPU, RAM and the actual GPU (VRAM, load, temperature) while recognition runs.</sub></td>
-</tr>
-<tr>
-<td align="center"><img src="docs/screenshots/bom.png" alt="Bill of materials"/><br/><sub><b>BOM.</b> References, values, footprints and supplier lookups.</sub></td>
-<td align="center"><img src="docs/screenshots/nets.png" alt="Electrical connections"/><br/><sub><b>Nets.</b> Real electrical connections from KiCad's netlist, searchable by net or pin.</sub></td>
-</tr>
-<tr>
-<td align="center"><img src="docs/screenshots/component-database.png" alt="Unified KiCad and OrCAD component database"/><br/><sub><b>Unified component database.</b> Search KiCad and OrCAD sources, validate pin-to-pad mapping, and place the part.</sub></td>
-<td align="center"><img src="docs/screenshots/command-palette.png" alt="Command palette"/><br/><sub><b>Command palette.</b> <kbd>Ctrl</kbd> + <kbd>K</kbd> for projects, imports, exports and every action.</sub></td>
-</tr>
-<tr>
-<td align="center"><img src="docs/screenshots/applications.png" alt="Applications and models"/><br/><sub><b>Applications & models.</b> Bundles for KiCad, ngspice, LTspice and Qucs-S, plus local AI tasks.</sub></td>
-<td align="center"><img src="docs/screenshots/history.png" alt="Git history"/><br/><sub><b>History.</b> Every change is a local Git commit, with optional GitHub push.</sub></td>
-</tr>
-<tr>
-<td align="center"><img src="docs/screenshots/workspace-light.png" alt="Paper light theme"/><br/><sub><b>Paper · Light.</b> Follows your system theme automatically.</sub></td>
-<td align="center"><img src="docs/screenshots/welcome-light.png" alt="Welcome screen in light theme"/><br/><sub><b>Designed both ways.</b> Every screen works in dark and light.</sub></td>
+<td valign="top"><a href="docs/screenshots/bom.jpg"><img src="docs/screenshots/bom.jpg" alt="Current bill of materials with component values and footprint information" width="100%"/></a><br/><b>03 / Know the parts</b><br/><sub>Inspect the BOM and follow supplier search links.</sub></td>
+<td valign="top"><a href="docs/screenshots/component-database.jpg"><img src="docs/screenshots/component-database.jpg" alt="Current unified component database with a real 74F244 search" width="100%"/></a><br/><b>04 / Bring your libraries</b><br/><sub>Search KiCad and OrCAD sources in one place.</sub></td>
 </tr>
 </table>
+
+### A studio that feels like yours
+
+<table>
+<tr>
+<td width="50%" valign="top"><a href="docs/screenshots/workspace-light.jpg"><img src="docs/screenshots/workspace-light.jpg" alt="Current Paper light workbench" width="100%"/></a><br/><b>Paper</b><br/><sub>Warm surfaces and a quieter daylight workspace.</sub></td>
+<td width="50%" valign="top"><a href="docs/screenshots/workspace-nebula.jpg"><img src="docs/screenshots/workspace-nebula.jpg" alt="Current Nebula violet workbench" width="100%"/></a><br/><b>Nebula</b><br/><sub>Deep violet with luminous accents.</sub></td>
+</tr>
+</table>
+
+**[Open the complete screenshot gallery →](docs/SCREENSHOTS.md)**
+
+Welcome screens · imports · source comparison · review notes · BOM · nets · checks · source editor ·
+libraries · command palette · history · applications · hardware monitor · focus mode · themes.
 
 ## 📊 Measured, not promised
 
@@ -422,7 +417,7 @@ For longer runs, use the Colab notebooks in `training/`. Build their upload bund
 
 ## 📖 Documentation
 
-[DEMO.md](DEMO.md) (demo runbook) · [ORCAD_STATUS.md](ORCAD_STATUS.md) (pipeline internals) ·
+[Screenshot gallery](docs/SCREENSHOTS.md) · [DEMO.md](DEMO.md) (demo runbook) · [ORCAD_STATUS.md](ORCAD_STATUS.md) (pipeline internals) ·
 [COMPONENT_LIBRARIES.md](COMPONENT_LIBRARIES.md) · [WINDOWS_VISION.md](WINDOWS_VISION.md) ·
 [SPECCTRA.md](SPECCTRA.md) · [RELEASE_GATES.md](RELEASE_GATES.md) · [STATUS.md](STATUS.md) (dated log) ·
 [THIRD_PARTY.md](THIRD_PARTY.md)
