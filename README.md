@@ -32,13 +32,6 @@ net. That takes hours per sheet and invites mistakes.
 **DeCad reads the drawing and writes the design for you.** It writes a **native OrCAD Capture `.DSN`**
 through Capture's own database, then **reopens it and checks every pin** before giving it back.
 
-## 🎬 See it work
-
-<div align="center">
-<img src="docs/media/scan-to-orcad.gif" alt="Scanned Sample 4 wiping into the native OrCAD design DeCad generated from it" width="92%"/>
-<br/>
-<sub>Left: the scanned sheet. Right: the OrCAD Capture design DeCad generated, rendered back from the saved <code>.DSN</code>.<br/>Sample 4: 25 parts, 276 pins, 184 nets, 64/72 hand-labelled pins exact, PCB netlist with 0 errors.</sub>
-</div>
 
 ## ✨ Why DeCad
 
