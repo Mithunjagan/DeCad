@@ -125,7 +125,8 @@ def to_circuit(document: Document):
 def from_circuit(circuit, board='Schematic2SDN') -> Document:
     """Serialize current graph memberships, never a cached answer document."""
     from .ingestion import Circuit
-    circuit=Circuit.model_validate(circuit) if isinstance(circuit,dict) else circuit
+    from .catalog_pin_solver import normalize_graph
+    circuit=Circuit.model_validate(normalize_graph(circuit))
     if circuit.faculty_xml.get('document'):
         root=Document.model_validate(circuit.faculty_xml['document']).root.write()
     else:

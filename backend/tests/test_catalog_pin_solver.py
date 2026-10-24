@@ -1,6 +1,63 @@
 from app.catalog_pin_solver import recover_sequences
 
 
+def test_stacked_partition_is_literal_monotonic_and_unambiguous():
+    from app.catalog_pin_solver import split_stacked_digits
+    assert split_stacked_digits('789',3,16)==('7','8','9')
+    assert split_stacked_digits('987',3,16)==('9','8','7')
+    assert split_stacked_digits('1213',2,24)==('12','13')
+    assert split_stacked_digits('797',3,16) is None
+
+
+def test_row_grammar_needs_consensus_and_resolves_only_active_rows():
+    from app.catalog_pin_solver import row_grammar
+    assert row_grammar({'B2','B7','B13','813'})=={'813':'B13'}
+    assert row_grammar({'B2','B7','813'})=={}
+    assert row_grammar({'D2','O7','D13','013'})=={}
+    assert row_grammar({'B2','B7','B13','819'})=={}
+
+
+def test_parallel_stub_label_token_has_only_one_owner():
+    from types import SimpleNamespace
+    from app.catalog_pin_solver import exclusive_strip_labels
+    token=SimpleNamespace(text='CONTROL',x0=0,y0=8,x1=30,y1=18)
+    edges=[(0,0,40,20,1,0,'IC7'),(1,1,40,40,1,0,'IC7')]
+    reads={0:('2',['CONTROL']),1:('3',['CONTROL'])}
+    exclusive_strip_labels(edges,reads,[token],10)
+    assert reads=={0:('2',['CONTROL']),1:('3',None)}
+
+
+def test_catalog_ceiling_preserves_real_large_packages(monkeypatch):
+    from app import catalog_pin_solver as solver
+    monkeypatch.setattr(solver,'pin_tables',lambda value:[{'pins':{str(i):[] for i in range(1,145)}}])
+    assert solver.pin_ceiling('large-package',['2','3','4'],3)==144
+
+
+def test_export_normalization_is_private_idempotent_and_catalog_bounded(monkeypatch):
+    from copy import deepcopy
+    from app import catalog_pin_solver as solver
+    monkeypatch.setattr(solver,'pin_tables',lambda value:[{'pins':{str(i):[] for i in range(1,17)}}])
+    graph={'components':[{'ref':'IC4','value':'PART'}],
+           'nets':[{'name':'LINE','nodes':[{'ref':'IC4','pin':'123'}]}]}
+    original=deepcopy(graph);normalized=solver.normalize_graph(graph)
+    assert graph==original and [p['pin'] for p in normalized['nets'][0]['nodes']]==['1','2','3']
+    assert solver.normalize_graph(normalized)==normalized
+
+
+def test_saved_graph_label_theft_requires_disconnected_physical_trees():
+    from app.catalog_pin_solver import normalize_graph
+    graph={'components':[{'ref':'IC4','value':'UNKNOWN'}],
+           'nets':[{'name':'CONTROL','nodes':[{'ref':'IC4','pin':'2'},{'ref':'IC4','pin':'3'}]}],
+           'image_metadata':{'pin_anchors':[
+               {'ref':'IC4','pin':'2','x':30,'y':20,'direction':[1,0],'physical_net':2,'wire':2},
+               {'ref':'IC4','pin':'3','x':30,'y':40,'direction':[1,0],'physical_net':3,'wire':3}],
+               'external_labels':[{'text':'CONTROL','bbox':[40,32,80,40],'wire':3}]}}
+    normalized=normalize_graph(graph)
+    assert normalized['nets'][0]['nodes']==[{'ref':'IC4','pin':'3'}]
+    graph['image_metadata']['pin_anchors'][1]['physical_net']=2
+    assert normalize_graph(graph)['nets'][0]['nodes']==graph['nets'][0]['nodes']
+
+
 def fixture(values):
     rows={('U1',1,0,100):[(i,'U1',i*20) for i in range(len(values))]}
     reads={i:(pin,['DATA'+str(i)]) for i,pin in enumerate(values)}

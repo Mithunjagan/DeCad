@@ -18,7 +18,7 @@ if {$d == "NULL" || [$st Code] != 0} {fail "cannot create design"}
 set sch [$d GetSchematic [C SCHEMATIC1] $st]
 set pg [$sch NewPage $st [C PAGE1]]
 if {$pg == "NULL"} {fail "cannot create page"}
-set font [DboTclHelper_sMakeLOGFONT]
+set font [DboTclHelper_sMakeLOGFONT [C Arial] 16 0 0 0 400 0 0 0 0 7 0 1 16]
 array set libs {}
 
 proc lib_for {path} {
@@ -52,6 +52,8 @@ proc make_symbol {libpath pkgname prefix pins} {
  global s st
  if {[file exists $libpath]} {set lib [$s GetLib [C $libpath] $st]} else {set lib [$s CreateLib [C $libpath] $st]}
  if {$lib == "NULL"} {fail "cannot create library $libpath"}
+ set pinfont [DboTclHelper_sMakeLOGFONT [C Arial] 8 0 0 0 400 0 0 0 0 7 0 1 16]
+ foreach which {0 1 2 3} {$lib SetDefaultFont $which $pinfont}
  set pkg [$lib NewPackage [C $pkgname] $st]
  if {$pkg == "NULL" || [$st Failed]} {fail "cannot create package $pkgname"}
  $pkg SetReferenceTemplate [C $prefix]
@@ -248,6 +250,16 @@ foreach comp $components {
   if {$inst == "NULL" || [$st Code] != 0} {fail "cannot place $ref ($pkgname)"}
   $inst SetReference [C $ref]
   if {$value ne ""} {$inst SetPartValue [C $value]}
+  set labelbox [pin_extent $inst]
+  lassign $labelbox labelx labely labelright labelbottom
+  # Reference/value properties must be visible in the actual Capture editor,
+  # not just painted by DeCad's SVG preview.
+  set referenceDisplay [$inst NewDisplayProp $st [C Reference] [P [expr {$labelx-$px}] [expr {$labely-$py-22}]] $::DboValue_NOROTATION $font $::DboValue_DEFAULT_OBJECT_COLOR]
+  if {$referenceDisplay ne "NULL"} {$referenceDisplay SetDisplayType $::DboValue_VALUE_ONLY}
+  if {$value ne ""} {
+   set valueDisplay [$inst NewDisplayProp $st [C Value] [P [expr {$labelx-$px}] [expr {$labelbottom-$py+10}]] $::DboValue_NOROTATION $font $::DboValue_DEFAULT_OBJECT_COLOR]
+   if {$valueDisplay ne "NULL"} {$valueDisplay SetDisplayType $::DboValue_VALUE_ONLY}
+  }
   if {$footprint ne ""} {$inst SetPCBFootprint [C $footprint]}
   # Keep-out box: pins plus room for the 30-unit stubs and their net labels.
   lassign [pin_extent $inst] minx miny maxx maxy

@@ -176,5 +176,6 @@
       ]
     ]
   },
-  "image_source_review": "verified"
+  "image_source_review": "required",
+  "image_source_review_reason": "Source-image review rejected: image labels VG and +0.1 V; V1=5V and NMOS W/L=1u target values are unsupported by visible text. Re-annotate from an authoritative source; do not replace with guessed defaults. The AMSnet converter auto-assigned verified without reviewing the image. Independent annotation review is required."
 }

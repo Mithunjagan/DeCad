@@ -1,4 +1,11 @@
 .dialog.dialog{display:flex;flex-direction:column;width:min(1320px,96vw);height:min(900px,94dvh);max-height:94dvh;min-width:0;padding:0;overflow:hidden;font-size:13px}
+.proofRibbon{display:flex;gap:6px;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid var(--line);flex-shrink:0;background:var(--panel2)}
+.proofRibbon>span{padding:5px 8px;border:1px solid var(--line);border-radius:5px;font-size:11px;color:var(--text);background:var(--panel)}
+.proofRibbon .proofGood{color:#178457;background:#17845714;border-color:#17845766}.proofRibbon .proofPending{color:var(--muted)}
+.comparisonProof{padding:6px 16px;flex-shrink:0}.comparisonProof>small{margin-left:8px;color:var(--muted)}
+.proofColumns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;max-height:38vh;overflow:auto;margin-top:8px}
+.proofColumns figure{margin:0;min-width:0;background:white;border:1px solid var(--line)}.proofColumns figcaption{padding:8px;color:#17314c;background:#edf3f7;font-size:12px;font-weight:600}.proofColumns img{display:block;width:100%;height:auto}.proofImage{position:relative}
+@media(max-width:720px){.proofColumns{grid-template-columns:1fr}.proofRibbon{padding:6px;gap:4px}.proofRibbon>span{font-size:10px;padding:4px}}
 .dialog>header{position:static;flex-shrink:0;margin:0;padding:20px 24px 14px;border-bottom:1px solid var(--line)}
 .dialog>header h2{font-size:22px;font-weight:600;letter-spacing:-.3px}
 .dialog button,.dialog select{min-height:34px;font-size:12px;border-radius:6px}

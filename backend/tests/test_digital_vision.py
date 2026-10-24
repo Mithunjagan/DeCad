@@ -105,3 +105,46 @@ def test_missing_row_index_requires_two_neighbours_and_an_existing_family_member
     rows = [row(0, 'ADDA15'), row(40, 'ADDA14'), row(80, 'ADDA1', ['ADDA1', 'ADDA13'])]
     dv.resolve_strip_rows(rows, {f'ADDA{i}' for i in range(16)}, 31)
     assert rows[-1]['fixed'] == 'ADDA13'
+
+
+def test_clipped_prefix_index_correction_requires_three_independent_rows():
+    def row(axis, text, options=None):
+        return {'ref':'U1','side':(0,1),'edge':200,'axis':axis,
+                'labels':[text],'options':options or [text],'fixed':text}
+    vocab={f'INST{i}' for i in range(12)} | {'INSI1'}
+    rows=[row(0,'INST6'),row(40,'INS1',['INST1','INSI1']),row(80,'INST8'),row(120,'INST9')]
+    dv.resolve_strip_rows(rows,vocab,31)
+    assert rows[1]['fixed']=='INST7'
+    rows=[row(0,'INST6'),row(40,'INS1',['INST1','INSI1']),row(80,'INST8')]
+    dv.resolve_strip_rows(rows,vocab,31)
+    assert rows[1]['fixed']=='INS1'
+    rows=[row(0,'INST6'),row(40,'INST1'),row(80,'INST8'),row(120,'INST9')]
+    dv.resolve_strip_rows(rows,vocab,31)
+    assert rows[1]['fixed']=='INST1'
+    rows=[row(0,'INST6'),row(40,'INS1',['INST1','INSI1']),row(80,'INST8'),row(120,'INST9')]
+    rows[-1]['ref']='U2'
+    dv.resolve_strip_rows(rows,vocab,31)
+    assert rows[1]['fixed']=='INS1'
+    rows=[row(0,'INST11',['INST11','INSI11']),row(40,'NST10',['INST10','TNST10']),
+          row(120,'INST8'),row(160,'INS1',['INST1','INSI1'])]
+    dv.resolve_strip_rows(rows,vocab,31)
+    assert rows[-1]['fixed']=='INST7'
+    rows[2]['options']=['INST8','INSI8']
+    rows[-1]['fixed']='INS1'
+    dv.resolve_strip_rows(rows,vocab,31)
+    assert rows[-1]['fixed']=='INS1'
+
+
+def test_split_pin_digit_requires_agreeing_readers_duplicate_number_and_row_family():
+    rows = {'top':[(k,'U1',k*40) for k in range(4)], 'bottom':[(4,'U1',0)]}
+    def original():
+        return {0:('1',['7DATA6','7DATA6']),1:('12',['DATA3']),2:('14',['DATA4']),
+                3:('16',['DATA5']),4:('1',['OUT0'])}
+    reads=original()
+    assert dv.recover_split_pin_digits(rows,reads)==[('U1','1','17')]
+    assert reads[0]==('17',['DATA6']) and reads[4]==('1',['OUT0'])
+    for change in ({0:('1',['7DATA6'])}, {0:('1',['7DATA6','2DATA6'])},
+                   {0:('1',['8DATA6','8DATA6'])}, {3:('16',['OTHER5'])},
+                   {4:('17',['OUT0'])}, {4:('2',['OUT0'])}):
+        reads=original();reads.update(change)
+        assert dv.recover_split_pin_digits(rows,reads)==[]

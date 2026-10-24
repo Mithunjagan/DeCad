@@ -8,7 +8,7 @@ from copy import deepcopy
 import statistics
 
 
-def prepare(graph, scale=None, margin=300):
+def prepare(graph, scale=None, margin=300,*,recover_incomplete=True):
     metadata = graph.get('image_metadata', {})
     width = metadata.get('width')
     drawing = deepcopy(graph)
@@ -31,7 +31,7 @@ def prepare(graph, scale=None, margin=300):
     for net in graph['nets']:
         for pin in net['nodes']:
             used[pin['ref']].add(str(pin['pin']))
-    definitions = {}
+    definitions = {};geometry_inferences=[]
     for component in drawing['components']:
         ref = component['ref']
         observed = [anchors.get((ref, pin)) for pin in sorted(used[ref])]
@@ -60,7 +60,21 @@ def prepare(graph, scale=None, margin=300):
             definitions[ref] = {'vectors':vectors,'pins':pins,'body':None,'center':[cx,cy],'shape':'source ports'}
             continue
         if any(not a.get('body') for a in observed):
-            continue
+            if not recover_incomplete:continue
+            known=[a['body'] for a in observed if a.get('body')]
+            if known:
+                repaired=[]
+                tolerance=metadata.get('character_height',20)*3
+                for anchor in observed:
+                    if anchor.get('body'):repaired.append(anchor);continue
+                    body=min(known,key=lambda b:max(b[0]-anchor['x'],0,anchor['x']-b[2])+max(b[1]-anchor['y'],0,anchor['y']-b[3]))
+                    distance=max(body[0]-anchor['x'],0,anchor['x']-body[2])+max(body[1]-anchor['y'],0,anchor['y']-body[3])
+                    if distance<=tolerance:
+                        repaired.append({**anchor,'body':body})
+                        geometry_inferences.append({'ref':ref,'pin':anchor['pin'],'reason':'associated terminal with same-reference source body','source_distance_px':distance})
+                    else:repaired.append(anchor)
+                observed=repaired
+            if any(not a.get('body') for a in observed):continue
         # A lone passive observation can be attached to a nearby IC contour. It
         # cannot establish a two-terminal symbol's source geometry or orientation.
         if prefix in ('R','C','L','D','V','I','BT') and len(observed) != 2:
@@ -121,8 +135,20 @@ def prepare(graph, scale=None, margin=300):
             pins.append([pin, sx, sy, hx, hy, side])
         # Duplicate snapped pin hotspots would short distinct physical pins. Leave that
         # component to the spaced fallback instead of changing pin identity.
-        if len({(p[3], p[4]) for p in pins}) != len(pins):
-            continue
+        if not recover_incomplete and len({(p[3],p[4]) for p in pins})!=len(pins):continue
+        occupied=set()
+        for p in pins:
+            original=(p[3],p[4])
+            if original in occupied:
+                for offset in (10,-10,20,-20,30,-30):
+                    shifted=(original[0],original[1]+offset) if p[5] in ('L','R') else (original[0]+offset,original[1])
+                    if shifted not in occupied:
+                        if p[5] in ('L','R'):p[2]+=offset;p[4]+=offset
+                        else:p[1]+=offset;p[3]+=offset
+                        geometry_inferences.append({'ref':ref,'pin':p[0],'reason':'conflicting detected physical pin positions require review',
+                                                    'observed_capture':original,'placed_capture':shifted})
+                        break
+            occupied.add((p[3],p[4]))
         cx = snap((min(p[3] for p in pins) + max(p[3] for p in pins)) / 2)
         cy = snap((min(p[4] for p in pins) + max(p[4] for p in pins)) / 2)
         vectors = []
@@ -185,6 +211,7 @@ def prepare(graph, scale=None, margin=300):
             component['x'] = (cx-margin)/scale
             component['y'] = (cy-margin)/scale
     return drawing, definitions, {'source_geometry_components': sorted(definitions),
+                                  'inferred_pin_geometry':geometry_inferences,
                                   'source_port_components': sorted(ref for ref,d in definitions.items() if d['shape']=='source ports'),
                                   'fallback_components': sorted(c['ref'] for c in drawing['components'] if c['ref'] not in definitions),
                                   'placement': 'source coordinates on Capture grid', 'grid_tolerance': 10, 'source_scale': scale}

@@ -152,6 +152,39 @@ def recover_locally(circuit_graph,image_metadata=None):
     if image_metadata is not None:metadata=graph['image_metadata']=deepcopy(image_metadata)
     actions=quarantine_passive_pin_conflicts(graph,metadata)
     actions+=repair_impossible_numbers(graph,metadata)
+    from .catalog_pin_solver import constrain_reads,row_grammar
+    components={c['ref']:c.get('value','') for c in graph['components']}
+    anchors=metadata.get('pin_anchors',[]);rows=defaultdict(list);reads={}
+    for index,a in enumerate(anchors):
+        reads[index]=(str(a['pin']),None)
+        rows[a['ref'],tuple(a.get('body',[])),_side(a)].append((index,a['ref'],a['y'] if _side(a) in ('left','right') else a['x']))
+    constrain_reads(rows,reads,components,metadata.get('character_height',1))
+    renames={};rejected=set()
+    for index,a in enumerate(anchors):
+        old=str(a['pin']);new=reads[index][0]
+        if new==old:continue
+        key=(a['ref'],old)
+        if new is None:
+            rejected.add(key);metadata.setdefault('rejected_pin_observations',[]).append({'node':{'ref':a['ref'],'pin':old},'anchor':deepcopy(a),'reason':'Outside catalog or observed package ceiling'})
+        else:renames[key]=new
+        actions.append({'kind':'universal_pin_constraint','ref':a['ref'],'old_pin':old,'pin':new})
+    for ref in components:
+        pins={str(p['pin']) for n in graph['nets'] for p in n['nodes'] if p['ref']==ref}
+        occupied=pins.copy()
+        for old,new in row_grammar(pins).items():
+            if new not in occupied:renames[ref,old]=new;occupied.add(new)
+    for net in graph['nets']:
+        net['nodes']=[p for p in net['nodes'] if (p['ref'],str(p['pin'])) not in rejected]
+        for p in net['nodes']:p['pin']=renames.get((p['ref'],str(p['pin'])),p['pin'])
+    graph['nets']=[n for n in graph['nets'] if n['nodes']]
+    for field,items in (('pin_anchors',anchors),('physical_pins',graph.get('physical_pins',[]))):
+        kept=[]
+        for p in items:
+            key=p['ref'],str(p['pin'])
+            if key in rejected:continue
+            p['pin']=renames.get(key,p['pin']);kept.append(p)
+        if field=='pin_anchors':metadata[field]=kept
+        elif field in graph:graph[field]=kept
     pins={(p['ref'],p['pin']):net for net in graph['nets'] for p in net['nodes']}
     wires={w['id']:w for w in metadata.get('wires',[])}
     for anchor in metadata.get('pin_anchors',[]):
@@ -165,6 +198,15 @@ def recover_locally(circuit_graph,image_metadata=None):
                 and l.get('role')=='external_net_label' and l.get('wire')==wire['id']
                 and l.get('text','').upper() not in ('NC','N/C','UNKNOWN','UNCONNECTED')
                 and _local_wire_label(anchor,l,wire,metadata)]
+        def owns(label):
+            horizontal=abs(anchor.get('direction',[1,0])[0])>=abs(anchor.get('direction',[1,0])[1])
+            lo,hi=(label['bbox'][1],label['bbox'][3]) if horizontal else (label['bbox'][0],label['bbox'][2])
+            def distance(a):return min(abs((a['y'] if horizontal else a['x'])-lo),abs((a['y'] if horizontal else a['x'])-hi))
+            peers=[a for a in metadata.get('pin_anchors',[]) if a['ref']==anchor['ref'] and _side(a)==_side(anchor)]
+            closest=min((distance(a) for a in peers),default=distance(anchor))
+            winners=[a for a in peers if abs(distance(a)-closest)<1e-6]
+            return all(a is anchor or (a.get('physical_net') is not None and a.get('physical_net')==anchor.get('physical_net')) for a in winners)
+        labels=[l for l in labels if owns(l)]
         names={label['text'] for label in labels}
         if len(names)!=1:continue
         name=names.pop()

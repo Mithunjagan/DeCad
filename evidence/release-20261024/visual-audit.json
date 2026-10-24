@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "electrical_passed": true,
+  "source_faithful": false,
+  "cases": {
+    "demosample1-wired": {
+      "electrical_passed": true,
+      "xml_passed": true,
+      "components": 24,
+      "checked_pins": 300,
+      "source_faithful": false,
+      "observed_source_edges_kept": 307,
+      "inferred_segments": 521,
+      "fallback_symbols": [
+        "R5",
+        "U71",
+        "U85",
+        "U88"
+      ],
+      "symbol_mismatches": 24,
+      "pins_above_grid_tolerance": 18,
+      "route_segments_missing_or_deviating": 87,
+      "missing_junctions": 81,
+      "incorrect_crossing_junctions": 0,
+      "dsn_sha256": "c5a3c99d21a600f450fb39701cb1962c960202fe903136741048840f0d02d92f"
+    },
+    "SallenKey": {
+      "electrical_passed": true,
+      "xml_passed": true,
+      "components": 8,
+      "checked_pins": 19,
+      "source_faithful": false,
+      "observed_source_edges_kept": 30,
+      "inferred_segments": 2,
+      "fallback_symbols": [],
+      "symbol_mismatches": 4,
+      "pins_above_grid_tolerance": 0,
+      "route_segments_missing_or_deviating": 0,
+      "missing_junctions": 0,
+      "incorrect_crossing_junctions": 0,
+      "dsn_sha256": "5d79975ecda2b25414695538cf0bd1a74da1e2f4238d88939e41b340934ebe0f"
+    },
+    "Sample4": {
+      "electrical_passed": true,
+      "xml_passed": true,
+      "components": 25,
+      "checked_pins": 298,
+      "source_faithful": false,
+      "observed_source_edges_kept": 319,
+      "inferred_segments": 483,
+      "fallback_symbols": [
+        "R18",
+        "U17",
+        "U19",
+        "U25",
+        "U39",
+        "U40"
+      ],
+      "symbol_mismatches": 22,
+      "pins_above_grid_tolerance": 29,
+      "route_segments_missing_or_deviating": 98,
+      "missing_junctions": 118,
+      "incorrect_crossing_junctions": 0,
+      "dsn_sha256": "c5d3a0779e8af7054adb4a5375c1fb57760eb436e446910efa3dcd80ae9cd0e2"
+    }
+  },
+  "review_sha256_before": "66a9fa80d705a0627bf6edc507392fbc27a7b0cd4785e10f8981a6bc88024722",
+  "acceptance": "Electrical and source fidelity are separate; unresolved discrepancies remain explicit.",
+  "review_sha256_after": "66a9fa80d705a0627bf6edc507392fbc27a7b0cd4785e10f8981a6bc88024722",
+  "original_review_unchanged": true
+}

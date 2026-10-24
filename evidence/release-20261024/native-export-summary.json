@@ -1,0 +1,179 @@
+{
+  "passed": true,
+  "scope": "Visible wire continuity and reviewed graph export fidelity",
+  "source_report": "evidence/source-faithful-20261024/regression-corpus/report.json",
+  "source_report_sha256": "93b79ad1008130a5725b0ca31fa3ca6a72486ee4d4142d7dd58af2d2033247da",
+  "cases": {
+    "native-0a236a74292d04d831fa": {
+      "passed": true,
+      "components": 9,
+      "checked_pins": 24,
+      "matched_pins": 24,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "native-37735b083f0b9f56549f": {
+      "passed": true,
+      "components": 3,
+      "checked_pins": 9,
+      "matched_pins": 9,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "native-3b2a49a524e2d50dcf26": {
+      "passed": true,
+      "components": 15,
+      "checked_pins": 53,
+      "matched_pins": 53,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "native-901de51001a98cc2361a": {
+      "passed": true,
+      "components": 4,
+      "checked_pins": 9,
+      "matched_pins": 9,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "native-a39a7a1fc84f921b27fd": {
+      "passed": true,
+      "components": 4,
+      "checked_pins": 17,
+      "matched_pins": 17,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "native-c4d7791b4ebdf13c3944": {
+      "passed": true,
+      "components": 12,
+      "checked_pins": 26,
+      "matched_pins": 26,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "native-c4d88e79bc63688e0e7c": {
+      "passed": true,
+      "components": 11,
+      "checked_pins": 18,
+      "matched_pins": 18,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "native-c6bcc506a3200b19e089": {
+      "passed": true,
+      "components": 9,
+      "checked_pins": 24,
+      "matched_pins": 24,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "native-e9b7597c67252bf7707d": {
+      "passed": true,
+      "components": 5,
+      "checked_pins": 11,
+      "matched_pins": 11,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "native-fedf29b44113e135f31f": {
+      "passed": true,
+      "components": 3,
+      "checked_pins": 15,
+      "matched_pins": 15,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "S1": {
+      "passed": true,
+      "components": 24,
+      "checked_pins": 300,
+      "matched_pins": 300,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "S2": {
+      "passed": true,
+      "components": 24,
+      "checked_pins": 167,
+      "matched_pins": 167,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "S3": {
+      "passed": true,
+      "components": 43,
+      "checked_pins": 524,
+      "matched_pins": 524,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "S4": {
+      "passed": true,
+      "components": 25,
+      "checked_pins": 298,
+      "matched_pins": 298,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "S4-blur300": {
+      "passed": true,
+      "components": 15,
+      "checked_pins": 59,
+      "matched_pins": 59,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "S4-scan200": {
+      "passed": true,
+      "components": 20,
+      "checked_pins": 87,
+      "matched_pins": 87,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "S4-scan300": {
+      "passed": true,
+      "components": 29,
+      "checked_pins": 296,
+      "matched_pins": 296,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "S5": {
+      "passed": true,
+      "components": 27,
+      "checked_pins": 273,
+      "matched_pins": 273,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    },
+    "SallenKey": {
+      "passed": true,
+      "components": 8,
+      "checked_pins": 19,
+      "matched_pins": 19,
+      "native_readback": true,
+      "format": "OrCAD Capture",
+      "symbol_mode": "literal observed pin IDs"
+    }
+  }
+}

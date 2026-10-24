@@ -50,6 +50,7 @@ class Router:
         self.occ = {}               # wire cell -> (net, 'H' | 'V' | 'N' | 'C')
         self.pins = {}              # net -> [(hotspot cell, out dir, on grid, (hx, hy))]
         self.labelled = {}          # net -> pins that get a stub + label
+        self.source_crossings=set()
         for part in page['parts']:
             vectors = part['vectors']
             # A split IC may have separate source bodies. The gap between its
@@ -90,7 +91,7 @@ class Router:
     # ------------------------------------------------------------------ search
     def _enter(self, cell, net, axis, targets, start):
         """(allowed, extra cost, must go straight, is goal) for entering a cell moving along an axis."""
-        if cell in targets:
+        if cell in targets and cell not in self.source_crossings:
             return True, 0, False, True
         x, y = cell
         if x < 1 or y < 1 or x >= self.W - 1 or y >= self.H - 1 or cell in self.blocked:
@@ -101,9 +102,9 @@ class Router:
                 return False, 0, False, False
         o = self.occ.get(cell)
         if o is None:
-            return True, 0, False, False
+            return True, 0, cell in self.source_crossings, False
         if o[0] == net:
-            return False, 0, False, False          # own wire that is not a target (a crossing point)
+            return (True, 0, cell in self.source_crossings, False) if o[1] != 'C' else (False, 0, False, False)
         if (o[1] == 'H' and axis == 'V') or (o[1] == 'V' and axis == 'H'):
             return True, CROSS, True, False
         return False, 0, False, False
@@ -197,9 +198,11 @@ class Router:
             todo = pins[1:]
             failed = []
             while todo:
-                tree = {p[0] for p in done} | {c for c, o in self.occ.items() if o[0] == net and o[1] in ('H', 'V', 'N')}
+                tree = self.connected_cells(net, {p[0] for p in done})-self.source_crossings
                 todo.sort(key=lambda p: min(abs(p[0][0] - q[0][0]) + abs(p[0][1] - q[0][1]) for q in done))
                 p = todo.pop(0)
+                if p[0] in tree:
+                    done.append(p);continue
                 path = self._search(net, p[0], p[1], tree, [q[0] for q in done])
                 if path is None:
                     self.failures.setdefault(net, []).append(self.last_failure)
@@ -213,9 +216,43 @@ class Router:
                 self.labelled[net] = failed if len(done) > 1 else pins
         return wired
 
+    def connected_cells(self, net, starts):
+        adjacency = {}
+        for edge in self.edges.get(net, ()):
+            a,b=tuple(edge)
+            adjacency.setdefault(a,set()).add(b);adjacency.setdefault(b,set()).add(a)
+        found=set(starts);pending=[(None,p) for p in starts];states=set(pending)
+        while pending:
+            previous,current=pending.pop()
+            neighbors=adjacency.get(current,())
+            if current in self.source_crossings and previous is not None:
+                opposite=(2*current[0]-previous[0],2*current[1]-previous[1])
+                neighbors=[opposite] if opposite in neighbors else []
+            for point in neighbors:
+                state=(current,point)
+                if state not in states:
+                    states.add(state);found.add(point);pending.append(state)
+        return found
+
     def _span(self, net):
         xs = [p[0][0] for p in self.pins[net]]; ys = [p[0][1] for p in self.pins[net]]
         return max(xs) - min(xs) + max(ys) - min(ys)
+
+    def prune_leaves(self,net):
+        """Remove every non-terminal leaf, including chains left by bad seeds."""
+        edges=self.edges.get(net,set());adj={}
+        for edge in edges:
+            a,b=tuple(edge);adj.setdefault(a,set()).add(b);adj.setdefault(b,set()).add(a)
+        terminals={p[0] for p in self.pins.get(net,[])}
+        pending=[p for p,n in adj.items() if len(n)==1 and p not in terminals]
+        removed=0
+        while pending:
+            point=pending.pop()
+            if point in terminals or len(adj[point])!=1:continue
+            other=adj[point].pop();adj[other].remove(point)
+            edges.discard(frozenset((point,other)));removed+=1
+            if len(adj[other])==1 and other not in terminals:pending.append(other)
+        return removed
 
     # ------------------------------------------------------------------ output
     def segments(self, net):
@@ -226,6 +263,7 @@ class Router:
             adj.setdefault(a, set()).add(b); adj.setdefault(b, set()).add(a)
         def through(c):
             n = adj.get(c, ())
+            if c in self.source_crossings and len(n)==4:return True
             if len(n) != 2 or c in self.hotspots:
                 return False
             a, b = tuple(n)
@@ -240,19 +278,48 @@ class Router:
                 prev, cur = c, nb
                 seen.add(frozenset((prev, cur)))
                 while through(cur):
-                    nxt = next(x for x in adj[cur] if x != prev)
+                    if cur in self.source_crossings:
+                        nxt=(2*cur[0]-prev[0],2*cur[1]-prev[1])
+                        if nxt not in adj[cur]:break
+                    else:nxt = next(x for x in adj[cur] if x != prev)
                     prev, cur = cur, nxt
                     seen.add(frozenset((prev, cur)))
                 segs.append((c, cur))
         return segs
 
 
-def route(page, pin_net, place, max_pins=MAX_PINS, *, require_wires=False):
+def route(page, pin_net, place, max_pins=MAX_PINS, *, require_wires=False, source_paths=(), source_report=None, named_aliases=None, gap_evidence=None, observed_stub_nets=()):
     """Wires for one page: [(x1, y1, x2, y2, alias, ax, ay)] and a summary."""
     r = Router(page, pin_net, place)
+    if require_wires:
+        # Raw image fragments never become native wires. Route from actual
+        # placed terminals, whose grid coordinates are the sole authority.
+        source_paths=();gap_evidence=None
+    if source_report is not None and not require_wires:
+        r.source_crossings={tuple(int(v//r.grid) for v in c['at']) for c in source_report.get('source_crossings',[])}
+    if source_paths:
+        from .orcad_source_wires import seed
+        seed(r,source_paths,source_report)
+    source_edges={net:set(edges) for net,edges in r.edges.items()}
     wired = r.route(max(len(pins) for pins in r.pins.values()) if require_wires and r.pins else max_pins)
+    pruned=sum(r.prune_leaves(net) for net in list(r.edges)) if require_wires else 0
+    if source_report is not None and gap_evidence is not None:
+        from .orcad_wire_gaps import repair
+        for net,edges in repair(r,gap_evidence,source_report).items():
+            source_edges.setdefault(net,set()).update(edges)
     out = []
-    for net in wired:
+    segment_nets=[]
+    drawn=list(wired)
+    for net,pins in r.pins.items():
+        if net in wired or len(pins)!=1:continue
+        connected=r.connected_cells(net,{pins[0][0]})
+        if len(connected)>1:
+            drawn.append(net);r.labelled.pop(net,None)
+    for net in drawn:
+        # Discard isolated noise fragments, even when their source root had the
+        # same name. Only the conductor connected to the actual reviewed pins is exported.
+        connected=r.connected_cells(net,{r.pins[net][0][0]})
+        r.edges[net]={edge for edge in r.edges[net] if set(edge)<=connected}
         segs = r.segments(net)
         if not segs:
             continue
@@ -260,26 +327,91 @@ def route(page, pin_net, place, max_pins=MAX_PINS, *, require_wires=False):
         for a, b in segs:
             alias = ''
             ax = ay = 0
-            if (a, b) == longest:
+            if (a, b) == longest and (named_aliases is None or net in named_aliases):
                 alias = net
                 ax, ay = (a[0] + b[0]) // 2 * r.grid, (a[1] + b[1]) // 2 * r.grid
             out.append((a[0] * r.grid, a[1] * r.grid, b[0] * r.grid, b[1] * r.grid, alias, ax, ay))
+            segment_nets.append(net)
     stubs = 0
     for net, pins in r.labelled.items():
+        from .orcad_source_wires import real_net_name
+        named=net in named_aliases if named_aliases is not None else real_net_name(net)
+        if require_wires and (len(r.pins[net])!=1 or not (named or net in observed_stub_nets)):continue
         for h, d, grid, (hx, hy) in pins:
-            ex, ey = hx + d[0] * r.stub * r.grid, hy + d[1] * r.stub * r.grid
-            out.append((hx, hy, ex, ey, net, ex, ey))
+            length=2 if require_wires else r.stub
+            if require_wires and any((h[0]+d[0]*k,h[1]+d[1]*k) in r.blocked or
+                    r.owner.get((h[0]+d[0]*k,h[1]+d[1]*k),net)!=net or
+                    r.occ.get((h[0]+d[0]*k,h[1]+d[1]*k),(net,))[0]!=net for k in range(1,length+1)):
+                from .engine import OperationError
+                raise OperationError('Visible wire routing incomplete: named singleton stub blocked for '+net)
+            ex, ey = hx + d[0] * length * r.grid, hy + d[1] * length * r.grid
+            out.append((hx, hy, ex, ey, net if named_aliases is None or net in named_aliases else '', ex, ey))
+            segment_nets.append(net)
             stubs += 1
     crossings = sum(1 for o in r.occ.values() if o[1] == 'C')
     unrouted = {net: len(pins) for net, pins in r.labelled.items() if len(r.pins[net]) > 1}
+    observed_ports=[list(w[2:4]) for w,net in zip(out,segment_nets) if net in observed_stub_nets and len(r.pins[net])==1 and not w[4]]
     summary = {'wired_nets': len(wired), 'labelled_pins': stubs, 'crossings': crossings,
-               'labelled_nets': len([n for n in r.labelled if n not in wired]),
+               'observed_open_stub_ports':observed_ports,
+               'labelled_nets': stubs if require_wires else len([n for n in r.labelled if n not in wired]),
+               'named_singleton_stubs':sum(bool(w[4]) and len(r.pins[n])==1 for w,n in zip(out,segment_nets)) if require_wires else 0,
+               'pruned_nonterminal_unit_edges':pruned,
                'unrouted_nets': unrouted,
                'singleton_pins': sum(len(pins) for net, pins in r.labelled.items() if len(r.pins[net]) == 1),
                'all_connections_wired': not unrouted}
+    if source_report is not None:
+        r.edges={net:edges for net,edges in r.edges.items() if net in drawn}
+        # Record every unit edge absent from the measured geometry, then merge
+        # those units into inspectable straight inferred segments.
+        inferred=[]
+        for net,edges in r.edges.items():
+            observed=source_edges.get(net,set())
+            r.edges[net]=edges-observed
+            inferred += [{'net':net,'a':[a[0]*r.grid,a[1]*r.grid],'b':[b[0]*r.grid,b[1]*r.grid],
+                          'source':'inferred_manhattan','reason':'source geometry missing, conflicting or not at a placed terminal'}
+                         for a,b in r.segments(net)]
+            r.edges[net]=edges
+        for wire in out:
+            if any((wire[0],wire[1])==(p[0][0]*r.grid,p[0][1]*r.grid) for pins in r.labelled.values() for p in pins):
+                inferred.append({'a':list(wire[:2]),'b':list(wire[2:4]),'source':'isolated_terminal_stub','reason':'reviewed singleton has no connected partner'})
+        source_report['inferred_segments']=inferred
+        source_report['retained_source_unit_edges']=sum(len(edges & source_edges.get(net,set())) for net,edges in r.edges.items())
+        source_report['native_wire_segments']=[{'a':list(w[:2]),'b':list(w[2:4]),'net':net} for w,net in zip(out,segment_nets)]
+        junctions=[]
+        for net,edges in r.edges.items():
+            adjacent={}
+            for edge in edges:
+                a,b=tuple(edge);adjacent.setdefault(a,set()).add(b);adjacent.setdefault(b,set()).add(a)
+            for point,neighbors in adjacent.items():
+                if len(neighbors)<3:continue
+                if point in r.source_crossings:continue
+                at=[point[0]*r.grid,point[1]*r.grid]
+                observed=any(j['net']==net and tuple(j['at'])==tuple(at) for j in source_report['source_junctions'])
+                junctions.append({'at':at,'net':net,'degree':len(neighbors),'source':'observed_junction' if observed else 'inferred_routing_junction'})
+        source_report['exported_junctions']=junctions
+        for observed in source_report['source_junctions']:
+            if require_wires:continue  # native dots require actual degree >= 3
+            if observed['kind']!='junction' or any(j['at']==list(observed['at']) for j in junctions):continue
+            x,y=observed['at']
+            if (x//r.grid,y//r.grid) in r.source_crossings:continue
+            touches=[s for s in source_report['native_wire_segments'] if s['net']==observed['net'] and
+                     min(s['a'][0],s['b'][0])<=x<=max(s['a'][0],s['b'][0]) and
+                     min(s['a'][1],s['b'][1])<=y<=max(s['a'][1],s['b'][1]) and
+                     (s['a'][0]==s['b'][0]==x or s['a'][1]==s['b'][1]==y)]
+            if touches:junctions.append({'at':[x,y],'net':observed['net'],'source':'observed_dot','degree':len(touches)})
+        summary['source_reconstruction']=source_report
     if require_wires and unrouted:
         from .engine import OperationError
         raise OperationError('Visible wire routing incomplete for: ' + ', '.join(sorted(unrouted)) + '. Review the pin positions; no label-only fallback was exported.')
+    if require_wires:
+        from .orcad_wire_gaps import endpoints
+        check=endpoints({**page,'wires':[list(w[:4]) for w in out],
+                         'observed_ports':observed_ports,'aliases':[{'name':w[4],'x':w[5],'y':w[6]} for w in out if w[4]]},valid_aliases=named_aliases or ())
+        summary['loose_wire_ends']=check['free_end_count']
+        summary['unlabelled_loose_ends']=check['free_end_count']
+        if not check['passed']:
+            from .engine import OperationError
+            raise OperationError('Visible wire routing incomplete: non-terminal leaf remains before native write')
     return out, summary
 
 
@@ -307,7 +439,8 @@ def verify_visible_wires(page, pin_net):
     for i, a in enumerate(wires):
         for j in range(i):
             b = wires[j]
-            if any(on(p, b) for p in (a[:2], a[2:])) or any(on(p, a) for p in (b[:2], b[2:])):
+            if (any(on(p, b) for p in (a[:2], a[2:])) or any(on(p, a) for p in (b[:2], b[2:]))
+                    or any(on(p,a) and on(p,b) for p in page.get('junctions',[]))):
                 parent[root(i)] = root(j)
     locations = {}
     for part in page['parts']:
@@ -317,9 +450,11 @@ def verify_visible_wires(page, pin_net):
     groups = {}
     missing = []
     by_net = {}
+    net_sizes={}
+    for net in pin_net.values():net_sizes[net]=net_sizes.get(net,0)+1
     for key, net in pin_net.items():
         hits = {root(i) for point in locations.get(key, ()) for i, wire in enumerate(wires) if on(point, wire)}
-        if not hits:
+        if not hits and (net_sizes[net]>1 or key not in locations):
             missing.append(key)
         by_net.setdefault(net, []).append((key, hits))
         for hit in hits:

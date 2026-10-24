@@ -1,5 +1,9 @@
 # Windows setup using the supplied circuit adapter
 
+> Historical workflow notes. Use the [current setup guide](docs/SETUP.md) and
+> [recorded results](docs/RESULTS.md) for the pinned production profile and current published statistics.
+> Older timings and experimental model settings below retain their original scope.
+
 The supplied adapter is in `Jrk_Adapter/adapter` beside `Jrk_DeCad`. It targets
 `Qwen/Qwen2.5-VL-7B-Instruct`. The adapter is approximately 40 MB; the separate
 base-model and vision-projector weights are also required.

@@ -61,7 +61,8 @@ def convert_amsnet(raw_dir: Path, output_dir: Path):
                 "nets": [n.model_dump() for n in circuit.nets],
                 "spice_netlist": cir_text,
                 "bboxes": bboxes,
-                "image_source_review": "verified"
+                "image_source_review": "required",
+                "image_source_review_reason": "Conversion checks SPICE parsing only; independently review the image against component values and physical pin connectivity."
             }
 
             (target_dir / "circuit.json").write_text(json.dumps(sample_data, indent=2))

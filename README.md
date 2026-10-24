@@ -12,7 +12,7 @@ A local workspace for the whole journey: source images, component review, native
 [![Workspace](https://img.shields.io/badge/workspace-local-9eae94?style=for-the-badge&labelColor=171819)](#-quick-start)
 [![Native CAD](https://img.shields.io/badge/native%20CAD-KiCad%20%2B%20OrCAD-e7b58b?style=for-the-badge&labelColor=171819)](#-how-it-works)
 
-**[Get started](#-quick-start)** · **[Explore the studio](#-product-tour)** · **[Full screenshot gallery](docs/SCREENSHOTS.md)** · **[Measured results](#-measured-not-promised)** · **[How it works](#-how-it-works)**
+**[Setup guide](docs/SETUP.md)** · **[Get started](#-quick-start)** · **[Explore the studio](#-product-tour)** · **[Full screenshot gallery](docs/SCREENSHOTS.md)** · **[Measured results](#-measured-not-promised)** · **[How it works](#-how-it-works)**
 
 <br/>
 
@@ -32,54 +32,16 @@ and generate a native design. Review stays part of the process, with uncertainti
 
 ## ✨ Why DeCad
 
-<table>
-<tr>
-<td width="33%" valign="top">
+| A workspace for real circuit work | What you can inspect |
+|---|---|
+| **Source-aware review** | Component values, physical pin IDs, source comparisons, and explicit unresolved evidence. |
+| **Native CAD output** | KiCad schematics and Capture `.DSN` files, with graph readback checks separate from recognition scores. |
+| **Your component libraries** | KiCad and OrCAD sources, workspace libraries, footprint properties, and package review requirements. |
+| **Measured GPU execution** | A separate CUDA OCR worker records the providers actually used by its sessions. |
+| **A complete local workbench** | Projects, assistant commands, BOM, nets, electrical checks, local history, and simulation tools. |
 
-### 🔁 Verified, not guessed
-Each saved design is **reopened through Capture's database** and compared pin by pin with what was
-read. Misreads it can prove wrong are removed and reported: a pin the part lacks, or a pin on two nets.
-
-</td>
-<td width="33%" valign="top">
-
-### 📏 Measured, not promised
-Accuracy is scored **from the saved `.DSN`** against **hand-transcribed ground truth**, with
-**245 labelled pin checkpoints**. The scorer, the ground truth and the results are all in this repo.
-
-</td>
-<td width="33%" valign="top">
-
-### 🧩 Native, not an export hack
-Real Capture parts from **26k installed library packages**, generated symbols when no library part
-matches, a **PCB footprint on every part**, and output that passes Capture's PCB netlister.
-
-</td>
-</tr>
-<tr>
-<td valign="top">
-
-### 🌫️ Scan-aware
-One **Automatic** mode for every input. It measures resolution, character height, stroke blur and
-skew, then picks the enhancement itself. You never switch settings by hand.
-
-</td>
-<td valign="top">
-
-### ⚡ GPU when you have one
-OCR runs in a **CUDA worker**: about **2× faster** on a 4 GB laptop RTX 3050, with identical scores.
-It works on CPU too, and strict CUDA mode never falls back to CPU silently.
-
-</td>
-<td valign="top">
-
-### 📚 Your libraries, used
-Bring your own **`.OLB` libraries, `.DSN` designs, footprints and part maps**. Every generated
-design places parts from them first and ships the footprints it used.
-
-</td>
-</tr>
-</table>
+The current production profile is pinned in `backend/pipeline_profiles.json`. Install requirements,
+the separate OCR model asset, and the limits of the recorded results are described below.
 
 ## 📸 Product tour
 
@@ -125,152 +87,128 @@ physical pin assignments, and review notes before applying changes.
 Welcome screens · imports · source comparison · review notes · BOM · nets · checks · source editor ·
 libraries · command palette · history · applications · hardware monitor · focus mode · themes.
 
+<!-- BEGIN GENERATED MEASUREMENTS -->
 ## 📊 Measured, not promised
 
-<div align="center">
-<img src="docs/media/accuracy.svg" alt="Exact labelled pins: Sample 1 91%, Sample 3 86%, Sample 4 89%, Sample 5 81%, all clear sheets 87%" width="100%"/>
-</div>
+<img src="docs/media/accuracy-20261024.svg" alt="Recorded 24 October results: 228 of 245 labelled pins exact across four clear sheets; degraded scans scored separately" width="100%"/>
 
-Fresh end-to-end run on the GPU, 2026-10-18 ([`tools/eval/results/claude-ocr3-gate`](tools/eval/results/claude-ocr3-gate)).
-Every design was generated, saved, **reopened**, and scored from the reopened file.
+**Recorded clear-sheet result: 228/245 labelled pin → net assignments exact (93.1%).**
 
-| Input | Parts found | Precision | Values | Labelled pin → net exact | Time |
+Measured on **24 October 2026**, with a fresh, process-isolated CUDA OCR gate. These scores
+measure recognized graphs **before CAD library substitution**. They cover four clear sheets and
+selected labelled pin checkpoints, rather than complete-circuit accuracy. Later source changes
+and the code-test results below do not constitute another OCR benchmark.
+
+| Input | Matched parts / truth | Extra detections | Correct values / matched parts | Exact labelled pins | Worker time |
 |---|---:|---:|---:|---:|---:|
-| Sample 1 (clear) | 24/28 | 100% | 100% | **51/56 (91%)** | 53 s |
-| Sample 3 (clear) | 30/34 | 97% | 93% | **59/69 (86%)** | 73 s |
-| Sample 4 (clear) | 25/30 | 100% | 100% | **64/72 (89%)** | 49 s |
-| Sample 5 (clear) | 22/25 | 100% | 95% | **39/48 (81%)** | 56 s |
-| **All clear sheets** | | | | **213/245 (87%)** | |
-| Sample 4, scanned PDF 300 dpi | 25/30 | 86% | 100% | 38/72 (53%) | 58 s |
-| Sample 4, scanned PDF 200 dpi | 18/30 | 90% | 100% | 0/72 | 54 s |
-| Sample 4, blurred PDF (σ = 2 px) | 12/30 | 80% | 100% | 0/72 | 55 s |
+| Sample 1 | 24/28 | 0 | 24/24 | **54/56 (96.4%)** | 159.8 s |
+| Sample 3 | 30/34 | 1 | 29/30 | **63/69 (91.3%)** | 161.5 s |
+| Sample 4 | 25/30 | 0 | 23/25 | **69/72 (95.8%)** | 161.4 s |
+| Sample 5 | 22/25 | 0 | 21/22 | **42/48 (87.5%)** | 287.2 s |
+| Sample 4 · 300 dpi | 25/30 | 4 | 23/25 | **44/72 (61.1%)** | 231.3 s |
+| Sample 4 · 200 dpi | 18/30 | 2 | 17/18 | **0/72 (0.0%)** | 195.0 s |
+| Sample 4 · blurred | 12/30 | 3 | 12/12 | **0/72 (0.0%)** | 188.3 s |
 
-All 8 designs reopen cleanly, and all 8 pass Capture's PCB netlister (`pstswp`) with **0 errors**.
+Sample 2 has no labelled-pin denominator in this report and is excluded from the aggregate.
+The 200 dpi and blurred inputs still have **0/72 exact labelled assignments**; a valid export does
+not repair an unread source. Timings belong to this recorded run and are not a speed guarantee.
 
-<details>
-<summary><b>How to read these numbers</b></summary>
+**Export and appearance checks are separate measurements:**
 
-- *Labelled pin → net exact*: the pin exists in the saved design and sits on the hand-labelled net.
-- Sample 2 (a 1600 px sheet with ~5 px text) has part-count ground truth only: TC514100 7/16,
-  74F374 4/8, 74F244 2/4.
-- Samples 1 and 3 contributed text crops to the fine-tuned reader. Samples 2, 4 and 5 are held out.
-- Pin numbers on 200 dpi and blurred scans are the open problem (see the [roadmap](#-roadmap)).
-  Those pages carry a "rescan at 300 dpi" review note.
+| Recorded check | Result | What it establishes |
+|---|---|---|
+| Observed-graph OrCAD export regression | **19/19 cases; 2,229 pin memberships** | Saved native output preserves the supplied graph; this is not fresh recognition. |
+| Faculty XML closure corpus | **18/18 exports** | XML serialization/readback, including 37 explicitly provisional terminals. TD9 application import is unverified. |
+| Detailed source-appearance audits | **0/3 source-faithful** | Electrical checks passed, while symbol, geometry, or junction discrepancies still need review. |
+| One saved-design footprint repair | **24/24 assigned; native PCB netlisting passed** | Five suggested packages still require physical package review. This is one case, not a corpus-wide PCB certification. |
 
-</details>
+Inspect the [raw recognition report](evidence/release-20261024/recognition-report.json),
+[gate](evidence/release-20261024/recognition-gate.json),
+[export summary](evidence/release-20261024/native-export-summary.json), and
+[measurement definitions](docs/RESULTS.md). The [machine-readable metrics](docs/data/metrics.json)
+and this chart are generated from those records with `python tools/update_readme_stats.py`.
+
+<!-- END GENERATED MEASUREMENTS -->
+
+### Code and setup validation for this update
+
+| Check | Verified result | Scope |
+|---|---|---|
+| Backend | **478 distinct passing cases; 6 skipped** | A full run plus focused reruns after two native export fixes; the full suite was not repeated after those fixes. |
+| Frontend | **22/22 tests; production compilation passed** | Built in an isolated directory; standalone packaging emitted path-tracing warnings and was not deployment-tested. |
+| Native setup | **15/15 prerequisite/service checks** | This installed Windows machine; a deliberately missing KiCad path was also correctly rejected. |
+
+See the [validation receipt](evidence/release-20261024/validation.json) for commands and limits.
+These checks do not replace the dated recognition measurements above or certify a clean-machine install.
 
 ## 🧠 How it works
 
-<div align="center">
-<img src="docs/media/pipeline.svg" alt="Pipeline: scan, assess and enhance, GPU OCR, pins and nets, library check, native verified DSN" width="100%"/>
-</div>
-
 ```mermaid
 flowchart LR
-    A["Image / PDF"] --> B["Input assessment<br/>resolution · blur · skew"]
-    B --> C["Enhancement<br/>deskew · super-sampling<br/>stroke-preserving binarization"]
-    C --> D["GPU OCR worker<br/>RapidOCR + fine-tuned CRNN"]
-    C --> E["Geometry<br/>wires · junctions · IC bodies"]
-    D --> F["Pin strips<br/>pin number at the body edge<br/>net label along the wire"]
-    E --> F
-    F --> G["Sheet-evidence repair<br/>references · part numbers · signal families"]
-    G --> H["Library check<br/>installed + workspace .OLB"]
-    H --> I["Native writer<br/>Capture database via Tcl"]
-    I --> J{"Reopen &<br/>verify every pin"}
-    J -->|provable misread| I
-    J -->|pass| K[".DSN · .OLB · .opj<br/>PCB netlist · preview"]
+    A["Image / PDF / TIFF"] --> B["Page assessment<br/>raster and vector evidence"]
+    B --> C["Pinned CUDA OCR<br/>labels, physical pins, wires"]
+    C --> D["Circuit graph and review evidence"]
+    D --> E["Human review<br/>parts, values, nets, uncertainties"]
+    E --> F["Native CAD / XML writer"]
+    F --> G["Read back the saved graph"]
+    G --> H["Export and discrepancy reports"]
 ```
 
-<details>
-<summary><b>Where each stage lives</b></summary>
+The pinned `hybrid_max_accuracy` pipeline combines OCR, geometric evidence, library facts,
+and bounded regional model requests where configured. Its primary and fallback regional
+endpoints are defined in `backend/pipeline_profiles.json`; availability does not establish accuracy.
+The reviewed graph feeds the exporters. Source geometry and native pin connectivity have
+separate audits, so an electrical pass can still carry visible drawing discrepancies.
 
 | Stage | Source |
 |---|---|
-| Input assessment, enhancement, OCR, bodies, pin strips, nets, repairs | `backend/app/digital_vision.py` |
-| GPU worker dispatch and session verification | `backend/app/ocr_runtime.py`, `backend/app/ocr_worker.py` |
-| Library matching with OCR-aware correction (`74F24U` → `74F240`) | `backend/app/orcad_capture.py`, `orcad_library.py` |
-| Writing through Capture's database (`tclsh` + `orDb_Dll_Tcl64.dll`) | `backend/app/orcad_writer.tcl` |
-| Reopen verification and physical netlist | `backend/app/orcad_dump.tcl`, `orcad_capture.py` |
-| SVG preview of the saved design | `backend/app/orcad_render.tcl` |
-
-In **Automatic** mode the logic-schematic recognizer runs first. If it finds no ICs and nets, the
-simple discrete R/C/V recognizer (`circuit_vision.py`, Tesseract + OpenCV) takes over.
-
-</details>
+| Pinned configuration and checkpoint digest | `backend/pipeline_profiles.json`, `backend/app/pipeline_profile.py` |
+| Raster/vector interpretation and physical pins | `backend/app/digital_vision.py`, `backend/app/ingestion.py` |
+| Isolated OCR runtime and provider verification | `backend/app/ocr_runtime.py`, `backend/app/ocr_worker.py` |
+| Native Capture writing and readback | `backend/app/orcad_capture.py`, `backend/app/orcad_writer.tcl` |
+| Observed graph export and package review | `backend/app/observed_export.py` |
+| Source wires, symbols, and appearance audit | `backend/app/orcad_source_wires.py`, `backend/app/orcad_source_symbols.py`, `backend/app/orcad_visual_audit.py` |
 
 ## 🚀 Quick start
 
-> The OrCAD output needs **Windows** and a local **OrCAD X Capture** install. Without OrCAD, use the Docker setup (see *Docker* below).
+**[Read the complete Windows setup guide →](docs/SETUP.md)**
 
-| Requirement | Notes |
-|---|---|
-| Windows 10/11 | Tested on Windows 11 |
-| [KiCad 10](https://www.kicad.org/download/windows/) | Default `D:\KICAD`, or set `S2SDN_KICAD_DIR`. Its Python 3.11 hosts the backend. |
-| OrCAD X Capture 26.1 | Default `D:\tools`, or set `ORCAD_ROOT` |
-| Node.js 20+ | Frontend (tested with Node 24) |
-| *Optional:* NVIDIA GPU, CUDA 12 | For [GPU OCR](#-gpu-accelerated-ocr). 4 GB VRAM is enough. |
+The published native workflow needs Windows, KiCad 10, Node.js 20.9+, a separate Python 3.12 CUDA
+OCR environment, and the accepted OCR checkpoint. Native Capture output also needs your own
+licensed OrCAD installation. **The code clone does not include model weights or CAD applications.**
 
 ```powershell
 git clone https://github.com/Mithunjagan/DeCad.git
 cd DeCad
-copy backend\.env.example backend\.env
+```
+
+Follow [the setup guide](docs/SETUP.md) to install the backend and frontend dependencies, place the
+checkpoint, and configure `backend/.env` using [the example](backend/.env.example). Then:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\tools\check_setup.ps1 -RequireOrcad
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\start-native.ps1
 ```
 
-Open **http://localhost:3100**. On first run, `start-native.ps1` builds `backend\.venv` from KiCad's
-Python, installs the requirements, and starts the API on **:8100** and the workbench on **:3100**.
+Open **http://localhost:3100**, choose **Open local workspace**, and create a project. Try
+`create a voltage divider`, then attach a source drawing for recognition. Compare the parts and
+pin connections in **Review circuit**, choose an export target, and inspect the saved design's
+readback and discrepancy reports. For Capture, open the design's `SCHEMATIC1 → PAGE1` page.
 
-For a desktop icon that starts everything in its own window, run
-`powershell.exe -ExecutionPolicy Bypass -File .\install-desktop-app.ps1` once. Stop everything with `stop.ps1`.
-
-### Your first conversion
-
-1. Create a project, then open **Libraries & footprints**.
-2. Drop a drawing on **Blueprint → OrCAD Capture**. Try `samples/orcad/Sample 4.jpg.jpeg`.
-3. The **OrCAD Capture design** dialog shows:
-   - the verification badge, parts, pins and nets;
-   - PCB footprint coverage;
-   - the drawing rendered back from the saved file;
-   - a searchable physical netlist, downloadable as `.net` or `.csv`.
-4. Click **Open in OrCAD Capture**. In the tree, expand `<design>.dsn` → `SCHEMATIC1` and double-click `PAGE1`.
-
-To review the read first, attach the file in the assistant and send `convert to OrCAD` instead. The
-**Review circuit** dialog lets you:
-- compare with the source;
-- edit one net at a time;
-- then **Generate verified OrCAD .DSN**.
+The guide includes custom installation paths, GPU setup, health checks, the desktop shortcut,
+first conversion, and troubleshooting. The checker is read-only; it does not install software.
 
 ## ⚡ GPU-accelerated OCR
 
-Recognition runs in a separate **CUDA Python** (`S2SDN_OCR_PYTHON`), independent of KiCad's Python.
-Each job runs as a hidden worker process. The worker checks which provider each ONNX session actually
-uses before it reports `cuda`, and frees GPU memory when it exits.
+The production profile requests **CUDA**, validates the accepted ONNX checkpoint digest, and uses
+a separate worker so the backend's KiCad Python keeps its own dependencies. A completed job
+records the execution providers its sessions actually used. A configured worker is not proof of
+GPU execution, and a strict CUDA failure does not silently turn into a CPU result.
 
-```powershell
-py -3.12 -m venv backend\.state\gpu-venv
-$py = "backend\.state\gpu-venv\Scripts\python.exe"
-& $py -m pip install -r backend\requirements.txt
-& $py -m pip install --no-deps -r backend\requirements-ocr.txt
-& $py -m pip uninstall -y onnxruntime
-& $py -m pip install onnxruntime-gpu==1.22.0
-& $py -m pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121   # CUDA 12 / cuDNN 9 DLLs
-```
-
-```ini
-# backend/.env
-S2SDN_OCR_PYTHON=D:/path/to/DeCad/backend/.state/gpu-venv/Scripts/python.exe
-S2SDN_OCR_DEVICE=cuda      # strict: fail loudly instead of falling back to CPU
-IMAGE_MODE=auto
-```
-
-| Sample 1, live app | Time | Exact pins |
-|---|---:|---:|
-| CPU | 98.8 s | 51/56 |
-| **RTX 3050 Laptop (4 GB)** | **49.8 s** | **51/56** |
-
-The status route `GET /api/vision/status` reports the verified device and each session's providers.
-Sessions use a bounded memory arena with a heuristic convolution search, because RapidOCR's defaults
-can exhaust a 4 GB card.
+See the [CUDA environment instructions](docs/SETUP.md#5-create-the-separate-cuda-ocr-environment).
+Inspect `GET /api/vision/status` after a recognition job for the device, state, errors, and providers.
+The timings in the results table belong to the recorded October 24 run; the old CPU/GPU comparison
+is no longer used as the current performance headline.
 
 ## 🧰 Everything else in the box
 
@@ -284,19 +222,37 @@ can exhaust a 4 GB card.
 | 📦 **Exports** | KiCad · OrCAD `.DSN` · Specctra DSN (Freerouting) · EDIF · SPICE · BOM · netlists · LTspice/Qucs-S bundles |
 | 🕓 **History** | Local Git commits, plus optional GitHub push |
 
-## 🔬 Reproducing the evaluation
+## 🔬 Reproducing and checking results
+
+The published numbers are backed by [dated evidence files](evidence/release-20261024/README.md).
+Check their arithmetic and regenerate the README chart without running inference:
 
 ```powershell
-$py = "backend\.state\gpu-venv\Scripts\python.exe"   # or backend\.venv\Scripts\python.exe (CPU)
-
-& $py tools\eval\run_eval.py 1 2 3 4 5 --out tools\eval\results\my-run          # clear samples
-& $py tools\eval\make_degraded.py 4                                              # 300/200 dpi + blurred PDFs
-& $py tools\eval\run_eval.py --images tools\eval\degraded --variant scan300 4 --out tools\eval\results\my-run
-& $py tools\eval\codex_verify.py my-gate --baseline tools\eval\results\claude-ocr3-gate\report.json   # full gate
+python tools\update_readme_stats.py --check
+python tools\update_readme_stats.py
 ```
 
-Each run writes `report.md` and `report.json`. For every input it also saves the design,
-`recognized.json`, `ocr-tokens.json` and `pin-debug.json`. Run one evaluation at a time on 8 GB machines.
+For a new recognition run, use the installed OCR Python and a **new output directory**:
+
+```powershell
+$ocrPython = 'backend\.state\gpu-venv\Scripts\python.exe'
+& $ocrPython tools\eval\profile_eval.py recognition_gate 1 3 4 5 --out evidence\my-clear-run
+```
+
+Run one GPU gate at a time. A new gate needs the input images and matching ground truth; tests
+and regenerated documentation do not substitute for fresh recognition. See
+[measurement definitions](docs/RESULTS.md) and [recognition configuration](docs/GENERAL_RECOGNITION.md)
+for partial truth, degraded inputs, full-graph evaluation, and explicit vision mode.
+
+For your own corpus, provide independently checked references and run:
+
+```powershell
+& $ocrPython tools\eval\run_corpus.py path\to\manifest.json --out evidence\my-corpus --mode hybrid_max_accuracy
+```
+
+The evaluator measures recognized components, exact values, physical pins, topology, false joins,
+missing connections, named nets, and exact whole graphs. Incomplete references cannot establish
+full-sheet accuracy. CAD export/readback and source-appearance checks remain separate.
 
 <details>
 <summary><b>⚙️ Configuration reference</b></summary>
@@ -305,16 +261,16 @@ Each run writes `report.md` and `report.json`. For every input it also saves the
 
 | Variable | Purpose |
 |---|---|
-| `IMAGE_MODE` | Default recognizer: `auto` (recommended), `digital`, `circuit`, `ocr`, `vision` |
+| `IMAGE_MODE` | Owned by the production `hybrid_max_accuracy` profile; explicit API recognition modes remain available |
 | `S2SDN_OCR_PYTHON` / `S2SDN_OCR_DEVICE` | OCR worker Python, and `cuda` (strict), `cpu`, or unset for auto |
 | `S2SDN_CUDA_DLLS` | Extra folder with CUDA 12 / cuDNN 9 DLLs |
-| `S2SDN_TEXT_MODEL` | Override path of the fine-tuned reader |
+| `S2SDN_TEXT_MODEL` | Owned by the pinned production profile and verified against its digest |
 | `ORCAD_ROOT` / `S2SDN_KICAD_DIR` | OrCAD and KiCad install roots |
 | `TESSERACT_DIR` | Tesseract folder, if not in a default location |
 | `ALLOW_LOCAL_LOGIN` | Local workspace without GitHub sign-in |
 | `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` | Optional OAuth for pushing projects |
 | `OLLAMA_URL`, `CHAT_MODEL` | Optional local language model for the assistant |
-| `CHAT_API_URL`, `NVIDIA_API_KEY`, `CHAT_API_MODEL` | Optional cloud chat for explanations and planning only. Recognition always stays local. |
+| `CHAT_API_URL`, `NVIDIA_API_KEY`, `CHAT_API_MODEL` | Optional chat configuration; separate from regional recognition endpoints. Keep credentials in local environment files. |
 
 </details>
 
@@ -352,6 +308,9 @@ samples/orcad/    the five evaluation schematics
 tools/eval/       ground truth, scorer, degraded-scan generator, gates, results
 training/         CRNN and LoRA training (local GPU + Colab notebooks)
 docs/media/       README graphics
+docs/data/        generated measurement summaries
+docs/SETUP.md     native installation and troubleshooting
+evidence/release-20261024/  published measurement receipts
 ```
 
 </details>
@@ -359,13 +318,12 @@ docs/media/       README graphics
 <details>
 <summary><b>🐳 Docker (without OrCAD)</b></summary>
 
-On macOS, Linux or Windows, the containers provide KiCad editing, simulation, exports and the CPU
-recognizers. They do not write OrCAD designs.
+Docker configuration remains in the repository, but the current containers do not package the
+complete pinned checkpoint/CUDA profile. Docker and CPU-only startup have not been validated for
+this release. Use the [native Windows setup guide](docs/SETUP.md) for the published workflow.
 
-```sh
-./start.command                                         # macOS / Linux
-powershell -ExecutionPolicy Bypass -File .\start.ps1    # Windows
-```
+The historical container entry points are `start.command` and `start.ps1`.
+They are not the verified native launcher.
 
 Ports: 3100 (workbench), 8100 (API), 6180 (embedded KiCad), and optionally 11434 (Ollama).
 
@@ -375,49 +333,63 @@ Ports: 3100 (workbench), 8100 (API), 6180 (embedded KiCad), and optionally 11434
 <summary><b>🧪 Development and tests</b></summary>
 
 ```powershell
-cd backend;  .venv\Scripts\python.exe -m pytest tests -q
-cd frontend; npm ci; npm test; npm run dev
+$env:KICAD_CLI = 'D:\KICAD\bin\kicad-cli.exe'
+$env:KICAD_SYMBOL_DIR = 'D:\KICAD\share\kicad\symbols'
+$env:KICAD_FOOTPRINT_DIR = 'D:\KICAD\share\kicad\footprints'
+Push-Location backend
+& .venv\Scripts\python.exe -m pytest tests -q
+Pop-Location
+Push-Location frontend
+npm test
+npm run build
+Pop-Location
 ```
 
-Measure every recognition change end-to-end with `tools/eval/codex_verify.py`. Gains on single text
-crops have lowered end-to-end wiring scores before.
+Configure the installed CAD paths before running integration tests. Use the dated recognition
+gates for image-interpretation claims; code tests alone do not measure OCR accuracy.
 
 </details>
 
-## 🤖 Models
+## 🤖 Models and runtime boundaries
 
-| Model | Role |
+| Component | Role |
 |---|---|
-| **RapidOCR** (PaddleOCR det/cls/rec on ONNX Runtime) | Primary text detection and reading, on CUDA or CPU |
-| **Schematic CRNN** (`checkpoints/schematic-ocr`) | Second reader for pin numbers, references and labels. Trained with `training/schematic_ocr.py` on synthetic plotter-font text plus confident real crops: about 2 min on a 4 GB GPU. |
-| **Qwen2.5-VL LoRA** (`checkpoints/circuit-lora`) | Experimental whole-image extraction. Not used for OrCAD output: it failed the reference wiring check ([details](WINDOWS_VISION.md)). |
+| RapidOCR / ONNX Runtime | Text detection and reading; the production worker verifies CUDA session execution. |
+| Accepted schematic CRNN checkpoint | Second reader for schematic text; separately supplied, pinned by SHA-256, and not changed by this repository update. |
+| Regional vision readers | Optional bounded requests configured in `backend/pipeline_profiles.json`; installation and model availability are not accuracy evidence. |
+| Experimental training adapters | Research artifacts described under `training/`; they do not replace the accepted production checkpoint. |
 
-For longer runs, use the Colab notebooks in `training/`. Build their upload bundle with `python tools/build_colab_bundle.py`.
+Converted AMSnet records now require independent source-image review. Parsing a SPICE netlist
+does not establish that its values and physical pin connections match the paired image.
 
 ## 🧭 Roadmap
 
-- [x] Native OrCAD Capture `.DSN` with reopen-and-verify
-- [x] PCB footprint on every part; PCB netlister passes with 0 errors
-- [x] Automatic handling of low-resolution and blurred scans
-- [x] CUDA OCR worker with verified sessions
-- [x] 87% exact labelled pins on clear sheets
-- [ ] **Pin numbers on blurred / 200 dpi scans**: infer them from the library pinout when digits are unreadable
-- [ ] Recover ICs dropped on blurry pages
-- [ ] Multi-sheet designs with hierarchical ports
-- [ ] Broader ground truth beyond the five evaluation sheets
+- [x] Native graph exports with saved-file readback and explicit discrepancy reports.
+- [x] Reviewed component/pin graphs and preservation of provisional evidence.
+- [x] CUDA OCR workers with provider verification.
+- [x] Recorded 228/245 exact labelled checkpoints across four clear sheets.
+- [ ] Recover unread pin assignments on blurred and 200 dpi inputs.
+- [ ] Resolve source symbol, route, and junction discrepancies in the detailed visual audits.
+- [ ] Verify physical package suitability beyond footprint property assignment.
+- [ ] Broaden complete, independent ground truth across more drawings and circuit families.
+- [ ] Validate a portable CPU/container setup for the pinned production profile.
 
 ## ⚠️ Limitations
 
-- **Always review before use.** 87% of labelled pins are exact on clear sheets, and far fewer on
-  degraded scans. The review dialog and the `corrections` list show what is uncertain.
-- OrCAD output needs Windows, a local OrCAD X Capture installation, and the native backend.
-- The discrete R/C/V recognizer covers clean resistor, capacitor and source drawings only.
-- Allegro geometry (`.dra`, `.psm`, `.brd`) is cataloged but not converted.
-- The desktop services are for one local user. Do not expose ports 3100/8100 publicly.
+- The clear-sheet figure covers selected labelled pins. It is not whole-circuit success, and the
+  200 dpi and blurred cases remain 0/72 on this metric.
+- Recognition, exported-graph readback, source appearance, and physical PCB readiness are different
+  checks. Review the original drawing, unresolved evidence, and suggested packages before use.
+- Production startup requires the separate accepted OCR artifact and CUDA environment. Capture
+  output additionally requires Windows and your licensed local installation.
+- Multi-page imports retain page-scoped identities; hierarchy and global net equivalence require review.
+- Allegro binary geometry can be cataloged but is not converted into editable geometry.
+- Services are intended for local use. Credentials, personal workspaces, model weights, and caches
+  are excluded from this source update.
 
 ## 📖 Documentation
 
-[Screenshot gallery](docs/SCREENSHOTS.md) · [DEMO.md](DEMO.md) (demo runbook) · [ORCAD_STATUS.md](ORCAD_STATUS.md) (pipeline internals) ·
+[Setup guide](docs/SETUP.md) · [Measured results](docs/RESULTS.md) · [Screenshot gallery](docs/SCREENSHOTS.md) · [DEMO.md](DEMO.md) (historical runbook) · [ORCAD_STATUS.md](ORCAD_STATUS.md) (historical pipeline notes) ·
 [COMPONENT_LIBRARIES.md](COMPONENT_LIBRARIES.md) · [WINDOWS_VISION.md](WINDOWS_VISION.md) ·
 [SPECCTRA.md](SPECCTRA.md) · [RELEASE_GATES.md](RELEASE_GATES.md) · [STATUS.md](STATUS.md) (dated log) ·
 [THIRD_PARTY.md](THIRD_PARTY.md)

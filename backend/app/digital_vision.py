@@ -1817,6 +1817,20 @@ def recognize(page, toks):
         if r not in components or value != 'UNKNOWN' and components[r] in ('', 'UNKNOWN'):
             components[r] = value         # a gate drawn twice: the copy with its part number printed wins
         anchors.append((r, t.cx, t.cy, box))
+    from .recognition_catalog import recover_marking
+    for ref,_,_,box in anchors:
+        if box and components.get(ref)=='UNKNOWN':
+            candidates=[]
+            for token in toks:
+                if id(token) in taken:continue
+                distance=max(box[0]-token.x1,token.x0-box[2],box[1]-token.y1,token.y0-box[3],0)
+                if distance<=1.5*ch:
+                    value=recover_marking(token.text)
+                    if value:candidates.append((distance,value,token))
+            if candidates:
+                candidates.sort(key=lambda row:row[0]);best=candidates[0]
+                if len({v for d,v,t in candidates if d==best[0]})==1:
+                    components[ref]=best[1];taken.add(id(best[2]))
     # An IC part number no reference took: the reference was misread ("!84", "L61", "89") or not read.
     # Take a misread one beside it, else read the area again enlarged. A body with pins whose
     # reference stays unreadable is still a part: U_1, U_2 ... to annotate in Capture.
@@ -1984,6 +1998,12 @@ def recognize(page, toks):
         for audit in reader.audit:
             if audit.get('state')=='completed':
                 warnings.append(f'RoI {audit["task"]}: served by {audit["served_model"]} ({audit["role"]}); crop {audit["bbox"]}. Review the interpretation.')
+    from .catalog_pin_solver import constrain_reads,exclusive_strip_labels
+    before_constraints={k:reading[0] for k,reading in strip_reads.items()}
+    constrain_reads(rows,strip_reads,components,ch,toks,edge_pins)
+    exclusive_strip_labels(edge_pins,strip_reads,toks,ch)
+    # A rejected strip number must not re-enter through the proximity fallback.
+    bounded_ends={k for k,old in before_constraints.items() if old and strip_reads[k][0] is None}
     for k, i, x, y, ux, uy, ref in edge_pins:
         num, label = strip_reads[k]
         PIN_DEBUG.append((ref, int(x), int(y), num, label))
@@ -1995,6 +2015,7 @@ def recognize(page, toks):
                            'edge': x if horizontal else y}
             strip_observations.append(observation)
         if not num:
+            if k in bounded_ends:used_ends.add(k)
             continue
         if (ref, num) in nodes and dsu.find(nodes[(ref, num)]) != dsu.find(i):
             warnings.append(f'{ref} pin {num} was read on two different wires; kept the first. Check it.')
@@ -2228,7 +2249,9 @@ def recognize(page, toks):
         from .observed_terminal_pairs import recover_observed_pairs
         recover_observed_pairs(graph,caption_tokens,lambda box:page.gray[box[1]:box[3],box[0]:box[2]])
         page.recovery_tokens=caption_tokens
-    return graph
+    from .wire_graph import recover_unlabelled_trees
+    from .catalog_pin_solver import normalize_graph
+    return normalize_graph(recover_unlabelled_trees(graph),tokens=caption_tokens)
 
 
 # ---------------------------------------------------------------- entry point

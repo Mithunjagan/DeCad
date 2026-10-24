@@ -1,4 +1,6 @@
 'use client';
+import DeCadMark from './DeCadMark';
+import PremiumEmptyCanvas from './PremiumEmptyCanvas';
 
 export function Icon({name, size = 18, ...props}) {
   const paths = {
@@ -19,7 +21,7 @@ export function Icon({name, size = 18, ...props}) {
 }
 
 export function Brand() {
-  return <span className="studio-brand"><span className="brand-symbol"><Icon name="circuit" size={22}/></span><span>DeCad<span className="brand-period">.</span></span></span>;
+  return <span className="studio-brand"><span className="brand-symbol"><DeCadMark className="decad-brand-mark" size={35}/></span><span>DeCad<span className="brand-period">.</span></span></span>;
 }
 
 // A decorative circuit drawing. It is deliberately labelled as an illustration,
@@ -62,5 +64,5 @@ export function WelcomeScreen({localAvailable, onLocal, onGithub, busy, status})
 }
 
 export function EmptyCanvas({hasProject, onCreate, onImport, onPrompt}) {
-  return <div className="studio-empty"><span className="empty-orbit"><Icon name="circuit" size={30}/></span><div className="eyebrow">YOUR NEXT CIRCUIT STARTS HERE</div><h2>Make room for an idea.</h2><p>{hasProject ? 'Build from a simple circuit or bring a design of your own.' : 'Create a project to start designing in your local workspace.'}</p><div className="empty-actions"><button className="studio-primary" onClick={hasProject ? onImport : onCreate}><Icon name={hasProject ? 'upload' : 'plus'}/>{hasProject ? 'Import a schematic' : 'Create your first project'}</button>{hasProject && <button className="studio-secondary" onClick={()=>onPrompt('create a voltage divider')}>Start with a voltage divider <Icon name="arrow" size={15}/></button>}</div><CircuitArtwork compact/><span className="empty-note">Native KiCad schematics · Local version history · SPICE simulation</span></div>;
+  return <PremiumEmptyCanvas hasProject={hasProject} onCreate={onCreate} onImport={onImport} onPrompt={onPrompt}/>;
 }

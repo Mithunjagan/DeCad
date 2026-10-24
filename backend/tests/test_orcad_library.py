@@ -33,6 +33,7 @@ def test_csv_without_header_and_mapping_edits(store):
 
 
 def test_footprint_resolution_order(store):
+    assert ol.footprint_for({'ref':'IC7','footprint':'CUSTOM_PACKAGE'},'PART',16,'LIB_PACKAGE',CATALOG)==('CUSTOM_PACKAGE','component')
     ol.set_mapping(store, '74F174', 'soic16')
     assert ol.footprint_for({'ref': 'U1', 'value': '74F174'}, '74F174', 16, 'DIP16', CATALOG) == ('soic16', 'part map')
     assert ol.footprint_for({'ref': 'U2', 'value': '74F08'}, '74F08', 14, 'DIP10014W300L800', CATALOG) == ('DIP10014W300L800', 'symbol library')

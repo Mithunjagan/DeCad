@@ -3,6 +3,29 @@ import pytest
 from app import orcad_capture as oc
 
 
+def test_universal_named_singletons_are_labeled_and_anonymous_pins_stay_bare():
+    from app import orcad_route as rt
+    from app.orcad_wire_gaps import endpoints
+    from test_orcad_route import page
+    pg=page();pins={('U1','1'):'SIGNAL',('U2','1'):'SIGNAL',('U1','3'):'VDD',
+                   ('U2','3'):'BUS_17',('U3','1'):'N$1'}
+    wires,summary=rt.route(pg,pins,oc._place,require_wires=True)
+    stubs=[w for w in wires if w[4] in ('VDD','BUS_17')]
+    assert len(stubs)==2 and all(abs(w[0]-w[2])+abs(w[1]-w[3])==20 for w in stubs)
+    pg.update(wires=[w[:4] for w in wires],aliases=[{'name':w[4],'x':w[5],'y':w[6]} for w in wires if w[4]])
+    assert summary['unlabelled_loose_ends']==0 and endpoints(pg)['passed']
+    assert rt.verify_visible_wires(pg,pins)['passed']
+    assert not any(w[4]=='N$1' for w in wires)
+
+
+@pytest.mark.parametrize('name',['N$1','NET1','UNCONNECTED','N00027','N_17'])
+def test_fallback_names_do_not_legalize_a_dangling_wire(name):
+    from app.orcad_wire_gaps import endpoints
+    pg={'parts':[{'pins':[{'hx':10,'hy':10}]}],'wires':[[10,10,30,10]],
+        'aliases':[{'name':name,'x':30,'y':10}]}
+    assert endpoints(pg)['unlabelled_loose_ends']==1
+
+
 def test_license_checkout_retries_only_before_session_creation(tmp_path, monkeypatch):
     from types import SimpleNamespace
     calls, sleeps = [], []

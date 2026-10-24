@@ -392,10 +392,12 @@ def tcl_word(text):
     return '"' + re.sub(r'([\\$\[\]"{}])', r'\\\1', text) + '"'
 
 
-def export(name, graph, cache_dir, *, preserve_connections=False):
+def export(name, graph, cache_dir, *, preserve_connections=False,source_image=None):
+    from .catalog_pin_solver import normalize_graph
+    graph=normalize_graph(graph)
     if preserve_connections or graph.get('image_metadata', {}).get('pin_anchors'):
         from .observed_export import orcad_bundle
-        return orcad_bundle(name,graph,cache_dir)
+        return orcad_bundle(name,graph,cache_dir,source_image=source_image)
     root = orcad_root()
     if root is None:
         raise OperationError('OrCAD Capture is not installed. Set ORCAD_ROOT to the OrCAD X installation folder.')
@@ -417,6 +419,13 @@ def export(name, graph, cache_dir, *, preserve_connections=False):
     pin_maps = {c['ref']: GENERIC_PINS.get(kicad_symbol(c) or '', {}) for c in graph['components']
                 if resolved[c['ref']][2] == 'generic symbol'}
     pin_net, corrections = {}, []
+    for observation in graph.get('image_metadata', {}).get('rejected_pin_observations', []):
+        node = observation.get('node') or {}
+        if not node.get('ref') or node.get('pin') is None:continue
+        note = f"{node['ref']} pin {node['pin']} removed from {observation.get('net', 'unknown net')}: {observation.get('reason', 'invalid physical pin')}."
+        if observation.get('split_pins'):
+            note += ' Split into physical pins ' + ', '.join(map(str, observation['split_pins'])) + '.'
+        if note not in corrections:corrections.append(note)
     for net in graph.get('nets', []):
         for node in net['nodes']:
             pin = connector_pin(resolved[node['ref']][1], str(node['pin']))
@@ -456,7 +465,7 @@ def export(name, graph, cache_dir, *, preserve_connections=False):
         if report['passed']:
             for f in Path(td).iterdir():f.unlink()
             _write(root, td, dsn, genlib, graph, resolved, generate, pin_net, footprints, wiring=True)
-            routing = _wire(root, td, dsn, pin_net, require_wires=True)
+            routing = _wire(root, td, dsn, pin_net, require_wires=True,source_graph=graph)
             dump = _run(root, 'orcad_dump.tcl', dsn)
             report = verify(dump, pin_net, mapping)
         report['routing'] = routing
@@ -496,6 +505,34 @@ SOURCE_SCALE = 6000   # Capture units per source-sheet width; positions already 
 SOURCE_MARGIN = 300
 
 
+def compress_source_spacing(graph,definitions,scale,margin=SOURCE_MARGIN):
+    """Rigidly translate symbols across empty source bands; preserve axis order."""
+    pin_counts={}
+    for net in graph['nets']:
+        for pin in net['nodes']:pin_counts[pin['ref']]=pin_counts.get(pin['ref'],0)+1
+    for axis in (0,1):
+        intervals=sorted((d['body'][axis],d['body'][axis+2]) for d in definitions.values() if d.get('body'))
+        key='x' if axis==0 else 'y'
+        for c in graph['components']:
+            if c['ref'] in definitions or c.get(key) is None:continue
+            center=margin+c[key]*scale
+            half=60 if axis==0 else max(40,((pin_counts.get(c['ref'],2)+1)//2)*15+20)
+            intervals.append((center-half,center+half))
+        intervals.sort()
+        gaps=[];end=None
+        for a,b in intervals:
+            if end is not None and a-end>80:gaps.append((end,a))
+            end=max(end if end is not None else b,b)
+        def mapped(value):return round((value-sum(max(0,min(value,b)-a-60) for a,b in gaps))/10)*10
+        for c in graph['components']:
+            key='x' if axis==0 else 'y';d=definitions.get(c['ref'])
+            if d:
+                old=d['center'][axis];new=mapped(old);shift=new-old;d['center'][axis]=new
+                if d.get('body'):d['body'][axis]+=shift;d['body'][axis+2]+=shift
+                c[key]=(new-margin)/scale
+            elif c.get(key) is not None:c[key]=(mapped(margin+c[key]*scale)-margin)/scale
+
+
 def placement(components, *, scale=SOURCE_SCALE):
     """Source body centres on Capture's 10-unit grid; missing positions are handled by the writer.
 
@@ -507,23 +544,43 @@ def placement(components, *, scale=SOURCE_SCALE):
             for c in components if c.get('x') is not None and c.get('y') is not None}
 
 
-def _wire(root, td, dsn, pin_net, *, require_wires=False):
+def _wire(root, td, dsn, pin_net, *, require_wires=False, source_graph=None, source_scale=SOURCE_SCALE, source_image=None):
     """Route the saved page and add its wires and labels (orcad_wire.tcl). Returns the routing summary."""
     from . import orcad_route
     for lock in Path(td).glob('*lck'):lock.unlink(missing_ok=True)
     pages = drawing(dsn)
     if not pages:raise OperationError('the design has no page to wire')
-    wires, summary = orcad_route.route(pages[0], pin_net, _place, require_wires=require_wires)
+    source_report=None;named_aliases=None;routing_pin_net=pin_net
+    if source_graph is not None:
+        from .orcad_source_wires import routing_hints,named_nets
+        source_report=routing_hints(source_graph)
+        aliases={old:new.upper() for old,new in net_aliases(source_graph).items()}
+        named_aliases={aliases[name] for name in named_nets(source_graph)}
+    from .orcad_wire_gaps import endpoints
+    observed_stub_nets=set()
+    for a in (source_graph or {}).get('image_metadata',{}).get('pin_anchors',[]):
+        if a.get('wire') is not None:
+            net=pin_net.get((a['ref'],str(a['pin'])))
+            if net:observed_stub_nets.add(net)
+    wires,summary=orcad_route.route(pages[0],routing_pin_net,_place,require_wires=require_wires,
+                                   source_report=source_report,named_aliases=named_aliases,observed_stub_nets=observed_stub_nets)
     data = Path(td) / 'wires.tcl'
     data.write_text(f'set design_path {tcl_word(str(dsn))}\nset wires {{\n' +
-                    '\n'.join('{' + ' '.join(tcl_word(v) for v in w) + '}' for w in wires) + '\n}\n', encoding='utf-8')
+                    '\n'.join('{' + ' '.join(tcl_word(v) for v in w) + '}' for w in wires) + '\n}\n'+
+                    ('set junctions {'+' '.join('{'+str(j['at'][0])+' '+str(j['at'][1])+'}' for j in source_report.get('exported_junctions',[]))+'}\n' if source_report else ''), encoding='utf-8')
     _run(root, 'orcad_wire.tcl', data)
     for lock in Path(td).glob('*lck'):lock.unlink(missing_ok=True)
     if require_wires:
-        check = orcad_route.verify_visible_wires(drawing(dsn)[0], pin_net)
+        native_page=drawing(dsn)[0]
+        native_page['observed_ports']=summary.get('observed_open_stub_ports',[])
+        check = orcad_route.verify_visible_wires(native_page, routing_pin_net)
         summary['visible_wire_verification'] = check
-        if not check['passed']:
-            raise OperationError('Saved OrCAD wires failed physical continuity checks: ' + json.dumps(check))
+        summary['endpoint_verification']=endpoints(native_page,(source_report or {}).get('inferred_segments',[]),valid_aliases=named_aliases or ())
+        summary['drawing_complete']=check['passed'] and summary['endpoint_verification']['passed']
+        summary['loose_wire_ends']=summary['endpoint_verification']['free_end_count']
+        summary['unlabelled_loose_ends']=summary['endpoint_verification']['free_end_count']
+        if not summary['drawing_complete']:
+            raise OperationError('Saved OrCAD wires failed physical continuity checks: ' + json.dumps({'connectivity':check,'endpoints':summary['endpoint_verification']}))
     return summary
 
 
@@ -587,13 +644,17 @@ def verify(dump, expected, mapping):
                 if len(words) > 4 and words[4]:placed_fp[words[1]] = words[4]
             else:actual[(words[1], words[2])] = words[3] if len(words) > 3 else ''
     errors, failed, missing = [], [], []
+    from .orcad_source_wires import real_net_name
+    counts={}
+    for name in expected.values():counts[name]=counts.get(name,0)+1
     missing_parts = sorted(set(mapping) - parts)
     errors += [f'{r} not placed' for r in missing_parts]
     for key, net in sorted(expected.items()):
         got = actual.get(key)
         if got is None:
             errors.append(f'{key[0]} pin {key[1]} does not exist on {mapping[key[0]]["package"]}'); failed.append(key); missing.append(key)
-        elif got.upper() != net.upper():
+        elif got.upper() != net.upper() and not (counts[net]==1 and not real_net_name(net) and
+                (not got or sum(v==got for v in actual.values())==1)):
             errors.append(f'{key[0]} pin {key[1]} on {got or "nothing"}, expected {net}'); failed.append(key)
     implicit = sorted(f'{r}.{p}={n}' for (r, p), n in actual.items() if (r, p) not in expected and n)
     return {'passed': not errors, 'errors': errors, 'failed_pins': failed, 'missing_pins': missing,
@@ -719,10 +780,14 @@ def drawing(dsn):
                     'base': w[7] if len(w) > 7 else w[1], 'vectors': [], 'pins': []}
             pages[-1]['parts'].append(part)
         elif k == 'V' and part:part['vectors'].append([w[1]] + [int(v) for v in w[2:]])
+        elif k == 'DISPLAY' and part:part.setdefault('display_properties',{})[w[1]]=w[2]
         elif k == 'PIN' and part:
             part['pins'].append({'number': w[2], 'name': w[3], 'hx': int(w[4]), 'hy': int(w[5]), 'sx': int(w[6]), 'sy': int(w[7]),
                                  'dot': w[8] == '1', 'clock': w[9] == '1'})
         elif k == 'WIRE':pages[-1]['wires'].append([int(v) for v in w[1:5]])
+        elif k == 'JUNCTION':
+            point=[int(w[1]),int(w[2])]
+            if point not in pages[-1].setdefault('junctions',[]):pages[-1]['junctions'].append(point)
         elif k == 'ALIAS':pages[-1]['aliases'].append({'name': w[1], 'x': int(w[2]), 'y': int(w[3])})
         elif k == 'GLOBAL':pages[-1]['globals'].append({'name': w[1], 'x': int(w[2]), 'y': int(w[3])})
     return pages
@@ -812,6 +877,8 @@ def svg(pages, title='', subtitle='Generated by DeCad · verified by reopening',
     for x1, y1, x2, y2 in pg['wires']:
         o.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{wirec}" stroke-width="1.6"/>')
         ends[(x2, y2)] = (x1, y1); ends.setdefault((x1, y1), (x2, y2))
+    for x,y in pg.get('junctions',[]):
+        o.append(f'<circle cx="{x}" cy="{y}" r="3" fill="{wirec}"/>')
     for a in pg['aliases']:
         fx, fy = ends.get((a['x'], a['y']), (a['x'] - 1, a['y']))
         if fy == a['y']:
@@ -881,30 +948,50 @@ def launch(dsn):
 
 def save_to_project(project_dir, name, graph, cache_dir, source=None,*,preserve_connections=False):
     """Export, verify and keep the design in <project>/orcad with a rendered preview and a status record."""
-    data, report = export(name, graph, cache_dir,**({'preserve_connections':True} if preserve_connections else {}))
+    from .wire_graph import recover_unlabelled_trees
+    graph=recover_unlabelled_trees(graph)
+    source_name=graph.get('image_metadata',{}).get('review_source',{}).get('name')
+    source_image=None
+    if source_name and Path(source_name).name==source_name:
+        candidate=Path(project_dir)/'references'/source_name
+        if candidate.is_file() and candidate.suffix.lower() in ('.png','.jpg','.jpeg','.bmp','.tif','.tiff','.webp'):
+            source_image=candidate
+    options={'preserve_connections':True} if preserve_connections else {}
+    if source_image:options['source_image']=source_image
+    data, report = export(name, graph, cache_dir,**options)
     out = Path(project_dir) / 'orcad'
     out.mkdir(exist_ok=True)
-    for old in out.iterdir():
-        if old.is_file():old.unlink()
-        elif old.is_dir():shutil.rmtree(old)
+    # Capture owns its lock files and simulation folders. Replacing generated
+    # artifacts must never delete its live *.lck handles or unrelated files.
     with zipfile.ZipFile(io.BytesIO(data)) as z:
         for n in z.namelist():
-            (out / n).parent.mkdir(parents=True, exist_ok=True); (out / n).write_bytes(z.read(n))
+            (out / n).parent.mkdir(parents=True, exist_ok=True)
+            try:(out / n).write_bytes(z.read(n))
+            except PermissionError as error:
+                raise OperationError('Close this project in OrCAD Capture before replacing the open design: '+n) from error
     dsn = next(out.glob('*.DSN'))
     try:
         pages = drawing(dsn)
-        (out / 'preview.svg').write_text(svg(pages, name, preserve_page=bool(placement(graph['components']))), encoding='utf-8')
+        (out / 'preview.svg').write_text(svg(pages, name, preserve_page=os.getenv('DSN_LAYOUT') == 'source'), encoding='utf-8')
         rendered, preview_error = sum(len(p['parts']) for p in pages), None
     except OperationError as e:
         rendered, preview_error = 0, str(e)
-    for lock in out.glob('*.DSNlck'):lock.unlink(missing_ok=True)
+    for lock in out.glob('*.DSNlck'):
+        try:lock.unlink(missing_ok=True)
+        except PermissionError:pass  # an open Capture document owns this handle
     status = {'generated_symbols': report.get('generated_symbols', []), 'corrections': report.get('corrections', []),'design': dsn.name, 'size': dsn.stat().st_size, 'passed': report['passed'], 'components': report['components'],
               'checked_pins': report['checked_pins'], 'nets': len({n['name'] for n in graph.get('nets', []) if n.get('nodes')}),
               'rendered_parts': rendered, 'preview_error': preview_error,
               'implicit_power_pins': len(report.get('implicit_power_pins', [])), 'substitutions': report.get('substitutions', {}),
               'footprints': report.get('footprints'), 'user_libraries': report.get('user_libraries', {}), 'netlist': report.get('netlist'),
+              'pcb_readiness': report.get('pcb_readiness'),
               'routing': report.get('routing'),
               'source_layout': report.get('source_layout'),
+              'source_comparison_available':(out/'source-versus-output.svg').is_file(),
+              'visual_comparison': {key:report['visual_comparison'][key] for key in
+                  ('source_faithful','component_fallbacks','pins_above_grid_tolerance','observed_source_edges_kept',
+                   'source_route_segments_measured','missing_source_junctions','incorrect_source_crossing_junctions','symbol_mismatches')}
+                  if report.get('visual_comparison') else None,
               'source': source, 'sha256': hashlib.sha256(dsn.read_bytes()).hexdigest()}
     (out / 'status.json').write_text(json.dumps(status, indent=2), encoding='utf-8')
     return data, status
@@ -913,7 +1000,20 @@ def save_to_project(project_dir, name, graph, cache_dir, source=None,*,preserve_
 def project_status(project_dir):
     """The project's last generated OrCAD design, or None."""
     out = Path(project_dir) / 'orcad'
-    if (out / 'status.json').is_file():return json.loads((out / 'status.json').read_text(encoding='utf-8'))
+    if (out / 'status.json').is_file():
+        status=json.loads((out / 'status.json').read_text(encoding='utf-8'))
+        routing=status.get('routing')
+        if routing is not None and 'endpoint_verification' not in routing:
+            dsn=out/status['design']
+            if dsn.is_file() and available():
+                from .orcad_wire_gaps import endpoints
+                try:
+                    routing['endpoint_verification']=endpoints(drawing(dsn)[0],routing.get('source_reconstruction',{}).get('inferred_segments',[]))
+                    routing['drawing_complete']=routing.get('all_connections_wired',False) and routing['endpoint_verification']['passed']
+                except OperationError as error:
+                    routing['drawing_complete']=False
+                    routing['endpoint_check_error']=str(error)
+        return status
     dsn = next(out.glob('*.DSN'), None) if out.is_dir() else None
     if not dsn:return None
     ver = json.loads((out / 'verification.json').read_text()) if (out / 'verification.json').is_file() else {}

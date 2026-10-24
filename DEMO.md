@@ -1,5 +1,9 @@
 # DeCad demo: schematic image / scanned PDF → native OrCAD Capture .DSN
 
+> Historical workflow notes. Use the [current setup guide](docs/SETUP.md) and
+> [recorded results](docs/RESULTS.md) for the pinned production profile and current published statistics.
+> Older timings and experimental model settings below retain their original scope.
+
 ## Before the panel (5 minutes)
 
 1. Close Docker Desktop (not needed; it holds port 3100 and RAM).

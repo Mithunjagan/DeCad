@@ -1,5 +1,9 @@
 # Native OrCAD Capture .DSN generation
 
+> Historical workflow notes. Use the [current setup guide](docs/SETUP.md) and
+> [recorded results](docs/RESULTS.md) for the pinned production profile and current published statistics.
+> Older timings and experimental model settings below retain their original scope.
+
 DeCad writes **native OrCAD Capture designs (.DSN)** through Capture's own database API, then
 reopens every saved design and checks it pin by pin before returning it. This needs a local OrCAD
 installation (tested with OrCAD X 26.1 at `D:\tools`; set `ORCAD_ROOT` if yours is elsewhere) and

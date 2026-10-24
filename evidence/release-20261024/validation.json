@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-24",
+  "base_commit": "0a5bfc5fb127c3df907d72323745b3596c66aa28",
+  "backend": {
+    "command": "backend/.venv/Scripts/python.exe -m pytest tests -q --disable-warnings --tb=short",
+    "required_environment": [
+      "KICAD_CLI",
+      "KICAD_SYMBOL_DIR",
+      "KICAD_FOOTPRINT_DIR",
+      "KICAD_PYTHON"
+    ],
+    "full_run": {
+      "passed": 474,
+      "failed": 2,
+      "skipped": 6
+    },
+    "fixed_tests": [
+      "test_export_drops_recognition_noise_instead_of_failing",
+      "test_positioned_dsn_centres_orientation_overlap_and_bottom_strip"
+    ],
+    "focused_rerun": {
+      "passed": 4,
+      "failed": 0,
+      "includes_two_new_launcher_cases": true
+    },
+    "distinct_passing_cases_verified": 478,
+    "unresolved_failures": 0,
+    "full_suite_repeated_after_fixes": false
+  },
+  "frontend": {
+    "command": "npm test",
+    "passed": 22,
+    "failed": 0,
+    "build_command": "npm run build",
+    "production_compilation_passed": true,
+    "isolated_build": true,
+    "standalone_packaging_validated": false,
+    "warning": "Isolated build used a node_modules junction; 27 traced files fell outside its tracing root. No deployment was performed."
+  },
+  "setup": {
+    "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File tools/check_setup.ps1 -RequireOrcad -ProbeServices -Json",
+    "passed_checks": 15,
+    "total_checks": 15,
+    "missing_kicad_rejected": true,
+    "clean_machine_install_performed": false,
+    "scope": "Native Windows setup prerequisites; no inference, licensing or accuracy certification"
+  },
+  "dataset_metadata": {
+    "records": 729,
+    "changed_fields_only": [
+      "image_source_review",
+      "image_source_review_reason"
+    ],
+    "circuit_content_preserved": true
+  },
+  "protected_checkpoint": {
+    "sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+    "unchanged": true
+  },
+  "recognition_rerun_for_this_update": false,
+  "recognition_results_scope": "Published dated receipts; current code checks are not fresh OCR accuracy measurements."
+}

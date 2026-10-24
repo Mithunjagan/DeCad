@@ -4,6 +4,8 @@ import WorkbenchDialog from './WorkbenchDialog';
 import {renameComponent,removeComponent,circuitErrors,editNetEvidence,confirmHotspot,evidenceText,mergeNets,splitPin,electricalWarnings} from './review-model.mjs';
 import {netGeometry} from './source-net.mjs';
 import styles from './CircuitReview.module.css';
+import {VerificationRibbon,ComparisonView,useCadProof} from './EngineeringProof';
+import {circuitSignature} from './engineering-proof.mjs';
 
 export default function CircuitReviewPanel({initial,source,request,onApply,onOrcad,onClose,busy:externalBusy,projectId,initialRevision}){
  const [circuit,setCircuit]=useState(()=>structuredClone({...initial,nets:initial.nets||[]}));
@@ -14,6 +16,9 @@ export default function CircuitReviewPanel({initial,source,request,onApply,onOrc
  const [sourcePage,setSourcePage]=useState(1),[rasterPreview,setRasterPreview]=useState(null),[hotspotLimit,setHotspotLimit]=useState(50);
  const [revision,setRevision]=useState(initialRevision||null),[saving,setSaving]=useState(false),[savedMessage,setSavedMessage]=useState('');
  const busy=externalBusy||saving;
+ const proof=useCadProof(request,projectId,busy,target==='kicad'||target==='kicad-observed'?'kicad':'orcad');
+ const currentProof=proof?.signature===circuitSignature(circuit)?proof:null;
+ const [hoverNet,setHoverNet]=useState(null);
  const hotspots=circuit.review_hotspots||[],sourceFrames=circuit.image_metadata?.source_frames||[];
  const sourcePages=[...new Set([...sourceFrames.map(f=>f.page),...hotspots.map(h=>h.page||1)])].sort((a,b)=>a-b);
  if(!sourcePages.length)sourcePages.push(1);
@@ -41,7 +46,7 @@ export default function CircuitReviewPanel({initial,source,request,onApply,onOrc
  const components=useMemo(()=>circuit.components.map((c,i)=>({c,i})).filter(({c})=>[c.ref,c.value,c.library].some(s=>String(s||'').toLowerCase().includes(query.toLowerCase()))),[circuit.components,query]);
  const nets=useMemo(()=>circuit.nets.map((n,i)=>({n,i})).filter(({n})=>[n.name,...n.nodes.map(p=>`${p.ref}:${p.pin}`)].some(s=>String(s).toLowerCase().includes(query.toLowerCase()))),[circuit.nets,query]);
  const selected=nets.find(({i})=>i===activeNet)||nets[0];
- const geometry=netGeometry(circuit,tab==='connections'?selected?.n:null,sourcePage);
+ const geometry=netGeometry(circuit,tab==='connections'?(circuit.nets[hoverNet]||selected?.n):null,sourcePage);
  const assigned=new Set(circuit.nets.flatMap(n=>n.nodes.map(p=>JSON.stringify([p.ref,p.pin]))));
  const unresolved=(circuit.physical_pins||[]).filter(p=>!assigned.has(JSON.stringify([p.ref,p.pin])));
  const editComponent=(i,key,value)=>{const ref=circuit.components[i].ref;update({...circuit,components:circuit.components.map((c,j)=>j===i?{...c,[key]:value}:c),
@@ -72,6 +77,7 @@ export default function CircuitReviewPanel({initial,source,request,onApply,onOrc
  const pageHotspots=hotspots.filter(h=>(h.page||1)===sourcePage&&!h.stale);
  const toggleHotspot=id=>update(confirmHotspot(circuit,id));
  return <WorkbenchDialog title="Review circuit" onClose={onClose} busy={busy} className={styles.dialog}>
+  <VerificationRibbon circuit={circuit} design={currentProof?.design}/>
   <div className={styles.intro}>
    <p>Compare the recognized parts and physical pins with your source. Save review preserves this graph; applying it writes the native design.</p>
    <div className={styles.summary}><span>{circuit.components.length} components</span><span>{circuit.nets.length} nets</span><span className={errors.length?styles.attention:styles.valid}>{errors.length?`${errors.length} issues to fix`:'Structure checked'}</span>
@@ -81,6 +87,7 @@ export default function CircuitReviewPanel({initial,source,request,onApply,onOrc
     {projectId&&<button disabled={busy||saving||rawDirty||!!errors.length} onClick={persist}>Save review</button>}
    </div>
   </div>
+  <ComparisonView sourceUrl={sourceUrl} generatedUrl={currentProof?.url||(!proof?.signature?proof?.url:null)} label={proof?.label} overlay={tab==='connections'&&<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-label="Highlighted net pin anchors" style={{position:'absolute',inset:0,width:'100%',height:'100%',pointerEvents:'none'}}>{geometry.pins.map(p=><circle key={`${p.ref}:${p.pin}`} cx={p.at[0]} cy={p.at[1]} r=".7" fill="#00ffbd" stroke="#123" strokeWidth=".18"><title>{p.ref}:{p.pin}</title></circle>)}</svg>}/>
   <div className={styles.tabs} role="tablist" aria-label="Circuit review sections">
    {tabs.map(([key,label,count])=><button key={key} role="tab" id={`${id}-${key}`} aria-controls={`${id}-panel`} aria-selected={tab===key} tabIndex={tab===key?0:-1} onKeyDown={e=>{if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();const index=tabs.findIndex(t=>t[0]===tab),next=e.key==='Home'?0:e.key==='End'?tabs.length-1:(index+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;selectTab(tabs[next][0]);document.getElementById(`${id}-${tabs[next][0]}`)?.focus();}}} onClick={()=>selectTab(key)}>{label}{count!==null&&<span>{count}</span>}{key==='json'&&rawDirty&&<span>Unsaved</span>}</button>)}
   </div>
@@ -114,7 +121,7 @@ export default function CircuitReviewPanel({initial,source,request,onApply,onOrc
      {!components.length&&<div className={styles.empty}>No matching components.{query&&<button onClick={()=>setQuery('')}>Clear filter</button>}</div>}
     </>}
     {tab==='connections'&&<div className={styles.connections}>
-     <div className={styles.netList} aria-label="Circuit nets">{nets.map(({n,i})=><button key={i} aria-pressed={selected?.i===i} onClick={()=>setActiveNet(i)}><strong>{n.name||'(unnamed net)'}</strong><span>{n.nodes.length} pins</span></button>)}{!nets.length&&<p>No matching nets.</p>}</div>
+     <div className={styles.netList} aria-label="Circuit nets">{nets.map(({n,i})=><button key={i} aria-pressed={selected?.i===i} onMouseEnter={()=>{setHoverNet(i);setShowSource(true);}} onMouseLeave={()=>setHoverNet(null)} onFocus={()=>{setHoverNet(i);setShowSource(true);}} onBlur={()=>setHoverNet(null)} onClick={()=>{setActiveNet(i);setShowSource(true);}}><strong>{n.name||'(unnamed net)'}</strong><span>{n.nodes.length} pins</span></button>)}{!nets.length&&<p>No matching nets.</p>}</div>
      {selected&&<section className={styles.netEditor} aria-label="Selected net">
       <div className={styles.netHeading}><label className={styles.field}><span>Net name</span><input aria-label="Net name" disabled={busy||rawDirty} value={selected.n.name} onChange={e=>editNet(selected.i,{...selected.n,name:e.target.value})}/></label><button className={styles.remove} disabled={busy||rawDirty} onClick={()=>removeNet(selected.i)}>Remove net</button></div>
       <p className={styles.evidence} title="Evidence score is a review heuristic, not measured accuracy.">{evidenceText(selected.n)}</p>

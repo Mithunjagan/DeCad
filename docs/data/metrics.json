@@ -1,0 +1,124 @@
+{
+  "measurement_date": "2026-10-24",
+  "scope": "Recorded recognition before CAD library substitution; not a fresh measurement of later source changes",
+  "clear_exact": 228,
+  "clear_labelled_pins": 245,
+  "clear_exact_percent": 93.06,
+  "cases": [
+    {
+      "id": "S1",
+      "label": "Sample 1",
+      "parts_found": 24,
+      "parts_gt": 28,
+      "parts_spurious": 0,
+      "values_ok": 24,
+      "pins_exact": 54,
+      "pins_gt": 56,
+      "seconds": 159.82
+    },
+    {
+      "id": "S3",
+      "label": "Sample 3",
+      "parts_found": 30,
+      "parts_gt": 34,
+      "parts_spurious": 1,
+      "values_ok": 29,
+      "pins_exact": 63,
+      "pins_gt": 69,
+      "seconds": 161.48
+    },
+    {
+      "id": "S4",
+      "label": "Sample 4",
+      "parts_found": 25,
+      "parts_gt": 30,
+      "parts_spurious": 0,
+      "values_ok": 23,
+      "pins_exact": 69,
+      "pins_gt": 72,
+      "seconds": 161.38
+    },
+    {
+      "id": "S5",
+      "label": "Sample 5",
+      "parts_found": 22,
+      "parts_gt": 25,
+      "parts_spurious": 0,
+      "values_ok": 21,
+      "pins_exact": 42,
+      "pins_gt": 48,
+      "seconds": 287.17
+    },
+    {
+      "id": "S4-scan300",
+      "label": "Sample 4 \u00b7 300 dpi",
+      "parts_found": 25,
+      "parts_gt": 30,
+      "parts_spurious": 4,
+      "values_ok": 23,
+      "pins_exact": 44,
+      "pins_gt": 72,
+      "seconds": 231.33
+    },
+    {
+      "id": "S4-scan200",
+      "label": "Sample 4 \u00b7 200 dpi",
+      "parts_found": 18,
+      "parts_gt": 30,
+      "parts_spurious": 2,
+      "values_ok": 17,
+      "pins_exact": 0,
+      "pins_gt": 72,
+      "seconds": 195.04
+    },
+    {
+      "id": "S4-blur300",
+      "label": "Sample 4 \u00b7 blurred",
+      "parts_found": 12,
+      "parts_gt": 30,
+      "parts_spurious": 3,
+      "values_ok": 12,
+      "pins_exact": 0,
+      "pins_gt": 72,
+      "seconds": 188.32
+    }
+  ],
+  "native_exports": {
+    "cases": 19,
+    "passed": 19,
+    "checked_pin_memberships": 2229,
+    "scope": "Visible wire continuity and reviewed graph export fidelity"
+  },
+  "xml_exports": 18,
+  "provisional_terminals": 37,
+  "native_recognition_subset": {
+    "physical_pins_found": 158,
+    "connected_pin_pairs_correct": 10,
+    "connected_pin_pairs_wrong": 0
+  },
+  "visual_audits": {
+    "cases": 3,
+    "source_faithful": 0
+  },
+  "footprint_repair": {
+    "parts": 24,
+    "assigned": 24,
+    "native_pcb_netlisting_verified": true,
+    "package_review_required": [
+      "J1",
+      "P1",
+      "P2",
+      "R5",
+      "U43"
+    ]
+  },
+  "protected_model_sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+  "source_sha256": {
+    "closure-summary.json": "019789e30b768673d40d4b0cfb3e3e4f405c731daf11aade00226248f5f1894b",
+    "footprint-repair.json": "8bf174b9e092b4340c7d386374102a5997a699b1623a45f3e325678d2dba92e9",
+    "native-export-summary.json": "b70d7e793f4cbe72d571046b18212769b25d2c1e278ce4d674d033b130736b7c",
+    "recognition-gate.json": "c947c2ecebaf6a4425f902c83ec8a9f2d110ba4f5c56964f4899bd022c36b82d",
+    "recognition-report.json": "1dfd6952fe76e906d416237ea9732d2bfbc6a62336ce2ebb824074bcd0ce0e3a",
+    "visual-audit.json": "9dc20078b7c16e350e2d945e5df966f9841759347f5aaadf9c9355cb1e23edca"
+  }
+}

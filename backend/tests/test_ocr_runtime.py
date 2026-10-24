@@ -92,6 +92,28 @@ def test_auto_mode_does_not_hide_cuda_failure_with_discrete_cpu_recognizer(confi
         asyncio.run(ingestion.extract_image(configured / 'sheet.png', 'auto'))
 
 
+def test_worker_recognition_failure_is_distinct_from_cuda_failure(configured, monkeypatch):
+    def failed(args, **kwargs):
+        request = json.loads(kwargs['input'])
+        runtime.record({**request, 'state': 'failed', 'error_kind': 'recognition',
+                        'gpu_verified': True, 'error': 'No legible part references.'})
+        return subprocess.CompletedProcess(args, 1, '', '')
+    monkeypatch.setattr(runtime.subprocess, 'run', failed)
+    with pytest.raises(runtime.RecognitionError, match='No legible part references'):
+        runtime.extract_digital(configured / 'sheet.png')
+
+
+def test_unverified_gpu_failure_cannot_claim_to_be_a_recognition_failure(configured, monkeypatch):
+    def failed(args, **kwargs):
+        request = json.loads(kwargs['input'])
+        runtime.record({**request, 'state': 'failed', 'error_kind': 'recognition',
+                        'gpu_verified': False, 'error': 'CUDA was not initialized.'})
+        return subprocess.CompletedProcess(args, 1, '', '')
+    monkeypatch.setattr(runtime.subprocess, 'run', failed)
+    with pytest.raises(OperationError, match='CUDA was not initialized'):
+        runtime.extract_digital(configured / 'sheet.png')
+
+
 def test_worker_preserves_only_the_source_users_library_context(configured, monkeypatch):
     from app.ocr_worker import workspace_library_store
     workspace = configured / 'workspaces'; mine = workspace / 'alice' / '.libraries'; mine.mkdir(parents=True)

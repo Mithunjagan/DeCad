@@ -1,8 +1,17 @@
 $ErrorActionPreference = 'Stop'
 # Runs the workbench without Docker, using the KiCad 10 Windows install (its bundled Python provides pcbnew).
 Set-Location $PSScriptRoot
+$nativeEnvironmentPath = Join-Path $PSScriptRoot 'backend\.env'
+if (-not $env:S2SDN_KICAD_DIR -and (Test-Path -LiteralPath $nativeEnvironmentPath)) {
+ $nativeKicadEntry = Get-Content -LiteralPath $nativeEnvironmentPath | Where-Object { $_ -match '^\s*S2SDN_KICAD_DIR\s*=' } | Select-Object -Last 1
+ if ($nativeKicadEntry) { $env:S2SDN_KICAD_DIR = ($nativeKicadEntry -split '=', 2)[1].Trim().Trim('"').Trim("'") }
+}
 $kicad = if ($env:S2SDN_KICAD_DIR) { $env:S2SDN_KICAD_DIR } else { 'D:\KICAD' }
 if (-not (Test-Path "$kicad\bin\kicad-cli.exe")) { throw "KiCad not found at $kicad. Set S2SDN_KICAD_DIR." }
+$nativeProfile = (Get-Content -LiteralPath (Join-Path $PSScriptRoot 'backend\pipeline_profiles.json') -Raw | ConvertFrom-Json).hybrid_max_accuracy
+$nativeCheckpoint = Join-Path $PSScriptRoot $nativeProfile.ocr_checkpoint
+if (-not (Test-Path -LiteralPath $nativeCheckpoint -PathType Leaf)) { throw 'The accepted OCR checkpoint is missing. Follow docs/SETUP.md before starting the production profile.' }
+if ((Get-FileHash -LiteralPath $nativeCheckpoint -Algorithm SHA256).Hash -ine $nativeProfile.ocr_checkpoint_sha256) { throw 'The OCR checkpoint digest does not match backend/pipeline_profiles.json. See docs/SETUP.md.' }
 $env:KICAD_CLI = "$kicad\bin\kicad-cli.exe"
 $env:KICAD_SYMBOL_DIR = "$kicad\share\kicad\symbols"
 $env:KICAD_FOOTPRINT_DIR = "$kicad\share\kicad\footprints"
@@ -20,7 +29,11 @@ if (-not (Test-Path $py)) {
  & $py -m pip install --no-deps -r backend\requirements-ocr.txt
  if ($LASTEXITCODE -ne 0) { throw 'OCR dependency install failed.' }
 }
-if (-not (Test-Path 'frontend\node_modules\next')) { Push-Location frontend; npm ci; Pop-Location }
+if (-not (Test-Path 'frontend\node_modules\next')) {
+ Push-Location frontend
+ try { npm ci; if ($LASTEXITCODE -ne 0) { throw 'Frontend dependency install failed.' } }
+ finally { Pop-Location }
+}
 New-Item -ItemType Directory -Force backend\workspaces,backend\.state | Out-Null
 function Test-Port($port) { [bool](Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue) }
 # Servers run with no console window at all (Windows Terminal ignores -WindowStyle Hidden).

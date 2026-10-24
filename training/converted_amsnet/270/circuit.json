@@ -367,5 +367,6 @@
     "voltage-mirror_0": [],
     "voltage_0": []
   },
-  "image_source_review": "verified"
+  "image_source_review": "required",
+  "image_source_review_reason": "The AMSnet converter auto-assigned verified without reviewing the image. Independent annotation review is required."
 }

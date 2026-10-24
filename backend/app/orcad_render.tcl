@@ -16,8 +16,11 @@ proc R {r} {
 }
 set s [DboTclHelper_sCreateSession]
 set st [DboState]
-set d [$s GetDesignAndSchematics [DboTclHelper_sMakeCString [lindex $argv 1]] $st]
-if {$d == "NULL"} {puts "ERROR cannot open design"; exit 2}
+set library_mode [expr {[lindex $argv 1] eq "--library"}]
+if {!$library_mode} {
+ set d [$s GetDesignAndSchematics [DboTclHelper_sMakeCString [lindex $argv 1]] $st]
+ if {$d == "NULL"} {puts "ERROR cannot open design"; exit 2}
+}
 
 proc points {iter} {
  set out {}
@@ -59,6 +62,35 @@ proc vectors {part} {
  }
 }
 
+if {$library_mode} {
+ foreach {path package} [lrange $argv 2 end] {
+  set lib [$s GetLib [DboTclHelper_sMakeCString $path] $st]
+  if {$lib eq "NULL"} {continue}
+  set pkg [$lib GetPackage [DboTclHelper_sMakeCString $package] $st]
+  if {$pkg eq "NULL"} {continue}
+  set di [$pkg NewDevicesIter $st];set dev [$di NextDevice $st];set section 0
+  while {$dev ne "NULL"} {
+   set cell [DboTclHelper_sMakeCString];$dev GetCellName $cell
+   set part [$lib GetPart [DboTclHelper_sMakeCString "[S $cell].Normal"] $st]
+   if {$part ne "NULL"} {
+    puts [list SYMBOL $path $package $section]
+    vectors $part
+    set pi [$part NewPinsIter $st];set pin [$pi NextPin $st];set index 0
+    while {$pin ne "NULL"} {
+     set number [DboTclHelper_sMakeCString];$dev GetPinNumber $index $number
+     set name [DboTclHelper_sMakeCString];$pin GetName $name
+     set hs [$pin GetHotSpot $st];set so [$pin GetStartPoint $st]
+     puts [list SYMBOLPIN [S $number] [S $name] [X $hs] [Y $hs] [X $so] [Y $so]]
+     incr index;set pin [$pi NextPin $st]
+    }
+    catch {delete_DboSymbolPinsIter $pi}
+   }
+   incr section;set dev [$di NextDevice $st]
+  }
+  delete_DboPackageDevicesIter $di
+ }
+ puts DONE;exit 0
+}
 set vi [$d NewViewsIter $st $::IterDefs_SCHEMATICS]
 set view [$vi NextView $st]
 while {$view != "NULL"} {
@@ -78,6 +110,8 @@ while {$view != "NULL"} {
     set loc [$pl GetLocation $st]
     set base [DboTclHelper_sMakeCString]; $pl GetReference $base
     puts [list PART [S $ref] [S $val] [X $loc] [Y $loc] [$pl GetRotation $st] [$pl GetMirror $st] [S $base]]
+    set displayValue [$pl GetDisplayProp [DboTclHelper_sMakeCString Value] $st]
+    if {$displayValue ne "NULL"} {puts [list DISPLAY Value [S $val]]}
     set part [$pl GetPart $st]
     if {$part != "NULL"} {catch {vectors $part}}
     set pi [$pl NewPinsIter $st]
@@ -101,6 +135,11 @@ while {$view != "NULL"} {
   while {$w != "NULL"} {
    set a [$w GetStartPoint $st]; set b [$w GetEndPoint $st]
    puts [list WIRE [X $a] [Y $a] [X $b] [Y $b]]
+   set ji [$w NewJunctionsIter $st]
+   while {[set junction [$ji NextJunction $st]] ne "NULL"} {
+    puts [list JUNCTION [X $junction] [Y $junction]]
+   }
+   delete_DboWireJunctionsIter $ji
    set ai [$w NewAliasesIter $st]
    set al [$ai NextAlias $st]
    while {$al != "NULL"} {

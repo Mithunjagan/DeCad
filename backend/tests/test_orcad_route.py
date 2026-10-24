@@ -93,3 +93,25 @@ def test_required_wires_rejects_an_unroutable_net(monkeypatch):
     monkeypatch.setattr(rt.Router, '_search', lambda *args: None)
     with pytest.raises(oc.OperationError, match='Visible wire routing incomplete'):
         rt.route(page(), {('U1', '1'): 'A', ('U2', '1'): 'A'}, oc._place, require_wires=True)
+
+
+def test_strict_routing_ignores_image_fragments_and_emits_no_singleton_stubs():
+    from app.orcad_wire_gaps import endpoints
+    pg=page();pins={('U1','1'):'A',('U2','1'):'A',('U3','1'):'ISOLATED'}
+    source={'accepted_edges':[],'rejected_edges':[],'source_junctions':[],'source_crossings':[]}
+    fragments=[{'id':'floating-image-fragment','net':'A','path':[(450,310),(450,450)]}]
+    wires,summary=rt.route(pg,pins,oc._place,require_wires=True,source_paths=fragments,
+                           source_report=source,named_aliases=set())
+    pg['wires']=[list(w[:4]) for w in wires]
+    assert not source['accepted_edges']
+    assert summary['loose_wire_ends']==0 and summary['labelled_pins']==0
+    assert endpoints(pg)['passed'] and rt.verify_visible_wires(pg,pins)['passed']
+
+
+def test_leaf_pruning_removes_entire_nonterminal_branch_and_keeps_pin_path():
+    router=rt.Router(page(),{('U1','1'):'A',('U2','1'):'A'},oc._place)
+    router._commit('A',[(x,31) for x in range(27,68)])
+    router._commit('A',[(45,y) for y in range(31,41)])
+    assert router.prune_leaves('A')==9
+    assert len(router.edges['A'])==40
+    assert (67,31) in router.connected_cells('A',{(27,31)})

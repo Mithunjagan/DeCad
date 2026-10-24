@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="610" viewBox="0 0 1200 610" role="img" aria-labelledby="title desc">
+<title id="title">Recorded recognition results, 24 October 2026</title>
+<desc id="desc">228 of 245 labelled pins exact across four clear sheets. 300 dpi: 44 of 72. 200 dpi and blurred: zero of 72.</desc>
+<rect width="1200" height="610" rx="20" fill="#151917"/>
+<g font-family="Segoe UI,Helvetica,Arial,sans-serif">
+<text x="38" y="47" font-size="13" letter-spacing="2" fill="#deb18b">RECORDED RESULTS / 24 OCT 2026</text>
+<text x="38" y="100" font-size="38" font-weight="600" fill="#eeeae2">93.1% <tspan font-size="22" font-weight="400">exact labelled pins on four clear sheets</tspan></text>
+<text x="38" y="130" font-size="14" fill="#a6afa0">Fresh OCR · recognition graph before library substitution · 228 / 245 checkpoints</text>
+<text x="38" y="179" fill="#e9e7de" font-size="16">Sample 1</text>
+<rect x="300" y="162" width="650" height="20" rx="5" fill="#2b302b"/>
+<rect x="300" y="162" width="626.79" height="20" rx="5" fill="#a4b89a"/>
+<text x="980" y="178" fill="#e9e7de" font-size="16">54/56 · 96.4%</text>
+<text x="38" y="233" fill="#e9e7de" font-size="16">Sample 3</text>
+<rect x="300" y="216" width="650" height="20" rx="5" fill="#2b302b"/>
+<rect x="300" y="216" width="593.48" height="20" rx="5" fill="#a4b89a"/>
+<text x="980" y="232" fill="#e9e7de" font-size="16">63/69 · 91.3%</text>
+<text x="38" y="287" fill="#e9e7de" font-size="16">Sample 4</text>
+<rect x="300" y="270" width="650" height="20" rx="5" fill="#2b302b"/>
+<rect x="300" y="270" width="622.92" height="20" rx="5" fill="#a4b89a"/>
+<text x="980" y="286" fill="#e9e7de" font-size="16">69/72 · 95.8%</text>
+<text x="38" y="341" fill="#e9e7de" font-size="16">Sample 5</text>
+<rect x="300" y="324" width="650" height="20" rx="5" fill="#2b302b"/>
+<rect x="300" y="324" width="568.75" height="20" rx="5" fill="#a4b89a"/>
+<text x="980" y="340" fill="#e9e7de" font-size="16">42/48 · 87.5%</text>
+<text x="38" y="395" fill="#e9e7de" font-size="16">Sample 4 · 300 dpi</text>
+<rect x="300" y="378" width="650" height="20" rx="5" fill="#2b302b"/>
+<rect x="300" y="378" width="397.22" height="20" rx="5" fill="#deb18b"/>
+<text x="980" y="394" fill="#e9e7de" font-size="16">44/72 · 61.1%</text>
+<text x="38" y="449" fill="#e9e7de" font-size="16">Sample 4 · 200 dpi</text>
+<rect x="300" y="432" width="650" height="20" rx="5" fill="#2b302b"/>
+<rect x="300" y="432" width="0.00" height="20" rx="5" fill="#deb18b"/>
+<text x="980" y="448" fill="#e9e7de" font-size="16">0/72 · 0.0%</text>
+<text x="38" y="503" fill="#e9e7de" font-size="16">Sample 4 · blurred</text>
+<rect x="300" y="486" width="650" height="20" rx="5" fill="#2b302b"/>
+<rect x="300" y="486" width="0.00" height="20" rx="5" fill="#deb18b"/>
+<text x="980" y="502" fill="#e9e7de" font-size="16">0/72 · 0.0%</text>
+<text x="38" y="572" font-size="14" fill="#a6afa0">Selected checkpoints, not complete-sheet accuracy. Degraded scans remain an open problem.</text>
+</g>
+</svg>

@@ -13,6 +13,26 @@ import sqlite3
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def recover_marking(text):
+    """Unambiguous catalog identity within one substitution, no family guesses."""
+    import re
+    value=text.strip().upper()
+    if not re.fullmatch(r'[A-Z0-9][A-Z0-9_-]{3,}',value):return None
+    try:
+        with connect() as db:
+            if db is None:return None
+            if db.execute('SELECT 1 FROM names WHERE normalized=? LIMIT 1',(value,)).fetchone():return value
+            # Only logic/memory-shaped captions qualify for fuzzy matching.
+            if not re.search(r'\d{2}',value):return None
+            matches=set()
+            for i in range(len(value)):
+                pattern=value[:i]+'_'+value[i+1:]
+                for row in db.execute('SELECT DISTINCT normalized FROM names WHERE length(normalized)=? AND normalized LIKE ?',(len(value),pattern)):
+                    if sum(a!=b for a,b in zip(value,row[0]))==1:matches.add(row[0])
+            return next(iter(matches)) if len(matches)==1 else None
+    except (OSError,sqlite3.Error):return None
+
+
 @contextmanager
 def connect(path=None):
     path = Path(path or os.getenv('S2SDN_COMPONENT_CATALOG') or ROOT/'backend/.state/recognition-catalog.sqlite')

@@ -12,6 +12,45 @@ import cv2
 import numpy as np
 
 
+def recover_unlabelled_trees(graph):
+    """Recover isolated terminals sharing a traced conductor; never merge bus lanes.
+
+    Existing multi-pin and manually edited nets are protected. Distinct printed
+    signal names remain distinct; a skeleton root alone cannot identify bus bits.
+    """
+    from copy import deepcopy
+    from .orcad_source_wires import real_net_name
+    meta=graph.get('image_metadata',{})
+    if not meta.get('wire_edges'):return graph
+    result=deepcopy(graph);nets=result['nets'];by_pin={(p['ref'],str(p['pin'])):i for i,n in enumerate(nets) for p in n['nodes']}
+    roots={};wire_roots=meta.get('wire_roots',[])
+    for a in meta.get('pin_anchors',[]):
+        key=(a['ref'],str(a['pin']));i=by_pin.get(key)
+        if i is None or nets[i].get('metadata',{}).get('evidence_stale'):continue
+        root=a.get('physical_net');wire=a.get('wire')
+        if root is None and isinstance(wire,int) and isinstance(wire_roots,list) and 0<=wire<len(wire_roots):root=wire_roots[wire]
+        if root is not None:roots.setdefault(root,set()).add(i)
+    removed=set();actions=[]
+    for root,indices in roots.items():
+        available=[i for i in indices if i not in removed]
+        anonymous=[i for i in available if len(nets[i]['nodes'])==1 and not real_net_name(nets[i]['name'])]
+        named=[i for i in available if real_net_name(nets[i]['name'])]
+        if len(named)==1:members=anonymous+named
+        else:members=anonymous
+        if len(members)<2:continue
+        # A physical bus carries several signals; preserve their individual labels.
+        if any(w.get('bus') and w.get('traced_physical_net')==root for w in meta.get('wires',[])):continue
+        target=named[0] if len(named)==1 else members[0]
+        keys={(p['ref'],str(p['pin'])) for i in members for p in nets[i]['nodes']}
+        nets[target]['nodes']=[{'ref':ref,'pin':pin,'source':'wire_trace','confidence':.85} for ref,pin in sorted(keys)]
+        nets[target]['metadata']={**nets[target].get('metadata',{}),'recovered_physical_root':root}
+        removed.update(i for i in members if i!=target)
+        actions.append({'physical_root':root,'net':nets[target]['name'],'pins':len(keys),'source':'saved_pixel_skeleton'})
+    result['nets']=[n for i,n in enumerate(nets) if i not in removed]
+    result.setdefault('image_metadata',{})['unlabelled_tree_recovery']=actions
+    return result
+
+
 def _passive_ref(ref):
     return re.fullmatch(r'[RCLD]\d+[A-H]?',ref) is not None
 

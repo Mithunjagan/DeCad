@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "parts": 24,
+  "pin_connections_preserved": 287,
+  "schematic_connectivity_unchanged": true,
+  "footprints": {
+    "assigned": 24,
+    "total": 24,
+    "placed": 24,
+    "sources": {
+      "standard (by package and pin count)": 5,
+      "symbol library": 19
+    },
+    "without": [],
+    "placeholder": [],
+    "not_in_library": []
+  },
+  "pcb_readiness": {
+    "footprint_properties_complete": true,
+    "ready": false,
+    "missing": [],
+    "readback_mismatches": [],
+    "needs_review": [
+      "J1",
+      "P1",
+      "P2",
+      "R5",
+      "U43"
+    ],
+    "not_in_library": [],
+    "native_pcb_netlisting_verified": true,
+    "scope": "Footprint properties and library availability; physical package suitability requires review"
+  },
+  "netlist_returncode": 0,
+  "native_netlist_files": {
+    "pstchip.dat": 36313,
+    "pstxprt.dat": 9327,
+    "pstxnet.dat": 48028
+  },
+  "source_design_unchanged": true
+}

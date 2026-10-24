@@ -184,6 +184,8 @@ def standard_footprint(component, package, pin_count, catalog):
 
 def footprint_for(component, package, pin_count, package_footprint, catalog):
     """(footprint, source) for one placed part."""
+    if component.get('footprint'):
+        return component['footprint'], 'component'
     row = lookup(component, package)
     if row and row.get('footprint'):
         return row['footprint'], 'part map'

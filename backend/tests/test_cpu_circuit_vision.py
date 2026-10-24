@@ -17,6 +17,51 @@ def test_real_pixel_component_value_and_pin_net_recognition(tmp_path,family,scal
  assert {n.name:{(x.ref,x.pin) for x in n.nodes} for n in c.nets}=={'VIN':{('V1','1'),('R1','1')},'VOUT':{('R1','2'),(last,'1')},'GND':{('V1','2'),(last,'2')}}
  assert c.warnings
 
+
+def novel_rc_diagram(path,scale=1,refs=('V731','R294','C803'),values=('9V','47k','220nF')):
+ """Fresh raster data, distinct geometry/refs/values from the five sample scans."""
+ from PIL import ImageFont
+ try:font=ImageFont.truetype('arial.ttf',22)
+ except OSError:font=ImageFont.load_default(size=22)
+ im=Image.new('RGB',(1000,850),'white');draw=ImageDraw.Draw(im)
+ draw.line([(190,310),(190,120),(700,120),(700,270)],fill='black',width=3)
+ draw.ellipse((140,310,240,410),outline='black',width=3)
+ draw.line([(190,325),(190,345)],fill='black',width=3)
+ draw.line([(180,335),(200,335)],fill='black',width=3)
+ draw.line([(180,385),(200,385)],fill='black',width=3)
+ draw.rectangle((680,270,720,390),outline='black',width=3)
+ if refs[2].startswith('C'):
+  draw.line([(700,390),(700,580)],fill='black',width=3)
+  draw.line([(675,580),(725,580)],fill='black',width=3)
+  draw.line([(675,620),(725,620)],fill='black',width=3)
+  draw.line([(700,620),(700,700),(190,700),(190,410)],fill='black',width=3)
+ else:
+  draw.line([(700,390),(700,550)],fill='black',width=3)
+  draw.rectangle((680,550,720,670),outline='black',width=3)
+  draw.line([(700,670),(700,700),(190,700),(190,410)],fill='black',width=3)
+ draw.line([(700,500),(770,500)],fill='black',width=3)
+ draw.ellipse((694,494,706,506),fill='black')
+ for point,text in [((50,320),refs[0]),((50,350),values[0]),((790,280),refs[1]),((790,310),values[1]),((790,575),refs[2]),((790,605),values[2]),((450,80),'VIN'),((790,480),'VOUT'),((740,690),'GND')]:
+  draw.text(point,text,fill='black',font=font)
+ if scale!=1:im=im.resize((round(im.width*scale),round(im.height*scale)),Image.Resampling.LANCZOS)
+ im.save(path)
+
+
+@pytest.mark.skipif(not shutil.which('tesseract'),reason='Native Tesseract required')
+@pytest.mark.parametrize('scale,suffix,refs,values',[
+ (.75,'png',('V731','R294','C803'),('9V','47k','220nF')),
+ (1,'png',('V731','R294','C803'),('9V','47k','220nF')),
+ (1.6,'jpg',('V731','R294','C803'),('9V','47k','220nF')),
+ (3,'png',('V731','R294','C803'),('9V','47k','220nF')),
+ (1,'png',('V317','R82','C945'),('5V','10k','100nF')),
+ (1.6,'jpg',('V999','R245','C731'),('3.3V','22k','10nF'))])
+def test_new_diagram_recognizes_nonexample_references_values_and_full_wiring(tmp_path,scale,suffix,refs,values):
+ source=tmp_path/f'novel-rc.{suffix}';novel_rc_diagram(source,scale,refs,values)
+ circuit=extract(source)
+ assert {c.ref:number(c.value) for c in circuit.components}==pytest.approx({r:number(v) for r,v in zip(refs,values)})
+ assert {n.name:{(p.ref,p.pin) for p in n.nodes} for n in circuit.nets}=={
+  'VIN':{(refs[0],'1'),(refs[1],'1')},'VOUT':{(refs[1],'2'),(refs[2],'1')},'GND':{(refs[0],'2'),(refs[2],'2')}}
+
 @pytest.mark.skipif(not shutil.which('tesseract'),reason='Native Tesseract required')
 def test_unmarked_crossing_is_rejected(tmp_path):
  with Image.open(Path(__file__).parent/'vision_fixtures/divider.png') as im:
@@ -45,7 +90,10 @@ def test_schematic_pdf_recovers_component_pin_connections(tmp_path):
 
 @pytest.mark.skipif(not shutil.which('tesseract'),reason='Native Tesseract required')
 def test_unreadable_reference_does_not_silently_omit_component(tmp_path):
- with Image.open(Path(__file__).parent/'vision_fixtures/divider.png') as im:im.resize((400,400)).save(tmp_path/'small.png')
+ with Image.open(Path(__file__).parent/'vision_fixtures/divider.png') as im:
+  # Remove the actual source reference; a readable lowercase OCR "v1" is valid.
+  ImageDraw.Draw(im).rectangle((35,225,100,265),fill='white')
+  im.resize((400,400)).save(tmp_path/'small.png')
  with pytest.raises(OperationError,match='reference/value'):extract(tmp_path/'small.png')
 
 from test_operations import client,create

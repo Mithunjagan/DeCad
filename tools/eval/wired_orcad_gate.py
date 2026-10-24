@@ -33,7 +33,10 @@ def main(args):
             (folder / 'preview.svg').write_text(oc.svg(pages, name), encoding='utf-8')
             (folder / 'drawing.json').write_text(json.dumps(pages, indent=2))
             result['cases'][name] = report
-            print(name, json.dumps(report['routing']), flush=True)
+            routing=report['routing'];source=routing.get('source_reconstruction',{})
+            print(name, json.dumps({'passed':report['passed'],'wired_nets':routing['wired_nets'],
+                                   'retained_source_unit_edges':source.get('retained_source_unit_edges'),
+                                   'inferred_segments':len(source.get('inferred_segments',[]))}), flush=True)
         except Exception as error:
             result['cases'][name] = {'passed': False, 'error': str(error)}
             print(name, 'FAILED', str(error), flush=True)
