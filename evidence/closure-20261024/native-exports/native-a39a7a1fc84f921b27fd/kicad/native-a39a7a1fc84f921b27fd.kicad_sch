@@ -1,0 +1,938 @@
+(kicad_sch
+  (version 20231120)
+  (generator eeschema)
+  (uuid "5d85c928-00c8-4415-a74d-f1f68197da58")
+  (paper "A4")
+  (lib_symbols
+    (symbol "DeCad:10K_R1"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "10K"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "10K_R1_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "10K_R1_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 0 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:330R_R2"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "330R"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "330R_R2_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "330R_R2_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:10K_R3"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "10K"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "10K_R3_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "10K_R3_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 0 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:Wio-SX1262_U1"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "U"
+        (at 0 10.16 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "Wio-SX1262"
+        (at 0 12.7 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 15.24 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 17.78 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "Wio-SX1262_U1_0_1"
+        (rectangle
+          (start -7.62 8.89)
+          (end 7.62 -8.89)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "Wio-SX1262_U1_1_1"
+        (pin passive line
+          (at -12.7 6.35 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at -12.7 3.81 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at -12.7 1.27 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at -12.7 -1.27 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "4"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at -12.7 -3.81 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "5"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at -12.7 -6.35 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "6"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 6.35 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "7"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 3.81 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "8"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 1.27 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "9"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 -1.27 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "10"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 -3.81 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "11"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 -6.35 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "12"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:10K_R1")
+    (at 45 45.27 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "4d9ecc12-a15d-4954-b16f-e57cd695a3f9")
+    (property "Reference" "R1"
+      (at 50.08 45.27 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "10K"
+      (at 50.08 47.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 50.08 50.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 50.08 52.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid "873af28a-c764-4442-9b93-3c2e72f4d148")
+    )
+    (pin "2"
+      (uuid "e22141a3-5150-45d5-8e22-b8f9b02bac77")
+    )
+    (instances
+      (project "kicad"
+        (path "/5d85c928-00c8-4415-a74d-f1f68197da58"
+          (reference "R1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:330R_R2")
+    (at 145 45.27 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "4278799e-f714-485d-aa49-2978f1d079dc")
+    (property "Reference" "R2"
+      (at 150.08 45.27 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "330R"
+      (at 150.08 47.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 150.08 50.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 150.08 52.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid "49867f6c-c488-48af-ad8e-dfdb8b458828")
+    )
+    (instances
+      (project "kicad"
+        (path "/5d85c928-00c8-4415-a74d-f1f68197da58"
+          (reference "R2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:10K_R3")
+    (at 245 45.27 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "30dce9c3-a4eb-4f03-9132-47fbc7a0d45e")
+    (property "Reference" "R3"
+      (at 250.08 45.27 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "10K"
+      (at 250.08 47.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 250.08 50.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 250.08 52.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid "272eb142-0ab3-464a-b9a1-4cbbc97251be")
+    )
+    (pin "2"
+      (uuid "db8220ff-d7ad-44ef-9f4e-557f4645e0d0")
+    )
+    (instances
+      (project "kicad"
+        (path "/5d85c928-00c8-4415-a74d-f1f68197da58"
+          (reference "R3")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:Wio-SX1262_U1")
+    (at 345 51.62 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "ab4ed35f-aff0-47c1-908d-7bd4758ef43d")
+    (property "Reference" "U1"
+      (at 350.08 51.62 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "Wio-SX1262"
+      (at 350.08 54.16 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 350.08 56.7 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 350.08 59.24 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid "34eaee50-5217-4723-b537-1ae7a74cb84a")
+    )
+    (pin "2"
+      (uuid "60fcc880-e3f3-449d-af02-31d145b8baa7")
+    )
+    (pin "3"
+      (uuid "ed3e5db0-cf6c-4341-b448-3ef02fa7c83b")
+    )
+    (pin "4"
+      (uuid "23f157e8-5a82-4d4c-8669-8b64c229929d")
+    )
+    (pin "5"
+      (uuid "31e9c162-002a-4049-8020-0842d606762f")
+    )
+    (pin "6"
+      (uuid "2d056ce0-ab6c-46e3-9b69-2380b7f685f4")
+    )
+    (pin "7"
+      (uuid "ecec36c2-dce0-4ff0-8c5f-1de5328a2328")
+    )
+    (pin "8"
+      (uuid "9ac60da3-5dbb-441d-afba-03de5451776b")
+    )
+    (pin "9"
+      (uuid "b3f3a5b2-3f44-403e-b4f4-ee6c7d16db96")
+    )
+    (pin "10"
+      (uuid "b88ec1b5-826d-4dac-8884-a8e0bba7e728")
+    )
+    (pin "11"
+      (uuid "c27ec953-d060-43ef-83b9-c545915eefe6")
+    )
+    (pin "12"
+      (uuid "8996732a-5ce9-4f68-8bda-5ca9d47adb06")
+    )
+    (instances
+      (project "kicad"
+        (path "/5d85c928-00c8-4415-a74d-f1f68197da58"
+          (reference "U1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (label "+3V3"
+    (at 57.7 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "7202ebb8-58ea-44a7-8086-89d685451648")
+  )
+  (label "+3V3"
+    (at 257.7 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "d9e0534d-9f4a-49f7-99b9-7870c945d929")
+  )
+  (label "LORA_BUSY"
+    (at 357.7 55.43 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "170c4a5e-f20a-41cf-b812-3a29468025b3")
+  )
+  (label "LORA_DI1"
+    (at 357.7 57.97 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "05919244-1776-4577-80f2-f076188a2385")
+  )
+  (label "LORA_RST"
+    (at 332.3 55.43 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "b01350d2-32a4-410a-901a-22a2a1266644")
+  )
+  (label "N00022"
+    (at 357.7 52.89 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "cd3680a2-c991-4d58-9a00-d37cdc0c749f")
+  )
+  (label "N00037"
+    (at 357.7 50.35 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "c5d113c1-d215-4ec6-ae6a-b929b7fb4ca8")
+  )
+  (label "N00047"
+    (at 357.7 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "8a7c8baf-be40-4b3e-aa57-1cff3171ac14")
+  )
+  (label "N00058"
+    (at 357.7 47.81 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "555227df-2f6c-442a-9959-e1acdeea70fb")
+  )
+  (label "N00063"
+    (at 32.3 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "a02150b6-f6f3-4585-9fc2-c4e801cb157a")
+  )
+  (label "N00093"
+    (at 132.3 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "9cca24a0-afba-4a3a-a294-63c0c57e0f26")
+  )
+  (label "N00151"
+    (at 232.3 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "dd2f5ad7-a88b-451c-863e-e96ae4382309")
+  )
+  (label "R414/R21"
+    (at 332.3 47.81 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "d3ee7af1-c101-4efd-9560-f8877fb69dbe")
+  )
+  (label "R514/R21"
+    (at 332.3 50.35 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "ce05386a-d846-4674-bfb7-7bcbef3af258")
+  )
+  (label "R614/R21"
+    (at 332.3 52.89 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "874ccf0e-f620-4d2e-8a02-079bf4312fb2")
+  )
+  (label "R714/R21"
+    (at 332.3 57.97 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "f28ef905-2a9f-4f24-8faf-c5b470bf23f2")
+  )
+  (label "RA_RF_SW1"
+    (at 332.3 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "8ba0eae8-3edd-4d85-b9c4-1886e76976c6")
+  )
+)

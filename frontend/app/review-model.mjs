@@ -46,12 +46,12 @@ export function splitPin(circuit,index,pinIndex){
 }
 export function evidenceText(item){
   if(item?.confidence==null)return 'Unscored';
-  const labels={vector:'Native PDF',wire_trace:'Traced wire',net_label:'Printed label',erc_healed:'Recovered connection',vlm_tiebreak:'Crop interpretation'};
+  const labels={vector:'Native PDF',wire_trace:'Traced wire',net_label:'Printed label',erc_healed:'Recovered connection',vlm_tiebreak:'Crop interpretation',implicit_passive_terminal:'Inferred passive terminal',provisional_stub:'Provisional stub - confirm number and net'};
   return `${labels[item.source]||'Evidence'} · ${item.confidence.toFixed(2)}`;
 }
 export function circuitErrors(circuit) {
   const errors=[],refs=new Set(),names=new Set(),pins=new Set();
-  const evidence=item=>{if(item.confidence!=null&&(!Number.isFinite(item.confidence)||item.confidence<0||item.confidence>1))errors.push('Evidence scores must be between 0 and 1.');if(item.source!=null&&!['vector','wire_trace','net_label','erc_healed','vlm_tiebreak'].includes(item.source))errors.push('Unknown evidence source.');};
+  const evidence=item=>{if(item.confidence!=null&&(!Number.isFinite(item.confidence)||item.confidence<0||item.confidence>1))errors.push('Evidence scores must be between 0 and 1.');if(item.source!=null&&!['vector','wire_trace','net_label','erc_healed','vlm_tiebreak','implicit_passive_terminal','provisional_stub'].includes(item.source))errors.push('Unknown evidence source.');};
   if(!Array.isArray(circuit?.components)||!Array.isArray(circuit?.nets))return ['Components and nets must be lists.'];
   if(!circuit.components.length)errors.push('Add at least one component.');
   if(circuit.warnings!==undefined&&(!Array.isArray(circuit.warnings)||circuit.warnings.some(w=>typeof w!=='string')))errors.push('Warnings must be a list of text.');

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "scope": "Complete observed graph export fidelity, not recognition accuracy",
+  "components": 27,
+  "checked_pins": 273,
+  "matched_pins": 273,
+  "missing_parts": [],
+  "extra_parts": [],
+  "wrong_values": [],
+  "missing_pins": [],
+  "extra_pins": [],
+  "wrong_pins": [],
+  "native_readback": true,
+  "format": "KiCad",
+  "symbol_mode": "literal observed pin IDs"
+}

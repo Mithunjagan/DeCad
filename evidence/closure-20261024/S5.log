@@ -1,0 +1,4 @@
+Pipeline: hybrid_max_accuracy 4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6
+S5: OCR ((11693, 16528), scale=1.667)
+S5: wiring (733 tokens)
+S5 {'parts_gt': 25, 'parts_found': 22, 'parts_spurious': 0, 'values_ok': 21, 'pins_gt': 48, 'pins_exact': 42, 'pins_present': 45, 'seconds': 279.45, 'components': 27, 'connections': 273, 'scope': 'recognition_without_CAD_library_check', 'fresh_ocr': True, 'text_model_sha256': 'c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf', 'fallback_model_sha256': None, 'fallback_routing': None, 'source_sha256': '2ac0750f8c3ae1ead34b9a8ae710a6ab90cf2bce4facdc71dae9016a8354818e', 'recognizer_sha256': 'd8041ec7c4e2960894714bd9ac0701fd5190f2cf29ec3f2342d2c1309545f480', 'fallback_source_sha256': '05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe'}

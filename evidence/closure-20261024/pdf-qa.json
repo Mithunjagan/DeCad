@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "pages_rendered": 4,
+  "pages_visually_reviewed": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "sha256": "efee3ada5e1492f70ad048b3ea73e8a7526ed8f71b3cb352464cf518fb3f9aac",
+  "source_unchanged_after_live": true
+}

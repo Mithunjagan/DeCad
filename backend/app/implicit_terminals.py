@@ -201,6 +201,43 @@ def reread_reference(gray,token):
     return (readings[0][0],min(r[1] for r in readings)) if readings[0][0].upper()==readings[1][0].upper() else None
 
 
+def complete_amplifier_stubs(binary,ref,body,polygon,anchors,ch,family=None):
+    """Complete one unread number only from five visible amplifier leads.
+
+    Four observed numbers must identify a unique standard inventory. A shared
+    subset such as 1/2/3/4 is ambiguous between five- and eight-pin families.
+    Geometry supplies the remaining physical terminal, never a guessed net.
+    """
+    from .terminal_recovery import perimeter_stubs
+    if not re.fullmatch(r'U\d+',ref) or len(polygon)!=3:return []
+    known=[a for a in anchors if a['ref']==ref]
+    ids={str(a['pin']) for a in known}
+    if len(known)!=4 or len(ids)!=4 or any(a.get('confidence',0)<.65 for a in known):return []
+    families=[{'1','2','3','4','5'},{'2','3','4','6','7'},{'1','2','3','4','8'}]
+    choices=[f for f in families if ids<f and (family is None or f==set(map(str,family)))]
+    if len(choices)!=1:return []
+    stubs=perimeter_stubs(binary,body,ch,corner_inset=0)
+    if len(stubs)!=5:return []
+    directions={tuple(s['direction']):sum(s['direction']==t['direction'] for t in stubs) for s in stubs}
+    flat=[d for d,count in directions.items() if count==2]
+    if len(flat)!=1 or len(directions)!=4:return []
+    ux,uy=(-flat[0][0],-flat[0][1])
+    projections=sorted(x*ux+y*uy for x,y in polygon);span=projections[-1]-projections[0]
+    if span<=0 or projections[1]-projections[0]>.15*span:return []
+    occupied=set()
+    for anchor in known:
+        distances=sorted((math.dist((anchor['x'],anchor['y']),(s['x'],s['y'])),i) for i,s in enumerate(stubs))
+        distance,index=distances[0]
+        if distance>max(10,1.1*ch) or index in occupied:return []
+        occupied.add(index)
+    stub=next(s for i,s in enumerate(stubs) if i not in occupied)
+    dx,dy=stub['direction'];pin=next(iter(choices[0]-ids))
+    return [{'ref':ref,'pin':pin,'x':round(stub['x']+8*dx),'y':round(stub['y']+8*dy),
+             'body':list(body),'direction':[dx,dy],'source':'wire_trace','confidence':.7,
+             'kind':'standard_amplifier_completion',
+             'reason':'Five visible amplifier leads and four observed numbers uniquely identify the remaining terminal'}]
+
+
 def analog_graph(gray,tokens,original):
     """Fuse passive/circle/triangle geometry only on small analog-only sheets.
 
@@ -220,7 +257,7 @@ def analog_graph(gray,tokens,original):
         if not (35<min(w,h) and max(w,h)<240 and .3<area/(w*h)<.65):continue
         poly=cv2.approxPolyDP(contour,.035*cv2.arcLength(contour,True),True)
         if len(poly)==3 and not any(s['kind']=='U' and abs(s['x']-x)+abs(s['y']-y)<12 for s in symbols):
-            symbols.append(dict(kind='U',x=x,y=y,w=w,h=h))
+            symbols.append(dict(kind='U',x=x,y=y,w=w,h=h,polygon=poly.reshape(-1,2).tolist()))
     if not any(s['kind']=='U' for s in symbols):return None
     used=set();assigned=[];components=[];anchors=[]
     for word in refs:
@@ -263,6 +300,12 @@ def analog_graph(gray,tokens,original):
                 if candidates:
                     _,px,py=min(candidates);anchors.append(dict(ref=ref,pin=number['text'],x=px,y=py,confidence=.85,source='wire_trace',body=[x,y,x+w,y+h]))
     if not any(c['ref'].startswith('U') for c in components) or not {c['ref'] for c in original['components']}<={c['ref'] for c in components}:return None
+    for ref,body in assigned:
+        if body['kind']=='U':
+            box=[body['x'],body['y'],body['x']+body['w'],body['y']+body['h']]
+            heights=[w['bbox'][3]-w['bbox'][1] for w in words if w['conf']>=.9]
+            lettering=float(np.median(heights)) if heights else 18
+            anchors.extend(complete_amplifier_stubs(clean,ref,box,body.get('polygon',[]),anchors,lettering))
     wire=clean|cv2.morphologyEx(binary,cv2.MORPH_OPEN,np.ones((30,1),np.uint8))|cv2.morphologyEx(binary,cv2.MORPH_OPEN,np.ones((1,30),np.uint8))
     for ref,b in assigned:
         x,y,w,h=[b[k] for k in ('x','y','w','h')];wire[max(0,y-5):y+h+6,max(0,x-5):x+w+6]=0
@@ -294,4 +337,6 @@ def analog_graph(gray,tokens,original):
     return {'components':components,'nets':[{'name':name,'nodes':nodes} for name,nodes in merged.items()],
             'warnings':['Analog symbols recovered from raster geometry. Unprinted passive terminals use left/top=1, right/bottom=2; review polarity and numbering.'],
             'image_metadata':{**original.get('image_metadata',{}),'pin_anchors':resolved,'analog_geometry_fusion':True,
-                              'symmetric_terminal_refs':[c['ref'] for c in components if c['ref'][0] in 'RCL']}}
+                              'symmetric_terminal_refs':[c['ref'] for c in components if c['ref'][0] in 'RCL'],
+                              'local_recovery_actions':original.get('image_metadata',{}).get('local_recovery_actions',[])+
+                                  [dict(a,bbox=a['body']) for a in resolved if a.get('kind')=='standard_amplifier_completion']}}

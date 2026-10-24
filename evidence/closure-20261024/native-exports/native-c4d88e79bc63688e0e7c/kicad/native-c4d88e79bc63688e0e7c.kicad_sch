@@ -1,0 +1,1703 @@
+(kicad_sch
+  (version 20231120)
+  (generator eeschema)
+  (uuid "aff09f59-2364-4adf-970e-9d3622989508")
+  (paper "A4")
+  (lib_symbols
+    (symbol "DeCad:CONNECTOR_P32"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "P"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "CONNECTOR"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "CONNECTOR_P32_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "CONNECTOR_P32_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "53"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:10K_R11"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "10K"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "10K_R11_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "10K_R11_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 0 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:1.5K_R15"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "1.5K"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "1.5K_R15_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "1.5K_R15_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 0 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:5.1K_R2"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "5.1K"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "5.1K_R2_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "5.1K_R2_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 0 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:22R_R3"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "22R"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "22R_R3_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "22R_R3_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "11"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:5.1K_R4"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "5.1K"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "5.1K_R4_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "5.1K_R4_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "7"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:0R_R5"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "0R"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "0R_R5_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "0R_R5_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "5"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 0 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "25"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:10K_R7"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "10K"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "10K_R7_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "10K_R7_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 0 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "7"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:10K_R8"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "10K"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "10K_R8_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "10K_R8_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 0 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:100K_R9"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "100K"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "100K_R9_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "100K_R9_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 12.7 0 180)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "8"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol "DeCad:UNKNOWN_U580"
+      (pin_names
+        (offset 1.016)
+      )
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "U"
+        (at 0 3.81 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "UNKNOWN"
+        (at 0 6.35 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" ""
+        (at 0 8.89 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Datasheet" ""
+        (at 0 11.43 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (symbol "UNKNOWN_U580_0_1"
+        (rectangle
+          (start -7.62 2.54)
+          (end 7.62 -2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "UNKNOWN_U580_1_1"
+        (pin passive line
+          (at -12.7 0 0)
+          (length 5.08)
+          (name "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "5"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:CONNECTOR_P32")
+    (at 45 45.27 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "67c2b326-0a0f-4f66-9963-47b4457df27f")
+    (property "Reference" "P32"
+      (at 50.08 45.27 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "CONNECTOR"
+      (at 50.08 47.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 50.08 50.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 50.08 52.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "53"
+      (uuid "38d42367-b352-4bca-b209-3af0760127af")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "P32")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:10K_R11")
+    (at 145 45.27 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "d7b47959-dde5-4709-9697-95ae0f2f1fe4")
+    (property "Reference" "R11"
+      (at 150.08 45.27 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "10K"
+      (at 150.08 47.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 150.08 50.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 150.08 52.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid "c172e370-1c94-4d80-a5b1-4edfc3fcfeb3")
+    )
+    (pin "2"
+      (uuid "08794dca-2588-4c3e-ab75-078ae5af611b")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "R11")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:1.5K_R15")
+    (at 245 45.27 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "eb03f750-7a4e-4b26-acd5-2ac956ea626d")
+    (property "Reference" "R15"
+      (at 250.08 45.27 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "1.5K"
+      (at 250.08 47.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 250.08 50.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 250.08 52.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid "1e076338-7f0c-450e-b0c3-8e8ad2f86859")
+    )
+    (pin "2"
+      (uuid "4cc3b2ce-fcc1-45a1-ade1-f44a0675ad00")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "R15")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:5.1K_R2")
+    (at 345 45.27 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "cd546550-5873-4c4b-9da4-1af72df58230")
+    (property "Reference" "R2"
+      (at 350.08 45.27 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "5.1K"
+      (at 350.08 47.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 350.08 50.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 350.08 52.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid "59e0810b-dccd-4771-8d96-dc5e0f13cee5")
+    )
+    (pin "2"
+      (uuid "8521f274-757b-43da-b435-74a5c62f5318")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "R2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:22R_R3")
+    (at 45 80.81 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "3a37e79a-1408-4e3b-b7cb-87e7aec094da")
+    (property "Reference" "R3"
+      (at 50.08 80.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "22R"
+      (at 50.08 83.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 50.08 85.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 50.08 88.43 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "11"
+      (uuid "27c58e96-e1f9-42dc-aa3f-84906061bab3")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "R3")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:5.1K_R4")
+    (at 145 80.81 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "cbd0504e-dfc0-4c71-b3f9-3d790fafc82b")
+    (property "Reference" "R4"
+      (at 150.08 80.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "5.1K"
+      (at 150.08 83.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 150.08 85.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 150.08 88.43 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "7"
+      (uuid "d48d4daf-6f57-41a4-973d-5f2033bceec5")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "R4")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:0R_R5")
+    (at 245 80.81 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "8d827f55-0505-4a95-b6b4-f88a389d3640")
+    (property "Reference" "R5"
+      (at 250.08 80.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "0R"
+      (at 250.08 83.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 250.08 85.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 250.08 88.43 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "5"
+      (uuid "ec9f990a-10d1-4e7f-a313-911d37e14ab2")
+    )
+    (pin "25"
+      (uuid "99245a3f-9406-4f23-b6c7-0517167dde1d")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "R5")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:10K_R7")
+    (at 345 80.81 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "abb0e7d2-7f18-49fc-af25-a77d69a6f8bf")
+    (property "Reference" "R7"
+      (at 350.08 80.81 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "10K"
+      (at 350.08 83.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 350.08 85.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 350.08 88.43 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid "9a192392-bc5a-4b23-a93b-22a563b62589")
+    )
+    (pin "7"
+      (uuid "dad7bdf1-ef94-402b-b9f1-1471d60139d7")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "R7")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:10K_R8")
+    (at 45 116.35 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "73eebe40-6dd4-4fa3-b636-7f1c06cf4cce")
+    (property "Reference" "R8"
+      (at 50.08 116.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "10K"
+      (at 50.08 118.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 50.08 121.43 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 50.08 123.97 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid "ffb4df99-9b7e-4a0b-924a-b341007e1596")
+    )
+    (pin "2"
+      (uuid "32a95b96-5e9f-4b45-bdcf-363b347e70a9")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "R8")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:100K_R9")
+    (at 145 116.35 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "2a45de5b-e542-4867-b8de-c468c0816049")
+    (property "Reference" "R9"
+      (at 150.08 116.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "100K"
+      (at 150.08 118.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 150.08 121.43 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 150.08 123.97 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "2"
+      (uuid "97bd4b72-1773-4e3f-9088-1b14ad66c5c6")
+    )
+    (pin "8"
+      (uuid "6613a6d4-3e52-429b-ac57-8684b5d34758")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "R9")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "DeCad:UNKNOWN_U580")
+    (at 245 116.35 0)
+    (unit 1)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "a2954f1d-6604-4f29-b7d8-9090376a2c0a")
+    (property "Reference" "U580"
+      (at 250.08 116.35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Value" "UNKNOWN"
+      (at 250.08 118.89 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" ""
+      (at 250.08 121.43 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" ""
+      (at 250.08 123.97 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "5"
+      (uuid "1b830c30-e15e-4516-8107-5a40b2f03409")
+    )
+    (instances
+      (project "kicad"
+        (path "/aff09f59-2364-4adf-970e-9d3622989508"
+          (reference "U580")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (label "N00128"
+    (at 157.7 116.35 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "ac4101c9-e80c-4c51-ba0f-44e79d6ef80a")
+  )
+  (label "N00177"
+    (at 32.3 80.81 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "3f250f60-d8e1-4d59-9fc9-2385c6a5e672")
+  )
+  (label "N00184"
+    (at 132.3 80.81 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "74519c1e-ec3e-4b07-80ce-46b99a252212")
+  )
+  (label "N00353"
+    (at 232.3 116.35 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "2c46c6ac-c48c-4081-8a04-ec1d5baadfba")
+  )
+  (label "N00435"
+    (at 232.3 80.81 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "c96fa3ae-db52-45a4-a9f5-e0ecb76e1ef1")
+  )
+  (label "N00469"
+    (at 132.3 116.35 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "ff3fa844-85e8-4f65-ad1d-1986db4d0779")
+  )
+  (label "N00483"
+    (at 32.3 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "988912ed-4fd4-4e15-9948-0e90b4a49ec8")
+  )
+  (label "N00499"
+    (at 257.7 80.81 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "20524fed-592c-49af-8ae8-35c1b1c7172f")
+  )
+  (label "N00550"
+    (at 32.3 116.35 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "37bc6613-476f-4ce2-b2df-715bd2071ef9")
+  )
+  (label "N00551"
+    (at 332.3 80.81 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "ffcb1478-487c-402d-a0fa-902e228db49f")
+  )
+  (label "N00553"
+    (at 57.7 116.35 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "c49ba92c-20e7-4126-98d0-a53ea10deb60")
+  )
+  (label "N00555"
+    (at 357.7 80.81 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "c25ab151-7a60-4f93-9ccc-da496787bbff")
+  )
+  (label "N_IMPLICIT_R11_1"
+    (at 132.3 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "c2cf8d42-eeec-4457-8de8-f8af755376b0")
+  )
+  (label "N_IMPLICIT_R11_2"
+    (at 157.7 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "0665f133-be36-449e-bbe6-bee77238124e")
+  )
+  (label "N_PROVISIONAL_R15_1"
+    (at 232.3 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "447f3d76-5a0b-47ab-b11d-303651a2394f")
+  )
+  (label "N_PROVISIONAL_R15_2"
+    (at 257.7 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "f94e1d6f-d893-4913-a34f-939f4089e768")
+  )
+  (label "N_PROVISIONAL_R2_1"
+    (at 332.3 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "b728a756-1ddb-42bf-ace1-c5769b02595c")
+  )
+  (label "N_PROVISIONAL_R2_2"
+    (at 357.7 45.27 0)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "a6d6c390-ab6e-4348-b1f0-78b7dc94f6b3")
+  )
+)

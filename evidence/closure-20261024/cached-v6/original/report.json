@@ -1,0 +1,1927 @@
+{
+  "S1": {
+    "parts_gt": 28,
+    "parts_found": 24,
+    "parts_spurious": 0,
+    "values_ok": 24,
+    "pins_gt": 56,
+    "pins_exact": 54,
+    "pins_present": 55,
+    "missed_parts": [
+      "U1",
+      "R1",
+      "R3",
+      "S1"
+    ],
+    "spurious_parts": [],
+    "wrong_values": [],
+    "wrong_pins": [
+      [
+        "U64.4",
+        "WZPLJ6",
+        "DD6"
+      ],
+      [
+        "U64.13",
+        null,
+        "CC7"
+      ]
+    ],
+    "seconds": 159.82,
+    "components": 24,
+    "connections": 300,
+    "scope": "recognition_without_CAD_library_check",
+    "fresh_ocr": false,
+    "providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "text_model_sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+    "fallback_model_sha256": null,
+    "fallback_routing": null,
+    "source_sha256": "1e2a2c97071800db4539076f4e9a39f242a20756ad4b7bf25620324d1a9f3556",
+    "recognizer_sha256": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+    "fallback_source_sha256": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+    "recognizer_support_files": {
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\__init__.py": "d29208795cfb4a6b3947d6f93ebc7d8918d618131f432c3881561642579788e5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\assistant.py": "c970aa8643937ce4d04bcb2fa298a62568e943235941d5984cfd265d0351c2bb",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\catalog_pin_solver.py": "db4c96c3f58d0e20d1d1032863fd8be0ece92d499a67c71738f79be9c2f51883",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\circuit_vision.py": "41ed017a7a1475efce9c6a646a5def21043126ca816849058f37488f60f080e3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_acquisition.py": "2e673d152fc7ba38972e8daf9933dba244d8ea14827eab2b4d5a8dec4ae99c4f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_formats.py": "4d20d5f52a5d9d619b10cd3ea9a3dedc4412c00720beea5a04d27485322f4254",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_library.py": "f362ecb7acbe2880fc5219cd39c40d882964bcac7684daeb8741172cda6c6e1c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_native.py": "67dd886e8bf2883e86f2a8974a2defb1bffd81d87b3599d94e9d8f0ec45e1bb5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_project.py": "9d38945e91346bce221653225a504254c00425ff0b976c71ad7599b084fd360c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_providers.py": "33c7a84b79aeba11ce9f5999edee8045961c5780a0f2f34040b08c6fe53828da",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\confidence.py": "f4cc8f50cbd3be25fa66c0efac30dab4feeb28114e22c1b66fe2e4694d556754",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\dataset_render.py": "79a15886fa9f7591cdba651e8e7d113f330dd7700a9da1e84bed4eaae8a81f7d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\desktop_session.py": "b9d3c16aefdcfde8ef35cdf091a18aa9e84f3cb0dd5fa41f6ee0fd4a4e9a69f5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\digital_vision.py": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\engine.py": "e1467cbaaa39639f18499e34329e779951990d84187089f2c313e1da3ebd0d3f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\erc.py": "786baec15f5b791390b50234a4bf78410e22dbf060e6a982ec3db4b6491736c5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\faculty_xml.py": "a4a2f1add1e1a16cff58156284cbad302858dadad4c3c31931c06dc5db7677ff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\footprints.py": "8c290726da32eb3654f51b75f09bdaf97bbe5d933bcf11a272f6e957aac0abb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\formats.py": "7d379f664b21f8162839461d213536ab1bcae91796b203954ca76cf2a45c1bba",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ground.py": "0a4541ec2a3b13b355f26d8cc5c16d488c6914beef5c8a51f3134fc1904143e8",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ic_caption.py": "3257837a37e0fa50a5c856c98c1d00049b333c9bcd40a11957cb66835ca73919",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\implicit_terminals.py": "a122a466489437e48a2a270aacd0d5405ae207322ecb565877ad0e2e70529b25",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ingestion.py": "81fd8a5ae077699e4560361f9b68b0dfe95f1b2ed48576aa39787e81e29fbc38",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\integrations.py": "59c25c309f7a09f0d7471913d6d69968f0f551755e2d73ee24a91c38a27b7899",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\local_recovery.py": "c60ca35b88764b584cff66cb5c859c7b9ccde25963d2798986174ce15c7ad3bc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\main.py": "5df3e47993038aa3decda03eb45a106c2d25aee2fa36e2378730d865628744bf",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\model_runtime.py": "7ef53dddf8179b244c69e55ae08ea71e60d656f3f4355573402ae2305cfb8ea6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\normalization.py": "c8a98b465206632036a66f47aaf9566c62bfa6c00d6cf791ed54b7e3fd0767b9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_export.py": "6fb76c03623a7841aee24dec5ced44ce781ef9f47e349cb87254a1f0c9231502",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_terminal_pairs.py": "58235e79bddb20a31c2bbb725c734017ee770c70e4384151ee2cac72406ba784",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_runtime.py": "40ae87fa990f36f41a7c2367c1f442534ed0941c1e6f4d9cccf8015d355843c9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_worker.py": "25992d0f8d0eba73b6ede506efdd8380d2ccdd33436211aac4ad6f9721cb7ea1",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_capture.py": "70d7bc6052ba65a07ab1e077002c12226670df82be7eff3a01066957c344d69c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_handoff.py": "b4f4d637a035d96995a6171b407d57f678ea28ee4f5d787aa9803374c3bba25c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_library.py": "9636487bb8f303c6b2466e5d04dfe847475053d7b2011a1b2538ca96e5e353a9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_route.py": "28953868c35ec77a5309e345beca65d17ed040719df402fa6202f64bff060034",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pin_crop_recovery.py": "27dcf9364363b23333f6bfb92a6efda390f6d4f97e74f466dd95ea96c46faeff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pipeline_profile.py": "c3801c8e7f28686e8c441c659e80c78a81ef4d608bafaaf1c8c7a217b888fbd6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_locks.py": "4c12658bd16346e5172dcce4fe7e6a125f1feec8a813f5e8f892630743f92e5d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_trash.py": "7d6c6cff337a42ab76d2e0c154a1714562a44780bbde391045859efe1c54239f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition.py": "779bcb81d1ea36a0bc315d95851764d53c08410791f93df54b1b58556dad14b2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition_catalog.py": "21a2cbb3855566821681238fe134d5c7dde3aca0e4ec5242ef2fecd9d96e6d41",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\review_store.py": "b9e9182b703ad81d867d70a1dc2e18967a5ad1e64dae8c8b98d6a5d5dc7b3426",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\roi_vision.py": "d6302c9f6bc75726ff1180bca80e5ee6a32fa79ff50ca3b9cd4addb39e5c47c2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\sexpr.py": "9a0cbd3ba2c1a4a405d2c8d1616a69616e1132131fa745a333ed7c45335ffdf6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\simulation.py": "a4aa3e6c72dfe7ca5c172b5d3e5d5cb0e4713b6dd8422476c29ef427e42bc6df",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra.py": "2605f72f97404fe57f0048122deaf405555c96b56ed2781d5b583a3cf6ba79c3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra_worker.py": "7deedb9bfc0c338610c0b9864046e7723d1257f93510e936693bedd819edb553",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\symbol_barriers.py": "23d9c17b03df9872e7df9d498ba75d174d36ee9e701ff8103042c2945968f4ce",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\system_metrics.py": "a97ffcf7e808f5cdc5b4f1aa86fbc1ff0953615a959e7f75330668e54faa94dc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_equivalence.py": "ca7d99faca2a3799f263dbf948b3b63a71b71db84ad61a50cf6a777d5b975489",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_recovery.py": "35534b7bbc608b621b23ec6fe3c259fab360f65ff5154050ca7f21127f1d9809",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\text_fallback.py": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vector_pdf.py": "c17f0a79a7c866993e8be0105f08b6d293fe8518b16eab7f83be5449bf354c01",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_input.py": "593c5cae7e9a0e3fb9ae7b415252d68f8453b199db5de3615200e0818e2418f4",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_local.py": "d6d263f18fc5df237929297b459b0b7206cd1bc3266a708e3f6d080afd149d43",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\waveforms.py": "fc0fb7e2789c3d1f9f4b6b656050fd0247c8abbde0e9bd894d30ed8f0d9f874f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\wire_graph.py": "d16f71bef3c76a6383de97fc5397ecfb0c97fe7b5fc6d1d20f32ed068ae18565",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\pipeline_profiles.json": "4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\.state\\recognition-catalog.sqlite": "74bd3bbf1fe6b14d59c881c56b4450d0c0c30053499f567312ac0aac84c0fd73"
+    }
+  },
+  "S2": {
+    "parts_gt": 0,
+    "parts_found": 0,
+    "parts_spurious": 14,
+    "values_ok": 0,
+    "pins_gt": 0,
+    "pins_exact": 0,
+    "pins_present": 0,
+    "missed_parts": [],
+    "spurious_parts": [
+      "P1",
+      "P2",
+      "U_1",
+      "U_10",
+      "U_11",
+      "U_12",
+      "U_2",
+      "U_3",
+      "U_4",
+      "U_5",
+      "U_6",
+      "U_7",
+      "U_8",
+      "U_9"
+    ],
+    "wrong_values": [],
+    "wrong_pins": [],
+    "value_counts": {
+      "TC514100": [
+        9,
+        16
+      ],
+      "74F374": [
+        5,
+        8
+      ],
+      "74F244": [
+        2,
+        4
+      ]
+    },
+    "seconds": 164.37,
+    "components": 24,
+    "connections": 167,
+    "scope": "recognition_without_CAD_library_check",
+    "fresh_ocr": false,
+    "providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "text_model_sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+    "fallback_model_sha256": null,
+    "fallback_routing": null,
+    "source_sha256": "bfa7ede9bd91085b9d8135beca1dbae412c9b1cbfe518da7a464dd4fc296a6bc",
+    "recognizer_sha256": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+    "fallback_source_sha256": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+    "recognizer_support_files": {
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\__init__.py": "d29208795cfb4a6b3947d6f93ebc7d8918d618131f432c3881561642579788e5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\assistant.py": "c970aa8643937ce4d04bcb2fa298a62568e943235941d5984cfd265d0351c2bb",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\catalog_pin_solver.py": "db4c96c3f58d0e20d1d1032863fd8be0ece92d499a67c71738f79be9c2f51883",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\circuit_vision.py": "41ed017a7a1475efce9c6a646a5def21043126ca816849058f37488f60f080e3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_acquisition.py": "2e673d152fc7ba38972e8daf9933dba244d8ea14827eab2b4d5a8dec4ae99c4f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_formats.py": "4d20d5f52a5d9d619b10cd3ea9a3dedc4412c00720beea5a04d27485322f4254",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_library.py": "f362ecb7acbe2880fc5219cd39c40d882964bcac7684daeb8741172cda6c6e1c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_native.py": "67dd886e8bf2883e86f2a8974a2defb1bffd81d87b3599d94e9d8f0ec45e1bb5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_project.py": "9d38945e91346bce221653225a504254c00425ff0b976c71ad7599b084fd360c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_providers.py": "33c7a84b79aeba11ce9f5999edee8045961c5780a0f2f34040b08c6fe53828da",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\confidence.py": "f4cc8f50cbd3be25fa66c0efac30dab4feeb28114e22c1b66fe2e4694d556754",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\dataset_render.py": "79a15886fa9f7591cdba651e8e7d113f330dd7700a9da1e84bed4eaae8a81f7d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\desktop_session.py": "b9d3c16aefdcfde8ef35cdf091a18aa9e84f3cb0dd5fa41f6ee0fd4a4e9a69f5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\digital_vision.py": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\engine.py": "e1467cbaaa39639f18499e34329e779951990d84187089f2c313e1da3ebd0d3f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\erc.py": "786baec15f5b791390b50234a4bf78410e22dbf060e6a982ec3db4b6491736c5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\faculty_xml.py": "a4a2f1add1e1a16cff58156284cbad302858dadad4c3c31931c06dc5db7677ff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\footprints.py": "8c290726da32eb3654f51b75f09bdaf97bbe5d933bcf11a272f6e957aac0abb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\formats.py": "7d379f664b21f8162839461d213536ab1bcae91796b203954ca76cf2a45c1bba",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ground.py": "0a4541ec2a3b13b355f26d8cc5c16d488c6914beef5c8a51f3134fc1904143e8",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ic_caption.py": "3257837a37e0fa50a5c856c98c1d00049b333c9bcd40a11957cb66835ca73919",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\implicit_terminals.py": "a122a466489437e48a2a270aacd0d5405ae207322ecb565877ad0e2e70529b25",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ingestion.py": "81fd8a5ae077699e4560361f9b68b0dfe95f1b2ed48576aa39787e81e29fbc38",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\integrations.py": "59c25c309f7a09f0d7471913d6d69968f0f551755e2d73ee24a91c38a27b7899",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\local_recovery.py": "c60ca35b88764b584cff66cb5c859c7b9ccde25963d2798986174ce15c7ad3bc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\main.py": "5df3e47993038aa3decda03eb45a106c2d25aee2fa36e2378730d865628744bf",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\model_runtime.py": "7ef53dddf8179b244c69e55ae08ea71e60d656f3f4355573402ae2305cfb8ea6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\normalization.py": "c8a98b465206632036a66f47aaf9566c62bfa6c00d6cf791ed54b7e3fd0767b9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_export.py": "6fb76c03623a7841aee24dec5ced44ce781ef9f47e349cb87254a1f0c9231502",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_terminal_pairs.py": "58235e79bddb20a31c2bbb725c734017ee770c70e4384151ee2cac72406ba784",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_runtime.py": "40ae87fa990f36f41a7c2367c1f442534ed0941c1e6f4d9cccf8015d355843c9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_worker.py": "25992d0f8d0eba73b6ede506efdd8380d2ccdd33436211aac4ad6f9721cb7ea1",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_capture.py": "70d7bc6052ba65a07ab1e077002c12226670df82be7eff3a01066957c344d69c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_handoff.py": "b4f4d637a035d96995a6171b407d57f678ea28ee4f5d787aa9803374c3bba25c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_library.py": "9636487bb8f303c6b2466e5d04dfe847475053d7b2011a1b2538ca96e5e353a9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_route.py": "28953868c35ec77a5309e345beca65d17ed040719df402fa6202f64bff060034",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pin_crop_recovery.py": "27dcf9364363b23333f6bfb92a6efda390f6d4f97e74f466dd95ea96c46faeff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pipeline_profile.py": "c3801c8e7f28686e8c441c659e80c78a81ef4d608bafaaf1c8c7a217b888fbd6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_locks.py": "4c12658bd16346e5172dcce4fe7e6a125f1feec8a813f5e8f892630743f92e5d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_trash.py": "7d6c6cff337a42ab76d2e0c154a1714562a44780bbde391045859efe1c54239f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition.py": "779bcb81d1ea36a0bc315d95851764d53c08410791f93df54b1b58556dad14b2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition_catalog.py": "21a2cbb3855566821681238fe134d5c7dde3aca0e4ec5242ef2fecd9d96e6d41",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\review_store.py": "b9e9182b703ad81d867d70a1dc2e18967a5ad1e64dae8c8b98d6a5d5dc7b3426",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\roi_vision.py": "d6302c9f6bc75726ff1180bca80e5ee6a32fa79ff50ca3b9cd4addb39e5c47c2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\sexpr.py": "9a0cbd3ba2c1a4a405d2c8d1616a69616e1132131fa745a333ed7c45335ffdf6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\simulation.py": "a4aa3e6c72dfe7ca5c172b5d3e5d5cb0e4713b6dd8422476c29ef427e42bc6df",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra.py": "2605f72f97404fe57f0048122deaf405555c96b56ed2781d5b583a3cf6ba79c3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra_worker.py": "7deedb9bfc0c338610c0b9864046e7723d1257f93510e936693bedd819edb553",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\symbol_barriers.py": "23d9c17b03df9872e7df9d498ba75d174d36ee9e701ff8103042c2945968f4ce",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\system_metrics.py": "a97ffcf7e808f5cdc5b4f1aa86fbc1ff0953615a959e7f75330668e54faa94dc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_equivalence.py": "ca7d99faca2a3799f263dbf948b3b63a71b71db84ad61a50cf6a777d5b975489",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_recovery.py": "35534b7bbc608b621b23ec6fe3c259fab360f65ff5154050ca7f21127f1d9809",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\text_fallback.py": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vector_pdf.py": "c17f0a79a7c866993e8be0105f08b6d293fe8518b16eab7f83be5449bf354c01",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_input.py": "593c5cae7e9a0e3fb9ae7b415252d68f8453b199db5de3615200e0818e2418f4",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_local.py": "d6d263f18fc5df237929297b459b0b7206cd1bc3266a708e3f6d080afd149d43",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\waveforms.py": "fc0fb7e2789c3d1f9f4b6b656050fd0247c8abbde0e9bd894d30ed8f0d9f874f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\wire_graph.py": "d16f71bef3c76a6383de97fc5397ecfb0c97fe7b5fc6d1d20f32ed068ae18565",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\pipeline_profiles.json": "4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\.state\\recognition-catalog.sqlite": "74bd3bbf1fe6b14d59c881c56b4450d0c0c30053499f567312ac0aac84c0fd73"
+    }
+  },
+  "S3": {
+    "parts_gt": 34,
+    "parts_found": 30,
+    "parts_spurious": 1,
+    "values_ok": 29,
+    "pins_gt": 69,
+    "pins_exact": 63,
+    "pins_present": 66,
+    "missed_parts": [
+      "U66",
+      "R8",
+      "R11",
+      "S2"
+    ],
+    "spurious_parts": [
+      "R1"
+    ],
+    "wrong_values": [
+      [
+        "U83",
+        "74BCI2244",
+        "74BCT2244"
+      ]
+    ],
+    "wrong_pins": [
+      [
+        "U6.14",
+        "KAAI",
+        "AAA1"
+      ],
+      [
+        "U8.14",
+        "AAA6",
+        "AAA9"
+      ],
+      [
+        "U8.11",
+        null,
+        "AAA12"
+      ],
+      [
+        "U27.17",
+        null,
+        "AR12"
+      ],
+      [
+        "U27.7",
+        "RG9",
+        "AR3"
+      ],
+      [
+        "U28.19",
+        null,
+        "AR10"
+      ]
+    ],
+    "seconds": 161.48,
+    "components": 43,
+    "connections": 524,
+    "scope": "recognition_without_CAD_library_check",
+    "fresh_ocr": false,
+    "providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "text_model_sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+    "fallback_model_sha256": null,
+    "fallback_routing": null,
+    "source_sha256": "af918ff627dd0a927bb952be3eea148ca5cfc84edf16c5224f96244a126a00eb",
+    "recognizer_sha256": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+    "fallback_source_sha256": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+    "recognizer_support_files": {
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\__init__.py": "d29208795cfb4a6b3947d6f93ebc7d8918d618131f432c3881561642579788e5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\assistant.py": "c970aa8643937ce4d04bcb2fa298a62568e943235941d5984cfd265d0351c2bb",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\catalog_pin_solver.py": "db4c96c3f58d0e20d1d1032863fd8be0ece92d499a67c71738f79be9c2f51883",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\circuit_vision.py": "41ed017a7a1475efce9c6a646a5def21043126ca816849058f37488f60f080e3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_acquisition.py": "2e673d152fc7ba38972e8daf9933dba244d8ea14827eab2b4d5a8dec4ae99c4f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_formats.py": "4d20d5f52a5d9d619b10cd3ea9a3dedc4412c00720beea5a04d27485322f4254",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_library.py": "f362ecb7acbe2880fc5219cd39c40d882964bcac7684daeb8741172cda6c6e1c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_native.py": "67dd886e8bf2883e86f2a8974a2defb1bffd81d87b3599d94e9d8f0ec45e1bb5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_project.py": "9d38945e91346bce221653225a504254c00425ff0b976c71ad7599b084fd360c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_providers.py": "33c7a84b79aeba11ce9f5999edee8045961c5780a0f2f34040b08c6fe53828da",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\confidence.py": "f4cc8f50cbd3be25fa66c0efac30dab4feeb28114e22c1b66fe2e4694d556754",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\dataset_render.py": "79a15886fa9f7591cdba651e8e7d113f330dd7700a9da1e84bed4eaae8a81f7d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\desktop_session.py": "b9d3c16aefdcfde8ef35cdf091a18aa9e84f3cb0dd5fa41f6ee0fd4a4e9a69f5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\digital_vision.py": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\engine.py": "e1467cbaaa39639f18499e34329e779951990d84187089f2c313e1da3ebd0d3f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\erc.py": "786baec15f5b791390b50234a4bf78410e22dbf060e6a982ec3db4b6491736c5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\faculty_xml.py": "a4a2f1add1e1a16cff58156284cbad302858dadad4c3c31931c06dc5db7677ff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\footprints.py": "8c290726da32eb3654f51b75f09bdaf97bbe5d933bcf11a272f6e957aac0abb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\formats.py": "7d379f664b21f8162839461d213536ab1bcae91796b203954ca76cf2a45c1bba",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ground.py": "0a4541ec2a3b13b355f26d8cc5c16d488c6914beef5c8a51f3134fc1904143e8",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ic_caption.py": "3257837a37e0fa50a5c856c98c1d00049b333c9bcd40a11957cb66835ca73919",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\implicit_terminals.py": "a122a466489437e48a2a270aacd0d5405ae207322ecb565877ad0e2e70529b25",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ingestion.py": "81fd8a5ae077699e4560361f9b68b0dfe95f1b2ed48576aa39787e81e29fbc38",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\integrations.py": "59c25c309f7a09f0d7471913d6d69968f0f551755e2d73ee24a91c38a27b7899",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\local_recovery.py": "c60ca35b88764b584cff66cb5c859c7b9ccde25963d2798986174ce15c7ad3bc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\main.py": "5df3e47993038aa3decda03eb45a106c2d25aee2fa36e2378730d865628744bf",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\model_runtime.py": "7ef53dddf8179b244c69e55ae08ea71e60d656f3f4355573402ae2305cfb8ea6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\normalization.py": "c8a98b465206632036a66f47aaf9566c62bfa6c00d6cf791ed54b7e3fd0767b9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_export.py": "6fb76c03623a7841aee24dec5ced44ce781ef9f47e349cb87254a1f0c9231502",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_terminal_pairs.py": "58235e79bddb20a31c2bbb725c734017ee770c70e4384151ee2cac72406ba784",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_runtime.py": "40ae87fa990f36f41a7c2367c1f442534ed0941c1e6f4d9cccf8015d355843c9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_worker.py": "25992d0f8d0eba73b6ede506efdd8380d2ccdd33436211aac4ad6f9721cb7ea1",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_capture.py": "70d7bc6052ba65a07ab1e077002c12226670df82be7eff3a01066957c344d69c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_handoff.py": "b4f4d637a035d96995a6171b407d57f678ea28ee4f5d787aa9803374c3bba25c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_library.py": "9636487bb8f303c6b2466e5d04dfe847475053d7b2011a1b2538ca96e5e353a9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_route.py": "28953868c35ec77a5309e345beca65d17ed040719df402fa6202f64bff060034",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pin_crop_recovery.py": "27dcf9364363b23333f6bfb92a6efda390f6d4f97e74f466dd95ea96c46faeff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pipeline_profile.py": "c3801c8e7f28686e8c441c659e80c78a81ef4d608bafaaf1c8c7a217b888fbd6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_locks.py": "4c12658bd16346e5172dcce4fe7e6a125f1feec8a813f5e8f892630743f92e5d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_trash.py": "7d6c6cff337a42ab76d2e0c154a1714562a44780bbde391045859efe1c54239f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition.py": "779bcb81d1ea36a0bc315d95851764d53c08410791f93df54b1b58556dad14b2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition_catalog.py": "21a2cbb3855566821681238fe134d5c7dde3aca0e4ec5242ef2fecd9d96e6d41",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\review_store.py": "b9e9182b703ad81d867d70a1dc2e18967a5ad1e64dae8c8b98d6a5d5dc7b3426",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\roi_vision.py": "d6302c9f6bc75726ff1180bca80e5ee6a32fa79ff50ca3b9cd4addb39e5c47c2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\sexpr.py": "9a0cbd3ba2c1a4a405d2c8d1616a69616e1132131fa745a333ed7c45335ffdf6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\simulation.py": "a4aa3e6c72dfe7ca5c172b5d3e5d5cb0e4713b6dd8422476c29ef427e42bc6df",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra.py": "2605f72f97404fe57f0048122deaf405555c96b56ed2781d5b583a3cf6ba79c3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra_worker.py": "7deedb9bfc0c338610c0b9864046e7723d1257f93510e936693bedd819edb553",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\symbol_barriers.py": "23d9c17b03df9872e7df9d498ba75d174d36ee9e701ff8103042c2945968f4ce",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\system_metrics.py": "a97ffcf7e808f5cdc5b4f1aa86fbc1ff0953615a959e7f75330668e54faa94dc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_equivalence.py": "ca7d99faca2a3799f263dbf948b3b63a71b71db84ad61a50cf6a777d5b975489",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_recovery.py": "35534b7bbc608b621b23ec6fe3c259fab360f65ff5154050ca7f21127f1d9809",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\text_fallback.py": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vector_pdf.py": "c17f0a79a7c866993e8be0105f08b6d293fe8518b16eab7f83be5449bf354c01",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_input.py": "593c5cae7e9a0e3fb9ae7b415252d68f8453b199db5de3615200e0818e2418f4",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_local.py": "d6d263f18fc5df237929297b459b0b7206cd1bc3266a708e3f6d080afd149d43",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\waveforms.py": "fc0fb7e2789c3d1f9f4b6b656050fd0247c8abbde0e9bd894d30ed8f0d9f874f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\wire_graph.py": "d16f71bef3c76a6383de97fc5397ecfb0c97fe7b5fc6d1d20f32ed068ae18565",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\pipeline_profiles.json": "4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\.state\\recognition-catalog.sqlite": "74bd3bbf1fe6b14d59c881c56b4450d0c0c30053499f567312ac0aac84c0fd73"
+    }
+  },
+  "S4": {
+    "parts_gt": 30,
+    "parts_found": 25,
+    "parts_spurious": 0,
+    "values_ok": 23,
+    "pins_gt": 72,
+    "pins_exact": 69,
+    "pins_present": 69,
+    "missed_parts": [
+      "U14",
+      "R14",
+      "R15",
+      "R17",
+      "S3"
+    ],
+    "spurious_parts": [],
+    "wrong_values": [
+      [
+        "U31",
+        "AM291C",
+        "AM2910"
+      ],
+      [
+        "U40",
+        "74F103",
+        "74F10"
+      ]
+    ],
+    "wrong_pins": [
+      [
+        "U31.27",
+        null,
+        "ADDA11"
+      ],
+      [
+        "U33.14",
+        null,
+        "ADDA9"
+      ],
+      [
+        "U34.9",
+        null,
+        "ADDA7"
+      ]
+    ],
+    "seconds": 161.38,
+    "components": 25,
+    "connections": 298,
+    "scope": "recognition_without_CAD_library_check",
+    "fresh_ocr": false,
+    "providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "text_model_sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+    "fallback_model_sha256": null,
+    "fallback_routing": null,
+    "source_sha256": "0b369f7c7e91042e89934369f2ce2a315a5654e47f93f6ca026d3af034b73ff7",
+    "recognizer_sha256": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+    "fallback_source_sha256": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+    "recognizer_support_files": {
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\__init__.py": "d29208795cfb4a6b3947d6f93ebc7d8918d618131f432c3881561642579788e5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\assistant.py": "c970aa8643937ce4d04bcb2fa298a62568e943235941d5984cfd265d0351c2bb",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\catalog_pin_solver.py": "db4c96c3f58d0e20d1d1032863fd8be0ece92d499a67c71738f79be9c2f51883",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\circuit_vision.py": "41ed017a7a1475efce9c6a646a5def21043126ca816849058f37488f60f080e3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_acquisition.py": "2e673d152fc7ba38972e8daf9933dba244d8ea14827eab2b4d5a8dec4ae99c4f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_formats.py": "4d20d5f52a5d9d619b10cd3ea9a3dedc4412c00720beea5a04d27485322f4254",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_library.py": "f362ecb7acbe2880fc5219cd39c40d882964bcac7684daeb8741172cda6c6e1c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_native.py": "67dd886e8bf2883e86f2a8974a2defb1bffd81d87b3599d94e9d8f0ec45e1bb5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_project.py": "9d38945e91346bce221653225a504254c00425ff0b976c71ad7599b084fd360c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_providers.py": "33c7a84b79aeba11ce9f5999edee8045961c5780a0f2f34040b08c6fe53828da",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\confidence.py": "f4cc8f50cbd3be25fa66c0efac30dab4feeb28114e22c1b66fe2e4694d556754",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\dataset_render.py": "79a15886fa9f7591cdba651e8e7d113f330dd7700a9da1e84bed4eaae8a81f7d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\desktop_session.py": "b9d3c16aefdcfde8ef35cdf091a18aa9e84f3cb0dd5fa41f6ee0fd4a4e9a69f5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\digital_vision.py": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\engine.py": "e1467cbaaa39639f18499e34329e779951990d84187089f2c313e1da3ebd0d3f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\erc.py": "786baec15f5b791390b50234a4bf78410e22dbf060e6a982ec3db4b6491736c5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\faculty_xml.py": "a4a2f1add1e1a16cff58156284cbad302858dadad4c3c31931c06dc5db7677ff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\footprints.py": "8c290726da32eb3654f51b75f09bdaf97bbe5d933bcf11a272f6e957aac0abb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\formats.py": "7d379f664b21f8162839461d213536ab1bcae91796b203954ca76cf2a45c1bba",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ground.py": "0a4541ec2a3b13b355f26d8cc5c16d488c6914beef5c8a51f3134fc1904143e8",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ic_caption.py": "3257837a37e0fa50a5c856c98c1d00049b333c9bcd40a11957cb66835ca73919",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\implicit_terminals.py": "a122a466489437e48a2a270aacd0d5405ae207322ecb565877ad0e2e70529b25",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ingestion.py": "81fd8a5ae077699e4560361f9b68b0dfe95f1b2ed48576aa39787e81e29fbc38",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\integrations.py": "59c25c309f7a09f0d7471913d6d69968f0f551755e2d73ee24a91c38a27b7899",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\local_recovery.py": "c60ca35b88764b584cff66cb5c859c7b9ccde25963d2798986174ce15c7ad3bc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\main.py": "5df3e47993038aa3decda03eb45a106c2d25aee2fa36e2378730d865628744bf",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\model_runtime.py": "7ef53dddf8179b244c69e55ae08ea71e60d656f3f4355573402ae2305cfb8ea6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\normalization.py": "c8a98b465206632036a66f47aaf9566c62bfa6c00d6cf791ed54b7e3fd0767b9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_export.py": "6fb76c03623a7841aee24dec5ced44ce781ef9f47e349cb87254a1f0c9231502",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_terminal_pairs.py": "58235e79bddb20a31c2bbb725c734017ee770c70e4384151ee2cac72406ba784",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_runtime.py": "40ae87fa990f36f41a7c2367c1f442534ed0941c1e6f4d9cccf8015d355843c9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_worker.py": "25992d0f8d0eba73b6ede506efdd8380d2ccdd33436211aac4ad6f9721cb7ea1",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_capture.py": "70d7bc6052ba65a07ab1e077002c12226670df82be7eff3a01066957c344d69c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_handoff.py": "b4f4d637a035d96995a6171b407d57f678ea28ee4f5d787aa9803374c3bba25c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_library.py": "9636487bb8f303c6b2466e5d04dfe847475053d7b2011a1b2538ca96e5e353a9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_route.py": "28953868c35ec77a5309e345beca65d17ed040719df402fa6202f64bff060034",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pin_crop_recovery.py": "27dcf9364363b23333f6bfb92a6efda390f6d4f97e74f466dd95ea96c46faeff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pipeline_profile.py": "c3801c8e7f28686e8c441c659e80c78a81ef4d608bafaaf1c8c7a217b888fbd6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_locks.py": "4c12658bd16346e5172dcce4fe7e6a125f1feec8a813f5e8f892630743f92e5d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_trash.py": "7d6c6cff337a42ab76d2e0c154a1714562a44780bbde391045859efe1c54239f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition.py": "779bcb81d1ea36a0bc315d95851764d53c08410791f93df54b1b58556dad14b2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition_catalog.py": "21a2cbb3855566821681238fe134d5c7dde3aca0e4ec5242ef2fecd9d96e6d41",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\review_store.py": "b9e9182b703ad81d867d70a1dc2e18967a5ad1e64dae8c8b98d6a5d5dc7b3426",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\roi_vision.py": "d6302c9f6bc75726ff1180bca80e5ee6a32fa79ff50ca3b9cd4addb39e5c47c2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\sexpr.py": "9a0cbd3ba2c1a4a405d2c8d1616a69616e1132131fa745a333ed7c45335ffdf6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\simulation.py": "a4aa3e6c72dfe7ca5c172b5d3e5d5cb0e4713b6dd8422476c29ef427e42bc6df",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra.py": "2605f72f97404fe57f0048122deaf405555c96b56ed2781d5b583a3cf6ba79c3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra_worker.py": "7deedb9bfc0c338610c0b9864046e7723d1257f93510e936693bedd819edb553",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\symbol_barriers.py": "23d9c17b03df9872e7df9d498ba75d174d36ee9e701ff8103042c2945968f4ce",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\system_metrics.py": "a97ffcf7e808f5cdc5b4f1aa86fbc1ff0953615a959e7f75330668e54faa94dc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_equivalence.py": "ca7d99faca2a3799f263dbf948b3b63a71b71db84ad61a50cf6a777d5b975489",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_recovery.py": "35534b7bbc608b621b23ec6fe3c259fab360f65ff5154050ca7f21127f1d9809",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\text_fallback.py": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vector_pdf.py": "c17f0a79a7c866993e8be0105f08b6d293fe8518b16eab7f83be5449bf354c01",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_input.py": "593c5cae7e9a0e3fb9ae7b415252d68f8453b199db5de3615200e0818e2418f4",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_local.py": "d6d263f18fc5df237929297b459b0b7206cd1bc3266a708e3f6d080afd149d43",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\waveforms.py": "fc0fb7e2789c3d1f9f4b6b656050fd0247c8abbde0e9bd894d30ed8f0d9f874f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\wire_graph.py": "d16f71bef3c76a6383de97fc5397ecfb0c97fe7b5fc6d1d20f32ed068ae18565",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\pipeline_profiles.json": "4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\.state\\recognition-catalog.sqlite": "74bd3bbf1fe6b14d59c881c56b4450d0c0c30053499f567312ac0aac84c0fd73"
+    }
+  },
+  "S5": {
+    "parts_gt": 25,
+    "parts_found": 22,
+    "parts_spurious": 0,
+    "values_ok": 21,
+    "pins_gt": 48,
+    "pins_exact": 42,
+    "pins_present": 45,
+    "missed_parts": [
+      "U7",
+      "U18",
+      "R9"
+    ],
+    "spurious_parts": [],
+    "wrong_values": [
+      [
+        "R19",
+        "1K05",
+        "1K00"
+      ]
+    ],
+    "wrong_pins": [
+      [
+        "U36.21",
+        null,
+        "INDA14"
+      ],
+      [
+        "U36.2",
+        "N00549",
+        "INDA12"
+      ],
+      [
+        "U49.2",
+        "~TT2",
+        "INDA8"
+      ],
+      [
+        "U49.9",
+        "N00619",
+        "INBU8"
+      ],
+      [
+        "U37.9",
+        null,
+        "INBU4"
+      ],
+      [
+        "U50.9",
+        null,
+        "INBU0"
+      ]
+    ],
+    "seconds": 287.17,
+    "components": 27,
+    "connections": 271,
+    "scope": "recognition_without_CAD_library_check",
+    "fresh_ocr": false,
+    "providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "text_model_sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+    "fallback_model_sha256": null,
+    "fallback_routing": null,
+    "source_sha256": "2ac0750f8c3ae1ead34b9a8ae710a6ab90cf2bce4facdc71dae9016a8354818e",
+    "recognizer_sha256": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+    "fallback_source_sha256": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+    "recognizer_support_files": {
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\__init__.py": "d29208795cfb4a6b3947d6f93ebc7d8918d618131f432c3881561642579788e5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\assistant.py": "c970aa8643937ce4d04bcb2fa298a62568e943235941d5984cfd265d0351c2bb",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\catalog_pin_solver.py": "db4c96c3f58d0e20d1d1032863fd8be0ece92d499a67c71738f79be9c2f51883",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\circuit_vision.py": "41ed017a7a1475efce9c6a646a5def21043126ca816849058f37488f60f080e3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_acquisition.py": "2e673d152fc7ba38972e8daf9933dba244d8ea14827eab2b4d5a8dec4ae99c4f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_formats.py": "4d20d5f52a5d9d619b10cd3ea9a3dedc4412c00720beea5a04d27485322f4254",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_library.py": "f362ecb7acbe2880fc5219cd39c40d882964bcac7684daeb8741172cda6c6e1c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_native.py": "67dd886e8bf2883e86f2a8974a2defb1bffd81d87b3599d94e9d8f0ec45e1bb5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_project.py": "9d38945e91346bce221653225a504254c00425ff0b976c71ad7599b084fd360c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_providers.py": "33c7a84b79aeba11ce9f5999edee8045961c5780a0f2f34040b08c6fe53828da",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\confidence.py": "f4cc8f50cbd3be25fa66c0efac30dab4feeb28114e22c1b66fe2e4694d556754",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\dataset_render.py": "79a15886fa9f7591cdba651e8e7d113f330dd7700a9da1e84bed4eaae8a81f7d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\desktop_session.py": "b9d3c16aefdcfde8ef35cdf091a18aa9e84f3cb0dd5fa41f6ee0fd4a4e9a69f5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\digital_vision.py": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\engine.py": "e1467cbaaa39639f18499e34329e779951990d84187089f2c313e1da3ebd0d3f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\erc.py": "786baec15f5b791390b50234a4bf78410e22dbf060e6a982ec3db4b6491736c5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\faculty_xml.py": "a4a2f1add1e1a16cff58156284cbad302858dadad4c3c31931c06dc5db7677ff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\footprints.py": "8c290726da32eb3654f51b75f09bdaf97bbe5d933bcf11a272f6e957aac0abb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\formats.py": "7d379f664b21f8162839461d213536ab1bcae91796b203954ca76cf2a45c1bba",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ground.py": "0a4541ec2a3b13b355f26d8cc5c16d488c6914beef5c8a51f3134fc1904143e8",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ic_caption.py": "3257837a37e0fa50a5c856c98c1d00049b333c9bcd40a11957cb66835ca73919",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\implicit_terminals.py": "a122a466489437e48a2a270aacd0d5405ae207322ecb565877ad0e2e70529b25",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ingestion.py": "81fd8a5ae077699e4560361f9b68b0dfe95f1b2ed48576aa39787e81e29fbc38",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\integrations.py": "59c25c309f7a09f0d7471913d6d69968f0f551755e2d73ee24a91c38a27b7899",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\local_recovery.py": "c60ca35b88764b584cff66cb5c859c7b9ccde25963d2798986174ce15c7ad3bc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\main.py": "5df3e47993038aa3decda03eb45a106c2d25aee2fa36e2378730d865628744bf",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\model_runtime.py": "7ef53dddf8179b244c69e55ae08ea71e60d656f3f4355573402ae2305cfb8ea6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\normalization.py": "c8a98b465206632036a66f47aaf9566c62bfa6c00d6cf791ed54b7e3fd0767b9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_export.py": "6fb76c03623a7841aee24dec5ced44ce781ef9f47e349cb87254a1f0c9231502",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_terminal_pairs.py": "58235e79bddb20a31c2bbb725c734017ee770c70e4384151ee2cac72406ba784",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_runtime.py": "40ae87fa990f36f41a7c2367c1f442534ed0941c1e6f4d9cccf8015d355843c9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_worker.py": "25992d0f8d0eba73b6ede506efdd8380d2ccdd33436211aac4ad6f9721cb7ea1",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_capture.py": "70d7bc6052ba65a07ab1e077002c12226670df82be7eff3a01066957c344d69c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_handoff.py": "b4f4d637a035d96995a6171b407d57f678ea28ee4f5d787aa9803374c3bba25c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_library.py": "9636487bb8f303c6b2466e5d04dfe847475053d7b2011a1b2538ca96e5e353a9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_route.py": "28953868c35ec77a5309e345beca65d17ed040719df402fa6202f64bff060034",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pin_crop_recovery.py": "27dcf9364363b23333f6bfb92a6efda390f6d4f97e74f466dd95ea96c46faeff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pipeline_profile.py": "c3801c8e7f28686e8c441c659e80c78a81ef4d608bafaaf1c8c7a217b888fbd6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_locks.py": "4c12658bd16346e5172dcce4fe7e6a125f1feec8a813f5e8f892630743f92e5d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_trash.py": "7d6c6cff337a42ab76d2e0c154a1714562a44780bbde391045859efe1c54239f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition.py": "779bcb81d1ea36a0bc315d95851764d53c08410791f93df54b1b58556dad14b2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition_catalog.py": "21a2cbb3855566821681238fe134d5c7dde3aca0e4ec5242ef2fecd9d96e6d41",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\review_store.py": "b9e9182b703ad81d867d70a1dc2e18967a5ad1e64dae8c8b98d6a5d5dc7b3426",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\roi_vision.py": "d6302c9f6bc75726ff1180bca80e5ee6a32fa79ff50ca3b9cd4addb39e5c47c2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\sexpr.py": "9a0cbd3ba2c1a4a405d2c8d1616a69616e1132131fa745a333ed7c45335ffdf6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\simulation.py": "a4aa3e6c72dfe7ca5c172b5d3e5d5cb0e4713b6dd8422476c29ef427e42bc6df",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra.py": "2605f72f97404fe57f0048122deaf405555c96b56ed2781d5b583a3cf6ba79c3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra_worker.py": "7deedb9bfc0c338610c0b9864046e7723d1257f93510e936693bedd819edb553",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\symbol_barriers.py": "23d9c17b03df9872e7df9d498ba75d174d36ee9e701ff8103042c2945968f4ce",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\system_metrics.py": "a97ffcf7e808f5cdc5b4f1aa86fbc1ff0953615a959e7f75330668e54faa94dc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_equivalence.py": "ca7d99faca2a3799f263dbf948b3b63a71b71db84ad61a50cf6a777d5b975489",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_recovery.py": "35534b7bbc608b621b23ec6fe3c259fab360f65ff5154050ca7f21127f1d9809",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\text_fallback.py": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vector_pdf.py": "c17f0a79a7c866993e8be0105f08b6d293fe8518b16eab7f83be5449bf354c01",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_input.py": "593c5cae7e9a0e3fb9ae7b415252d68f8453b199db5de3615200e0818e2418f4",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_local.py": "d6d263f18fc5df237929297b459b0b7206cd1bc3266a708e3f6d080afd149d43",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\waveforms.py": "fc0fb7e2789c3d1f9f4b6b656050fd0247c8abbde0e9bd894d30ed8f0d9f874f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\wire_graph.py": "d16f71bef3c76a6383de97fc5397ecfb0c97fe7b5fc6d1d20f32ed068ae18565",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\pipeline_profiles.json": "4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\.state\\recognition-catalog.sqlite": "74bd3bbf1fe6b14d59c881c56b4450d0c0c30053499f567312ac0aac84c0fd73"
+    }
+  },
+  "S4-scan300": {
+    "parts_gt": 30,
+    "parts_found": 25,
+    "parts_spurious": 4,
+    "values_ok": 23,
+    "pins_gt": 72,
+    "pins_exact": 44,
+    "pins_present": 58,
+    "missed_parts": [
+      "U16",
+      "U17",
+      "R13",
+      "R17",
+      "S3"
+    ],
+    "spurious_parts": [
+      "P3",
+      "R1",
+      "U_1",
+      "U_2"
+    ],
+    "wrong_values": [
+      [
+        "U31",
+        "AM291C",
+        "AM2910"
+      ],
+      [
+        "U40",
+        "74F103",
+        "74F10"
+      ]
+    ],
+    "wrong_pins": [
+      [
+        "U31.38",
+        null,
+        "ADDA2"
+      ],
+      [
+        "U31.2",
+        "PS3",
+        "ADDA4"
+      ],
+      [
+        "U31.4",
+        "ADDA4",
+        "ADDA5"
+      ],
+      [
+        "U31.19",
+        null,
+        "ADDA7"
+      ],
+      [
+        "U31.35",
+        "PRA",
+        "PRAD1"
+      ],
+      [
+        "U31.1",
+        "N00500",
+        "PRAD4"
+      ],
+      [
+        "U31.3",
+        "PRA5",
+        "PRAD5"
+      ],
+      [
+        "U31.18",
+        null,
+        "PRAD6"
+      ],
+      [
+        "U31.24",
+        null,
+        "PRAD9"
+      ],
+      [
+        "U33.3",
+        null,
+        "ADDA12"
+      ],
+      [
+        "U33.14",
+        null,
+        "ADDA9"
+      ],
+      [
+        "U33.12",
+        null,
+        "ADDA8"
+      ],
+      [
+        "U33.2",
+        "ADDA8",
+        "INADD11"
+      ],
+      [
+        "U33.6",
+        "INADD5",
+        "INADD9"
+      ],
+      [
+        "U34.9",
+        null,
+        "ADDA7"
+      ],
+      [
+        "U34.18",
+        null,
+        "ADDA3"
+      ],
+      [
+        "U34.12",
+        "ADAO",
+        "ADDA0"
+      ],
+      [
+        "U34.13",
+        null,
+        "INADD6"
+      ],
+      [
+        "U34.15",
+        "N3",
+        "INADD5"
+      ],
+      [
+        "U1.21",
+        null,
+        "PRAD10"
+      ],
+      [
+        "U1.22",
+        "PRAD6",
+        "PRAD9"
+      ],
+      [
+        "U1.23",
+        "PRADE",
+        "PRAD8"
+      ],
+      [
+        "U1.4",
+        "S20",
+        "PRAD4"
+      ],
+      [
+        "U1.5",
+        null,
+        "PRAD3"
+      ],
+      [
+        "U13.21",
+        null,
+        "PRAD10"
+      ],
+      [
+        "U13.22",
+        null,
+        "PRAD9"
+      ],
+      [
+        "U13.23",
+        "PRANR",
+        "PRAD8"
+      ],
+      [
+        "U13.1",
+        "INST12",
+        "PRAD7"
+      ]
+    ],
+    "seconds": 231.33,
+    "components": 29,
+    "connections": 290,
+    "scope": "recognition_without_CAD_library_check",
+    "fresh_ocr": false,
+    "providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "text_model_sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+    "fallback_model_sha256": null,
+    "fallback_routing": null,
+    "source_sha256": "9d6d57f019d1a20ea990a4feb6290d74fc2daabf0c888ec56183f37e2a93b3d0",
+    "recognizer_sha256": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+    "fallback_source_sha256": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+    "recognizer_support_files": {
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\__init__.py": "d29208795cfb4a6b3947d6f93ebc7d8918d618131f432c3881561642579788e5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\assistant.py": "c970aa8643937ce4d04bcb2fa298a62568e943235941d5984cfd265d0351c2bb",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\catalog_pin_solver.py": "db4c96c3f58d0e20d1d1032863fd8be0ece92d499a67c71738f79be9c2f51883",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\circuit_vision.py": "41ed017a7a1475efce9c6a646a5def21043126ca816849058f37488f60f080e3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_acquisition.py": "2e673d152fc7ba38972e8daf9933dba244d8ea14827eab2b4d5a8dec4ae99c4f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_formats.py": "4d20d5f52a5d9d619b10cd3ea9a3dedc4412c00720beea5a04d27485322f4254",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_library.py": "f362ecb7acbe2880fc5219cd39c40d882964bcac7684daeb8741172cda6c6e1c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_native.py": "67dd886e8bf2883e86f2a8974a2defb1bffd81d87b3599d94e9d8f0ec45e1bb5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_project.py": "9d38945e91346bce221653225a504254c00425ff0b976c71ad7599b084fd360c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_providers.py": "33c7a84b79aeba11ce9f5999edee8045961c5780a0f2f34040b08c6fe53828da",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\confidence.py": "f4cc8f50cbd3be25fa66c0efac30dab4feeb28114e22c1b66fe2e4694d556754",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\dataset_render.py": "79a15886fa9f7591cdba651e8e7d113f330dd7700a9da1e84bed4eaae8a81f7d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\desktop_session.py": "b9d3c16aefdcfde8ef35cdf091a18aa9e84f3cb0dd5fa41f6ee0fd4a4e9a69f5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\digital_vision.py": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\engine.py": "e1467cbaaa39639f18499e34329e779951990d84187089f2c313e1da3ebd0d3f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\erc.py": "786baec15f5b791390b50234a4bf78410e22dbf060e6a982ec3db4b6491736c5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\faculty_xml.py": "a4a2f1add1e1a16cff58156284cbad302858dadad4c3c31931c06dc5db7677ff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\footprints.py": "8c290726da32eb3654f51b75f09bdaf97bbe5d933bcf11a272f6e957aac0abb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\formats.py": "7d379f664b21f8162839461d213536ab1bcae91796b203954ca76cf2a45c1bba",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ground.py": "0a4541ec2a3b13b355f26d8cc5c16d488c6914beef5c8a51f3134fc1904143e8",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ic_caption.py": "3257837a37e0fa50a5c856c98c1d00049b333c9bcd40a11957cb66835ca73919",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\implicit_terminals.py": "a122a466489437e48a2a270aacd0d5405ae207322ecb565877ad0e2e70529b25",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ingestion.py": "81fd8a5ae077699e4560361f9b68b0dfe95f1b2ed48576aa39787e81e29fbc38",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\integrations.py": "59c25c309f7a09f0d7471913d6d69968f0f551755e2d73ee24a91c38a27b7899",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\local_recovery.py": "c60ca35b88764b584cff66cb5c859c7b9ccde25963d2798986174ce15c7ad3bc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\main.py": "5df3e47993038aa3decda03eb45a106c2d25aee2fa36e2378730d865628744bf",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\model_runtime.py": "7ef53dddf8179b244c69e55ae08ea71e60d656f3f4355573402ae2305cfb8ea6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\normalization.py": "c8a98b465206632036a66f47aaf9566c62bfa6c00d6cf791ed54b7e3fd0767b9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_export.py": "6fb76c03623a7841aee24dec5ced44ce781ef9f47e349cb87254a1f0c9231502",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_terminal_pairs.py": "58235e79bddb20a31c2bbb725c734017ee770c70e4384151ee2cac72406ba784",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_runtime.py": "40ae87fa990f36f41a7c2367c1f442534ed0941c1e6f4d9cccf8015d355843c9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_worker.py": "25992d0f8d0eba73b6ede506efdd8380d2ccdd33436211aac4ad6f9721cb7ea1",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_capture.py": "70d7bc6052ba65a07ab1e077002c12226670df82be7eff3a01066957c344d69c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_handoff.py": "b4f4d637a035d96995a6171b407d57f678ea28ee4f5d787aa9803374c3bba25c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_library.py": "9636487bb8f303c6b2466e5d04dfe847475053d7b2011a1b2538ca96e5e353a9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_route.py": "28953868c35ec77a5309e345beca65d17ed040719df402fa6202f64bff060034",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pin_crop_recovery.py": "27dcf9364363b23333f6bfb92a6efda390f6d4f97e74f466dd95ea96c46faeff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pipeline_profile.py": "c3801c8e7f28686e8c441c659e80c78a81ef4d608bafaaf1c8c7a217b888fbd6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_locks.py": "4c12658bd16346e5172dcce4fe7e6a125f1feec8a813f5e8f892630743f92e5d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_trash.py": "7d6c6cff337a42ab76d2e0c154a1714562a44780bbde391045859efe1c54239f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition.py": "779bcb81d1ea36a0bc315d95851764d53c08410791f93df54b1b58556dad14b2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition_catalog.py": "21a2cbb3855566821681238fe134d5c7dde3aca0e4ec5242ef2fecd9d96e6d41",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\review_store.py": "b9e9182b703ad81d867d70a1dc2e18967a5ad1e64dae8c8b98d6a5d5dc7b3426",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\roi_vision.py": "d6302c9f6bc75726ff1180bca80e5ee6a32fa79ff50ca3b9cd4addb39e5c47c2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\sexpr.py": "9a0cbd3ba2c1a4a405d2c8d1616a69616e1132131fa745a333ed7c45335ffdf6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\simulation.py": "a4aa3e6c72dfe7ca5c172b5d3e5d5cb0e4713b6dd8422476c29ef427e42bc6df",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra.py": "2605f72f97404fe57f0048122deaf405555c96b56ed2781d5b583a3cf6ba79c3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra_worker.py": "7deedb9bfc0c338610c0b9864046e7723d1257f93510e936693bedd819edb553",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\symbol_barriers.py": "23d9c17b03df9872e7df9d498ba75d174d36ee9e701ff8103042c2945968f4ce",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\system_metrics.py": "a97ffcf7e808f5cdc5b4f1aa86fbc1ff0953615a959e7f75330668e54faa94dc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_equivalence.py": "ca7d99faca2a3799f263dbf948b3b63a71b71db84ad61a50cf6a777d5b975489",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_recovery.py": "35534b7bbc608b621b23ec6fe3c259fab360f65ff5154050ca7f21127f1d9809",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\text_fallback.py": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vector_pdf.py": "c17f0a79a7c866993e8be0105f08b6d293fe8518b16eab7f83be5449bf354c01",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_input.py": "593c5cae7e9a0e3fb9ae7b415252d68f8453b199db5de3615200e0818e2418f4",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_local.py": "d6d263f18fc5df237929297b459b0b7206cd1bc3266a708e3f6d080afd149d43",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\waveforms.py": "fc0fb7e2789c3d1f9f4b6b656050fd0247c8abbde0e9bd894d30ed8f0d9f874f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\wire_graph.py": "d16f71bef3c76a6383de97fc5397ecfb0c97fe7b5fc6d1d20f32ed068ae18565",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\pipeline_profiles.json": "4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\.state\\recognition-catalog.sqlite": "74bd3bbf1fe6b14d59c881c56b4450d0c0c30053499f567312ac0aac84c0fd73"
+    }
+  },
+  "S4-scan200": {
+    "parts_gt": 30,
+    "parts_found": 18,
+    "parts_spurious": 2,
+    "values_ok": 17,
+    "pins_gt": 72,
+    "pins_exact": 0,
+    "pins_present": 11,
+    "missed_parts": [
+      "U1",
+      "U13",
+      "U3",
+      "U2",
+      "U14",
+      "U15",
+      "U17",
+      "R13",
+      "R15",
+      "R17",
+      "R18",
+      "S3"
+    ],
+    "spurious_parts": [
+      "U_1",
+      "U_2"
+    ],
+    "wrong_values": [
+      [
+        "U31",
+        "AM291C",
+        "AM2910"
+      ]
+    ],
+    "wrong_pins": [
+      [
+        "U31.34",
+        "NO",
+        "ADDA0"
+      ],
+      [
+        "U31.36",
+        null,
+        "ADDA1"
+      ],
+      [
+        "U31.38",
+        null,
+        "ADDA2"
+      ],
+      [
+        "U31.40",
+        null,
+        "ADDA3"
+      ],
+      [
+        "U31.2",
+        "N00861",
+        "ADDA4"
+      ],
+      [
+        "U31.4",
+        "WDWS",
+        "ADDA5"
+      ],
+      [
+        "U31.17",
+        null,
+        "ADDA6"
+      ],
+      [
+        "U31.19",
+        null,
+        "ADDA7"
+      ],
+      [
+        "U31.21",
+        null,
+        "ADDA8"
+      ],
+      [
+        "U31.23",
+        "WO",
+        "ADDA9"
+      ],
+      [
+        "U31.25",
+        null,
+        "ADDA10"
+      ],
+      [
+        "U31.27",
+        null,
+        "ADDA11"
+      ],
+      [
+        "U31.33",
+        null,
+        "PRAD0"
+      ],
+      [
+        "U31.35",
+        "AEIA1",
+        "PRAD1"
+      ],
+      [
+        "U31.37",
+        null,
+        "PRAD2"
+      ],
+      [
+        "U31.39",
+        null,
+        "PRAD3"
+      ],
+      [
+        "U31.1",
+        "N00462",
+        "PRAD4"
+      ],
+      [
+        "U31.3",
+        null,
+        "PRAD5"
+      ],
+      [
+        "U31.18",
+        "N00330",
+        "PRAD6"
+      ],
+      [
+        "U31.20",
+        null,
+        "PRAD7"
+      ],
+      [
+        "U31.22",
+        null,
+        "PRAD8"
+      ],
+      [
+        "U31.24",
+        "N00336",
+        "PRAD9"
+      ],
+      [
+        "U33.9",
+        null,
+        "ADDA15"
+      ],
+      [
+        "U33.7",
+        null,
+        "ADDA14"
+      ],
+      [
+        "U33.5",
+        null,
+        "ADDA13"
+      ],
+      [
+        "U33.3",
+        null,
+        "ADDA12"
+      ],
+      [
+        "U33.18",
+        null,
+        "ADDA11"
+      ],
+      [
+        "U33.16",
+        null,
+        "ADDA10"
+      ],
+      [
+        "U33.14",
+        null,
+        "ADDA9"
+      ],
+      [
+        "U33.12",
+        null,
+        "ADDA8"
+      ],
+      [
+        "U33.2",
+        null,
+        "INADD11"
+      ],
+      [
+        "U33.4",
+        null,
+        "INADD10"
+      ],
+      [
+        "U33.6",
+        null,
+        "INADD9"
+      ],
+      [
+        "U33.8",
+        null,
+        "INADD8"
+      ],
+      [
+        "U34.9",
+        null,
+        "ADDA7"
+      ],
+      [
+        "U34.7",
+        null,
+        "ADDA6"
+      ],
+      [
+        "U34.5",
+        null,
+        "ADDA5"
+      ],
+      [
+        "U34.3",
+        null,
+        "ADDA4"
+      ],
+      [
+        "U34.18",
+        null,
+        "ADDA3"
+      ],
+      [
+        "U34.16",
+        null,
+        "ADDA2"
+      ],
+      [
+        "U34.14",
+        null,
+        "ADDA1"
+      ],
+      [
+        "U34.12",
+        null,
+        "ADDA0"
+      ],
+      [
+        "U34.11",
+        "N00082",
+        "INADD7"
+      ],
+      [
+        "U34.13",
+        null,
+        "INADD6"
+      ],
+      [
+        "U34.15",
+        null,
+        "INADD5"
+      ],
+      [
+        "U34.17",
+        null,
+        "INADD4"
+      ],
+      [
+        "U34.2",
+        "N00888",
+        "INADD3"
+      ],
+      [
+        "U34.4",
+        "TMA1",
+        "INADD2"
+      ],
+      [
+        "U34.6",
+        null,
+        "INADD1"
+      ],
+      [
+        "U34.8",
+        null,
+        "INADD0"
+      ],
+      [
+        "U1.21",
+        null,
+        "PRAD10"
+      ],
+      [
+        "U1.22",
+        null,
+        "PRAD9"
+      ],
+      [
+        "U1.23",
+        null,
+        "PRAD8"
+      ],
+      [
+        "U1.1",
+        null,
+        "PRAD7"
+      ],
+      [
+        "U1.2",
+        null,
+        "PRAD6"
+      ],
+      [
+        "U1.3",
+        null,
+        "PRAD5"
+      ],
+      [
+        "U1.4",
+        null,
+        "PRAD4"
+      ],
+      [
+        "U1.5",
+        null,
+        "PRAD3"
+      ],
+      [
+        "U1.6",
+        null,
+        "PRAD2"
+      ],
+      [
+        "U1.7",
+        null,
+        "PRAD1"
+      ],
+      [
+        "U1.8",
+        null,
+        "PRAD0"
+      ],
+      [
+        "U13.21",
+        null,
+        "PRAD10"
+      ],
+      [
+        "U13.22",
+        null,
+        "PRAD9"
+      ],
+      [
+        "U13.23",
+        null,
+        "PRAD8"
+      ],
+      [
+        "U13.1",
+        null,
+        "PRAD7"
+      ],
+      [
+        "U13.2",
+        null,
+        "PRAD6"
+      ],
+      [
+        "U13.3",
+        null,
+        "PRAD5"
+      ],
+      [
+        "U13.4",
+        null,
+        "PRAD4"
+      ],
+      [
+        "U13.5",
+        null,
+        "PRAD3"
+      ],
+      [
+        "U13.6",
+        null,
+        "PRAD2"
+      ],
+      [
+        "U13.7",
+        null,
+        "PRAD1"
+      ],
+      [
+        "U13.8",
+        null,
+        "PRAD0"
+      ]
+    ],
+    "seconds": 195.04,
+    "components": 20,
+    "connections": 85,
+    "scope": "recognition_without_CAD_library_check",
+    "fresh_ocr": false,
+    "providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "text_model_sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+    "fallback_model_sha256": null,
+    "fallback_routing": null,
+    "source_sha256": "77f35c3d7202323bb704d4369fe96262e1c58ba460735525cf62820b091c5714",
+    "recognizer_sha256": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+    "fallback_source_sha256": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+    "recognizer_support_files": {
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\__init__.py": "d29208795cfb4a6b3947d6f93ebc7d8918d618131f432c3881561642579788e5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\assistant.py": "c970aa8643937ce4d04bcb2fa298a62568e943235941d5984cfd265d0351c2bb",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\catalog_pin_solver.py": "db4c96c3f58d0e20d1d1032863fd8be0ece92d499a67c71738f79be9c2f51883",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\circuit_vision.py": "41ed017a7a1475efce9c6a646a5def21043126ca816849058f37488f60f080e3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_acquisition.py": "2e673d152fc7ba38972e8daf9933dba244d8ea14827eab2b4d5a8dec4ae99c4f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_formats.py": "4d20d5f52a5d9d619b10cd3ea9a3dedc4412c00720beea5a04d27485322f4254",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_library.py": "f362ecb7acbe2880fc5219cd39c40d882964bcac7684daeb8741172cda6c6e1c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_native.py": "67dd886e8bf2883e86f2a8974a2defb1bffd81d87b3599d94e9d8f0ec45e1bb5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_project.py": "9d38945e91346bce221653225a504254c00425ff0b976c71ad7599b084fd360c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_providers.py": "33c7a84b79aeba11ce9f5999edee8045961c5780a0f2f34040b08c6fe53828da",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\confidence.py": "f4cc8f50cbd3be25fa66c0efac30dab4feeb28114e22c1b66fe2e4694d556754",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\dataset_render.py": "79a15886fa9f7591cdba651e8e7d113f330dd7700a9da1e84bed4eaae8a81f7d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\desktop_session.py": "b9d3c16aefdcfde8ef35cdf091a18aa9e84f3cb0dd5fa41f6ee0fd4a4e9a69f5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\digital_vision.py": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\engine.py": "e1467cbaaa39639f18499e34329e779951990d84187089f2c313e1da3ebd0d3f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\erc.py": "786baec15f5b791390b50234a4bf78410e22dbf060e6a982ec3db4b6491736c5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\faculty_xml.py": "a4a2f1add1e1a16cff58156284cbad302858dadad4c3c31931c06dc5db7677ff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\footprints.py": "8c290726da32eb3654f51b75f09bdaf97bbe5d933bcf11a272f6e957aac0abb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\formats.py": "7d379f664b21f8162839461d213536ab1bcae91796b203954ca76cf2a45c1bba",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ground.py": "0a4541ec2a3b13b355f26d8cc5c16d488c6914beef5c8a51f3134fc1904143e8",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ic_caption.py": "3257837a37e0fa50a5c856c98c1d00049b333c9bcd40a11957cb66835ca73919",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\implicit_terminals.py": "a122a466489437e48a2a270aacd0d5405ae207322ecb565877ad0e2e70529b25",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ingestion.py": "81fd8a5ae077699e4560361f9b68b0dfe95f1b2ed48576aa39787e81e29fbc38",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\integrations.py": "59c25c309f7a09f0d7471913d6d69968f0f551755e2d73ee24a91c38a27b7899",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\local_recovery.py": "c60ca35b88764b584cff66cb5c859c7b9ccde25963d2798986174ce15c7ad3bc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\main.py": "5df3e47993038aa3decda03eb45a106c2d25aee2fa36e2378730d865628744bf",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\model_runtime.py": "7ef53dddf8179b244c69e55ae08ea71e60d656f3f4355573402ae2305cfb8ea6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\normalization.py": "c8a98b465206632036a66f47aaf9566c62bfa6c00d6cf791ed54b7e3fd0767b9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_export.py": "6fb76c03623a7841aee24dec5ced44ce781ef9f47e349cb87254a1f0c9231502",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_terminal_pairs.py": "58235e79bddb20a31c2bbb725c734017ee770c70e4384151ee2cac72406ba784",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_runtime.py": "40ae87fa990f36f41a7c2367c1f442534ed0941c1e6f4d9cccf8015d355843c9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_worker.py": "25992d0f8d0eba73b6ede506efdd8380d2ccdd33436211aac4ad6f9721cb7ea1",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_capture.py": "70d7bc6052ba65a07ab1e077002c12226670df82be7eff3a01066957c344d69c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_handoff.py": "b4f4d637a035d96995a6171b407d57f678ea28ee4f5d787aa9803374c3bba25c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_library.py": "9636487bb8f303c6b2466e5d04dfe847475053d7b2011a1b2538ca96e5e353a9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_route.py": "28953868c35ec77a5309e345beca65d17ed040719df402fa6202f64bff060034",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pin_crop_recovery.py": "27dcf9364363b23333f6bfb92a6efda390f6d4f97e74f466dd95ea96c46faeff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pipeline_profile.py": "c3801c8e7f28686e8c441c659e80c78a81ef4d608bafaaf1c8c7a217b888fbd6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_locks.py": "4c12658bd16346e5172dcce4fe7e6a125f1feec8a813f5e8f892630743f92e5d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_trash.py": "7d6c6cff337a42ab76d2e0c154a1714562a44780bbde391045859efe1c54239f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition.py": "779bcb81d1ea36a0bc315d95851764d53c08410791f93df54b1b58556dad14b2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition_catalog.py": "21a2cbb3855566821681238fe134d5c7dde3aca0e4ec5242ef2fecd9d96e6d41",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\review_store.py": "b9e9182b703ad81d867d70a1dc2e18967a5ad1e64dae8c8b98d6a5d5dc7b3426",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\roi_vision.py": "d6302c9f6bc75726ff1180bca80e5ee6a32fa79ff50ca3b9cd4addb39e5c47c2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\sexpr.py": "9a0cbd3ba2c1a4a405d2c8d1616a69616e1132131fa745a333ed7c45335ffdf6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\simulation.py": "a4aa3e6c72dfe7ca5c172b5d3e5d5cb0e4713b6dd8422476c29ef427e42bc6df",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra.py": "2605f72f97404fe57f0048122deaf405555c96b56ed2781d5b583a3cf6ba79c3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra_worker.py": "7deedb9bfc0c338610c0b9864046e7723d1257f93510e936693bedd819edb553",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\symbol_barriers.py": "23d9c17b03df9872e7df9d498ba75d174d36ee9e701ff8103042c2945968f4ce",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\system_metrics.py": "a97ffcf7e808f5cdc5b4f1aa86fbc1ff0953615a959e7f75330668e54faa94dc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_equivalence.py": "ca7d99faca2a3799f263dbf948b3b63a71b71db84ad61a50cf6a777d5b975489",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_recovery.py": "35534b7bbc608b621b23ec6fe3c259fab360f65ff5154050ca7f21127f1d9809",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\text_fallback.py": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vector_pdf.py": "c17f0a79a7c866993e8be0105f08b6d293fe8518b16eab7f83be5449bf354c01",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_input.py": "593c5cae7e9a0e3fb9ae7b415252d68f8453b199db5de3615200e0818e2418f4",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_local.py": "d6d263f18fc5df237929297b459b0b7206cd1bc3266a708e3f6d080afd149d43",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\waveforms.py": "fc0fb7e2789c3d1f9f4b6b656050fd0247c8abbde0e9bd894d30ed8f0d9f874f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\wire_graph.py": "d16f71bef3c76a6383de97fc5397ecfb0c97fe7b5fc6d1d20f32ed068ae18565",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\pipeline_profiles.json": "4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\.state\\recognition-catalog.sqlite": "74bd3bbf1fe6b14d59c881c56b4450d0c0c30053499f567312ac0aac84c0fd73"
+    }
+  },
+  "S4-blur300": {
+    "parts_gt": 30,
+    "parts_found": 12,
+    "parts_spurious": 3,
+    "values_ok": 12,
+    "pins_gt": 72,
+    "pins_exact": 0,
+    "pins_present": 5,
+    "missed_parts": [
+      "U31",
+      "U1",
+      "U13",
+      "U3",
+      "U2",
+      "U14",
+      "U15",
+      "U16",
+      "U38",
+      "U17",
+      "R11",
+      "R13",
+      "R14",
+      "R15",
+      "R17",
+      "R18",
+      "S3",
+      "J1"
+    ],
+    "spurious_parts": [
+      "U_1",
+      "U_2",
+      "U_3"
+    ],
+    "wrong_values": [],
+    "wrong_pins": [
+      [
+        "U31.34",
+        null,
+        "ADDA0"
+      ],
+      [
+        "U31.36",
+        null,
+        "ADDA1"
+      ],
+      [
+        "U31.38",
+        null,
+        "ADDA2"
+      ],
+      [
+        "U31.40",
+        null,
+        "ADDA3"
+      ],
+      [
+        "U31.2",
+        null,
+        "ADDA4"
+      ],
+      [
+        "U31.4",
+        null,
+        "ADDA5"
+      ],
+      [
+        "U31.17",
+        null,
+        "ADDA6"
+      ],
+      [
+        "U31.19",
+        null,
+        "ADDA7"
+      ],
+      [
+        "U31.21",
+        null,
+        "ADDA8"
+      ],
+      [
+        "U31.23",
+        null,
+        "ADDA9"
+      ],
+      [
+        "U31.25",
+        null,
+        "ADDA10"
+      ],
+      [
+        "U31.27",
+        null,
+        "ADDA11"
+      ],
+      [
+        "U31.33",
+        null,
+        "PRAD0"
+      ],
+      [
+        "U31.35",
+        null,
+        "PRAD1"
+      ],
+      [
+        "U31.37",
+        null,
+        "PRAD2"
+      ],
+      [
+        "U31.39",
+        null,
+        "PRAD3"
+      ],
+      [
+        "U31.1",
+        null,
+        "PRAD4"
+      ],
+      [
+        "U31.3",
+        null,
+        "PRAD5"
+      ],
+      [
+        "U31.18",
+        null,
+        "PRAD6"
+      ],
+      [
+        "U31.20",
+        null,
+        "PRAD7"
+      ],
+      [
+        "U31.22",
+        null,
+        "PRAD8"
+      ],
+      [
+        "U31.24",
+        null,
+        "PRAD9"
+      ],
+      [
+        "U33.9",
+        null,
+        "ADDA15"
+      ],
+      [
+        "U33.7",
+        "N01064",
+        "ADDA14"
+      ],
+      [
+        "U33.5",
+        null,
+        "ADDA13"
+      ],
+      [
+        "U33.3",
+        null,
+        "ADDA12"
+      ],
+      [
+        "U33.18",
+        null,
+        "ADDA11"
+      ],
+      [
+        "U33.16",
+        null,
+        "ADDA10"
+      ],
+      [
+        "U33.14",
+        null,
+        "ADDA9"
+      ],
+      [
+        "U33.12",
+        null,
+        "ADDA8"
+      ],
+      [
+        "U33.2",
+        null,
+        "INADD11"
+      ],
+      [
+        "U33.4",
+        null,
+        "INADD10"
+      ],
+      [
+        "U33.6",
+        null,
+        "INADD9"
+      ],
+      [
+        "U33.8",
+        null,
+        "INADD8"
+      ],
+      [
+        "U34.9",
+        null,
+        "ADDA7"
+      ],
+      [
+        "U34.7",
+        "N01049",
+        "ADDA6"
+      ],
+      [
+        "U34.5",
+        "N00656",
+        "ADDA5"
+      ],
+      [
+        "U34.3",
+        null,
+        "ADDA4"
+      ],
+      [
+        "U34.18",
+        null,
+        "ADDA3"
+      ],
+      [
+        "U34.16",
+        null,
+        "ADDA2"
+      ],
+      [
+        "U34.14",
+        null,
+        "ADDA1"
+      ],
+      [
+        "U34.12",
+        null,
+        "ADDA0"
+      ],
+      [
+        "U34.11",
+        "N00697",
+        "INADD7"
+      ],
+      [
+        "U34.13",
+        null,
+        "INADD6"
+      ],
+      [
+        "U34.15",
+        null,
+        "INADD5"
+      ],
+      [
+        "U34.17",
+        null,
+        "INADD4"
+      ],
+      [
+        "U34.2",
+        null,
+        "INADD3"
+      ],
+      [
+        "U34.4",
+        null,
+        "INADD2"
+      ],
+      [
+        "U34.6",
+        "N00929",
+        "INADD1"
+      ],
+      [
+        "U34.8",
+        null,
+        "INADD0"
+      ],
+      [
+        "U1.21",
+        null,
+        "PRAD10"
+      ],
+      [
+        "U1.22",
+        null,
+        "PRAD9"
+      ],
+      [
+        "U1.23",
+        null,
+        "PRAD8"
+      ],
+      [
+        "U1.1",
+        null,
+        "PRAD7"
+      ],
+      [
+        "U1.2",
+        null,
+        "PRAD6"
+      ],
+      [
+        "U1.3",
+        null,
+        "PRAD5"
+      ],
+      [
+        "U1.4",
+        null,
+        "PRAD4"
+      ],
+      [
+        "U1.5",
+        null,
+        "PRAD3"
+      ],
+      [
+        "U1.6",
+        null,
+        "PRAD2"
+      ],
+      [
+        "U1.7",
+        null,
+        "PRAD1"
+      ],
+      [
+        "U1.8",
+        null,
+        "PRAD0"
+      ],
+      [
+        "U13.21",
+        null,
+        "PRAD10"
+      ],
+      [
+        "U13.22",
+        null,
+        "PRAD9"
+      ],
+      [
+        "U13.23",
+        null,
+        "PRAD8"
+      ],
+      [
+        "U13.1",
+        null,
+        "PRAD7"
+      ],
+      [
+        "U13.2",
+        null,
+        "PRAD6"
+      ],
+      [
+        "U13.3",
+        null,
+        "PRAD5"
+      ],
+      [
+        "U13.4",
+        null,
+        "PRAD4"
+      ],
+      [
+        "U13.5",
+        null,
+        "PRAD3"
+      ],
+      [
+        "U13.6",
+        null,
+        "PRAD2"
+      ],
+      [
+        "U13.7",
+        null,
+        "PRAD1"
+      ],
+      [
+        "U13.8",
+        null,
+        "PRAD0"
+      ]
+    ],
+    "seconds": 188.32,
+    "components": 15,
+    "connections": 59,
+    "scope": "recognition_without_CAD_library_check",
+    "fresh_ocr": false,
+    "providers": {
+      "detector": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "classifier": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ],
+      "schematic_reader": [
+        "CUDAExecutionProvider",
+        "CPUExecutionProvider"
+      ]
+    },
+    "text_model_sha256": "c5ad0e9ebe43373f1986ed5d6c39be0b73a29cb4dcb257e45ca7f91f41ce07cf",
+    "fallback_model_sha256": null,
+    "fallback_routing": null,
+    "source_sha256": "3f87fd9be9f5788662daf991f6b7b0c1f451765a32ce28add6a2a4b4a9d3357b",
+    "recognizer_sha256": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+    "fallback_source_sha256": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+    "recognizer_support_files": {
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\__init__.py": "d29208795cfb4a6b3947d6f93ebc7d8918d618131f432c3881561642579788e5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\assistant.py": "c970aa8643937ce4d04bcb2fa298a62568e943235941d5984cfd265d0351c2bb",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\catalog_pin_solver.py": "db4c96c3f58d0e20d1d1032863fd8be0ece92d499a67c71738f79be9c2f51883",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\circuit_vision.py": "41ed017a7a1475efce9c6a646a5def21043126ca816849058f37488f60f080e3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_acquisition.py": "2e673d152fc7ba38972e8daf9933dba244d8ea14827eab2b4d5a8dec4ae99c4f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_formats.py": "4d20d5f52a5d9d619b10cd3ea9a3dedc4412c00720beea5a04d27485322f4254",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_library.py": "f362ecb7acbe2880fc5219cd39c40d882964bcac7684daeb8741172cda6c6e1c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_native.py": "67dd886e8bf2883e86f2a8974a2defb1bffd81d87b3599d94e9d8f0ec45e1bb5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_project.py": "9d38945e91346bce221653225a504254c00425ff0b976c71ad7599b084fd360c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\component_providers.py": "33c7a84b79aeba11ce9f5999edee8045961c5780a0f2f34040b08c6fe53828da",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\confidence.py": "f4cc8f50cbd3be25fa66c0efac30dab4feeb28114e22c1b66fe2e4694d556754",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\dataset_render.py": "79a15886fa9f7591cdba651e8e7d113f330dd7700a9da1e84bed4eaae8a81f7d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\desktop_session.py": "b9d3c16aefdcfde8ef35cdf091a18aa9e84f3cb0dd5fa41f6ee0fd4a4e9a69f5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\digital_vision.py": "6e9238eee416baed31d8b591a75dd5b340fce03b92e7fdc989b32c7233000cdc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\engine.py": "e1467cbaaa39639f18499e34329e779951990d84187089f2c313e1da3ebd0d3f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\erc.py": "786baec15f5b791390b50234a4bf78410e22dbf060e6a982ec3db4b6491736c5",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\faculty_xml.py": "a4a2f1add1e1a16cff58156284cbad302858dadad4c3c31931c06dc5db7677ff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\footprints.py": "8c290726da32eb3654f51b75f09bdaf97bbe5d933bcf11a272f6e957aac0abb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\formats.py": "7d379f664b21f8162839461d213536ab1bcae91796b203954ca76cf2a45c1bba",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ground.py": "0a4541ec2a3b13b355f26d8cc5c16d488c6914beef5c8a51f3134fc1904143e8",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ic_caption.py": "3257837a37e0fa50a5c856c98c1d00049b333c9bcd40a11957cb66835ca73919",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\implicit_terminals.py": "a122a466489437e48a2a270aacd0d5405ae207322ecb565877ad0e2e70529b25",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ingestion.py": "81fd8a5ae077699e4560361f9b68b0dfe95f1b2ed48576aa39787e81e29fbc38",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\integrations.py": "59c25c309f7a09f0d7471913d6d69968f0f551755e2d73ee24a91c38a27b7899",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\local_recovery.py": "c60ca35b88764b584cff66cb5c859c7b9ccde25963d2798986174ce15c7ad3bc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\main.py": "5df3e47993038aa3decda03eb45a106c2d25aee2fa36e2378730d865628744bf",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\model_runtime.py": "7ef53dddf8179b244c69e55ae08ea71e60d656f3f4355573402ae2305cfb8ea6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\normalization.py": "c8a98b465206632036a66f47aaf9566c62bfa6c00d6cf791ed54b7e3fd0767b9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_export.py": "6fb76c03623a7841aee24dec5ced44ce781ef9f47e349cb87254a1f0c9231502",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\observed_terminal_pairs.py": "58235e79bddb20a31c2bbb725c734017ee770c70e4384151ee2cac72406ba784",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_runtime.py": "40ae87fa990f36f41a7c2367c1f442534ed0941c1e6f4d9cccf8015d355843c9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\ocr_worker.py": "25992d0f8d0eba73b6ede506efdd8380d2ccdd33436211aac4ad6f9721cb7ea1",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_capture.py": "70d7bc6052ba65a07ab1e077002c12226670df82be7eff3a01066957c344d69c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_handoff.py": "b4f4d637a035d96995a6171b407d57f678ea28ee4f5d787aa9803374c3bba25c",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_library.py": "9636487bb8f303c6b2466e5d04dfe847475053d7b2011a1b2538ca96e5e353a9",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\orcad_route.py": "28953868c35ec77a5309e345beca65d17ed040719df402fa6202f64bff060034",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pin_crop_recovery.py": "27dcf9364363b23333f6bfb92a6efda390f6d4f97e74f466dd95ea96c46faeff",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\pipeline_profile.py": "c3801c8e7f28686e8c441c659e80c78a81ef4d608bafaaf1c8c7a217b888fbd6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_locks.py": "4c12658bd16346e5172dcce4fe7e6a125f1feec8a813f5e8f892630743f92e5d",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\project_trash.py": "7d6c6cff337a42ab76d2e0c154a1714562a44780bbde391045859efe1c54239f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition.py": "779bcb81d1ea36a0bc315d95851764d53c08410791f93df54b1b58556dad14b2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\recognition_catalog.py": "21a2cbb3855566821681238fe134d5c7dde3aca0e4ec5242ef2fecd9d96e6d41",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\review_store.py": "b9e9182b703ad81d867d70a1dc2e18967a5ad1e64dae8c8b98d6a5d5dc7b3426",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\roi_vision.py": "d6302c9f6bc75726ff1180bca80e5ee6a32fa79ff50ca3b9cd4addb39e5c47c2",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\sexpr.py": "9a0cbd3ba2c1a4a405d2c8d1616a69616e1132131fa745a333ed7c45335ffdf6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\simulation.py": "a4aa3e6c72dfe7ca5c172b5d3e5d5cb0e4713b6dd8422476c29ef427e42bc6df",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra.py": "2605f72f97404fe57f0048122deaf405555c96b56ed2781d5b583a3cf6ba79c3",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\specctra_worker.py": "7deedb9bfc0c338610c0b9864046e7723d1257f93510e936693bedd819edb553",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\symbol_barriers.py": "23d9c17b03df9872e7df9d498ba75d174d36ee9e701ff8103042c2945968f4ce",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\system_metrics.py": "a97ffcf7e808f5cdc5b4f1aa86fbc1ff0953615a959e7f75330668e54faa94dc",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_equivalence.py": "ca7d99faca2a3799f263dbf948b3b63a71b71db84ad61a50cf6a777d5b975489",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\terminal_recovery.py": "35534b7bbc608b621b23ec6fe3c259fab360f65ff5154050ca7f21127f1d9809",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\text_fallback.py": "05ec1ee9fd15ee409b2492cfdbbe7a7b8709e475325441059cb88e4e1aea46fe",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vector_pdf.py": "c17f0a79a7c866993e8be0105f08b6d293fe8518b16eab7f83be5449bf354c01",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_input.py": "593c5cae7e9a0e3fb9ae7b415252d68f8453b199db5de3615200e0818e2418f4",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\vision_local.py": "d6d263f18fc5df237929297b459b0b7206cd1bc3266a708e3f6d080afd149d43",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\waveforms.py": "fc0fb7e2789c3d1f9f4b6b656050fd0247c8abbde0e9bd894d30ed8f0d9f874f",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\app\\wire_graph.py": "d16f71bef3c76a6383de97fc5397ecfb0c97fe7b5fc6d1d20f32ed068ae18565",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\pipeline_profiles.json": "4447d9d3aa35a2c9a295a174d47b8ebbd2b980c6735213b1ed463db2e832efb6",
+      "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\backend\\.state\\recognition-catalog.sqlite": "74bd3bbf1fe6b14d59c881c56b4450d0c0c30053499f567312ac0aac84c0fd73"
+    }
+  }
+}

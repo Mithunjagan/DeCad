@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FileDescription>
+  <Application ApplicationName="TD9 TestSequencer" />
+  <Board BoardName="FinalClosure20261024" />
+  <Version Version="FVER00001" />
+  <Date FileModified="" />
+  <NetList>
+    <Nodes>
+      <Node NodeName="R1_1" NodeDisName="R1_1" PinNumber="1" DeviceLocation="R1" IsPinUsed="TRUE" Marking="1k" NodeNetName="N_ANALOG_8" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R1_2" NodeDisName="R1_2" PinNumber="2" DeviceLocation="R1" IsPinUsed="TRUE" Marking="1k" NodeNetName="N_ANALOG_7" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R2_1" NodeDisName="R2_1" PinNumber="1" DeviceLocation="R2" IsPinUsed="TRUE" Marking="1k" NodeNetName="N_ANALOG_7" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R2_2" NodeDisName="R2_2" PinNumber="2" DeviceLocation="R2" IsPinUsed="TRUE" Marking="1k" NodeNetName="N_ANALOG_6" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="V1_1" NodeDisName="V1_1" PinNumber="1" DeviceLocation="V1" IsPinUsed="TRUE" Marking="ac=1" NodeNetName="N_ANALOG_8" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="V1_2" NodeDisName="V1_2" PinNumber="2" DeviceLocation="V1" IsPinUsed="TRUE" Marking="ac=1" NodeNetName="GND" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="V2_1" NodeDisName="V2_1" PinNumber="1" DeviceLocation="V2" IsPinUsed="TRUE" Marking="10" NodeNetName="VDD" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="V2_2" NodeDisName="V2_2" PinNumber="2" DeviceLocation="V2" IsPinUsed="TRUE" Marking="10" NodeNetName="GND" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_2" NodeDisName="U1_2" PinNumber="2" DeviceLocation="U1" IsPinUsed="TRUE" Marking="AD8051" NodeNetName="LOWPASS" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_5" NodeDisName="U1_5" PinNumber="5" DeviceLocation="U1" IsPinUsed="TRUE" Marking="AD8051" NodeNetName="LOWPASS" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_1" NodeDisName="U1_1" PinNumber="1" DeviceLocation="U1" IsPinUsed="TRUE" Marking="AD8051" NodeNetName="N_ANALOG_6" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_3" NodeDisName="U1_3" PinNumber="3" DeviceLocation="U1" IsPinUsed="TRUE" Marking="AD8051" NodeNetName="VDD" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="V3_1" NodeDisName="V3_1" PinNumber="1" DeviceLocation="V3" IsPinUsed="TRUE" Marking="10" NodeNetName="GND" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="V3_2" NodeDisName="V3_2" PinNumber="2" DeviceLocation="V3" IsPinUsed="TRUE" Marking="10" NodeNetName="VSS" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="C1_1" NodeDisName="C1_1" PinNumber="1" DeviceLocation="C1" IsPinUsed="TRUE" Marking="100n" NodeNetName="N_ANALOG_7" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="C1_2" NodeDisName="C1_2" PinNumber="2" DeviceLocation="C1" IsPinUsed="TRUE" Marking="100n" NodeNetName="LOWPASS" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="C2_1" NodeDisName="C2_1" PinNumber="1" DeviceLocation="C2" IsPinUsed="TRUE" Marking="100n" NodeNetName="GND" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="C2_2" NodeDisName="C2_2" PinNumber="2" DeviceLocation="C2" IsPinUsed="TRUE" Marking="100n" NodeNetName="N_ANALOG_6" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_4" NodeDisName="U1_4" PinNumber="4" DeviceLocation="U1" IsPinUsed="TRUE" Marking="AD8051" NodeNetName="VSS" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+    </Nodes>
+    <PowerNets />
+    <UserNets>
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N_ANALOG_8" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N_ANALOG_7" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N_ANALOG_6" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="GND" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="VDD" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="LOWPASS" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="VSS" />
+    </UserNets>
+  </NetList>
+</FileDescription>

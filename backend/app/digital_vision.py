@@ -2227,6 +2227,7 @@ def recognize(page, toks):
         recover_terminals(graph,lambda box:page.gray[box[1]:box[3],box[0]:box[2]],max_reads=160)
         from .observed_terminal_pairs import recover_observed_pairs
         recover_observed_pairs(graph,caption_tokens,lambda box:page.gray[box[1]:box[3],box[0]:box[2]])
+        page.recovery_tokens=caption_tokens
     return graph
 
 
@@ -2276,6 +2277,10 @@ def extract(path, cache_dir=None):
         graph=quarantine_unverified(graph,analog_tokens,lambda t:reread_reference(page.gray,t))
         warnings.extend(graph.pop('warnings',[]))
         graph=attach_passives(graph,page.gray,analog_tokens,graph['image_metadata'].get('character_height',40.))
+        from .provisional_terminals import complete_zero_pin_components
+        complete_zero_pin_components(graph,getattr(page,'recovery_tokens',analog_tokens),
+            lambda box:page.gray[box[1]:box[3],box[0]:box[2]],graph['image_metadata'].get('character_height',40.))
+        warnings.extend(graph.pop('warnings',[]))
     if enabled() and (not graph['components'] or all(re.fullmatch(r'[RCV]\d+',component['ref']) for component in graph['components'])):
         # Keep simple-device recognition available in the common pipeline.
         # Reuse CUDA OCR observations; this is a geometry fallback, not CPU OCR.

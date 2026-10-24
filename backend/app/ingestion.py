@@ -26,7 +26,7 @@ class Component(BaseModel):
     x: float | None = Field(None, ge=0, le=10)   # position on the source sheet, as a fraction of its width
     y: float | None = Field(None, ge=0, le=10)
 
-EvidenceSource=Literal['vector','wire_trace','net_label','erc_healed','vlm_tiebreak','implicit_passive_terminal']
+EvidenceSource=Literal['vector','wire_trace','net_label','erc_healed','vlm_tiebreak','implicit_passive_terminal','provisional_stub']
 
 
 class Evidence(BaseModel):

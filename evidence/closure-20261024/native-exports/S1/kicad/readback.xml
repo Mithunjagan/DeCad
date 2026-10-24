@@ -1,0 +1,2039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>D:\DeCad-main\Jrk_DeCad\Schematic2SDN\evidence\closure-20261024\native-exports\S1\kicad\S1.kicad_sch</source>
+    <date>2026-10-24T06:51:29</date>
+    <tool>Eeschema 10.0.6</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>S1.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="J1">
+      <value>CONNECTOR</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="CONNECTOR_J1" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>983e6994-939f-4362-9f5a-30a4cf61ba99</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="33"/>
+            <pin num="34"/>
+            <pin num="35"/>
+            <pin num="37"/>
+            <pin num="38"/>
+            <pin num="40"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="P1">
+      <value>CONNECTOR</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="CONNECTOR_P1" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>fcdc383d-8d5f-47f0-87b4-956939381c06</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="A16"/>
+            <pin num="A26"/>
+            <pin num="B6"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="P2">
+      <value>CONNECTOR</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="CONNECTOR_P2" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>d4a0251b-25c0-46ed-99c9-7c9d0db1e876</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="013"/>
+            <pin num="315"/>
+            <pin num="A10"/>
+            <pin num="B12"/>
+            <pin num="B13"/>
+            <pin num="B16"/>
+            <pin num="B18"/>
+            <pin num="C4"/>
+            <pin num="C5"/>
+            <pin num="C6"/>
+            <pin num="C7"/>
+            <pin num="C8"/>
+            <pin num="C10"/>
+            <pin num="C11"/>
+            <pin num="C12"/>
+            <pin num="C14"/>
+            <pin num="C15"/>
+            <pin num="C17"/>
+            <pin num="C18"/>
+            <pin num="C19"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="R5">
+      <value>1K00</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="1K00_R5" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9b74f529-c6cb-416c-967c-649a3ba48766</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="63"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U9">
+      <value>74F244</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F244_U9" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c698387a-35fb-4f26-b2b6-0e8ea983389d</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U10">
+      <value>74F244</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F244_U10" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8d736876-9c4b-47d8-984f-86bbd32c79c2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U11">
+      <value>74F374</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F374_U11" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>87e43491-0d21-4b73-9a65-fe8155bf1ebd</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U12">
+      <value>74F374</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F374_U12" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>23f0ceb1-ff8e-4d0c-bb43-45c1aa7b284f</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="12"/>
+            <pin num="14"/>
+            <pin num="16"/>
+            <pin num="17"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="885"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U13">
+      <value>74F257</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F257_U13" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>acf3d68a-bb11-41e8-b506-6945190b950b</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="21"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U14">
+      <value>74F257</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F257_U14" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>279dfc66-acfa-4adb-9258-290998dcb8da</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U15">
+      <value>74F257</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F257_U15" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>024a4848-8aae-4f96-991f-62f747cc4fa7</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U16">
+      <value>74F257</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F257_U16" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>9850c36b-3c32-4378-9a5a-fa78691cd478</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="19"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U43">
+      <value>IDT7210L</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="IDT7210L_U43" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>df42cf94-0934-4444-96ff-42d78a3af8ae</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+            <pin num="18"/>
+            <pin num="19"/>
+            <pin num="20"/>
+            <pin num="21"/>
+            <pin num="22"/>
+            <pin num="23"/>
+            <pin num="24"/>
+            <pin num="25"/>
+            <pin num="26"/>
+            <pin num="27"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="30"/>
+            <pin num="31"/>
+            <pin num="32"/>
+            <pin num="33"/>
+            <pin num="34"/>
+            <pin num="35"/>
+            <pin num="36"/>
+            <pin num="37"/>
+            <pin num="38"/>
+            <pin num="42"/>
+            <pin num="44"/>
+            <pin num="45"/>
+            <pin num="46"/>
+            <pin num="47"/>
+            <pin num="48"/>
+            <pin num="50"/>
+            <pin num="53"/>
+            <pin num="54"/>
+            <pin num="55"/>
+            <pin num="56"/>
+            <pin num="57"/>
+            <pin num="58"/>
+            <pin num="59"/>
+            <pin num="60"/>
+            <pin num="62"/>
+            <pin num="64"/>
+            <pin num="65"/>
+            <pin num="66"/>
+            <pin num="67"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U59">
+      <value>74LS85</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74LS85_U59" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>c1076755-ebe5-4978-9ad5-c7c5e50928fb</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="12"/>
+            <pin num="15"/>
+            <pin num="74"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U61">
+      <value>74LS85</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74LS85_U61" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>afa42415-6669-4415-bb19-0c7d50e806e6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="10"/>
+            <pin num="13"/>
+            <pin num="15"/>
+            <pin num="91"/>
+            <pin num="112"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U62">
+      <value>74LS298</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74LS298_U62" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>4e47ffc7-1822-4baf-b7d7-6594eac3fc89</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U64">
+      <value>74LS298</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74LS298_U64" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>3310578b-f0ce-439b-aec6-71b89e8dc7b2</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="12"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U65">
+      <value>74LS85</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74LS85_U65" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8b1915dc-3ba7-4ba8-a109-5d5d213550d8</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U71">
+      <value>74F08</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F08_U71" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ed06cb95-6e87-4f88-a0a9-33b81fe07974</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="8"/>
+            <pin num="9"/>
+            <pin num="10"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U73">
+      <value>74LS298</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74LS298_U73" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8ecda677-7fe8-4be3-948b-af612c30d9ec</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="10"/>
+            <pin num="11"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U74">
+      <value>74LS298</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74LS298_U74" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ca8cd0e8-fb74-42a3-9c5a-8e14e5110f70</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U85">
+      <value>74F240</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F240_U85" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>be625376-1767-40d9-9ea6-c02abfaeec54</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="15"/>
+            <pin num="17"/>
+            <pin num="18"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U88">
+      <value>74F32</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74F32_U88" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>34acad50-7d04-4bcc-9259-8ab58cf8f1e6</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="1"/>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="8"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="101"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="U90">
+      <value>74LS85</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="74LS85_U90" description=""/>
+      <property name="Sheetname" value="S1"/>
+      <property name="Sheetfile" value="S1.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7c527f0d-e5a4-4972-943e-e65900d58b52</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="2"/>
+            <pin num="3"/>
+            <pin num="4"/>
+            <pin num="5"/>
+            <pin num="6"/>
+            <pin num="7"/>
+            <pin num="9"/>
+            <pin num="12"/>
+            <pin num="13"/>
+            <pin num="14"/>
+            <pin num="15"/>
+            <pin num="16"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="DeCad" part="1K00_R5">
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">1K00</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="63" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F08_U71">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F08</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="8" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F240_U85">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F240</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="2" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+        <pin num="17" name="" type="passive"/>
+        <pin num="18" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F244_U10">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F244</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="8" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="11" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+        <pin num="16" name="" type="passive"/>
+        <pin num="17" name="" type="passive"/>
+        <pin num="18" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F244_U9">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F244</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="8" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="11" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+        <pin num="16" name="" type="passive"/>
+        <pin num="17" name="" type="passive"/>
+        <pin num="18" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F257_U13">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F257</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+        <pin num="21" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F257_U14">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F257</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+        <pin num="11" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F257_U15">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F257</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+        <pin num="11" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F257_U16">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F257</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+        <pin num="19" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F32_U88">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F32</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="8" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="101" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F374_U11">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F374</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="8" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+        <pin num="16" name="" type="passive"/>
+        <pin num="17" name="" type="passive"/>
+        <pin num="18" name="" type="passive"/>
+        <pin num="19" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74F374_U12">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74F374</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="8" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="16" name="" type="passive"/>
+        <pin num="17" name="" type="passive"/>
+        <pin num="18" name="" type="passive"/>
+        <pin num="19" name="" type="passive"/>
+        <pin num="885" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74LS298_U62">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS298</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74LS298_U64">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS298</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74LS298_U73">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS298</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+        <pin num="11" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74LS298_U74">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS298</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74LS85_U59">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS85</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+        <pin num="74" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74LS85_U61">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS85</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+        <pin num="91" name="" type="passive"/>
+        <pin num="112" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74LS85_U65">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS85</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="74LS85_U90">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">74LS85</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="7" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+        <pin num="16" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="CONNECTOR_J1">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">CONNECTOR</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="24" name="" type="passive"/>
+        <pin num="25" name="" type="passive"/>
+        <pin num="26" name="" type="passive"/>
+        <pin num="27" name="" type="passive"/>
+        <pin num="28" name="" type="passive"/>
+        <pin num="29" name="" type="passive"/>
+        <pin num="33" name="" type="passive"/>
+        <pin num="34" name="" type="passive"/>
+        <pin num="35" name="" type="passive"/>
+        <pin num="37" name="" type="passive"/>
+        <pin num="38" name="" type="passive"/>
+        <pin num="40" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="CONNECTOR_P1">
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONNECTOR</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="A16" name="" type="passive"/>
+        <pin num="A26" name="" type="passive"/>
+        <pin num="B6" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="CONNECTOR_P2">
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONNECTOR</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="013" name="" type="passive"/>
+        <pin num="315" name="" type="passive"/>
+        <pin num="A10" name="" type="passive"/>
+        <pin num="B12" name="" type="passive"/>
+        <pin num="B13" name="" type="passive"/>
+        <pin num="B16" name="" type="passive"/>
+        <pin num="B18" name="" type="passive"/>
+        <pin num="C4" name="" type="passive"/>
+        <pin num="C5" name="" type="passive"/>
+        <pin num="C6" name="" type="passive"/>
+        <pin num="C7" name="" type="passive"/>
+        <pin num="C8" name="" type="passive"/>
+        <pin num="C10" name="" type="passive"/>
+        <pin num="C11" name="" type="passive"/>
+        <pin num="C12" name="" type="passive"/>
+        <pin num="C14" name="" type="passive"/>
+        <pin num="C15" name="" type="passive"/>
+        <pin num="C17" name="" type="passive"/>
+        <pin num="C18" name="" type="passive"/>
+        <pin num="C19" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="IDT7210L_U43">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">IDT7210L</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="" type="passive"/>
+        <pin num="2" name="" type="passive"/>
+        <pin num="3" name="" type="passive"/>
+        <pin num="4" name="" type="passive"/>
+        <pin num="5" name="" type="passive"/>
+        <pin num="6" name="" type="passive"/>
+        <pin num="9" name="" type="passive"/>
+        <pin num="10" name="" type="passive"/>
+        <pin num="11" name="" type="passive"/>
+        <pin num="12" name="" type="passive"/>
+        <pin num="13" name="" type="passive"/>
+        <pin num="14" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+        <pin num="16" name="" type="passive"/>
+        <pin num="18" name="" type="passive"/>
+        <pin num="19" name="" type="passive"/>
+        <pin num="20" name="" type="passive"/>
+        <pin num="21" name="" type="passive"/>
+        <pin num="22" name="" type="passive"/>
+        <pin num="23" name="" type="passive"/>
+        <pin num="24" name="" type="passive"/>
+        <pin num="25" name="" type="passive"/>
+        <pin num="26" name="" type="passive"/>
+        <pin num="27" name="" type="passive"/>
+        <pin num="28" name="" type="passive"/>
+        <pin num="29" name="" type="passive"/>
+        <pin num="30" name="" type="passive"/>
+        <pin num="31" name="" type="passive"/>
+        <pin num="32" name="" type="passive"/>
+        <pin num="33" name="" type="passive"/>
+        <pin num="34" name="" type="passive"/>
+        <pin num="35" name="" type="passive"/>
+        <pin num="36" name="" type="passive"/>
+        <pin num="37" name="" type="passive"/>
+        <pin num="38" name="" type="passive"/>
+        <pin num="42" name="" type="passive"/>
+        <pin num="44" name="" type="passive"/>
+        <pin num="45" name="" type="passive"/>
+        <pin num="46" name="" type="passive"/>
+        <pin num="47" name="" type="passive"/>
+        <pin num="48" name="" type="passive"/>
+        <pin num="50" name="" type="passive"/>
+        <pin num="53" name="" type="passive"/>
+        <pin num="54" name="" type="passive"/>
+        <pin num="55" name="" type="passive"/>
+        <pin num="56" name="" type="passive"/>
+        <pin num="57" name="" type="passive"/>
+        <pin num="58" name="" type="passive"/>
+        <pin num="59" name="" type="passive"/>
+        <pin num="60" name="" type="passive"/>
+        <pin num="62" name="" type="passive"/>
+        <pin num="64" name="" type="passive"/>
+        <pin num="65" name="" type="passive"/>
+        <pin num="66" name="" type="passive"/>
+        <pin num="67" name="" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries/>
+  <nets>
+    <net code="1" name="/-8" class="Default">
+      <node ref="P2" pin="B18" pintype="passive"/>
+      <node ref="U10" pin="13" pintype="passive"/>
+      <node ref="U10" pin="17" pintype="passive"/>
+      <node ref="U10" pin="4" pintype="passive"/>
+      <node ref="U10" pin="8" pintype="passive"/>
+      <node ref="U9" pin="13" pintype="passive"/>
+      <node ref="U9" pin="17" pintype="passive"/>
+      <node ref="U9" pin="4" pintype="passive"/>
+      <node ref="U9" pin="8" pintype="passive"/>
+    </net>
+    <net code="2" name="/BB1" class="Default">
+      <node ref="U12" pin="2" pintype="passive"/>
+      <node ref="U43" pin="66" pintype="passive"/>
+      <node ref="U9" pin="12" pintype="passive"/>
+    </net>
+    <net code="3" name="/BB2" class="Default">
+      <node ref="U43" pin="65" pintype="passive"/>
+      <node ref="U9" pin="14" pintype="passive"/>
+    </net>
+    <net code="4" name="/BB3" class="Default">
+      <node ref="U12" pin="6" pintype="passive"/>
+      <node ref="U43" pin="64" pintype="passive"/>
+      <node ref="U61" pin="1" pintype="passive"/>
+      <node ref="U9" pin="16" pintype="passive"/>
+    </net>
+    <net code="5" name="/BB4" class="Default">
+      <node ref="U12" pin="9" pintype="passive"/>
+      <node ref="U9" pin="18" pintype="passive"/>
+    </net>
+    <net code="6" name="/BB5" class="Default">
+      <node ref="U12" pin="12" pintype="passive"/>
+      <node ref="U43" pin="62" pintype="passive"/>
+      <node ref="U9" pin="3" pintype="passive"/>
+    </net>
+    <net code="7" name="/BB6" class="Default">
+      <node ref="U9" pin="5" pintype="passive"/>
+    </net>
+    <net code="8" name="/BB7" class="Default">
+      <node ref="U12" pin="16" pintype="passive"/>
+      <node ref="U43" pin="56" pintype="passive"/>
+      <node ref="U43" pin="60" pintype="passive"/>
+      <node ref="U9" pin="7" pintype="passive"/>
+    </net>
+    <net code="9" name="/BB8" class="Default">
+      <node ref="U12" pin="19" pintype="passive"/>
+      <node ref="U43" pin="59" pintype="passive"/>
+      <node ref="U9" pin="9" pintype="passive"/>
+    </net>
+    <net code="10" name="/BB9" class="Default">
+      <node ref="U10" pin="12" pintype="passive"/>
+      <node ref="U11" pin="2" pintype="passive"/>
+      <node ref="U43" pin="58" pintype="passive"/>
+      <node ref="U65" pin="9" pintype="passive"/>
+    </net>
+    <net code="11" name="/BB10" class="Default">
+      <node ref="U10" pin="14" pintype="passive"/>
+      <node ref="U11" pin="5" pintype="passive"/>
+      <node ref="U43" pin="57" pintype="passive"/>
+    </net>
+    <net code="12" name="/BB11" class="Default">
+      <node ref="U10" pin="16" pintype="passive"/>
+      <node ref="U11" pin="6" pintype="passive"/>
+      <node ref="U65" pin="14" pintype="passive"/>
+    </net>
+    <net code="13" name="/BB12" class="Default">
+      <node ref="U10" pin="18" pintype="passive"/>
+      <node ref="U11" pin="9" pintype="passive"/>
+      <node ref="U43" pin="55" pintype="passive"/>
+    </net>
+    <net code="14" name="/BB13" class="Default">
+      <node ref="U10" pin="3" pintype="passive"/>
+      <node ref="U43" pin="54" pintype="passive"/>
+    </net>
+    <net code="15" name="/BB14" class="Default">
+      <node ref="U10" pin="5" pintype="passive"/>
+      <node ref="U11" pin="15" pintype="passive"/>
+      <node ref="U43" pin="53" pintype="passive"/>
+      <node ref="U59" pin="9" pintype="passive"/>
+    </net>
+    <net code="16" name="/BB15" class="Default">
+      <node ref="U10" pin="7" pintype="passive"/>
+      <node ref="U11" pin="16" pintype="passive"/>
+    </net>
+    <net code="17" name="/BB16" class="Default">
+      <node ref="U10" pin="9" pintype="passive"/>
+      <node ref="U11" pin="19" pintype="passive"/>
+      <node ref="U43" pin="50" pintype="passive"/>
+      <node ref="U59" pin="74" pintype="passive"/>
+    </net>
+    <net code="18" name="/CC1" class="Default">
+      <node ref="U62" pin="15" pintype="passive"/>
+    </net>
+    <net code="19" name="/CC2" class="Default">
+      <node ref="U62" pin="14" pintype="passive"/>
+    </net>
+    <net code="20" name="/CC3" class="Default">
+      <node ref="U62" pin="13" pintype="passive"/>
+    </net>
+    <net code="21" name="/CC4" class="Default">
+      <node ref="U62" pin="12" pintype="passive"/>
+    </net>
+    <net code="22" name="/CC5" class="Default">
+      <node ref="U64" pin="15" pintype="passive"/>
+    </net>
+    <net code="23" name="/CC6" class="Default">
+      <node ref="U64" pin="14" pintype="passive"/>
+    </net>
+    <net code="24" name="/CC8" class="Default">
+      <node ref="U64" pin="12" pintype="passive"/>
+    </net>
+    <net code="25" name="/CC9" class="Default">
+      <node ref="U74" pin="15" pintype="passive"/>
+    </net>
+    <net code="26" name="/CC10" class="Default">
+      <node ref="U74" pin="14" pintype="passive"/>
+    </net>
+    <net code="27" name="/CC11" class="Default">
+      <node ref="U74" pin="13" pintype="passive"/>
+    </net>
+    <net code="28" name="/CC12" class="Default">
+      <node ref="U74" pin="12" pintype="passive"/>
+    </net>
+    <net code="29" name="/CC13" class="Default">
+      <node ref="U73" pin="15" pintype="passive"/>
+    </net>
+    <net code="30" name="/CC14" class="Default">
+      <node ref="U73" pin="14" pintype="passive"/>
+    </net>
+    <net code="31" name="/CC15" class="Default">
+      <node ref="U73" pin="13" pintype="passive"/>
+    </net>
+    <net code="32" name="/CC16" class="Default">
+      <node ref="U73" pin="12" pintype="passive"/>
+    </net>
+    <net code="33" name="/DD1" class="Default">
+      <node ref="U43" pin="18" pintype="passive"/>
+      <node ref="U62" pin="3" pintype="passive"/>
+    </net>
+    <net code="34" name="/DD2" class="Default">
+      <node ref="U43" pin="19" pintype="passive"/>
+      <node ref="U61" pin="10" pintype="passive"/>
+      <node ref="U62" pin="4" pintype="passive"/>
+    </net>
+    <net code="35" name="/DD3" class="Default">
+      <node ref="U43" pin="20" pintype="passive"/>
+      <node ref="U61" pin="112" pintype="passive"/>
+      <node ref="U62" pin="9" pintype="passive"/>
+    </net>
+    <net code="36" name="/DD4" class="Default">
+      <node ref="U43" pin="21" pintype="passive"/>
+      <node ref="U61" pin="13" pintype="passive"/>
+      <node ref="U62" pin="7" pintype="passive"/>
+    </net>
+    <net code="37" name="/DD5" class="Default">
+      <node ref="J1" pin="35" pintype="passive"/>
+      <node ref="U43" pin="22" pintype="passive"/>
+      <node ref="U61" pin="15" pintype="passive"/>
+      <node ref="U64" pin="3" pintype="passive"/>
+    </net>
+    <net code="38" name="/DD6" class="Default">
+      <node ref="J1" pin="34" pintype="passive"/>
+      <node ref="U43" pin="23" pintype="passive"/>
+    </net>
+    <net code="39" name="/DD7" class="Default">
+      <node ref="U43" pin="24" pintype="passive"/>
+      <node ref="U64" pin="9" pintype="passive"/>
+      <node ref="U65" pin="10" pintype="passive"/>
+    </net>
+    <net code="40" name="/DD8" class="Default">
+      <node ref="U43" pin="25" pintype="passive"/>
+      <node ref="U64" pin="7" pintype="passive"/>
+      <node ref="U65" pin="12" pintype="passive"/>
+    </net>
+    <net code="41" name="/DD9" class="Default">
+      <node ref="U43" pin="26" pintype="passive"/>
+      <node ref="U65" pin="13" pintype="passive"/>
+      <node ref="U74" pin="3" pintype="passive"/>
+    </net>
+    <net code="42" name="/DD10" class="Default">
+      <node ref="U43" pin="27" pintype="passive"/>
+      <node ref="U65" pin="15" pintype="passive"/>
+      <node ref="U74" pin="4" pintype="passive"/>
+    </net>
+    <net code="43" name="/DD11" class="Default">
+      <node ref="U43" pin="28" pintype="passive"/>
+      <node ref="U74" pin="9" pintype="passive"/>
+    </net>
+    <net code="44" name="/DD12" class="Default">
+      <node ref="U43" pin="29" pintype="passive"/>
+      <node ref="U59" pin="10" pintype="passive"/>
+      <node ref="U74" pin="7" pintype="passive"/>
+    </net>
+    <net code="45" name="/DD13" class="Default">
+      <node ref="J1" pin="27" pintype="passive"/>
+      <node ref="U43" pin="30" pintype="passive"/>
+      <node ref="U59" pin="12" pintype="passive"/>
+      <node ref="U73" pin="3" pintype="passive"/>
+    </net>
+    <net code="46" name="/DD14" class="Default">
+      <node ref="J1" pin="26" pintype="passive"/>
+      <node ref="U43" pin="31" pintype="passive"/>
+      <node ref="U73" pin="4" pintype="passive"/>
+    </net>
+    <net code="47" name="/DD15" class="Default">
+      <node ref="J1" pin="25" pintype="passive"/>
+      <node ref="U43" pin="32" pintype="passive"/>
+      <node ref="U59" pin="15" pintype="passive"/>
+      <node ref="U73" pin="9" pintype="passive"/>
+    </net>
+    <net code="48" name="/DD16" class="Default">
+      <node ref="J1" pin="24" pintype="passive"/>
+      <node ref="U43" pin="33" pintype="passive"/>
+      <node ref="U73" pin="7" pintype="passive"/>
+      <node ref="U90" pin="13" pintype="passive"/>
+    </net>
+    <net code="49" name="/DD17" class="Default">
+      <node ref="U43" pin="34" pintype="passive"/>
+      <node ref="U43" pin="35" pintype="passive"/>
+    </net>
+    <net code="50" name="/DD18" class="Default">
+      <node ref="U43" pin="36" pintype="passive"/>
+      <node ref="U88" pin="2" pintype="passive"/>
+    </net>
+    <net code="51" name="/DD19" class="Default">
+      <node ref="U43" pin="37" pintype="passive"/>
+    </net>
+    <net code="52" name="/EI15" class="Default">
+      <node ref="U13" pin="12" pintype="passive"/>
+      <node ref="U13" pin="15" pintype="passive"/>
+      <node ref="U14" pin="1" pintype="passive"/>
+      <node ref="U16" pin="15" pintype="passive"/>
+    </net>
+    <net code="53" name="/II" class="Default">
+      <node ref="U90" pin="6" pintype="passive"/>
+    </net>
+    <net code="54" name="/IN" class="Default">
+      <node ref="J1" pin="37" pintype="passive"/>
+    </net>
+    <net code="55" name="/N00010" class="Default">
+      <node ref="P2" pin="A10" pintype="passive"/>
+    </net>
+    <net code="56" name="/N00011" class="Default">
+      <node ref="P1" pin="A26" pintype="passive"/>
+    </net>
+    <net code="57" name="/N00015" class="Default">
+      <node ref="P2" pin="C4" pintype="passive"/>
+    </net>
+    <net code="58" name="/N00016" class="Default">
+      <node ref="U16" pin="3" pintype="passive"/>
+    </net>
+    <net code="59" name="/N00017" class="Default">
+      <node ref="P1" pin="A16" pintype="passive"/>
+    </net>
+    <net code="60" name="/N00018" class="Default">
+      <node ref="U16" pin="2" pintype="passive"/>
+    </net>
+    <net code="61" name="/N00019" class="Default">
+      <node ref="P2" pin="C8" pintype="passive"/>
+    </net>
+    <net code="62" name="/N00021" class="Default">
+      <node ref="P2" pin="C11" pintype="passive"/>
+    </net>
+    <net code="63" name="/N00023" class="Default">
+      <node ref="P2" pin="C12" pintype="passive"/>
+    </net>
+    <net code="64" name="/N00025" class="Default">
+      <node ref="P2" pin="013" pintype="passive"/>
+    </net>
+    <net code="65" name="/N00027" class="Default">
+      <node ref="P2" pin="C14" pintype="passive"/>
+    </net>
+    <net code="66" name="/N00029" class="Default">
+      <node ref="P2" pin="C15" pintype="passive"/>
+    </net>
+    <net code="67" name="/N00033" class="Default">
+      <node ref="P2" pin="C17" pintype="passive"/>
+    </net>
+    <net code="68" name="/N00035" class="Default">
+      <node ref="P2" pin="C10" pintype="passive"/>
+    </net>
+    <net code="69" name="/N00039" class="Default">
+      <node ref="P2" pin="C6" pintype="passive"/>
+    </net>
+    <net code="70" name="/N00041" class="Default">
+      <node ref="P2" pin="C7" pintype="passive"/>
+    </net>
+    <net code="71" name="/N00045" class="Default">
+      <node ref="U14" pin="7" pintype="passive"/>
+    </net>
+    <net code="72" name="/N00046" class="Default">
+      <node ref="P2" pin="B13" pintype="passive"/>
+    </net>
+    <net code="73" name="/N00048" class="Default">
+      <node ref="P2" pin="315" pintype="passive"/>
+    </net>
+    <net code="74" name="/N00050" class="Default">
+      <node ref="P2" pin="B12" pintype="passive"/>
+    </net>
+    <net code="75" name="/N00052" class="Default">
+      <node ref="P2" pin="C18" pintype="passive"/>
+    </net>
+    <net code="76" name="/N00058" class="Default">
+      <node ref="U85" pin="2" pintype="passive"/>
+    </net>
+    <net code="77" name="/N00065" class="Default">
+      <node ref="U13" pin="4" pintype="passive"/>
+    </net>
+    <net code="78" name="/N00085_82" class="Default">
+      <node ref="U16" pin="19" pintype="passive"/>
+    </net>
+    <net code="79" name="/N00109" class="Default">
+      <node ref="U85" pin="17" pintype="passive"/>
+    </net>
+    <net code="80" name="/N00139" class="Default">
+      <node ref="U13" pin="7" pintype="passive"/>
+    </net>
+    <net code="81" name="/N00143" class="Default">
+      <node ref="U11" pin="7" pintype="passive"/>
+    </net>
+    <net code="82" name="/N00144" class="Default">
+      <node ref="U14" pin="9" pintype="passive"/>
+    </net>
+    <net code="83" name="/N00163" class="Default">
+      <node ref="U12" pin="8" pintype="passive"/>
+    </net>
+    <net code="84" name="/N00168" class="Default">
+      <node ref="U12" pin="14" pintype="passive"/>
+    </net>
+    <net code="85" name="/N00175_202" class="Default">
+      <node ref="U12" pin="885" pintype="passive"/>
+    </net>
+    <net code="86" name="/N00178" class="Default">
+      <node ref="U12" pin="18" pintype="passive"/>
+    </net>
+    <net code="87" name="/N00240" class="Default">
+      <node ref="U61" pin="7" pintype="passive"/>
+    </net>
+    <net code="88" name="/N00291" class="Default">
+      <node ref="U43" pin="1" pintype="passive"/>
+      <node ref="U43" pin="10" pintype="passive"/>
+      <node ref="U43" pin="2" pintype="passive"/>
+      <node ref="U43" pin="3" pintype="passive"/>
+      <node ref="U43" pin="4" pintype="passive"/>
+      <node ref="U43" pin="5" pintype="passive"/>
+      <node ref="U43" pin="67" pintype="passive"/>
+      <node ref="U43" pin="9" pintype="passive"/>
+    </net>
+    <net code="89" name="/N00301" class="Default">
+      <node ref="U59" pin="4" pintype="passive"/>
+    </net>
+    <net code="90" name="/N00340" class="Default">
+      <node ref="U85" pin="15" pintype="passive"/>
+    </net>
+    <net code="91" name="/N00347" class="Default">
+      <node ref="U59" pin="6" pintype="passive"/>
+    </net>
+    <net code="92" name="/N00348" class="Default">
+      <node ref="U59" pin="7" pintype="passive"/>
+    </net>
+    <net code="93" name="/N00381" class="Default">
+      <node ref="U64" pin="10" pintype="passive"/>
+      <node ref="U88" pin="3" pintype="passive"/>
+    </net>
+    <net code="94" name="/N00383_386" class="Default">
+      <node ref="U64" pin="6" pintype="passive"/>
+    </net>
+    <net code="95" name="/N00390" class="Default">
+      <node ref="U74" pin="2" pintype="passive"/>
+    </net>
+    <net code="96" name="/N00401" class="Default">
+      <node ref="U90" pin="5" pintype="passive"/>
+    </net>
+    <net code="97" name="/N00458" class="Default">
+      <node ref="U88" pin="101" pintype="passive"/>
+    </net>
+    <net code="98" name="/N00464" class="Default">
+      <node ref="U71" pin="10" pintype="passive"/>
+    </net>
+    <net code="99" name="/N00465" class="Default">
+      <node ref="U88" pin="13" pintype="passive"/>
+    </net>
+    <net code="100" name="/N00466" class="Default">
+      <node ref="U88" pin="1" pintype="passive"/>
+    </net>
+    <net code="101" name="/N00474" class="Default">
+      <node ref="U43" pin="45" pintype="passive"/>
+    </net>
+    <net code="102" name="/N00483" class="Default">
+      <node ref="P2" pin="B16" pintype="passive"/>
+      <node ref="U10" pin="11" pintype="passive"/>
+      <node ref="U10" pin="15" pintype="passive"/>
+      <node ref="U10" pin="2" pintype="passive"/>
+      <node ref="U10" pin="6" pintype="passive"/>
+      <node ref="U9" pin="15" pintype="passive"/>
+      <node ref="U9" pin="2" pintype="passive"/>
+    </net>
+    <net code="103" name="/N00484" class="Default">
+      <node ref="R5" pin="63" pintype="passive"/>
+    </net>
+    <net code="104" name="/N00488" class="Default">
+      <node ref="U9" pin="11" pintype="passive"/>
+    </net>
+    <net code="105" name="/N00497" class="Default">
+      <node ref="U73" pin="11" pintype="passive"/>
+    </net>
+    <net code="106" name="/N00521" class="Default">
+      <node ref="U15" pin="15" pintype="passive"/>
+    </net>
+    <net code="107" name="/N00523" class="Default">
+      <node ref="U73" pin="10" pintype="passive"/>
+    </net>
+    <net code="108" name="/N00528" class="Default">
+      <node ref="U90" pin="2" pintype="passive"/>
+    </net>
+    <net code="109" name="/N00534" class="Default">
+      <node ref="U11" pin="18" pintype="passive"/>
+      <node ref="U15" pin="12" pintype="passive"/>
+    </net>
+    <net code="110" name="/N00535" class="Default">
+      <node ref="U11" pin="17" pintype="passive"/>
+    </net>
+    <net code="111" name="/N00536" class="Default">
+      <node ref="U11" pin="14" pintype="passive"/>
+      <node ref="U15" pin="7" pintype="passive"/>
+    </net>
+    <net code="112" name="/N00539" class="Default">
+      <node ref="U11" pin="13" pintype="passive"/>
+      <node ref="U15" pin="4" pintype="passive"/>
+    </net>
+    <net code="113" name="/N00540" class="Default">
+      <node ref="U11" pin="1" pintype="passive"/>
+      <node ref="U88" pin="8" pintype="passive"/>
+    </net>
+    <net code="114" name="/N00543" class="Default">
+      <node ref="U14" pin="15" pintype="passive"/>
+    </net>
+    <net code="115" name="/N00548" class="Default">
+      <node ref="U11" pin="8" pintype="passive"/>
+      <node ref="U14" pin="12" pintype="passive"/>
+    </net>
+    <net code="116" name="/N00552" class="Default">
+      <node ref="U11" pin="4" pintype="passive"/>
+    </net>
+    <net code="117" name="/N00555" class="Default">
+      <node ref="U11" pin="3" pintype="passive"/>
+      <node ref="U14" pin="4" pintype="passive"/>
+    </net>
+    <net code="118" name="/N00558" class="Default">
+      <node ref="U43" pin="42" pintype="passive"/>
+      <node ref="U43" pin="48" pintype="passive"/>
+    </net>
+    <net code="119" name="/N00586" class="Default">
+      <node ref="U12" pin="17" pintype="passive"/>
+      <node ref="U13" pin="9" pintype="passive"/>
+    </net>
+    <net code="120" name="/N00593" class="Default">
+      <node ref="U16" pin="12" pintype="passive"/>
+    </net>
+    <net code="121" name="/N00596" class="Default">
+      <node ref="U12" pin="7" pintype="passive"/>
+      <node ref="U16" pin="9" pintype="passive"/>
+    </net>
+    <net code="122" name="/N00597" class="Default">
+      <node ref="U12" pin="4" pintype="passive"/>
+      <node ref="U16" pin="7" pintype="passive"/>
+    </net>
+    <net code="123" name="/N00601" class="Default">
+      <node ref="U12" pin="3" pintype="passive"/>
+      <node ref="U16" pin="4" pintype="passive"/>
+    </net>
+    <net code="124" name="/N00603" class="Default">
+      <node ref="U71" pin="8" pintype="passive"/>
+    </net>
+    <net code="125" name="/N00605" class="Default">
+      <node ref="U62" pin="10" pintype="passive"/>
+    </net>
+    <net code="126" name="/N00607" class="Default">
+      <node ref="U16" pin="1" pintype="passive"/>
+    </net>
+    <net code="127" name="/N00608" class="Default">
+      <node ref="U43" pin="46" pintype="passive"/>
+    </net>
+    <net code="128" name="/N00609" class="Default">
+      <node ref="U43" pin="44" pintype="passive"/>
+    </net>
+    <net code="129" name="/N00610" class="Default">
+      <node ref="U43" pin="47" pintype="passive"/>
+    </net>
+    <net code="130" name="/N00611" class="Default">
+      <node ref="U43" pin="38" pintype="passive"/>
+    </net>
+    <net code="131" name="/N00619" class="Default">
+      <node ref="J1" pin="29" pintype="passive"/>
+    </net>
+    <net code="132" name="/N00636" class="Default">
+      <node ref="U71" pin="9" pintype="passive"/>
+      <node ref="U85" pin="18" pintype="passive"/>
+    </net>
+    <net code="133" name="/N00649_237" class="Default">
+      <node ref="U65" pin="4" pintype="passive"/>
+    </net>
+    <net code="134" name="/N00649_627" class="Default">
+      <node ref="J1" pin="40" pintype="passive"/>
+    </net>
+    <net code="135" name="/N00652" class="Default">
+      <node ref="U59" pin="1" pintype="passive"/>
+    </net>
+    <net code="136" name="/N00656" class="Default">
+      <node ref="U65" pin="5" pintype="passive"/>
+    </net>
+    <net code="137" name="/N00659" class="Default">
+      <node ref="U59" pin="5" pintype="passive"/>
+      <node ref="U90" pin="12" pintype="passive"/>
+      <node ref="U90" pin="16" pintype="passive"/>
+    </net>
+    <net code="138" name="/N00661" class="Default">
+      <node ref="U90" pin="14" pintype="passive"/>
+    </net>
+    <net code="139" name="/N00662" class="Default">
+      <node ref="U90" pin="15" pintype="passive"/>
+    </net>
+    <net code="140" name="/N00663" class="Default">
+      <node ref="U61" pin="3" pintype="passive"/>
+    </net>
+    <net code="141" name="/N00668" class="Default">
+      <node ref="U65" pin="3" pintype="passive"/>
+    </net>
+    <net code="142" name="/N00669" class="Default">
+      <node ref="U59" pin="3" pintype="passive"/>
+    </net>
+    <net code="143" name="/N00670" class="Default">
+      <node ref="U90" pin="3" pintype="passive"/>
+    </net>
+    <net code="144" name="/N00672" class="Default">
+      <node ref="U65" pin="7" pintype="passive"/>
+    </net>
+    <net code="145" name="/N00675" class="Default">
+      <node ref="U90" pin="7" pintype="passive"/>
+    </net>
+    <net code="146" name="/N00676" class="Default">
+      <node ref="U90" pin="4" pintype="passive"/>
+    </net>
+    <net code="147" name="/N00684_303" class="Default">
+      <node ref="U59" pin="2" pintype="passive"/>
+    </net>
+    <net code="148" name="/N00685" class="Default">
+      <node ref="U90" pin="9" pintype="passive"/>
+    </net>
+    <net code="149" name="/N00687_205" class="Default">
+      <node ref="U61" pin="2" pintype="passive"/>
+    </net>
+    <net code="150" name="/N00687_241" class="Default">
+      <node ref="U65" pin="2" pintype="passive"/>
+    </net>
+    <net code="151" name="/N00687_679" class="Default">
+      <node ref="U61" pin="91" pintype="passive"/>
+    </net>
+    <net code="152" name="/N00689" class="Default">
+      <node ref="P1" pin="B6" pintype="passive"/>
+    </net>
+    <net code="153" name="/NAMUT1" class="Default">
+      <node ref="U16" pin="5" pintype="passive"/>
+    </net>
+    <net code="154" name="/NAMUT1W" class="Default">
+      <node ref="P2" pin="C19" pintype="passive"/>
+    </net>
+    <net code="155" name="/NAMUT3" class="Default">
+      <node ref="U16" pin="14" pintype="passive"/>
+    </net>
+    <net code="156" name="/NAMUT4" class="Default">
+      <node ref="U13" pin="2" pintype="passive"/>
+      <node ref="U13" pin="21" pintype="passive"/>
+      <node ref="U15" pin="11" pintype="passive"/>
+    </net>
+    <net code="157" name="/NAMUT5" class="Default">
+      <node ref="U13" pin="5" pintype="passive"/>
+    </net>
+    <net code="158" name="/NAMUT7" class="Default">
+      <node ref="U13" pin="14" pintype="passive"/>
+    </net>
+    <net code="159" name="/NAMUT8" class="Default">
+      <node ref="U14" pin="2" pintype="passive"/>
+    </net>
+    <net code="160" name="/NAMUT9" class="Default">
+      <node ref="U14" pin="5" pintype="passive"/>
+    </net>
+    <net code="161" name="/NAMUT10" class="Default">
+      <node ref="U14" pin="11" pintype="passive"/>
+    </net>
+    <net code="162" name="/NAMUT11" class="Default">
+      <node ref="U14" pin="14" pintype="passive"/>
+    </net>
+    <net code="163" name="/NAMUT12" class="Default">
+      <node ref="U15" pin="2" pintype="passive"/>
+    </net>
+    <net code="164" name="/NAMUT13" class="Default">
+      <node ref="U15" pin="5" pintype="passive"/>
+    </net>
+    <net code="165" name="/NAMUT15" class="Default">
+      <node ref="U15" pin="14" pintype="passive"/>
+    </net>
+    <net code="166" name="/NAMUT15WE" class="Default">
+      <node ref="P2" pin="C5" pintype="passive"/>
+    </net>
+    <net code="167" name="/NW1" class="Default">
+      <node ref="U16" pin="6" pintype="passive"/>
+    </net>
+    <net code="168" name="/NW3" class="Default">
+      <node ref="U16" pin="13" pintype="passive"/>
+    </net>
+    <net code="169" name="/NW4" class="Default">
+      <node ref="U13" pin="3" pintype="passive"/>
+    </net>
+    <net code="170" name="/NW5" class="Default">
+      <node ref="U13" pin="6" pintype="passive"/>
+    </net>
+    <net code="171" name="/NW6" class="Default">
+      <node ref="U13" pin="10" pintype="passive"/>
+    </net>
+    <net code="172" name="/NW7" class="Default">
+      <node ref="U13" pin="13" pintype="passive"/>
+    </net>
+    <net code="173" name="/NW8" class="Default">
+      <node ref="U14" pin="3" pintype="passive"/>
+    </net>
+    <net code="174" name="/NW9" class="Default">
+      <node ref="U14" pin="6" pintype="passive"/>
+    </net>
+    <net code="175" name="/NW10" class="Default">
+      <node ref="U14" pin="10" pintype="passive"/>
+    </net>
+    <net code="176" name="/NW11" class="Default">
+      <node ref="U14" pin="13" pintype="passive"/>
+    </net>
+    <net code="177" name="/NW12" class="Default">
+      <node ref="U15" pin="3" pintype="passive"/>
+    </net>
+    <net code="178" name="/NW13" class="Default">
+      <node ref="U15" pin="6" pintype="passive"/>
+    </net>
+    <net code="179" name="/NW14" class="Default">
+      <node ref="U15" pin="10" pintype="passive"/>
+    </net>
+    <net code="180" name="/NW15" class="Default">
+      <node ref="U15" pin="13" pintype="passive"/>
+    </net>
+    <net code="181" name="/SPWE1" class="Default">
+      <node ref="U43" pin="11" pintype="passive"/>
+    </net>
+    <net code="182" name="/SPWE2" class="Default">
+      <node ref="U43" pin="12" pintype="passive"/>
+    </net>
+    <net code="183" name="/SPWE3" class="Default">
+      <node ref="U43" pin="13" pintype="passive"/>
+    </net>
+    <net code="184" name="/SPWE4" class="Default">
+      <node ref="U43" pin="14" pintype="passive"/>
+    </net>
+    <net code="185" name="/SPWE5" class="Default">
+      <node ref="U43" pin="15" pintype="passive"/>
+    </net>
+    <net code="186" name="/SPWE6" class="Default">
+      <node ref="U43" pin="16" pintype="passive"/>
+    </net>
+    <net code="187" name="/T" class="Default">
+      <node ref="U43" pin="6" pintype="passive"/>
+    </net>
+    <net code="188" name="/TUI" class="Default">
+      <node ref="J1" pin="38" pintype="passive"/>
+    </net>
+    <net code="189" name="/UT" class="Default">
+      <node ref="U88" pin="12" pintype="passive"/>
+    </net>
+    <net code="190" name="/UU" class="Default">
+      <node ref="J1" pin="33" pintype="passive"/>
+    </net>
+    <net code="191" name="/VUI2" class="Default">
+      <node ref="J1" pin="28" pintype="passive"/>
+    </net>
+    <net code="192" name="/WZPLJ6" class="Default">
+      <node ref="U64" pin="4" pintype="passive"/>
+    </net>
+    <net code="193" name="/~TT" class="Default">
+      <node ref="U61" pin="6" pintype="passive"/>
+    </net>
+  </nets>
+</export>

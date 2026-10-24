@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "physical_pins": 129,
+  "assigned_pins": 113,
+  "wrong_assignments": [],
+  "missing_pins": [],
+  "extra_pins": [],
+  "missing_assignments": [],
+  "extra_assignments": [],
+  "missing_components": [],
+  "extra_components": []
+}

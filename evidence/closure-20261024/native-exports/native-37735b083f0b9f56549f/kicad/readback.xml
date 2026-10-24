@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>D:\DeCad-main\Jrk_DeCad\Schematic2SDN\evidence\closure-20261024\native-exports\native-37735b083f0b9f56549f\kicad\native-37735b083f0b9f56549f.kicad_sch</source>
+    <date>2026-10-24T06:51:50</date>
+    <tool>Eeschema 10.0.6</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>native-37735b083f0b9f56549f.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="P0">
+      <value>CONNECTOR</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="CONNECTOR_P0" description=""/>
+      <property name="Sheetname" value="native-37735b083f0b9f56549f"/>
+      <property name="Sheetfile" value="native-37735b083f0b9f56549f.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>7299cdb3-5ab8-4efa-b873-975f5222fc2c</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="02"/>
+            <pin num="28"/>
+            <pin num="29"/>
+            <pin num="220"/>
+            <pin num="260"/>
+            <pin num="D3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="P1">
+      <value>CONNECTOR</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="CONNECTOR_P1" description=""/>
+      <property name="Sheetname" value="native-37735b083f0b9f56549f"/>
+      <property name="Sheetfile" value="native-37735b083f0b9f56549f.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>6070df84-fb6e-4a04-a775-31af6c20bb11</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="10"/>
+            <pin num="15"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+    <comp ref="P11">
+      <value>CONNECTOR</value>
+      <fields>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="DeCad" part="CONNECTOR_P11" description=""/>
+      <property name="Sheetname" value="native-37735b083f0b9f56549f"/>
+      <property name="Sheetfile" value="native-37735b083f0b9f56549f.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>8c6af69b-8662-4a22-8bc4-282452770626</tstamps>
+      <units>
+        <unit name="A">
+          <pins>
+            <pin num="3"/>
+          </pins>
+        </unit>
+      </units>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="DeCad" part="CONNECTOR_P0">
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONNECTOR</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="02" name="" type="passive"/>
+        <pin num="28" name="" type="passive"/>
+        <pin num="29" name="" type="passive"/>
+        <pin num="220" name="" type="passive"/>
+        <pin num="260" name="" type="passive"/>
+        <pin num="D3" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="CONNECTOR_P1">
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONNECTOR</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="10" name="" type="passive"/>
+        <pin num="15" name="" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="DeCad" part="CONNECTOR_P11">
+      <fields>
+        <field name="Reference">P</field>
+        <field name="Value">CONNECTOR</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="3" name="" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries/>
+  <nets>
+    <net code="1" name="/AIN4I0WALD1" class="Default">
+      <node ref="P0" pin="D3" pintype="passive"/>
+    </net>
+    <net code="2" name="/AIN5LOW-ALD3" class="Default">
+      <node ref="P0" pin="29" pintype="passive"/>
+    </net>
+    <net code="3" name="/ANO-LOVDA" class="Default">
+      <node ref="P0" pin="02" pintype="passive"/>
+    </net>
+    <net code="4" name="/CI_CSN" class="Default">
+      <node ref="P0" pin="260" pintype="passive"/>
+    </net>
+    <net code="5" name="/N00084" class="Default">
+      <node ref="P11" pin="3" pintype="passive"/>
+    </net>
+    <net code="6" name="/N00110" class="Default">
+      <node ref="P1" pin="10" pintype="passive"/>
+    </net>
+    <net code="7" name="/N00456" class="Default">
+      <node ref="P0" pin="28" pintype="passive"/>
+    </net>
+    <net code="8" name="/N00460" class="Default">
+      <node ref="P1" pin="15" pintype="passive"/>
+    </net>
+    <net code="9" name="/OSPISIO.2" class="Default">
+      <node ref="P0" pin="220" pintype="passive"/>
+    </net>
+  </nets>
+</export>

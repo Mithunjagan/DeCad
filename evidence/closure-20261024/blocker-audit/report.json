@@ -1,0 +1,326 @@
+[
+  {
+    "case": "S5",
+    "component": {
+      "ref": "R19",
+      "value": "1K05",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.1269,
+      "y": 0.1335
+    },
+    "working_bounds": [
+      1647,
+      1926,
+      2547,
+      2486
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\S5-R19.png"
+  },
+  {
+    "case": "S4-scan300",
+    "component": {
+      "ref": "R1",
+      "value": "1K00",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.1937,
+      "y": 0.1552
+    },
+    "working_bounds": [
+      1880,
+      1587,
+      2780,
+      2147
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\S4-scan300-R1.png"
+  },
+  {
+    "case": "S4-scan300",
+    "component": {
+      "ref": "R11",
+      "value": "1K00",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.0837,
+      "y": 0.3347
+    },
+    "working_bounds": [
+      557,
+      3745,
+      1457,
+      4305
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\S4-scan300-R11.png"
+  },
+  {
+    "case": "S4-scan300",
+    "component": {
+      "ref": "R14",
+      "value": "1K00",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.1608,
+      "y": 0.1549
+    },
+    "working_bounds": [
+      1484,
+      1583,
+      2384,
+      2143
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\S4-scan300-R14.png"
+  },
+  {
+    "case": "S4-scan200",
+    "component": {
+      "ref": "R11",
+      "value": "1K00",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.0839,
+      "y": 0.3351
+    },
+    "working_bounds": [
+      475,
+      3414,
+      1375,
+      3974
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\S4-scan200-R11.png"
+  },
+  {
+    "case": "native-3b2a49a524e2d50dcf26",
+    "component": {
+      "ref": "R32",
+      "value": "100K",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.8519,
+      "y": 0.3367
+    },
+    "working_bounds": [
+      8016,
+      2910,
+      8916,
+      3470
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-3b2a49a524e2d50dcf26-R32.png"
+  },
+  {
+    "case": "native-c4d88e79bc63688e0e7c",
+    "component": {
+      "ref": "R15",
+      "value": "1.5K",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.2634,
+      "y": 0.5143
+    },
+    "working_bounds": [
+      2364,
+      5886,
+      3264,
+      6446
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c4d88e79bc63688e0e7c-R15.png"
+  },
+  {
+    "case": "native-c4d88e79bc63688e0e7c",
+    "component": {
+      "ref": "R2",
+      "value": "5.1K",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.2634,
+      "y": 0.5143
+    },
+    "working_bounds": [
+      3856,
+      4952,
+      4756,
+      5512
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c4d88e79bc63688e0e7c-R2.png"
+  },
+  {
+    "case": "native-c4d88e79bc63688e0e7c",
+    "component": {
+      "ref": "U4",
+      "value": "UNKNOWN",
+      "library": null,
+      "footprint": null,
+      "x": 0.2634,
+      "y": 0.1933
+    },
+    "working_bounds": [
+      1614,
+      894,
+      2514,
+      1454
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c4d88e79bc63688e0e7c-U4.png"
+  },
+  {
+    "case": "native-c6bcc506a3200b19e089",
+    "component": {
+      "ref": "R1",
+      "value": "100K1",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.3344,
+      "y": 0.2637
+    },
+    "working_bounds": [
+      2155,
+      1774,
+      3055,
+      2334
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c6bcc506a3200b19e089-R1.png"
+  },
+  {
+    "case": "native-c6bcc506a3200b19e089",
+    "component": {
+      "ref": "R2",
+      "value": "470K1",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.3344,
+      "y": 0.3272
+    },
+    "working_bounds": [
+      2155,
+      2269,
+      3055,
+      2829
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c6bcc506a3200b19e089-R2.png"
+  },
+  {
+    "case": "native-c6bcc506a3200b19e089",
+    "component": {
+      "ref": "R4",
+      "value": "100K1",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.5616,
+      "y": 0.2635
+    },
+    "working_bounds": [
+      3925,
+      1773,
+      4825,
+      2333
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c6bcc506a3200b19e089-R4.png"
+  },
+  {
+    "case": "native-c6bcc506a3200b19e089",
+    "component": {
+      "ref": "R5",
+      "value": "1470K1",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.5617,
+      "y": 0.3272
+    },
+    "working_bounds": [
+      3926,
+      2269,
+      4826,
+      2829
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c6bcc506a3200b19e089-R5.png"
+  },
+  {
+    "case": "native-c6bcc506a3200b19e089",
+    "component": {
+      "ref": "R7",
+      "value": "100K1",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.7889,
+      "y": 0.2635
+    },
+    "working_bounds": [
+      1152,
+      3005,
+      2052,
+      3565
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c6bcc506a3200b19e089-R7.png"
+  },
+  {
+    "case": "native-c6bcc506a3200b19e089",
+    "component": {
+      "ref": "R8",
+      "value": "470K1",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.789,
+      "y": 0.3272
+    },
+    "working_bounds": [
+      1152,
+      3076,
+      2052,
+      3636
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c6bcc506a3200b19e089-R8.png"
+  },
+  {
+    "case": "native-c4d7791b4ebdf13c3944",
+    "component": {
+      "ref": "R6",
+      "value": "220R",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.3165,
+      "y": 0.2373
+    },
+    "working_bounds": [
+      2716,
+      2093,
+      3616,
+      2653
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c4d7791b4ebdf13c3944-R6.png"
+  },
+  {
+    "case": "native-c4d7791b4ebdf13c3944",
+    "component": {
+      "ref": "R9",
+      "value": "220R",
+      "library": "Device:R",
+      "footprint": null,
+      "x": 0.3145,
+      "y": 0.2887
+    },
+    "working_bounds": [
+      2694,
+      2606,
+      3594,
+      3166
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c4d7791b4ebdf13c3944-R9.png"
+  },
+  {
+    "case": "native-c4d7791b4ebdf13c3944",
+    "component": {
+      "ref": "U4",
+      "value": "SN74AUP1G125DRLR",
+      "library": null,
+      "footprint": null,
+      "x": 0.1903,
+      "y": 0.2416
+    },
+    "working_bounds": [
+      1454,
+      1836,
+      2354,
+      2396
+    ],
+    "crop": "D:\\DeCad-main\\Jrk_DeCad\\Schematic2SDN\\evidence\\closure-20261024\\blocker-audit\\native-c4d7791b4ebdf13c3944-U4.png"
+  }
+]

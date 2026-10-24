@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "project": "FinalClosure20261024",
+  "fresh_live_raster_recognition": true,
+  "native_truth_supplied": false,
+  "manual_correction": false,
+  "components": 8,
+  "assigned_pins": 19,
+  "saved_revision": "a02a238918458b92642641243d1b58ccc52efa6a9750441691b8b0e74789ad13",
+  "reopen_equal": true,
+  "faculty": {
+    "passed": true,
+    "physical_pins": 19,
+    "assigned_pins": 19,
+    "wrong_assignments": [],
+    "missing_pins": [],
+    "extra_pins": [],
+    "missing_assignments": [],
+    "extra_assignments": [],
+    "missing_components": [],
+    "extra_components": []
+  },
+  "native": {
+    "observed-kicad": {
+      "passed": true,
+      "receipts": [
+        {
+          "passed": true,
+          "scope": "Complete observed graph export fidelity, not recognition accuracy",
+          "components": 8,
+          "checked_pins": 19,
+          "matched_pins": 19,
+          "missing_parts": [],
+          "extra_parts": [],
+          "wrong_values": [],
+          "missing_pins": [],
+          "extra_pins": [],
+          "wrong_pins": [],
+          "native_readback": true,
+          "format": "KiCad",
+          "symbol_mode": "literal observed pin IDs"
+        }
+      ],
+      "sha256": "737b51379773039110c54c430a3c009e6b775efc4cb998f282b017e50fefcf2b"
+    },
+    "orcad-dsn": {
+      "passed": true,
+      "receipts": [
+        {
+          "passed": true,
+          "scope": "Complete observed graph export fidelity, not recognition accuracy",
+          "components": 8,
+          "checked_pins": 19,
+          "matched_pins": 19,
+          "missing_parts": [],
+          "extra_parts": [],
+          "wrong_values": [],
+          "missing_pins": [],
+          "extra_pins": [],
+          "wrong_pins": [],
+          "native_readback": true,
+          "format": "OrCAD Capture",
+          "symbol_mode": "literal observed pin IDs",
+          "net_aliases": {
+            "N_ANALOG_8": "N_ANALOG_8",
+            "N_ANALOG_7": "N_ANALOG_7",
+            "N_ANALOG_6": "N_ANALOG_6",
+            "GND": "GND",
+            "VDD": "VDD",
+            "LOWPASS": "LOWPASS",
+            "VSS": "VSS"
+          },
+          "generated_symbols": [
+            "OBS_C1",
+            "OBS_C2",
+            "OBS_R1",
+            "OBS_R2",
+            "OBS_U1",
+            "OBS_V1",
+            "OBS_V2",
+            "OBS_V3"
+          ],
+          "corrections": [],
+          "substitutions": {},
+          "implicit_power_pins": [],
+          "netlist": {
+            "nets": 7,
+            "parts": 8,
+            "connections": 19,
+            "without_footprint": [
+              "C1",
+              "C2",
+              "R1",
+              "R2",
+              "U1",
+              "V1",
+              "V2",
+              "V3"
+            ]
+          }
+        }
+      ],
+      "sha256": "8185ff7214ea6c98aa1c2488ec22824ea07a2e2603fc4277685a6f672b27718d"
+    }
+  },
+  "seconds": 11.359000000004016,
+  "source_sha256": "7c13ff962f0299a8811c5607768ef9121538bdbbc1a31f848b52ccd6a9201eb5"
+}

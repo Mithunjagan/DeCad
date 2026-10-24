@@ -1,0 +1,42 @@
+S1 XML True unresolved []
+S2 XML True unresolved []
+S3 XML True unresolved []
+S4 XML True unresolved []
+S5 XML False unresolved ['R19']
+warning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
+S4-scan300 XML False unresolved ['R1', 'R14']
+S4-scan200 XML False unresolved ['R11']
+S4-blur300 XML True unresolved []
+native-3b2a49a524e2d50dcf26 XML True unresolved []
+native-a39a7a1fc84f921b27fd XML True unresolved []
+native-fedf29b44113e135f31f XML True unresolved []
+native-c4d88e79bc63688e0e7c XML False unresolved ['U4']
+native-37735b083f0b9f56549f XML True unresolved []
+native-0a236a74292d04d831fa XML True unresolved []
+native-e9b7597c67252bf7707d XML True unresolved []
+native-901de51001a98cc2361a XML True unresolved []
+native-c6bcc506a3200b19e089 XML True unresolved []
+native-c4d7791b4ebdf13c3944 XML True unresolved []
+{
+  "passed": true,
+  "fresh_ocr": false,
+  "scope": "Cached raster postprocessing; not a fresh eighteen-case OCR run",
+  "sample_scope": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S4-scan300",
+    "S4-scan200",
+    "S4-blur300"
+  ],
+  "errors": [],
+  "caption_records_preserved_in_quarantine": [],
+  "clear_pin_total": 228,
+  "native_totals": {
+    "physical_pins_found": 158,
+    "connected_pin_pairs_correct": 10,
+    "connected_pin_pairs_wrong": 0
+  }
+}

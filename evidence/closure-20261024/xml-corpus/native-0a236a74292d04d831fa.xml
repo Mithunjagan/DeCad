@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FileDescription>
+  <Application ApplicationName="TD9 TestSequencer" />
+  <Board BoardName="native-0a236a74292d04d831fa" />
+  <Version Version="FVER00001" />
+  <Date FileModified="" />
+  <NetList>
+    <Nodes>
+      <Node NodeName="U6_1" NodeDisName="U6_1" PinNumber="1" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00002" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_14" NodeDisName="U6_14" PinNumber="14" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00003" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_2" NodeDisName="U6_2" PinNumber="2" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00008" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_13" NodeDisName="U6_13" PinNumber="13" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00009" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_3" NodeDisName="U6_3" PinNumber="3" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00014" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_12" NodeDisName="U6_12" PinNumber="12" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00015" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_4" NodeDisName="U6_4" PinNumber="4" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00028" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_11" NodeDisName="U6_11" PinNumber="11" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00029" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_5" NodeDisName="U6_5" PinNumber="5" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00034" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_10" NodeDisName="U6_10" PinNumber="10" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00035" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_6" NodeDisName="U6_6" PinNumber="6" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00042" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_9" NodeDisName="U6_9" PinNumber="9" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00043" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_7" NodeDisName="U6_7" PinNumber="7" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00048" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U6_8" NodeDisName="U6_8" PinNumber="8" DeviceLocation="U6" IsPinUsed="TRUE" Marking="XIA0-nRF52840-DIP" NodeNetName="N00049" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P1_09" NodeDisName="P1_09" PinNumber="09" DeviceLocation="P1" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00272" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P3_D10" NodeDisName="P3_D10" PinNumber="D10" DeviceLocation="P3" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00432" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P4_D9" NodeDisName="P4_D9" PinNumber="D9" DeviceLocation="P4" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00348" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P29_A3" NodeDisName="P29_A3" PinNumber="A3" DeviceLocation="P29" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00431" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P28_A2" NodeDisName="P28_A2" PinNumber="A2" DeviceLocation="P28" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00258" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P2_D8" NodeDisName="P2_D8" PinNumber="D8" DeviceLocation="P2" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00438" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P27_A1" NodeDisName="P27_A1" PinNumber="A1" DeviceLocation="P27" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00256" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P26_A0" NodeDisName="P26_A0" PinNumber="A0" DeviceLocation="P26" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00249" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P2_6" NodeDisName="P2_6" PinNumber="6" DeviceLocation="P2" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00421" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="P1_D7" NodeDisName="P1_D7" PinNumber="D7" DeviceLocation="P1" IsPinUsed="TRUE" Marking="CONNECTOR" NodeNetName="N00278" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+    </Nodes>
+    <PowerNets />
+    <UserNets>
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00002" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00003" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00008" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00009" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00014" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00015" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00028" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00029" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00034" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00035" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00042" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00043" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00048" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00049" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00249" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00256" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00258" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00272" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00278" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00348" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00421" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00431" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00432" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00438" />
+    </UserNets>
+  </NetList>
+</FileDescription>

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "existing_eleven_xml_graphs_identical": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S4-blur300",
+    "native-a39a7a1fc84f921b27fd",
+    "native-fedf29b44113e135f31f",
+    "native-37735b083f0b9f56549f",
+    "native-0a236a74292d04d831fa",
+    "native-e9b7597c67252bf7707d",
+    "native-901de51001a98cc2361a"
+  ],
+  "known_pin_loss_rejected": true,
+  "invalid_numeric_provisional_pin_rejected": true,
+  "zero_pin_caption_record_preservation_checked": true
+}

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FileDescription>
+  <Application ApplicationName="TD9 TestSequencer" />
+  <Board BoardName="native-fedf29b44113e135f31f" />
+  <Version Version="FVER00001" />
+  <Date FileModified="" />
+  <NetList>
+    <Nodes>
+      <Node NodeName="U1_5" NodeDisName="U1_5" PinNumber="5" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="R122R" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_9" NodeDisName="U1_9" PinNumber="9" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="N00001" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_2" NodeDisName="U1_2" PinNumber="2" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="N00014" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_12" NodeDisName="U1_12" PinNumber="12" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="LORA_DI1" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_3" NodeDisName="U1_3" PinNumber="3" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="N00017" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_11" NodeDisName="U1_11" PinNumber="11" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="LORA_BUSY" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_4" NodeDisName="U1_4" PinNumber="4" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="N00020" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_6" NodeDisName="U1_6" PinNumber="6" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="N00022" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_1" NodeDisName="U1_1" PinNumber="1" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="RA_RF_SW1" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_7" NodeDisName="U1_7" PinNumber="7" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="N00033" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_8" NodeDisName="U1_8" PinNumber="8" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="N00042" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="U1_10" NodeDisName="U1_10" PinNumber="10" DeviceLocation="U1" IsPinUsed="TRUE" Marking="Wio-SX1262" NodeNetName="N00049" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R31_1" NodeDisName="R31_1" PinNumber="1" DeviceLocation="R31" IsPinUsed="TRUE" Marking="22R" NodeNetName="N00034" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R1_2" NodeDisName="R1_2" PinNumber="2" DeviceLocation="R1" IsPinUsed="TRUE" Marking="10K" NodeNetName="+3V3" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+      <Node NodeName="R1_5" NodeDisName="R1_5" PinNumber="5" DeviceLocation="R1" IsPinUsed="TRUE" Marking="10K" NodeNetName="LORA_RS" LabelName="" AliaseNetName="" IsReadOnly="FALSE" PowerLevel="" NodeType="Unknown" IsPowerPin="FALSE" />
+    </Nodes>
+    <PowerNets />
+    <UserNets>
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="+3V3" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="LORA_BUSY" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="LORA_DI1" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="LORA_RS" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00001" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00014" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00017" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00020" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00022" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00033" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00034" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00042" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="N00049" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="R122R" />
+      <Net NodeTypeLevel="Unknown" PowerLevel="" IsReadOnly="FALSE" IsPowerNet="0" NetName="RA_RF_SW1" />
+    </UserNets>
+  </NetList>
+</FileDescription>
