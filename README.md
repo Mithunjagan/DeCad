@@ -8,7 +8,7 @@
 
 A local workspace for the whole journey: source images, component review, native CAD, and the details in between.
 
-[![Stars](https://img.shields.io/github/stars/Mithunjagan/DeCad?style=for-the-badge&logo=github&labelColor=171819&color=e7b58b)](https://github.com/Mithunjagan/DeCad/stargazers)
+
 [![Workspace](https://img.shields.io/badge/workspace-local-9eae94?style=for-the-badge&labelColor=171819)](#-quick-start)
 [![Native CAD](https://img.shields.io/badge/native%20CAD-KiCad%20%2B%20OrCAD-e7b58b?style=for-the-badge&labelColor=171819)](#-how-it-works)
 
